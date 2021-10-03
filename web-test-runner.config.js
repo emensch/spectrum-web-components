@@ -13,6 +13,7 @@ import { playwrightLauncher } from '@web/test-runner-playwright';
 import {
     a11ySnapshotPlugin,
     sendKeysPlugin,
+    setViewportPlugin,
 } from '@web/test-runner-commands/plugins';
 import { sendMousePlugin } from './test/plugins/send-mouse-plugin.js';
 import {
@@ -73,6 +74,7 @@ export default {
         a11ySnapshotPlugin(),
         configuredVisualRegressionPlugin(),
         json({}),
+        setViewportPlugin(),
     ],
     mimeTypes: {
         '**/*.json': 'js',
