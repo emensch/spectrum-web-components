@@ -17,11 +17,73 @@ import fs from 'fs-extra';
 import postcss from 'postcss';
 import { postCSSPlugins } from './css-processing.cjs';
 import { fileURLToPath } from 'url';
-// import postcssCustomProperties from 'postcss-custom-properties';
+import fg from 'fast-glob';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const processCSSData = async (data, identifier, from) => {
+function postcssFilterVariableDeclarations(options) {
+    options = options || {};
+
+    var variables = options.variables;
+
+    function filterDeclarations(root) {
+        //console.log(root);
+        root.walk(function (rule) {
+            if (rule.type === 'rule') {
+                rule.each(function (decl, index) {
+                    if (decl.variable) {
+                        // always include global and alias vars
+                        if (
+                            decl.prop.startsWith('--spectrum-global-') ||
+                            decl.prop.startsWith('--spectrum-alias-')
+                        ) {
+                            return;
+                        }
+                        // otherwise if the variable is not in the allowed list, remove it
+                        if (!variables.has(decl.prop)) {
+                            console.log('removing unused var:', decl.prop);
+                            decl.remove();
+                        }
+                    }
+                });
+            }
+        });
+    }
+
+    return filterDeclarations;
+}
+
+// load our license file
+const license = fs.readFileSync(
+    path.join(__dirname, '..', 'config', 'license.js')
+);
+
+const varRegex = /--spectrum-[^:,)\s]+/g;
+
+const findUsedVars = async () => {
+    const usedVariables = new Set();
+    for (const cssPath of await fg(`./packages/*/src/*.css`)) {
+        if (
+            cssPath.includes('packages/styles') ||
+            cssPath.includes('packages/theme')
+        ) {
+            continue;
+        }
+        const originCSS = fs.readFileSync(cssPath, 'utf8');
+        const foundVars = originCSS.matchAll(varRegex);
+        for (const variable of foundVars) {
+            usedVariables.add(variable[0]);
+        }
+    }
+    return usedVariables;
+};
+
+const processCSSData = async (
+    data,
+    identifier,
+    from,
+    usedVariables = undefined
+) => {
     /* lit-html is a JS litteral, so `\` escapes by default.
      * for there to be unicode characters, the escape must
      * escape itself...
@@ -55,7 +117,15 @@ const processCSSData = async (data, identifier, from) => {
         );
     }
 
-    result = await postcss(postCSSPlugins())
+    const plugins = postCSSPlugins();
+    if (usedVariables) {
+        plugins.push(
+            postcssFilterVariableDeclarations({
+                variables: usedVariables,
+            })
+        );
+    }
+    result = await postcss(plugins)
         .process(result, {
             from,
         })
@@ -65,13 +135,24 @@ const processCSSData = async (data, identifier, from) => {
     return result;
 };
 
-const processCSS = async (srcPath, dstPath, identifier, from) => {
+const processCSS = async (
+    srcPath,
+    dstPath,
+    identifier,
+    from,
+    usedVariables = undefined
+) => {
     fs.readFile(srcPath, 'utf8', async function (error, data) {
         if (error) {
             return console.log(error);
         }
 
-        let result = await processCSSData(data, identifier, from);
+        let result = await processCSSData(
+            data,
+            identifier,
+            from,
+            usedVariables
+        );
         fs.writeFile(dstPath, result, 'utf8');
     });
 };
@@ -125,6 +206,8 @@ const scales = ['medium', 'large'];
 const cores = ['global'];
 const processes = [];
 
+const foundVars = await findUsedVars();
+
 spectrumPaths.forEach(async (spectrumPath, i) => {
     const packageDir = ['styles'];
     const isExpress = i === 1;
@@ -158,7 +241,9 @@ spectrumPaths.forEach(async (spectrumPath, i) => {
             )
         );
         console.log(`processing scale  ${srcPath}`);
-        processes.push(await processCSS(srcPath, dstPath, scale));
+        processes.push(
+            await processCSS(srcPath, dstPath, scale, undefined, foundVars)
+        );
     });
 
     cores.forEach(async (core) => {
