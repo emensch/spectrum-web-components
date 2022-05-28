@@ -36,7 +36,7 @@ const debounceCopyCSS = debounce.debounce(copy, 200);
 
 // One-liner for current directory
 chokidar
-    .watch('src/**/*.css')
+    .watch('./src/**/*.css')
     .on('change', debounceCopyCSS)
     .on('add', debounceCopyCSS);
 

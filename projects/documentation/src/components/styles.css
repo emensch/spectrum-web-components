@@ -765,3 +765,62 @@ icons-demo::part(icon) {
     padding: calc(0.5 * var(--spectrum-global-dimension-static-size-200)) 0;
     gap: var(--spectrum-global-dimension-static-size-200);
 }
+
+.demo-placement {
+    display: grid;
+    grid-template-areas:
+        'demo'
+        'config'
+        'links';
+    gap: 16px;
+    grid-template-columns: 1fr max-content;
+}
+
+.demo-preview {
+    grid-area: demo;
+    border: 1px solid rgb(63, 63, 63);
+    border-radius: 6px;
+    display: grid;
+    place-content: center;
+    height: 200px;
+}
+
+.demo-config {
+    grid-area: config;
+    border: 1px solid rgb(63, 63, 63);
+    border-radius: 6px;
+    max-height: 100px;
+    display: grid;
+    overflow: auto;
+    padding: calc(var(--spectrum-fieldgroup-margin) - 4px) 0
+        var(--spectrum-fieldgroup-margin) var(--spectrum-fieldgroup-margin);
+}
+
+.demo-config > div {
+    width: calc(20% - 16px);
+}
+
+.usage-links {
+    grid-area: links;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 225px;
+}
+
+.usage-links :is(h2, h3) {
+    all: unset;
+}
+
+@media screen and (min-width: 600px) {
+    .demo-placement {
+        grid-template-areas:
+            'demo links'
+            'config config';
+    }
+
+    .demo-preview {
+        height: auto;
+    }
+}

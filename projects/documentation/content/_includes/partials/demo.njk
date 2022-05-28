@@ -1,0 +1,137 @@
+<section
+    class="demo-placement"
+    style="
+    "
+>
+    <div
+        class="demo-preview"
+        style="
+        "
+    >
+        <sp-button>Demo</sp-button>
+    </div>
+    <sp-field-group
+        class="demo-config"
+        horizontal
+    >
+        <div>
+            <sp-field-label for="variant">Variant</sp-field-label>
+            <sp-picker value="accent" id="variant" onchange="this.parentElement.parentElement.previousElementSibling.children[0].variant = this.value">
+                <sp-menu-item>accent</sp-menu-item>
+                <sp-menu-item>primary</sp-menu-item>
+                <sp-menu-item>secondary</sp-menu-item>
+                <sp-menu-item>negative</sp-menu-item>
+                <sp-menu-item>white</sp-menu-item>
+                <sp-menu-item>black</sp-menu-item>
+            </sp-picker>
+        </div>
+        <div>
+            <sp-field-label for="treatment">Treatment</sp-field-label>
+            <sp-picker value="fill" id="treatment" onchange="this.parentElement.parentElement.previousElementSibling.children[0].treatment = this.value">
+                <sp-menu-item>fill</sp-menu-item>
+                <sp-menu-item>outline</sp-menu-item>
+            </sp-picker>
+        </div>
+        <div>
+            <sp-field-label for="active">Active</sp-field-label>
+            <sp-picker value="false" id="active" onchange="this.parentElement.parentElement.previousElementSibling.children[0].active = this.value === 'true'">
+                <sp-menu-item>true</sp-menu-item>
+                <sp-menu-item>false</sp-menu-item>
+            </sp-picker>
+        </div>
+        <div>
+            <sp-field-label for="type">Type</sp-field-label>
+            <sp-picker id="type" onchange="this.parentElement.parentElement.previousElementSibling.children[0].type = this.value">
+                <sp-menu-item>button</sp-menu-item>
+                <sp-menu-item>submit</sp-menu-item>
+                <sp-menu-item>clear</sp-menu-item>
+            </sp-picker>
+        </div>
+        <div>
+            <sp-field-label for="size">Size</sp-field-label>
+            <sp-picker value="m" id="size" onchange="this.parentElement.parentElement.previousElementSibling.children[0].size = this.value">
+                <sp-menu-item value="s">small</sp-menu-item>
+                <sp-menu-item value="m">medium</sp-menu-item>
+                <sp-menu-item value="l">large</sp-menu-item>
+                <sp-menu-item value="xl">extra large</sp-menu-item>
+            </sp-picker>
+        </div>
+    </sp-field-group>
+    <div
+        class="usage-links"
+        style="
+        "
+    >
+        <sp-card
+            size="s"
+            horizontal
+            style="
+                flex-shrink: 0;
+                flex-grow: 0;
+            "
+            href="https://www.npmjs.com/package/@spectrum-web-components/button"
+        >
+            <h2 slot="heading">NPM</h2>
+            <h3 slot="subheading">v0.6.10</h2>
+            <sp-icon
+                slot="preview"
+                style="
+                    width: 36px;
+                    height: 36px;
+                "
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" height="36" width="36" aria-hidden="true" role="img" fill="currentColor">
+                    <path d="M20 2v10h10L20 2z"></path>
+                    <path d="M19 14a1 1 0 01-1-1V2H7a1 1 0 00-1 1v30a1 1 0 001 1h22a1 1 0 001-1V14zm7 15.5a.5.5 0 01-.5.5h-15a.5.5 0 01-.5-.5v-1a.5.5 0 01.5-.5h15a.5.5 0 01.5.5zm0-4a.5.5 0 01-.5.5h-15a.5.5 0 01-.5-.5v-1a.5.5 0 01.5-.5h15a.5.5 0 01.5.5zm0-4a.5.5 0 01-.5.5h-15a.5.5 0 01-.5-.5v-1a.5.5 0 01.5-.5h15a.5.5 0 01.5.5z"></path>
+                </svg>
+            </sp-icon>
+        </sp-card>
+        <sp-card
+            size="s"
+            horizontal
+            style="
+                flex-shrink: 0;
+                flex-grow: 0;
+            "
+            href="https://bundlephobia.com/result?p=@spectrum-web-components/button"
+        >
+            <h2 slot="heading">Spectrum</h2>
+            <h3 slot="subheading">View guidelines</h2>
+            <sp-icon
+                slot="preview"
+                style="
+                    width: 36px;
+                    height: 36px;"
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" height="36" width="36" aria-hidden="true" role="img" fill="currentColor">
+                    <path d="M20 2v10h10L20 2z"></path>
+                    <path d="M19 14a1 1 0 01-1-1V2H7a1 1 0 00-1 1v30a1 1 0 001 1h22a1 1 0 001-1V14zm7 15.5a.5.5 0 01-.5.5h-15a.5.5 0 01-.5-.5v-1a.5.5 0 01.5-.5h15a.5.5 0 01.5.5zm0-4a.5.5 0 01-.5.5h-15a.5.5 0 01-.5-.5v-1a.5.5 0 01.5-.5h15a.5.5 0 01.5.5zm0-4a.5.5 0 01-.5.5h-15a.5.5 0 01-.5-.5v-1a.5.5 0 01.5-.5h15a.5.5 0 01.5.5z"></path>
+                </svg>
+            </sp-icon>
+        </sp-card>
+        <sp-card
+            size="s"
+            horizontal
+            style="
+                flex-shrink: 0;
+                flex-grow: 0;
+            "
+            href="https://webcomponents.dev/edit/collection/fO75441E1Q5ZlI0e9pgq/Zjc3o94DWuBkT4ve3dny/src/index.ts"
+        >
+            <h2 slot="heading">Try it on</h2>
+            <h3 slot="subheading">webcomponents.dev</h2>
+            <sp-icon
+                slot="preview"
+                style="
+                    width: 36px;
+                    height: 36px;
+                "
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" height="36" width="36" aria-hidden="true" role="img" fill="currentColor">
+                    <path d="M20 2v10h10L20 2z"></path>
+                    <path d="M19 14a1 1 0 01-1-1V2H7a1 1 0 00-1 1v30a1 1 0 001 1h22a1 1 0 001-1V14zm7 15.5a.5.5 0 01-.5.5h-15a.5.5 0 01-.5-.5v-1a.5.5 0 01.5-.5h15a.5.5 0 01.5.5zm0-4a.5.5 0 01-.5.5h-15a.5.5 0 01-.5-.5v-1a.5.5 0 01.5-.5h15a.5.5 0 01.5.5zm0-4a.5.5 0 01-.5.5h-15a.5.5 0 01-.5-.5v-1a.5.5 0 01.5-.5h15a.5.5 0 01.5.5z"></path>
+                </svg>
+            </sp-icon>
+        </sp-card>
+    </div>
+</section>
