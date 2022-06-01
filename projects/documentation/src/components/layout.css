@@ -119,12 +119,13 @@ header {
     border-bottom: 1px solid var(--spectrum-global-color-gray-200);
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     align-items: center;
     background-color: var(--spectrum-global-color-gray-50);
     top: 0px;
     right: 0px;
     left: 0px;
-    padding-left: 8px;
+    padding: 0 8px;
     z-index: 1;
 
     --spectrum-actionbutton-height: var(--spectrum-global-dimension-size-500);

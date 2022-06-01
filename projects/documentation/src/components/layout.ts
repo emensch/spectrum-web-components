@@ -37,7 +37,11 @@ import '@spectrum-web-components/menu/sp-menu-item.js';
 import '@spectrum-web-components/link/sp-link.js';
 import '@spectrum-web-components/divider/sp-divider.js';
 import '@spectrum-web-components/toast/sp-toast.js';
+import '@spectrum-web-components/overlay/overlay-trigger.js';
+import '@spectrum-web-components/popover/sp-popover.js';
+import '@spectrum-web-components/dialog/sp-dialog.js';
 import '@spectrum-web-components/icons-workflow/icons/sp-icon-show-menu.js';
+import '@spectrum-web-components/icons-workflow/icons/sp-icon-settings.js';
 
 import type { SideNav } from './side-nav.js';
 import './adobe-logo.js';
@@ -47,15 +51,17 @@ import { copyText } from './copy-to-clipboard.js';
 
 import layoutStyles from './layout.css';
 import { nothing } from 'lit-html';
+import {
+    DARK_MODE,
+    IS_MOBILE,
+} from '@spectrum-web-components/reactive-controllers/src/MatchMedia.js';
 
 const SWC_THEME_COLOR_KEY = 'swc-docs:theme:color';
 const SWC_THEME_SCALE_KEY = 'swc-docs:theme:scale';
 const SWC_THEME_THEME_KEY = 'swc-docs:theme:theme';
 const SWC_THEME_DIR_KEY = 'swc-docs:theme:dir';
-const COLOR_FALLBACK = matchMedia('(prefers-color-scheme: dark)').matches
-    ? 'dark'
-    : 'light';
-const SCALE_FALLBACK = 'medium';
+const COLOR_FALLBACK = matchMedia(DARK_MODE).matches ? 'dark' : 'light';
+const SCALE_FALLBACK = matchMedia(IS_MOBILE).matches ? 'large' : 'medium';
 const THEME_FALLBACK = 'spectrum';
 const DIR_FALLBACK = 'ltr';
 const DEFAULT_COLOR = (
@@ -314,11 +320,10 @@ export class LayoutElement extends LitElement {
                     <sp-field-label for="theme-color">Theme</sp-field-label>
                     <sp-picker
                         id="theme-color"
-                        placement="bottom"
-                        quiet
+                        ?quiet=${!this.isNarrow}
                         value=${this.theme}
                         @change=${this.updateTheme}
-                        placement="bottom-end"
+                        placement=${this.isNarrow ? 'bottom' : 'bottom-end'}
                     >
                         <sp-menu-item value="spectrum" selected>
                             Spectrum
@@ -334,11 +339,10 @@ export class LayoutElement extends LitElement {
                     </sp-field-label>
                     <sp-picker
                         id="theme-color"
-                        placement="bottom"
-                        quiet
+                        ?quiet=${!this.isNarrow}
                         value=${this.color}
                         @change=${this.updateColor}
-                        placement="bottom-end"
+                        placement=${this.isNarrow ? 'bottom' : 'bottom-end'}
                     >
                         <sp-menu-item value="lightest" selected>
                             Lightest
@@ -353,11 +357,10 @@ export class LayoutElement extends LitElement {
                     <sp-picker
                         id="theme-scale"
                         label="Scale"
-                        placement="bottom"
-                        quiet
+                        ?quiet=${!this.isNarrow}
                         value=${this.scale}
                         @change=${this.updateScale}
-                        placement="bottom-end"
+                        placement=${this.isNarrow ? 'bottom' : 'bottom-end'}
                     >
                         <sp-menu-item value="medium">Medium</sp-menu-item>
                         <sp-menu-item value="large">Large</sp-menu-item>
@@ -370,11 +373,10 @@ export class LayoutElement extends LitElement {
                     <sp-picker
                         id="theme-direction"
                         label="Direction"
-                        placement="bottom"
-                        quiet
+                        ?quiet=${!this.isNarrow}
                         value=${this.dir}
                         @change=${this.updateDirection}
-                        placement="bottom-end"
+                        placement=${this.isNarrow ? 'bottom' : 'bottom-end'}
                     >
                         <sp-menu-item value="ltr">LTR</sp-menu-item>
                         <sp-menu-item value="rtl">RTL</sp-menu-item>
@@ -406,6 +408,28 @@ export class LayoutElement extends LitElement {
                                       slot="icon"
                                   ></sp-icon-show-menu>
                               </sp-action-button>
+                              <overlay-trigger
+                                  placement="bottom-end"
+                                  type="modal"
+                              >
+                                  <sp-action-button
+                                      quiet
+                                      label="Display Options"
+                                      slot="trigger"
+                                  >
+                                      <sp-icon-settings
+                                          slot="icon"
+                                      ></sp-icon-settings>
+                                  </sp-action-button>
+                                  <sp-popover slot="click-content">
+                                      <sp-dialog>
+                                          <h2 slot="heading">
+                                              Display Options
+                                          </h2>
+                                          ${this.manageTheme}
+                                      </sp-dialog>
+                                  </sp-popover>
+                              </overlay-trigger>
                           </header>
                       `
                     : html``}
@@ -417,7 +441,7 @@ export class LayoutElement extends LitElement {
                         @alert=${this.addAlert}
                         @copy-text=${this.copyText}
                     >
-                        ${this.manageTheme}
+                        ${this.isNarrow ? html`` : this.manageTheme}
                         <slot></slot>
                     </div>
                 </div>
@@ -465,7 +489,7 @@ export class LayoutElement extends LitElement {
             if (window.localStorage) {
                 localStorage.setItem(SWC_THEME_SCALE_KEY, this.scale);
             }
-            if (changes.get('scale')) {
+            if (changes.get('scale') || this.scale !== 'medium') {
                 loadStyleFragments = true;
             }
         }
