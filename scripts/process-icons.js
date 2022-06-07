@@ -10,75 +10,94 @@ the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTA
 OF ANY KIND, either express or implied. See the License for the specific language
 governing permissions and limitations under the License.
 */
-import path from 'path';
-import fs from 'fs';
-import { fileURLToPath } from 'url';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+import { closeSync, existsSync, openSync, writeSync } from 'fs';
+import { basename, dirname, extname, join } from 'path';
+import { readdir, readFile } from 'fs/promises';
+import chalk from 'chalk';
+import { createRequire } from 'module';
 
-const processIcon = (srcPath, fd, scaleWidth, scaleHeight) => {
-    // get icon name from filename
-    const iconName = path.basename(srcPath, path.extname(srcPath));
-    // regex will extract width, height and svg content into $1, $2 and $3 respectively
-    const regex = new RegExp(/<svg.*viewBox="(.*)">(.*?)<\/svg>/i);
+import { oraPromise } from 'ora';
 
-    const content = fs.readFileSync(srcPath, 'utf8');
+const require = createRequire(import.meta.url);
+const rootDir = process.env.PROJECT_CWD || process.cwd();
+const packageName = '@spectrum-css/icon';
+const verbose = process.env.verbose || false;
 
-    const match = content.match(regex);
-    if (!match) {
+async function processIcon(srcPath) {
+    return readFile(srcPath, 'utf8').then(async (content) => {
+        // regex will extract width, height and svg content into $1, $2 and $3 respectively
+        const [, viewBox, svgContent] = content.match(
+            /<svg.*viewBox="(.*)">(.*?)<\/svg>/i
+        );
         // no matching result, bail
-        return;
+        if (!svgContent) return;
+
+        const shortName = basename(srcPath, extname(srcPath));
+        // append the content to the target file handle
+        return `<symbol id="spectrum-icon-${shortName}" viewBox="${viewBox}">${svgContent}</symbol>`;
+    });
+}
+
+async function wrapIcon(icon) {
+    const licensePath = join(rootDir, 'config/license.js');
+    let license;
+    if (existsSync(licensePath)) {
+        license = await readFile(licensePath, 'utf8');
+        license = license?.replace('<%= YEAR %>', new Date().getFullYear());
     }
-    const viewBox = match[1];
-    const svgContent = match[2];
-    // append the content to the target file handle
-    fs.writeSync(
-        fd,
-        `<symbol id="spectrum-icon-${iconName}" viewBox="${viewBox}">${svgContent}</symbol>`
+
+    if (Array.isArray(icon)) icon = icon.join('');
+    return `${license}
+import { svg } from '@spectrum-web-components/base';
+export default svg\`<svg xmlns="http://www.w3.org/2000/svg">${icon}</svg>\`;`;
+}
+
+async function combineIconsByScale(scale) {
+    // Fetch spectrum-css path
+    const spectrumIconsPath = dirname(
+        require.resolve(`${packageName}/package.json`)
     );
-};
 
-// where is spectrum-css?
-// TODO: use resolve package to find node_modules
-const spectrumIconsPath = path.resolve(
-    path.join(__dirname, '..', 'node_modules', '@spectrum-css', 'icon')
-);
-
-// define the target icon sizes for each scale
-const scales = {
-    medium: { width: 18, height: 18 },
-    large: { width: 24, height: 24 },
-};
+    const srcPath = join(spectrumIconsPath, scale);
+    const files = await readdir(srcPath);
+    return Promise.all(
+        files.map((file) => {
+            if (verbose)
+                return oraPromise(processIcon(join(srcPath, file)), {
+                    text: `${file}`,
+                    indent: 2,
+                    interval: 10,
+                });
+            return processIcon(join(srcPath, file));
+        })
+    );
+}
 
 // process the scales
-Object.keys(scales).forEach((scaleKey) => {
-    console.log(`processing scale ${scaleKey}...`);
-
-    const scale = scales[scaleKey];
-    const srcPath = path.join(spectrumIconsPath, scaleKey);
-    const outputPath = path.join(
-        __dirname,
-        '..',
-        'packages',
-        'icons',
-        'src',
-        `icons-${scaleKey}.svg.ts`
-    );
-    let outputFd = fs.openSync(outputPath, 'w');
-
-    fs.writeSync(
-        outputFd,
-        'import { svg } from \'@spectrum-web-components/base\'; export default svg`<svg xmlns="http://www.w3.org/2000/svg">'
+for (const scale of ['medium', 'large']) {
+    const combinedIconPath = join(
+        rootDir,
+        `packages/icons/src/icons-${scale}.svg.ts`
     );
 
-    fs.readdirSync(srcPath).forEach((iconFile) => {
-        const srcIconPath = path.join(srcPath, iconFile);
-        console.log(`\ticon ${iconFile}`);
-        processIcon(srcIconPath, outputFd, scale.width, scale.height);
+    const fd = openSync(combinedIconPath, 'w');
+
+    const results = await oraPromise(combineIconsByScale(scale), {
+        text: `Processing icons from ${chalk.dim(
+            packageName
+        )} ${chalk.cyanBright(scale)}`,
+        spinner: 'simpleDots',
+        interval: 10,
+        successText: `${chalk.dim(packageName)} ${chalk.cyanBright(
+            scale
+        )} @${chalk.greenBright(combinedIconPath.replace(rootDir, ''))}`,
+        failText: `Failed to process icons from ${chalk.yellowBright(
+            packageName
+        )} ${chalk.cyanBright(scale)}`,
     });
 
-    fs.writeSync(outputFd, '</svg>`;');
-    fs.closeSync(outputFd);
-});
+    writeSync(fd, await wrapIcon(results));
 
-console.log('complete.');
+    closeSync(fd);
+}
