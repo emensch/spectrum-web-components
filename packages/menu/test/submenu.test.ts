@@ -305,6 +305,7 @@ describe('Submenu', () => {
                 press: testData.openKey,
             });
             await opened;
+            await elementUpdated(rootItem);
 
             expect(rootItem.open).to.be.true;
 
@@ -313,6 +314,7 @@ describe('Submenu', () => {
                 press: testData.closeKey,
             });
             await closed;
+            await elementUpdated(rootItem);
 
             expect(rootItem.open).to.be.false;
 
@@ -321,6 +323,7 @@ describe('Submenu', () => {
                 press: testData.openKey,
             });
             await opened;
+            await elementUpdated(rootItem);
 
             expect(rootItem.open).to.be.true;
 
@@ -333,6 +336,7 @@ describe('Submenu', () => {
                 press: 'Enter',
             });
             await closed;
+            await elementUpdated(rootItem);
 
             expect(rootChanged.calledWith('Has submenu'), 'root changed').to.be
                 .true;
@@ -818,6 +822,8 @@ describe('Submenu', () => {
         let opened = oneEvent(el, 'sp-opened');
         el.click();
         await opened;
+        await elementUpdated(el);
+
         expect(el.open).to.be.true;
 
         let activeOverlays = document.querySelectorAll('active-overlay');
@@ -827,6 +833,8 @@ describe('Submenu', () => {
             new PointerEvent('pointerenter', { bubbles: true })
         );
         await opened;
+        await elementUpdated(rootMenu1);
+
         activeOverlays = document.querySelectorAll('active-overlay');
         expect(activeOverlays.length).to.equal(2);
 
@@ -835,6 +843,7 @@ describe('Submenu', () => {
             new PointerEvent('pointerenter', { bubbles: true })
         );
         await opened;
+        await elementUpdated(childMenu2);
         activeOverlays = document.querySelectorAll('active-overlay');
         expect(activeOverlays.length).to.equal(3);
 
@@ -845,6 +854,9 @@ describe('Submenu', () => {
         ]);
         ancestorItem.click();
         await closed;
+        await elementUpdated(childMenu2);
+        await elementUpdated(rootMenu1);
+        await elementUpdated(el);
         activeOverlays = document.querySelectorAll('active-overlay');
         expect(activeOverlays.length).to.equal(0);
     });
