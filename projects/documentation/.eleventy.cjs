@@ -20,6 +20,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy('content/images/**/*');
     eleventyConfig.addPassthroughCopy('content/manifest.webmanifest');
     eleventyConfig.addPassthroughCopy('../src/**/*.css');
+    eleventyConfig.addPassthroughCopy({ 'src/**/*.woff2': '/' });
     let markdownIt = require('markdown-it');
     let markdownItAnchors = require('markdown-it-anchor');
     let options = {

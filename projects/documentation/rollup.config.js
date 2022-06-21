@@ -125,6 +125,9 @@ module.exports = async () => {
                         return html;
                     }
                     const modulepreloads = {};
+                    const fontRoot = process.env.SWC_DIR
+                        ? `/${process.env.SWC_DIR}`
+                        : '';
                     entrypoints.forEach(({ importPath, chunk }) => {
                         modulepreloads[
                             importPath
@@ -134,20 +137,21 @@ module.exports = async () => {
                                 importPath
                             ] = `<link rel="modulepreload" href="/${importPath}">`;
                         }
-                        // Leverage when/if `importance` lands.
-                        // modulepreloads.push(
-                        //     ...Object.values(chunk.dynamicImports).map(
-                        //         (importPath) =>
-                        //             `<link rel="modulepreload" href="${importPath}" importance="low">`
-                        //     )
-                        // );
+                        // Leverage when/if `fetchpriority` lands.
+                        Object.values(chunk.dynamicImports).map(
+                            (importPath) => {
+                                modulepreloads[importPath] =
+                                    modulepreloads[importPath] ||
+                                    `<link rel="modulepreload" href="${importPath}" fetchpriority="low">`;
+                            }
+                        );
                     });
                     modulepreloads[
                         'font1'
-                    ] = `<link rel="preload" href="https://use.typekit.net/af/eaf09c/000000000000000000017703/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3" as="font" type="font/woff2" crossorigin/>`;
+                    ] = `<link rel="preload" href="${fontRoot}/adobe-clean-normal-700.woff2" as="font" type="font/woff2" crossorigin/>`;
                     modulepreloads[
                         'font2'
-                    ] = `<link rel="preload" href="https://use.typekit.net/af/cb695f/000000000000000000017701/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3" as="font" type="font/woff2" crossorigin/>`;
+                    ] = `<link rel="preload" href="${fontRoot}/adobe-clean-normal-400.woff2" as="font" type="font/woff2" crossorigin/>`;
                     return html.replace(
                         '</head>',
                         `${[...Object.values(modulepreloads)].join('')}</head>`
@@ -202,7 +206,9 @@ module.exports = async () => {
                 swSrc: path.join(process.cwd(), '_site', 'serviceWorker.js'),
                 swDest: path.join(process.cwd(), 'dist', 'sw.js'),
                 globDirectory: path.join(process.cwd(), 'dist'),
-                globPatterns: ['**/*.{html,js,css,png,svg,ico,webmanifest}'],
+                globPatterns: [
+                    '**/*.{html,js,css,png,svg,ico,webmanifest,woff2}',
+                ],
                 globIgnores: [
                     '*nomodule*',
                     // 'components/*/index.html',
@@ -244,6 +250,13 @@ module.exports = async () => {
     mpaConfig.plugins.push(
         copy({
             patterns: ['**/*.css'],
+            rootDir: './_site',
+        })
+    );
+
+    mpaConfig.plugins.push(
+        copy({
+            patterns: ['**/*.woff2'],
             rootDir: './_site',
         })
     );
