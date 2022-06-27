@@ -134,7 +134,6 @@ glob(`${rootDir}/node_modules/${iconsPath}/**.svg`, (error, icons) => {
             singleQuote: true,
             trailingComma: 'all',
             bracketSpacing: true,
-            jsxBracketSameLine: false,
             arrowParens: 'avoid',
             parser: 'typescript',
         });
@@ -185,7 +184,6 @@ glob(`${rootDir}/node_modules/${iconsPath}/**.svg`, (error, icons) => {
             singleQuote: true,
             trailingComma: 'all',
             bracketSpacing: true,
-            jsxBracketSameLine: false,
             arrowParens: 'avoid',
             parser: 'typescript',
         });
@@ -224,7 +222,6 @@ glob(`${rootDir}/node_modules/${iconsPath}/**.svg`, (error, icons) => {
             singleQuote: true,
             trailingComma: 'all',
             bracketSpacing: true,
-            jsxBracketSameLine: false,
             arrowParens: 'avoid',
             parser: 'typescript',
         });

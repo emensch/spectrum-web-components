@@ -13,100 +13,204 @@ governing permissions and limitations under the License.
 */
 
 import fg from 'fast-glob';
-import path from 'path';
+import { dirname, join, resolve } from 'path';
 import chalk from 'chalk';
-import fs from 'fs-extra';
+import { existsSync } from 'fs';
+import { readFile, writeFile } from 'fs/promises';
 import postcss from 'postcss';
-import { postCSSPlugins } from './css-processing.cjs';
-import postcssSpectrumPlugin from './process-spectrum-postcss-plugin.js';
 import reporter from 'postcss-reporter';
 import postcssCustomProperties from 'postcss-custom-properties';
 import { fileURLToPath, pathToFileURL } from 'url';
+import { oraPromise } from 'ora';
+import columnify from 'columnify';
+import { createRequire } from 'module';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+import { postCSSPlugins } from './css-processing.cjs';
+import postcssSpectrumPlugin from './process-spectrum-postcss-plugin.js';
 
-const componentRoot = path.resolve(__dirname, '../packages');
+const __dirname =
+    process.env.PROJECT_CWD ||
+    join(dirname(fileURLToPath(import.meta.url)), '../');
+const require = createRequire(import.meta.url);
+const componentRoot = resolve(__dirname, 'packages');
+const verbose = process.env.verbose || false;
 
-async function processComponent(componentPath) {
-    const configPath = path.join(componentPath, 'spectrum-config.js');
-    const { default: spectrumConfig } = await import(pathToFileURL(configPath));
-    const inputCssPath = `node_modules/@spectrum-css/${spectrumConfig.spectrum}/dist/index-vars.css`;
-    let packageCss = false;
-    if (fs.existsSync(inputCssPath)) {
-        packageCss = true;
-    } else {
-        console.error(
-            chalk.bold.red(
-                `!!! '${spectrumConfig.spectrum}' does not have a local Spectrum CSS dependency !!!`
-            )
-        );
-        process.exit(1);
+// Why dirname and package.json? If you resolve by a package name, the returned
+// path will map to the file designated in "main" in the package.json.
+// That isn't always (or even typically) at the root of the package.
+const getPathByPkg = (pkgName) => {
+    try {
+        return dirname(require.resolve(`${pkgName}/package.json`));
+    } catch (error) {
+        throw new Error(`Could not find ${pkgName}`);
     }
-    const inputCss = await fs.readFile(inputCssPath);
-    let inputCustomProperties = await fs.readFile(
-        `node_modules/@spectrum-css/${spectrumConfig.spectrum}/dist/vars.css`,
+};
+
+async function fetchConfig(componentPath) {
+    const configPath = join(componentPath, 'spectrum-config.js');
+    const { default: spectrumConfig } = await import(
+        pathToFileURL(configPath)
+    ).catch((error) => Promise.reject(error));
+    return Promise.resolve(spectrumConfig);
+}
+
+async function fetchCSS(componentName) {
+    const inputCssPath = join(
+        getPathByPkg(`@spectrum-css/${componentName}`),
+        'dist/index-vars.css'
+    );
+
+    if (!existsSync(inputCssPath))
+        Promise.reject(
+            `!!! '${componentName}' does not have a local Spectrum CSS dependency !!!`
+        );
+
+    const inputCss = await readFile(inputCssPath);
+    Promise.resolve({
+        css: inputCss,
+        path: inputCssPath,
+    });
+}
+
+async function fetchCustomProperties(componentName) {
+    let inputCustomProperties = await readFile(
+        join(getPathByPkg(`@spectrum-css/${componentName}`), `/dist/vars.css`),
         'utf8'
     );
+
+    if (!inputCustomProperties)
+        Promise.reject(
+            `${componentName} does not have a Spectrum CSS custom properties file.`
+        );
     inputCustomProperties = inputCustomProperties.replace(
         /(.|\n)*\{/,
         ':root {'
     );
-    // eslint-disable-next-line no-console
-    console.log(chalk.bold.green(`- ${spectrumConfig.spectrum}`));
+
+    Promise.resolve(inputCustomProperties);
+}
+
+async function foo(componentPath, component) {
+    const outputCssPath = join(componentPath, `spectrum-${component.name}.css`);
+    // const outputJsonPath = join(
+    //     componentPath,
+    //     `spectrum-vars.json`
+    // );
+    const outputCss = await postcss([
+        ...postCSSPlugins(),
+        postcssSpectrumPlugin({ component }),
+        ...(verbose ? [reporter()] : []),
+    ]).process(inputCss, {
+        from: inputCssPath,
+        to: outputCssPath,
+    });
+    // const srcPath = join(
+    //     getPathByPkg(
+    //         `@spectrum-css/${spectrumConfig.spectrum}`
+    //     ),
+    //     `/dist/vars.css`
+    // );
+    // let inputCustomProperties = await postcss([
+    //     postcssCustomProperties({
+    //         exportTo: [outputJsonPath],
+    //     }),
+    // ]).process(inputCss, {
+    //     from: srcPath,
+    // });
+
+    let result = outputCss.css.replace(/\\/g, '\\\\');
+    // await fs.writeFile(outputJsonPath, outputJson, { encoding: 'utf8' });
+    await writeFile(outputCssPath, result, {
+        encoding: 'utf8',
+    });
+}
+
+async function processComponent(componentPath) {
+    const spectrumConfig = await fetchConfig(componentPath).catch((error) => {
+        return Promise.reject(error);
+    });
+    const { css: inputCss, path: inputCssPath } = await fetchCSS(
+        spectrumConfig.name
+    ).catch((error) => {
+        return Promise.reject(error);
+    });
+
+    // {
+    //     spinner: `💎  Processing ${spectrumConfig.spectrum}`,
+    //     indent: 4,
+    // }
+
+    let inputCustomProperties = await fetchCustomProperties(
+        spectrumConfig.name
+    );
+
     return Promise.all(
         spectrumConfig.components.map(async (component) => {
-            const outputCssPath = path.join(
-                componentPath,
-                `spectrum-${component.name}.css`
-            );
-            const outputJsonPath = path.join(
-                componentPath,
-                `spectrum-vars.json`
-            );
-            const outputCss = await postcss([
-                ...(packageCss ? postCSSPlugins() : []),
-                postcssSpectrumPlugin({ component }),
-                reporter(),
-            ]).process(inputCss, {
-                from: inputCssPath,
-                to: outputCssPath,
-            });
-            const srcPath = `node_modules/@spectrum-css/${spectrumConfig.spectrum}/dist/vars.css`;
-            await postcss([
-                postcssCustomProperties({
-                    exportTo: [outputJsonPath],
-                }),
-            ]).process(inputCustomProperties, {
-                from: srcPath,
-            });
-            // eslint-disable-next-line no-console
-            console.log(chalk.bold.green(`  o ${component.name}`));
+            return oraPromise(
+                async () => {
+                    const outputCssPath = join(
+                        componentPath,
+                        `spectrum-${component.name}.css`
+                    );
+                    const outputJsonPath = join(
+                        componentPath,
+                        `spectrum-vars.json`
+                    );
+                    const outputCss = await postcss([
+                        ...postCSSPlugins(),
+                        postcssSpectrumPlugin({ component }),
+                        ...(verbose ? [reporter()] : []),
+                    ]).process(inputCss, {
+                        from: inputCssPath,
+                        to: outputCssPath,
+                    });
+                    const srcPath = join(
+                        getPathByPkg(
+                            `@spectrum-css/${spectrumConfig.spectrum}`
+                        ),
+                        `/dist/vars.css`
+                    );
+                    await postcss([
+                        postcssCustomProperties({
+                            exportTo: [outputJsonPath],
+                        }),
+                    ]).process(inputCustomProperties, {
+                        from: srcPath,
+                    });
 
-            let result = outputCss.css.replace(/\\/g, '\\\\');
-            // await fs.writeFile(outputJsonPath, outputJson, { encoding: 'utf8' });
-            return fs.writeFile(outputCssPath, result, {
-                encoding: 'utf8',
-            });
+                    let result = outputCss.css.replace(/\\/g, '\\\\');
+                    // await fs.writeFile(outputJsonPath, outputJson, { encoding: 'utf8' });
+                    await writeFile(outputCssPath, result, {
+                        encoding: 'utf8',
+                    });
+                },
+                {
+                    text: component.name,
+                    indent: 8,
+                }
+            );
         })
     );
 }
 
-async function processComponents() {
-    const promises = [];
-    // eslint-disable-next-line no-console
-    console.log(chalk.bold.green('Processing Spectrum Components'));
-    for (const configPath of await fg(
-        `${componentRoot}/*/src/spectrum-config.js`
-    )) {
-        promises.push(processComponent(path.join(configPath, '..')));
-    }
-    await Promise.all(promises);
-    // eslint-disable-next-line no-console
-    console.log(chalk.bold.green('Done'));
+const promises = [];
+for (const configPath of await fg(
+    `${componentRoot}/*/src/spectrum-config.js`
+)) {
+    promises.push(processComponent(join(configPath, '..')));
 }
 
-async function main() {
-    await processComponents();
-}
-
-main();
+console.log();
+await oraPromise(Promise.all(promises), {
+    text: 'Processing Spectrum Components',
+    spinner: 'simpleDots',
+    successText: (results) => {
+        return (
+            chalk.underline('Spectrum Components processed') +
+            '\n\n' +
+            columnify(results) +
+            '\n'
+        );
+    },
+    failText: (message) => message || 'Spectrum Components processing failed',
+});

@@ -12,16 +12,48 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-import path from 'path';
-import fs from 'fs-extra';
+import { dirname, join, resolve } from 'path';
+import { readFile, writeFile } from 'fs/promises';
 import postcss from 'postcss';
 import { postCSSPlugins } from './css-processing.cjs';
+import { createRequire } from 'module';
 import { fileURLToPath } from 'url';
-// import postcssCustomProperties from 'postcss-custom-properties';
+import { oraPromise } from 'ora';
+import chalk from 'chalk';
+import columnify from 'columnify';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const require = createRequire(import.meta.url);
+const __dirname =
+    process.env.PROJECT_CWD ||
+    join(dirname(fileURLToPath(import.meta.url)), '../');
 
-const processCSSData = async (data, identifier, from) => {
+// Why dirname and package.json? If you resolve by a package name, the returned
+// path will map to the file designated in "main" in the package.json.
+// That isn't always (or even typically) at the root of the package.
+const getPathByPkg = (pkgName) =>
+    dirname(require.resolve(`${pkgName}/package.json`));
+
+const printPath = (path, dir = 'packages/styles/') =>
+    path.replace(join(__dirname, dir), '');
+
+const spectrumPaths = new Map([
+    [getPathByPkg('@spectrum-css/vars'), 'styles'],
+    [getPathByPkg('@spectrum-css/expressvars'), 'styles/express'],
+]);
+
+// sources to use from spectrum-css
+const themes = [
+    'lightest',
+    'light',
+    'dark',
+    'darkest',
+    /*'middark', 'midlight'*/
+];
+const scales = ['medium', 'large'];
+const cores = ['global'];
+const processes = [];
+
+async function processCSSData(data, identifier, from) {
     /* lit-html is a JS litteral, so `\` escapes by default.
      * for there to be unicode characters, the escape must
      * escape itself...
@@ -63,189 +95,112 @@ const processCSSData = async (data, identifier, from) => {
 
     result = result.replace(selector2, shadowSelector);
     return result;
-};
+}
 
-const processCSS = async (srcPath, dstPath, identifier, from) => {
-    fs.readFile(srcPath, 'utf8', async function (error, data) {
-        if (error) {
-            return console.log(error);
-        }
-
-        let result = await processCSSData(data, identifier, from);
-        fs.writeFile(dstPath, result, 'utf8');
-    });
-};
+async function processCSS(srcPath, dstPath, identifier, from) {
+    const data = await readFile(srcPath, 'utf8');
+    let result = await processCSSData(data, identifier, from);
+    await writeFile(dstPath, result, 'utf8');
+    return {
+        from: [srcPath],
+        to: dstPath,
+    };
+}
 
 // For fonts.css we need to combine 2 source files into 1
-const processMultiSourceCSS = async (srcPaths, dstPath, identifier) => {
-    let result = '';
+async function processMultiSourceCSS(srcPaths, dstPath, identifier) {
+    return Promise.all(
+        srcPaths.map(async (srcPath) => {
+            let data = await readFile(srcPath, 'utf8');
+            return processCSSData(data, identifier);
+        })
+    )
+        .then(async (results) => {
+            await writeFile(dstPath, results.join(''), 'utf8');
+            return {
+                from: srcPaths,
+                to: dstPath,
+            };
+        })
+        .catch((error) => {
+            throw new Error(error);
+        });
+}
 
-    for (const srcPath of srcPaths) {
-        let data = fs.readFileSync(srcPath, 'utf8');
-        result = `${result}\n${await processCSSData(data, identifier)}`;
+for (const [spectrumPath, packageDir] of spectrumPaths.entries()) {
+    const dest = join(__dirname, 'packages', packageDir);
+    for (const theme of themes) {
+        if (
+            spectrumPath.includes('expressvars') &&
+            ['lightest', 'darkest'].includes(theme)
+        )
+            continue;
+
+        const from = join(spectrumPath, `dist/spectrum-${theme}.css`);
+        const to = join(dest, `theme-${theme}.css`);
+        processes.push(processCSS(from, to, theme));
     }
 
-    fs.writeFile(dstPath, result, 'utf8');
-};
+    for (const scale of scales) {
+        const srcPath = join(spectrumPath, `dist/spectrum-${scale}.css`);
+        const dstPath = join(dest, `spectrum-scale-${scale}.css`);
+        processes.push(processCSS(srcPath, dstPath, scale));
+    }
 
-// where is spectrum-css?
-// TODO: use resolve package to find node_modules
-const spectrumPaths = [
-    path.resolve(
-        path.join(
-            __dirname,
-            '..',
-            'node_modules',
-            '@spectrum-css',
-            'vars',
-            'dist'
-        )
-    ),
-    path.resolve(
-        path.join(
-            __dirname,
-            '..',
-            'node_modules',
-            '@spectrum-css',
-            'expressvars',
-            'dist'
-        )
-    ),
-];
+    for (const core of cores) {
+        const srcPath = join(spectrumPath, `dist/spectrum-${core}.css`);
+        const dstPath = join(dest, `core-${core}.css`);
+        processes.push(processCSS(srcPath, dstPath, core));
+    }
+}
 
-// sources to use from spectrum-css
-const themes = [
-    'lightest',
-    'light',
-    'dark',
-    'darkest',
-    /*'middark', 'midlight'*/
-];
-const scales = ['medium', 'large'];
-const cores = ['global'];
-const processes = [];
+// Typography
+const typographyPath = dirname(
+    require.resolve('@spectrum-css/typography/package.json')
+);
 
-spectrumPaths.forEach(async (spectrumPath, i) => {
-    const packageDir = ['styles'];
-    const isExpress = i === 1;
-    if (isExpress) packageDir.push('express');
-    themes.forEach(async (theme) => {
-        if (isExpress && ['lightest', 'darkest'].includes(theme)) return;
-        const srcPath = path.join(spectrumPath, `spectrum-${theme}.css`);
-        const dstPath = path.resolve(
-            path.join(
-                __dirname,
-                '..',
-                'packages',
-                ...packageDir,
-                `theme-${theme}.css`
-            )
+// Typography scope
+{
+    const srcPath = join(typographyPath, 'dist/index-vars.css');
+    const dstPath = resolve(join(__dirname, 'packages/styles/typography.css'));
+
+    // typography.css
+    // console.log(`processing typography`);
+    processes.push(processCSS(srcPath, dstPath, 'typography'));
+}
+
+// Fonts scope
+{
+    const srcPath = join(typographyPath, 'font.css');
+    const dstPath = resolve(join(__dirname, 'packages/styles/fonts.css'));
+    // console.log(`processing fonts from commons & typography`);
+    processes.push(processMultiSourceCSS([srcPath], dstPath, ':root '));
+}
+
+console.log();
+await oraPromise(Promise.all(processes), {
+    text: 'Processing Spectrum CSS',
+    spinner: 'simpleDots',
+    successText: (results) => {
+        return (
+            chalk.underline('Spectrum CSS processed') +
+            '\n\n' +
+            columnify(results, {
+                config: {
+                    from: {
+                        dataTransform: (data) => {
+                            return printPath(data, 'node_modules/');
+                        },
+                    },
+                    to: {
+                        dataTransform: (data) => {
+                            return printPath(data, '');
+                        },
+                    },
+                },
+            }) +
+            '\n'
         );
-
-        console.log(`processing theme ${srcPath}`);
-        processes.push(await processCSS(srcPath, dstPath, theme));
-    });
-
-    scales.forEach(async (scale) => {
-        const srcPath = path.join(spectrumPath, `spectrum-${scale}.css`);
-        const dstPath = path.resolve(
-            path.join(
-                __dirname,
-                '..',
-                'packages',
-                ...packageDir,
-                `spectrum-scale-${scale}.css`
-            )
-        );
-        console.log(`processing scale  ${srcPath}`);
-        processes.push(await processCSS(srcPath, dstPath, scale));
-    });
-
-    cores.forEach(async (core) => {
-        const srcPath = path.join(spectrumPath, `spectrum-${core}.css`);
-        const dstPath = path.resolve(
-            path.join(
-                __dirname,
-                '..',
-                'packages',
-                ...packageDir,
-                `core-${core}.css`
-            )
-        );
-        console.log(`processing core ${srcPath}`);
-        processes.push(await processCSS(srcPath, dstPath, core));
-    });
+    },
+    failText: 'Spectrum CSS processing failed',
 });
-
-(async () => {
-    {
-        // Typography
-        const typographyPath = path.join(
-            __dirname,
-            '..',
-            'node_modules',
-            '@spectrum-css',
-            'typography',
-            'dist'
-        );
-        const srcPath = path.join(typographyPath, 'index-vars.css');
-        const dstPath = path.resolve(
-            path.join(__dirname, '..', 'packages', 'styles', 'typography.css')
-        );
-        console.log(`processing typography`);
-        processes.push(await processCSS(srcPath, dstPath, 'typography'));
-    }
-
-    {
-        // Typography
-        const typographyPath = path.join(
-            __dirname,
-            '..',
-            'node_modules',
-            '@spectrum-css',
-            'typography'
-        );
-
-        // Commons
-        const commonsPath = path.join(
-            __dirname,
-            '..',
-            'node_modules',
-            '@spectrum-css',
-            'commons'
-        );
-
-        // typography.css
-        {
-            const srcPath = path.join(typographyPath, 'dist', 'index-vars.css');
-            const dstPath = path.resolve(
-                path.join(
-                    __dirname,
-                    '..',
-                    'packages',
-                    'styles',
-                    'typography.css'
-                )
-            );
-            console.log(`processing typography`);
-            processes.push(await processCSS(srcPath, dstPath, 'typography'));
-        }
-
-        // fonts.css (2 sources so a little tricky)
-        {
-            // const srcPath1 = path.join(commonsPath, 'fonts.css');
-            const srcPath2 = path.join(typographyPath, 'font.css');
-            const dstPath = path.resolve(
-                path.join(__dirname, '..', 'packages', 'styles', 'fonts.css')
-            );
-            console.log(`processing fonts from commons & typography`);
-            processes.push(
-                processMultiSourceCSS([srcPath2], dstPath, ':root ')
-            );
-        }
-    }
-
-    Promise.all(processes).then(() => {
-        console.log('complete.');
-    });
-})();

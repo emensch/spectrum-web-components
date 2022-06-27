@@ -690,7 +690,7 @@ class SpectrumProcessor {
             });
             if (hasCustomProperties) {
                 // eslint-disable-next-line no-console
-                console.log('Apply new :host rule');
+                // console.log('Apply new :host rule');
                 const newSelector = convertedSelectors[0].startsWith(':host')
                     ? convertedSelectors[0].split(' ')[0]
                     : ':host';
