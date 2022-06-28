@@ -17,7 +17,10 @@ import {
     TemplateResult,
 } from '@spectrum-web-components/base';
 import { ifDefined } from '@spectrum-web-components/base/src/directives.js';
-import { property } from '@spectrum-web-components/base/src/decorators.js';
+import {
+    property,
+    query,
+} from '@spectrum-web-components/base/src/decorators.js';
 import { reparentChildren } from '@spectrum-web-components/shared/src/reparent-children.js';
 import { firstFocusableIn } from '@spectrum-web-components/shared/src/first-focusable-in.js';
 import type {
@@ -160,6 +163,9 @@ export class ActiveOverlay extends SpectrumElement {
     @property({ reflect: true, type: Boolean })
     public animating = false;
 
+    @query('#contents')
+    contents!: HTMLDialogElement;
+
     @property({ reflect: true })
     public placement?: Placement;
     @property({ attribute: false })
@@ -275,6 +281,7 @@ export class ActiveOverlay extends SpectrumElement {
 
         this.state = 'active';
         this.feature();
+        (this.querySelector('dialog') as HTMLDialogElement).show();
         if (this.placement === 'none') {
             this.style.setProperty(
                 '--swc-visual-viewport-height',
@@ -409,6 +416,9 @@ export class ActiveOverlay extends SpectrumElement {
         if (!this.placement || this.placement === 'none') {
             return;
         }
+        if (this.state !== 'idle' && this.state !== 'active') {
+            return;
+        }
         await (document.fonts ? document.fonts.ready : Promise.resolve());
 
         function roundByDPR(num: number): number {
@@ -459,7 +469,7 @@ export class ActiveOverlay extends SpectrumElement {
                     const appliedHeight = this.isConstrained
                         ? `${maxHeight}px`
                         : '';
-                    Object.assign(this.style, {
+                    Object.assign(this.contents.style, {
                         maxWidth: `${Math.floor(availableWidth)}px`,
                         maxHeight: appliedHeight,
                         height: appliedHeight,
@@ -472,14 +482,14 @@ export class ActiveOverlay extends SpectrumElement {
         }
         const { x, y, placement, middlewareData } = await computePosition(
             this.virtualTrigger || this.trigger,
-            this,
+            this.contents,
             {
                 placement: this.placement,
                 middleware,
             }
         );
 
-        Object.assign(this.style, {
+        Object.assign(this.contents.style, {
             top: '0px',
             left: '0px',
             transform: `translate(${roundByDPR(x)}px, ${roundByDPR(y)}px)`,
@@ -544,20 +554,20 @@ export class ActiveOverlay extends SpectrumElement {
             return Promise.resolve(true);
         }
         return new Promise((resolve): void => {
-            const contents = this.shadowRoot.querySelector(
-                '#contents'
-            ) as HTMLElement;
             const doneHandler = (event: AnimationEvent): void => {
                 if (animation !== event.animationName) return;
-                contents.removeEventListener('animationend', doneHandler);
-                contents.removeEventListener('animationcancel', doneHandler);
+                this.contents.removeEventListener('animationend', doneHandler);
+                this.contents.removeEventListener(
+                    'animationcancel',
+                    doneHandler
+                );
                 this.animating = false;
                 resolve(event.type === 'animationcancel');
             };
-            contents.addEventListener('animationend', doneHandler);
-            contents.addEventListener('animationcancel', doneHandler);
+            this.contents.addEventListener('animationend', doneHandler);
+            this.contents.addEventListener('animationcancel', doneHandler);
 
-            contents.style.animationName = animation;
+            this.contents.style.animationName = animation;
             this.animating = true;
         });
     }
@@ -579,9 +589,9 @@ export class ActiveOverlay extends SpectrumElement {
 
     public override render(): TemplateResult {
         const content = html`
-            <div id="contents">
+            <dialog id="contents">
                 <slot @slotchange=${this.onSlotChange}></slot>
-            </div>
+            </dialog>
         `;
         return this.hasTheme ? this.renderTheme(content) : content;
     }

@@ -39,29 +39,30 @@ governing permissions and limitations under the License.
     position: absolute;
     display: inline-block;
     pointer-events: none;
-    top: -9999em;
-    left: -9999em;
+    top: 0;
+    left: 0;
+    width: 100%;
 }
 
 :host(:focus) {
     outline: none;
 }
 
-:host([placement='none']) {
-    position: fixed;
-    height: 100vh;
-    height: fill-available;
-    max-height: var(--swc-visual-viewport-height);
-    top: 0;
-    left: 0;
-}
-
 sp-theme,
 #contents {
     height: 100%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
 }
 
 #contents {
+    height: auto;
+    width: auto;
+    right: auto;
+    top: -9999em;
+    left: -9999em;
     display: inline-block;
     pointer-events: none;
     animation-duration: var(
@@ -85,6 +86,16 @@ sp-theme,
         --spectrum-picker-m-texticon-popover-offset-y,
         var(--spectrum-global-dimension-size-75)
     );
+}
+
+:host([placement='none']),
+:host([placement='none']) #contents {
+    position: fixed;
+    height: 100vh;
+    height: fill-available;
+    max-height: var(--swc-visual-viewport-height);
+    top: 0;
+    left: 0;
 }
 
 :host([actual-placement*='top']) #contents {

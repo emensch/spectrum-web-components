@@ -48,6 +48,8 @@ interface ManagedOverlayContent {
     updateComplete?: Promise<boolean>;
 }
 
+const dialogElement = document.createElement('dialog');
+
 export class OverlayStack {
     public overlays: ActiveOverlay[] = [];
 
@@ -56,14 +58,14 @@ export class OverlayStack {
     private handlingResize = false;
     private overlayTimer = new OverlayTimer();
 
-    private canTabTrap = true;
+    private canTabTrap = !('showModal' in dialogElement);
     private trappingInited = false;
     private tabTrapper!: HTMLElement;
     private overlayHolder!: HTMLElement;
     private _eventsAreBound = false;
 
     private initTabTrapping(): void {
-        if (this.trappingInited) return;
+        if (this.trappingInited || !this.canTabTrap) return;
         this.trappingInited = true;
         /* c8 ignore next 4 */
         if (this.document.body.shadowRoot) {
