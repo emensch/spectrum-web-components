@@ -63,10 +63,13 @@ async function main() {
         if (fileName === 'CHANGELOG.md' || /node_modules/.test(mdPath)) {
             continue;
         }
+        const packageName = extractPackageNameRegExp.exec(mdPath)[1];
         let componentName =
             fileName !== 'README.md'
                 ? fileName.replace('.md', '')
-                : extractPackageNameRegExp.exec(mdPath)[1];
+                : packageName;
+        const parent =
+            fileName === 'README.md' ? 'root' : packageName + '-children';
         let componentHeading = componentName;
         let tag = findDeclaration(
             customElements,
@@ -138,7 +141,12 @@ async function main() {
         const body = fs.readFileSync(mdPath);
         fs.writeFileSync(
             exampleDestinationFile,
-            exampleDestinationTemplate(componentName, componentHeading)
+            exampleDestinationTemplate(
+                componentName,
+                componentHeading,
+                parent,
+                packageName
+            )
         );
         fs.writeFileSync(
             examplePartialFile,

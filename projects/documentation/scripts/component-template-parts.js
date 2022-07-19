@@ -204,15 +204,22 @@ ${
 }`;
 }
 
-export function exampleDestinationTemplate(componentName, componentHeading) {
+export function exampleDestinationTemplate(
+    componentName,
+    componentHeading,
+    parent,
+    packageName
+) {
     return `---
 layout: examples.njk
 title: '${nameToTitle(componentName)}: Spectrum Web Components'
 displayName: ${nameToTitle(componentName)}
 componentName: ${componentName}
 componentHeading: ${componentHeading}
+componentPackage: ${packageName}
 tags:
 - component-examples
+- ${parent}
 ---`;
 }
 
