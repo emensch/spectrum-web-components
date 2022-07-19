@@ -26,9 +26,12 @@ import '@spectrum-web-components/sidenav/sp-sidenav.js';
 import '@spectrum-web-components/sidenav/sp-sidenav-item.js';
 import '@spectrum-web-components/underlay/sp-underlay.js';
 import { ifDefined } from '@spectrum-web-components/base/src/directives.js';
+import type { SideNav as Nav } from '@spectrum-web-components/sidenav';
 
 @customElement('docs-side-nav')
 export class SideNav extends LitElement {
+    public override shadowRoot!: ShadowRoot;
+
     public static override get styles(): CSSResultArray {
         return [sideNavStyles];
     }
@@ -53,6 +56,23 @@ export class SideNav extends LitElement {
         target.focus();
     }
 
+    public handleSlotchange({ target }: Event & { target: HTMLSlotElement }) {
+        if (!!target.name) return;
+        const assignedElements = target.assignedElements({ flatten: true });
+        if (!assignedElements.length) return;
+        const { value } = assignedElements[0] as unknown as Nav;
+        const selected = assignedElements[0].querySelector(`[value=${value}]`);
+        if (!selected) return;
+        const { offsetTop } = selected as HTMLElement;
+        const nav = this.shadowRoot.querySelector('.navigation');
+        if (!nav) return;
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                nav.scrollTo(0, offsetTop);
+            });
+        });
+    }
+
     override render(): TemplateResult {
         return html`
             <sp-underlay
@@ -75,7 +95,7 @@ export class SideNav extends LitElement {
                     ></docs-search>
                 </div>
                 <div class="navigation">
-                    <slot></slot>
+                    <slot @slotchange=${this.handleSlotchange}></slot>
                 </div>
             </aside>
         `;
