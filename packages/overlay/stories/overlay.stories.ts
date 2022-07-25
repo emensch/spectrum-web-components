@@ -203,6 +203,24 @@ const template = ({
 
 export const Default = (args: Properties): TemplateResult => template(args);
 
+export const insideScrollingElement = (
+    args: Properties
+): TemplateResult => html`
+    <style>
+        .wrapper-el {
+            overflow: auto;
+            width: 50vw;
+            height: 75vh;
+            float: left;
+        }
+        .wrapper-el > overlay-trigger {
+            display: block;
+            padding: 30vh 0 80vh;
+        }
+    </style>
+    <div class="wrapper-el">${template(args)}</div>
+`;
+
 export const openHoverContent = (args: Properties): TemplateResult =>
     template({
         ...args,

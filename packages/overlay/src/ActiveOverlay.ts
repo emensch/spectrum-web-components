@@ -36,9 +36,11 @@ import {
 import type { VirtualTrigger } from './VirtualTrigger.js';
 import {
     arrow,
+    autoUpdate,
     computePosition,
     flip,
     Placement as FloatingUIPlacement,
+    Middleware,
     offset,
     shift,
     size,
@@ -125,6 +127,16 @@ const getFallbackPlacements = (
     return fallbacks[placement] ?? [placement];
 };
 
+function roundByDPR(num: number): number {
+    const dpr = window.devicePixelRatio || 1;
+    return Math.round(num * dpr) / dpr || -10000;
+}
+
+// See: https://spectrum.adobe.com/page/popover/#Container-padding
+const REQUIRED_DISTANCE_TO_EDGE = 8;
+// See: https://github.com/adobe/spectrum-web-components/issues/910
+const MIN_OVERLAY_HEIGHT = 100;
+
 /**
  * @element active-overlay
  *
@@ -136,7 +148,7 @@ export class ActiveOverlay extends SpectrumElement {
     public trigger!: HTMLElement;
     public root?: HTMLElement;
     public virtualTrigger?: VirtualTrigger;
-
+    private cleanup?: () => void;
     protected childrenReady!: Promise<unknown[]>;
 
     @property()
@@ -286,7 +298,6 @@ export class ActiveOverlay extends SpectrumElement {
                 'sp-update-overlays',
                 this.updateOverlayPosition
             );
-            window.addEventListener('scroll', this.updateOverlayPosition);
         }
         const actions: Promise<unknown>[] = [];
         if (this.placement && this.placement !== 'none') {
@@ -405,26 +416,13 @@ export class ActiveOverlay extends SpectrumElement {
     private initialHeight!: number;
     private isConstrained = false;
 
-    public updateOverlayPosition = async (): Promise<void> => {
-        if (!this.placement || this.placement === 'none') {
-            return;
-        }
-        await (document.fonts ? document.fonts.ready : Promise.resolve());
-
-        function roundByDPR(num: number): number {
-            const dpr = window.devicePixelRatio || 1;
-            return Math.round(num * dpr) / dpr || -10000;
-        }
-
-        // See: https://spectrum.adobe.com/page/popover/#Container-padding
-        const REQUIRED_DISTANCE_TO_EDGE = 8;
-        // See: https://github.com/adobe/spectrum-web-components/issues/910
-        const MIN_OVERLAY_HEIGHT = 100;
-
+    private get middleware(): Middleware[] {
         const flipMiddleware = this.virtualTrigger
             ? flip({
                   padding: REQUIRED_DISTANCE_TO_EDGE,
-                  fallbackPlacements: getFallbackPlacements(this.placement),
+                  fallbackPlacements: getFallbackPlacements(
+                      this.placement as FloatingUIPlacement
+                  ),
               })
             : flip({
                   padding: REQUIRED_DISTANCE_TO_EDGE,
@@ -470,12 +468,17 @@ export class ActiveOverlay extends SpectrumElement {
         if (this.overlayContentTip) {
             middleware.push(arrow({ element: this.overlayContentTip }));
         }
+        return middleware;
+    }
+
+    private positionOverlay = async (): Promise<void> => {
         const { x, y, placement, middlewareData } = await computePosition(
             this.virtualTrigger || this.trigger,
             this,
             {
-                placement: this.placement,
-                middleware,
+                strategy: 'fixed',
+                placement: this.placement as FloatingUIPlacement,
+                middleware: this.middleware,
             }
         );
 
@@ -499,6 +502,23 @@ export class ActiveOverlay extends SpectrumElement {
                 right: '',
                 bottom: '',
             });
+        }
+    };
+
+    public updateOverlayPosition = async (): Promise<void> => {
+        if (!this.placement || this.placement === 'none') {
+            return;
+        }
+        await (document.fonts ? document.fonts.ready : Promise.resolve());
+
+        if (this.cleanup) {
+            await this.positionOverlay();
+        } else {
+            this.cleanup = autoUpdate(
+                this.virtualTrigger || this.trigger,
+                this,
+                this.positionOverlay
+            );
         }
     };
 
@@ -616,7 +636,10 @@ export class ActiveOverlay extends SpectrumElement {
             'sp-update-overlays',
             this.updateOverlayPosition
         );
-        window.removeEventListener('scroll', this.updateOverlayPosition);
+        if (this.cleanup) {
+            this.cleanup();
+            delete this.cleanup;
+        }
         super.disconnectedCallback();
     }
 }
