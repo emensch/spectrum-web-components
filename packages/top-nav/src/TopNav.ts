@@ -21,6 +21,7 @@ import {
 } from '@spectrum-web-components/base';
 import { property } from '@spectrum-web-components/base/src/decorators.js';
 import { ifDefined } from '@spectrum-web-components/base/src/directives.js';
+import { ResizeController } from '@lit-labs/observers/resize_controller.js';
 import { TopNavItem } from './TopNavItem.js';
 
 import tabStyles from '@spectrum-web-components/tabs/src/tabs.css.js';
@@ -71,7 +72,32 @@ export class TopNav extends SizedMixin(SpectrumElement) {
 
     private _selected!: string | undefined;
 
-    protected items: TopNavItem[] = [];
+    protected get items(): TopNavItem[] {
+        return this._items;
+    }
+
+    protected set items(items: TopNavItem[]) {
+        if (items === this.items) return;
+        this.items.forEach((item) => {
+            (
+                this.resizeController as unknown as {
+                    _observer: ResizeObserver;
+                }
+            )._observer.unobserve(item);
+        });
+        items.forEach((item) => {
+            this.resizeController.observe(item);
+        });
+        this._items = items;
+    }
+
+    private _items: TopNavItem[] = [];
+
+    protected resizeController = new ResizeController(this, {
+        callback: () => {
+            this.updateSelectionIndicator();
+        },
+    });
 
     private manageItems(): void {
         this.items = [
@@ -87,11 +113,7 @@ export class TopNav extends SizedMixin(SpectrumElement) {
 
     protected override render(): TemplateResult {
         return html`
-            <div
-                @click=${this.onClick}
-                id="list"
-                @sp-top-nav-item-contentchange=${this.updateSelectionIndicator}
-            >
+            <div @click=${this.onClick} id="list">
                 <slot @slotchange=${this.onSlotChange}></slot>
                 <div
                     id="selection-indicator"
