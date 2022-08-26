@@ -58,6 +58,7 @@ export class OverlayStack {
 
     private canTabTrap = true;
     private trappingInited = false;
+    private trappingTab = false;
     private tabTrapper!: HTMLElement;
     private overlayHolder!: HTMLElement;
     private _eventsAreBound = false;
@@ -158,6 +159,11 @@ export class OverlayStack {
         if (!this.canTabTrap) {
             return;
         }
+        this.trappingTab = true;
+        this.overlays.forEach((overlay) => {
+            if (overlay.interaction !== 'manual') return;
+            overlay.slot = 'open';
+        });
         this.tabTrapper.tabIndex = -1;
         this.tabTrapper.setAttribute('aria-hidden', 'true');
     }
@@ -167,6 +173,10 @@ export class OverlayStack {
         if (!this.canTabTrap || !this.trappingInited) {
             return;
         }
+        this.trappingTab = false;
+        this.overlays.forEach((overlay) => {
+            overlay.toggleAttribute('slot', false);
+        });
         this.tabTrapper.removeAttribute('tabindex');
         this.tabTrapper.removeAttribute('aria-hidden');
     }
@@ -317,6 +327,9 @@ export class OverlayStack {
                     cb = async () => await overlayOpenCallback({ trigger });
                 }
                 await activeOverlay.openCallback(cb);
+                if (this.trappingTab && details.interaction === 'manual') {
+                    activeOverlay.slot = 'open';
+                }
                 return false;
             }
         );
@@ -396,13 +409,16 @@ export class OverlayStack {
         this.overlayTimer.close(content);
         requestAnimationFrame(() => {
             const overlayFromContent = this.findOverlayForContent(content);
-            const overlaysToClose = [overlayFromContent];
-            overlaysToClose.push(
-                ...findOverlaysRootedInOverlay(
-                    overlayFromContent,
-                    this.overlays
-                )
-            );
+            const overlaysToClose = [];
+            if (overlayFromContent) {
+                overlaysToClose.push(overlayFromContent);
+                overlaysToClose.push(
+                    ...findOverlaysRootedInOverlay(
+                        overlayFromContent,
+                        this.overlays
+                    )
+                );
+            }
             overlaysToClose.forEach((overlay) =>
                 this.hideAndCloseOverlay(overlay)
             );
@@ -567,6 +583,9 @@ export class OverlayStack {
     }
 
     private closeTopOverlay(): Promise<void> {
+        if (this.topOverlay?.interaction === 'manual') {
+            return Promise.resolve();
+        }
         return this.hideAndCloseOverlay(this.topOverlay, true);
     }
 

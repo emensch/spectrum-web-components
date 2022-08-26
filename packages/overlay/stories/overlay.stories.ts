@@ -279,6 +279,33 @@ export const replace = (): TemplateResult => {
     `;
 };
 
+export const manual = (): TemplateResult => {
+    return html`
+        <overlay-trigger type="modal" open="click" placement="none">
+            <sp-button slot="trigger">Open</sp-button>
+            <sp-dialog-wrapper
+                dismissable
+                headline="I'm a dialog"
+                slot="click-content"
+                underlay
+            >
+                This is my content.
+            </sp-dialog-wrapper>
+        </overlay-trigger>
+        <overlay-trigger type="manual" open="click">
+            <sp-button slot="trigger">Open</sp-button>
+            <sp-popover slot="click-content">
+                <sp-dialog
+                    style="min-width: 0;width: 150px;--spectrum-dialog-confirm-padding: 10px;"
+                >
+                    <h2 slot="heading">Overlay on top of a modal</h2>
+                    Isn't it great?
+                </sp-dialog>
+            </sp-popover>
+        </overlay-trigger>
+    `;
+};
+
 export const modalLoose = (): TemplateResult => {
     const closeEvent = new Event('close', { bubbles: true, composed: true });
     return html`

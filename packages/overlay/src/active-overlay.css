@@ -43,6 +43,10 @@ governing permissions and limitations under the License.
     left: -9999em;
 }
 
+:host([manual]) {
+    z-index: 1001;
+}
+
 :host(:focus) {
     outline: none;
 }

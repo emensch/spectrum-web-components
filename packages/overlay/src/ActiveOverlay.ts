@@ -232,6 +232,7 @@ export class ActiveOverlay extends SpectrumElement {
         if (parentIsModal) {
             this._modalRoot = parentOverlay._modalRoot || parentOverlay;
         }
+        this.toggleAttribute('manual', this.interaction === 'manual');
         // If an overlay it triggered from within a "modal" overlay, it needs to continue
         // to act like one to get treated correctly in regards to tab trapping.
         if (this.interaction === 'modal' || this._modalRoot) {
@@ -251,7 +252,9 @@ export class ActiveOverlay extends SpectrumElement {
         nextOverlayInteraction: TriggerInteractions
     ): ActiveOverlay | undefined {
         if (this.slot && nextOverlayInteraction === 'modal') {
-            this.removeAttribute('slot');
+            if (this.interaction !== 'manual') {
+                this.removeAttribute('slot');
+            }
             this.removeAttribute('aria-modal');
             // Obscure upto and including the next modal root.
             if (this.interaction !== 'modal') {
@@ -377,8 +380,8 @@ export class ActiveOverlay extends SpectrumElement {
         this.restoreContent = reparentChildren([element], this, {
             position: 'beforeend',
             prepareCallback: (el) => {
-                const slotName = el.slot;
                 const placement = el.placement;
+                const slotName = el.slot;
                 el.removeAttribute('slot');
                 return (el) => {
                     el.slot = slotName;
@@ -555,6 +558,7 @@ export class ActiveOverlay extends SpectrumElement {
                 contents.removeEventListener('animationend', doneHandler);
                 contents.removeEventListener('animationcancel', doneHandler);
                 this.animating = false;
+                contents.style.animationName = '';
                 resolve(event.type === 'animationcancel');
             };
             contents.addEventListener('animationend', doneHandler);

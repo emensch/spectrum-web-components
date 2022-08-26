@@ -286,6 +286,8 @@ export class OverlayTrigger extends SpectrumElement {
                     this.open = event.type;
                 } else if (this.closeHoverOverlay) {
                     event.preventDefault();
+                } else if (this.closeClickOverlay && this.type === 'manual') {
+                    this.handleClose();
                 }
                 return;
             case 'longpress':

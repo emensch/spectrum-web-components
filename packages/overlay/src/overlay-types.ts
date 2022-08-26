@@ -21,11 +21,12 @@ export type TriggerInteractions =
     | 'custom'
     | 'replace'
     | 'inline'
-    | 'modal';
+    | 'modal'
+    | 'manual';
 
 export type OverlayTriggerInteractions = Extract<
     TriggerInteractions,
-    'inline' | 'modal' | 'replace'
+    'inline' | 'modal' | 'replace' | 'manual'
 >;
 
 export interface OverlayOpenDetail {
