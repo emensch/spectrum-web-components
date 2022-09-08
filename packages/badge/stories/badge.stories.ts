@@ -89,12 +89,42 @@ export const Semantic = (): TemplateResult => {
 
 export const NonSemantic = (): TemplateResult => {
     return html`
-        <sp-badge variant="seafoam">Seafoam</sp-badge>
-        <sp-badge variant="indigo">Indigo</sp-badge>
-        <sp-badge variant="purple">Purple</sp-badge>
-        <sp-badge variant="fuchsia">Fuchsia</sp-badge>
-        <sp-badge variant="magenta">Magenta</sp-badge>
-        <sp-badge variant="yellow">Yellow</sp-badge>
+        <sp-badge
+            variant="seafoam"
+            style="--mod-badge-background-color-default: var(--spectrum-global-color-static-seafoam-600)"
+        >
+            Seafoam
+        </sp-badge>
+        <sp-badge
+            variant="indigo"
+            style="--mod-badge-background-color-default: var(--spectrum-global-color-static-indigo-600)"
+        >
+            Indigo
+        </sp-badge>
+        <sp-badge
+            variant="purple"
+            style="--mod-badge-background-color-default: var(--spectrum-global-color-static-purple-600)"
+        >
+            Purple
+        </sp-badge>
+        <sp-badge
+            variant="fuchsia"
+            style="--mod-badge-background-color-default: var(--spectrum-global-color-static-fuchsia-600)"
+        >
+            Fuchsia
+        </sp-badge>
+        <sp-badge
+            variant="magenta"
+            style="--mod-badge-background-color-default: var(--spectrum-global-color-static-magenta-600)"
+        >
+            Magenta
+        </sp-badge>
+        <sp-badge
+            variant="yellow"
+            style="--mod-badge-background-color-default: var(--spectrum-alias-background-color-yellow-default); --mod-badge-label-icon-color-white: var(--spectrum-global-color-static-black);"
+        >
+            Yellow
+        </sp-badge>
     `;
 };
 
@@ -118,25 +148,25 @@ export const Fixed = (): TemplateResult => {
         >
             <sp-badge>None</sp-badge>
             <sp-badge
-                fixed="top"
+                fixed="block-start"
                 style="position: absolute; top: 0; left: 200px;"
             >
                 Top
             </sp-badge>
             <sp-badge
-                fixed="right"
+                fixed="inline-end"
                 style="position: absolute; right: 0; top: 100px;"
             >
                 Right
             </sp-badge>
             <sp-badge
-                fixed="bottom"
+                fixed="block-end"
                 style="position: absolute; bottom: 0; left: 200px;"
             >
                 Bottom
             </sp-badge>
             <sp-badge
-                fixed="left"
+                fixed="inline-start"
                 style="position: absolute; left: 0; top: 100px;"
             >
                 Left
