@@ -288,19 +288,7 @@ export class Menu extends SpectrumElement {
             }
             return el.getAttribute('role') === this.childRole;
         }) as MenuItem;
-        const isNonSelectableLeaf = this.selects == null && !target.hasSubmenu;
-        // eslint-disable-next-line no-console
-        console.log(
-            'this.selects',
-            this.selects,
-            'hasSubmenu:',
-            target.hasSubmenu
-        );
-
         if (target?.href && target.href.length) {
-            return;
-        } else if (isNonSelectableLeaf) {
-            this.commit();
             return;
         } else if (
             target?.menuData.selectionRoot === this &&
@@ -308,6 +296,10 @@ export class Menu extends SpectrumElement {
         ) {
             event.preventDefault();
             if (target.hasSubmenu || target.open) {
+                return;
+            }
+            if (this.selects == null) {
+                this.commit();
                 return;
             }
             this.selectOrToggleItem(target);
