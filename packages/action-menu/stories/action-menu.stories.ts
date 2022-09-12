@@ -132,12 +132,16 @@ export const controlled = (): TemplateResult => {
             // <sp-menu-item ?selected=${this.isSomethingSelected}>
             item.selected = state[prop];
             // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-            document.getElementById('state-json')!.textContent =
-                JSON.stringify(state);
+            document.getElementById(
+                'state-json'
+            )!.textContent = `application state: ${JSON.stringify(state)}`;
         };
     }
     return html`
         <sp-action-menu label="View">
+            <sp-menu-item @click=${() => alert('action')}>
+                Non-selectable action
+            </sp-menu-item>
             <sp-menu-item ?selected=${state.snap} @click=${toggle('snap')}>
                 Snap
             </sp-menu-item>
