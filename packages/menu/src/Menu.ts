@@ -275,8 +275,6 @@ export class Menu extends SpectrumElement {
     }
 
     private onClick(event: Event): void {
-        // eslint-disable-next-line no-console
-        console.log('onClick');
         if (event.defaultPrevented) {
             return;
         }
@@ -312,8 +310,6 @@ export class Menu extends SpectrumElement {
     protected async commit(): Promise<void> {
         // containers like action-menu depend on events
         // to know when to close
-        // eslint-disable-next-line no-console
-        console.log('dispatch commit');
         await this.updateComplete;
         this.dispatchEvent(
             new Event('commit', {
