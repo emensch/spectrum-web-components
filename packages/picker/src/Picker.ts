@@ -201,6 +201,12 @@ export class PickerBase extends SizedMixin(Focusable) {
         this.setValueFromItem(selected, event);
     }
 
+    public handleCommit(_event: Event): void {
+        // eslint-disable-next-line no-console
+        console.log('commit');
+        this.open = false;
+    }
+
     protected onKeydown = (event: KeyboardEvent): void => {
         this.focused = true;
         if (event.code !== 'ArrowDown' && event.code !== 'ArrowUp') {
@@ -458,7 +464,7 @@ export class PickerBase extends SizedMixin(Focusable) {
                     this,
                     `You no longer need to provide an <sp-menu> child to ${localName}. Any styling or attributes on the <sp-menu> will be ignored.`,
                     'https://opensource.adobe.com/spectrum-web-components/components/picker/#sizes',
-                    { level: 'deprecation' },
+                    { level: 'deprecation' }
                 );
             }
         }
@@ -484,6 +490,7 @@ export class PickerBase extends SizedMixin(Focusable) {
                 id="menu"
                 role="${this.listRole}"
                 @change=${this.handleChange}
+                @commit=${this.handleCommit}
                 .selects=${this.selects}
             ></sp-menu>
             ${this.dismissHelper}
@@ -556,6 +563,8 @@ export class PickerBase extends SizedMixin(Focusable) {
     }
 
     protected async manageSelection(): Promise<void> {
+        if (this.selects == null) return;
+
         await this.menuStatePromise;
         this.selectionPromise = new Promise(
             (res) => (this.selectionResolver = res)

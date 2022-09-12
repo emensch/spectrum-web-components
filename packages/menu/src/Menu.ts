@@ -275,6 +275,8 @@ export class Menu extends SpectrumElement {
     }
 
     private onClick(event: Event): void {
+        // eslint-disable-next-line no-console
+        console.log('onClick');
         if (event.defaultPrevented) {
             return;
         }
@@ -286,7 +288,19 @@ export class Menu extends SpectrumElement {
             }
             return el.getAttribute('role') === this.childRole;
         }) as MenuItem;
+        const isNonSelectableLeaf = this.selects == null && !target.hasSubmenu;
+        // eslint-disable-next-line no-console
+        console.log(
+            'this.selects',
+            this.selects,
+            'hasSubmenu:',
+            target.hasSubmenu
+        );
+
         if (target?.href && target.href.length) {
+            return;
+        } else if (isNonSelectableLeaf) {
+            this.commit();
             return;
         } else if (
             target?.menuData.selectionRoot === this &&
@@ -301,6 +315,21 @@ export class Menu extends SpectrumElement {
             return;
         }
         this.prepareToCleanUp();
+    }
+
+    protected async commit(): Promise<void> {
+        // containers like action-menu depend on events
+        // to know when to close
+        // eslint-disable-next-line no-console
+        console.log('dispatch commit');
+        await this.updateComplete;
+        this.dispatchEvent(
+            new Event('commit', {
+                bubbles: true,
+                composed: true,
+            })
+        );
+        return;
     }
 
     public handleFocusin(event: FocusEvent): void {

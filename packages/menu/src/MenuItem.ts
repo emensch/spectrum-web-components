@@ -439,6 +439,16 @@ export class MenuItem extends LikeAnchor(Focusable) {
             once: true,
         });
         popover.addEventListener('change', closeSubmenu);
+        popover.addEventListener(
+            'commit',
+            () => {
+                this.dispatchEvent(
+                    new Event('commit', { bubbles: true, composed: true })
+                );
+                closeSubmenu();
+            },
+            { once: true }
+        );
     }
 
     updateAriaSelected(): void {
