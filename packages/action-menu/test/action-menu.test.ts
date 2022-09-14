@@ -267,11 +267,47 @@ describe('Action menu', () => {
             'initially selected item should maintain selection'
         ).to.be.true;
     });
-    it('allows top-level items to be selected', async () => {
+    it('allows top-level selection state to change', async () => {
         const root = await actionSubmenuFixture();
+        const unselectedItem = root.querySelector('sp-menu-item') as MenuItem;
         const selectedItem = root.querySelector('.selected-item') as MenuItem;
 
+        selectedItem.addEventListener('click', () => {
+            selectedItem.selected = false;
+        });
+
+        expect(unselectedItem.innerHTML).to.equal('One');
+        expect(unselectedItem.selected).to.be.false;
         expect(selectedItem.innerHTML).to.equal('Two');
         expect(selectedItem.selected).to.be.true;
+
+        let opened = oneEvent(root, 'sp-opened');
+        root.click();
+        await opened;
+
+        // close by clicking selected
+        // (with event listener: should set selected = false)
+        let closed = oneEvent(root, 'sp-closed');
+        selectedItem.click();
+        await closed;
+
+        opened = oneEvent(root, 'sp-opened');
+        root.click();
+        await opened;
+
+        // close by clicking unselected
+        // (no event listener: should remain selected = false)
+        closed = oneEvent(root, 'sp-closed');
+        unselectedItem.click();
+        await closed;
+
+        opened = oneEvent(root, 'sp-opened');
+        root.click();
+        await opened;
+
+        expect(unselectedItem.innerHTML).to.equal('One');
+        expect(unselectedItem.selected).to.be.false;
+        expect(selectedItem.innerHTML).to.equal('Two');
+        expect(selectedItem.selected).to.be.false;
     });
 });
