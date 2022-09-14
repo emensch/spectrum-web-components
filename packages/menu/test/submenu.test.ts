@@ -910,3 +910,85 @@ describe('Submenu', () => {
         expect(activeOverlays.length).to.equal(0);
     });
 });
+
+// describe('Submenu w/ undefined "selects"', () => {
+//     it('does not change selection', async () => {
+//         const rootChanged = spy();
+//         const submenuChanged = spy();
+//         const el = await styledFixture<Menu>(
+//             html`
+//                 <sp-menu
+//                     @change=${(event: Event & { target: Menu }) => {
+//                         rootChanged(event.target.value);
+//                     }}
+//                 >
+//                     <sp-menu-item class="root">
+//                         Has submenu
+//                         <sp-menu
+//                             slot="submenu"
+//                             @change=${(event: Event & { target: Menu }) => {
+//                                 submenuChanged(event.target.value);
+//                             }}
+//                         >
+//                             <sp-menu-item class="submenu-item-1">
+//                                 One
+//                             </sp-menu-item>
+//                             <sp-menu-item class="submenu-item-2">
+//                                 Two
+//                             </sp-menu-item>
+//                             <sp-menu-item class="submenu-item-3">
+//                                 Three
+//                             </sp-menu-item>
+//                         </sp-menu>
+//                     </sp-menu-item>
+//                 </sp-menu>
+//             `
+//         );
+
+//         const rootItem = el.querySelector('.root') as MenuItem;
+//         const rootItemBoundingRect = rootItem.getBoundingClientRect();
+//         expect(rootItem.open).to.be.false;
+//         expect(el.value).to.equal('');
+
+//         const opened = oneEvent(rootItem, 'sp-opened');
+//         sendMouse({
+//             steps: [
+//                 {
+//                     type: 'move',
+//                     position: [
+//                         rootItemBoundingRect.left +
+//                             rootItemBoundingRect.width / 2,
+//                         rootItemBoundingRect.top +
+//                             rootItemBoundingRect.height / 2,
+//                     ],
+//                 },
+//             ],
+//         });
+//         await opened;
+
+//         expect(rootItem.open).to.be.true;
+
+//         const item2 = document.querySelector('.submenu-item-2') as MenuItem;
+//         const item2BoundingRect = item2.getBoundingClientRect();
+
+//         const closed = oneEvent(rootItem, 'sp-closed');
+//         sendMouse({
+//             steps: [
+//                 {
+//                     type: 'click',
+//                     position: [
+//                         item2BoundingRect.left + item2BoundingRect.width / 2,
+//                         item2BoundingRect.top + item2BoundingRect.height / 2,
+//                     ],
+//                 },
+//             ],
+//         });
+//         await closed;
+//         await nextFrame();
+
+//         expect(rootChanged.calledWith('Has submenu'), 'root changed').to.be
+//             .false;
+//         expect(submenuChanged.calledWith('Two'), 'submenu changed').to.be.false;
+//         expect(el.value).to.equal('');
+//     });
+// });

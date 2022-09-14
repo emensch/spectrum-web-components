@@ -201,11 +201,11 @@ export class PickerBase extends SizedMixin(Focusable) {
         this.setValueFromItem(selected, event);
     }
 
-    public handleCommit(_event: Event): void {
-        // eslint-disable-next-line no-console
-        console.log('commit');
-        this.open = false;
-    }
+    // public handleCommit(_event: Event): void {
+    //     // eslint-disable-next-line no-console
+    //     console.log('commit');
+    //     this.open = false;
+    // }
 
     protected onKeydown = (event: KeyboardEvent): void => {
         this.focused = true;
@@ -490,7 +490,6 @@ export class PickerBase extends SizedMixin(Focusable) {
                 id="menu"
                 role="${this.listRole}"
                 @change=${this.handleChange}
-                @commit=${this.handleCommit}
                 .selects=${this.selects}
             ></sp-menu>
             ${this.dismissHelper}

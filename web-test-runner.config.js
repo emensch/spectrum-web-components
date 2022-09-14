@@ -84,7 +84,7 @@ export default {
     protocol: 'https:',
     concurrency: 4,
     concurrentBrowsers: 1,
-    testsFinishTimeout: 30000,
+    testsFinishTimeout: 60000,
     coverageConfig: {
         report: true,
         reportDir: 'coverage',
@@ -137,5 +137,5 @@ export default {
         }, []),
     ],
     group: 'unit',
-    browsers: [chromium, firefox, webkit],
+    browsers: [chromium], //, firefox, webkit],
 };

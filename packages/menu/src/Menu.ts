@@ -296,10 +296,10 @@ export class Menu extends SpectrumElement {
             if (target.hasSubmenu || target.open) {
                 return;
             }
-            if (this.selects == null) {
-                this.commit();
-                return;
-            }
+            // if (this.selects == null) {
+            //     this.commit();
+            //     return;
+            // }
             this.selectOrToggleItem(target);
         } else {
             return;
@@ -307,18 +307,18 @@ export class Menu extends SpectrumElement {
         this.prepareToCleanUp();
     }
 
-    protected async commit(): Promise<void> {
-        // containers like action-menu depend on events
-        // to know when to close
-        await this.updateComplete;
-        this.dispatchEvent(
-            new Event('commit', {
-                bubbles: true,
-                composed: true,
-            })
-        );
-        return;
-    }
+    // protected async commit(): Promise<void> {
+    //     // containers like action-menu depend on events
+    //     // to know when to close
+    //     await this.updateComplete;
+    //     this.dispatchEvent(
+    //         new Event('commit', {
+    //             bubbles: true,
+    //             composed: true,
+    //         })
+    //     );
+    //     return;
+    // }
 
     public handleFocusin(event: FocusEvent): void {
         const isOrContainsRelatedTarget = elementIsOrContains(
