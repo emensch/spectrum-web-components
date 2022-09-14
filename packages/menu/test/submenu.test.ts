@@ -51,6 +51,7 @@ describe('Submenu', () => {
         const el = await styledFixture<Menu>(
             html`
                 <sp-menu
+                    selects="single"
                     @change=${(event: Event & { target: Menu }) => {
                         rootChanged(event.target.value);
                     }}
@@ -58,6 +59,7 @@ describe('Submenu', () => {
                     <sp-menu-item class="root">
                         Has submenu
                         <sp-menu
+                            selects="inherit"
                             slot="submenu"
                             @change=${(event: Event & { target: Menu }) => {
                                 submenuChanged(event.target.value);
