@@ -137,5 +137,5 @@ export default {
         }, []),
     ],
     group: 'unit',
-    browsers: [chromium], //, firefox, webkit],
+    browsers: [chromium, firefox, webkit],
 };
