@@ -319,7 +319,7 @@ export class PickerBase extends SizedMixin(Focusable) {
                     selected?: boolean;
                 }
             ) => {
-                if (this.value === el.value) {
+                if (this.selects != null && this.value === el.value) {
                     el.selected = true;
                 }
                 return (el) => {
