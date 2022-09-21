@@ -25,6 +25,9 @@ export default () =>
                 // code exmple documentation in the site.
                 selector: 'pre',
                 fn: (node) => {
+                    if (!node.content) {
+                        return node;
+                    }
                     const code = node.content[0];
                     if (code && code.tag === 'code') {
                         node.content[0] = {
@@ -36,9 +39,10 @@ export default () =>
                             },
                         };
                         return {
+                            ...node,
                             tag: 'code-example',
-                            content: node.content,
                             attrs: {
+                                ...node.attrs,
                                 ...code.attrs,
                                 preprocessed: 'preprocessed',
                             },
