@@ -4034,10 +4034,10 @@
   resolved "https://registry.yarnpkg.com/@spectrum-css/expressvars/-/expressvars-2.0.0.tgz#462c1679df96d515780b3ee7fea2b8bccbd901bc"
   integrity sha512-K8hwoWOHcZTwLo6P3Itvl/ggZ+GChFyNoj5Rvlgj8R9/p62Eb9Vp9UDx2Mcg1zCJN2sBZAiqhYRQM+WawRtx5w==
 
-"@spectrum-css/fieldgroup@4.0.0-beta.0":
-  version "4.0.0-beta.0"
-  resolved "https://registry.yarnpkg.com/@spectrum-css/fieldgroup/-/fieldgroup-4.0.0-beta.0.tgz#d234fb5ed1d4ed0a7ae2b1a7101ebbfd321735c1"
-  integrity sha512-Chhv5cBReJdCZCIp3i1OxXkFcBTpjjoeCHAD+c+iGznFIlnCh4RiYAEWzWkMuEAiNGVJ2lMtj7Ok+PXcJMGwpw==
+"@spectrum-css/fieldgroup@4.0.0-beta.1":
+  version "4.0.0-beta.1"
+  resolved "https://registry.yarnpkg.com/@spectrum-css/fieldgroup/-/fieldgroup-4.0.0-beta.1.tgz#ca9da4b726d1b9694f61b8033abab3b36bf108c7"
+  integrity sha512-MZSum5Y8GRPm5qlZ6e7OeVeBT58ov+rH7s8R4Pp63pIsDFVrVZ6dK0naSFzXQ8CZwswlhae96IO7n/7IrxWjxw==
 
 "@spectrum-css/fieldlabel@^4.0.29":
   version "4.0.29"

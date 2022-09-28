@@ -33,20 +33,21 @@ governing permissions and limitations under the License.
     display: flex; /* .spectrum-FieldGroupInputLayout */
     flex-wrap: wrap;
 }
-.spectrum-FieldGroupInputLayout--vertical {
-    flex-direction: column; /* .spectrum-FieldGroupInputLayout--vertical */
+:host([vertical]) .spectrum-FieldGroupInputLayout {
+    flex-direction: column; /* .spectrum-FieldGroup--vertical .spectrum-FieldGroupInputLayout */
 }
-.spectrum-FieldGroupInputLayout--horizontal {
-    flex-direction: row; /* .spectrum-FieldGroupInputLayout--horizontal */
+:host([horizontal]) .spectrum-FieldGroupInputLayout {
+    flex-direction: row; /* .spectrum-FieldGroup--horizontal .spectrum-FieldGroupInputLayout */
 }
-.spectrum-FieldGroupInputLayout--horizontal
+:host([horizontal])
+    .spectrum-FieldGroupInputLayout
     slot:not([name])::slotted(:not(:last-child)) {
     margin-inline-end: var(
         --spectrum-fieldgroup-margin
-    ); /* .spectrum-FieldGroupInputLayout--horizontal .spectrum-FieldGroup-item:not(:last-child) */
+    ); /* .spectrum-FieldGroup--horizontal .spectrum-FieldGroupInputLayout .spectrum-FieldGroup-item:not(:last-child) */
 }
-.spectrum-FieldGroupInputLayout--horizontal .spectrum-HelpText {
-    flex-basis: 100%; /* .spectrum-FieldGroupInputLayout--horizontal .spectrum-HelpText */
+:host([horizontal]) .spectrum-FieldGroupInputLayout .spectrum-HelpText {
+    flex-basis: 100%; /* .spectrum-FieldGroup--horizontal .spectrum-FieldGroupInputLayout .spectrum-HelpText */
 }
 .spectrum-Checkbox.is-readOnly .spectrum-Checkbox-box {
     display: none; /* .spectrum-FieldGroup .spectrum-Checkbox.is-readOnly .spectrum-Checkbox-box */
