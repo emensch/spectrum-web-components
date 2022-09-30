@@ -77,7 +77,7 @@ export class SideNavItem extends LikeAnchor(Focusable) {
         if (!this.href && event) {
             event.preventDefault();
         }
-        if (!this.disabled) {
+        if (!this.disabled && !this.href) {
             if (this.hasChildren) {
                 this.expanded = !this.expanded;
             } else if (this.value) {
