@@ -62,7 +62,7 @@
         "tslib": "^2.0.0"
     },
     "devDependencies": {
-        "@spectrum-css/actionbar": "^5.0.0-beta.0"
+        "@spectrum-css/actionbar": "^5.0.0-beta.2"
     },
     "types": "./src/index.d.ts",
     "customElements": "custom-elements.json",
