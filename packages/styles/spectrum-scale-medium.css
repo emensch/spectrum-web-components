@@ -295,19 +295,6 @@ governing permissions and limitations under the License.
     --spectrum-badge-l-neutral-textonly-text-padding-top: var(
         --spectrum-global-dimension-size-115
     );
-    --spectrum-button-s-primary-fill-textonly-text-padding-bottom: var(
-        --spectrum-global-dimension-static-size-65
-    );
-    --spectrum-button-m-primary-fill-texticon-padding-left: var(
-        --spectrum-global-dimension-size-175
-    );
-    --spectrum-button-l-primary-fill-textonly-text-padding-top: var(
-        --spectrum-global-dimension-size-115
-    );
-    --spectrum-button-xl-primary-fill-texticon-padding-left: 21px;
-    --spectrum-button-m-primary-outline-texticon-padding-left: var(
-        --spectrum-global-dimension-size-175
-    );
     --spectrum-checkbox-l-text-padding-top: var(
         --spectrum-global-dimension-size-115
     );
