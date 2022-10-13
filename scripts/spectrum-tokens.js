@@ -31,6 +31,7 @@ const tokensRoot = path.join(
 
 const tokenPackages = [
     'actionbutton',
+    'button',
     'closebutton',
     'helptext',
     'radio',
