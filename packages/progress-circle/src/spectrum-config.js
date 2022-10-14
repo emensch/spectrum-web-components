@@ -12,6 +12,7 @@ governing permissions and limitations under the License.
 
 const config = {
     spectrum: 'progresscircle',
+    package: 'progress-circle',
     components: [
         {
             name: 'progress-circle',

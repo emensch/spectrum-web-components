@@ -12,6 +12,7 @@ governing permissions and limitations under the License.
 
 const config = {
     spectrum: 'tooltip',
+    package: 'tooltip',
     components: [
         {
             name: 'tooltip',

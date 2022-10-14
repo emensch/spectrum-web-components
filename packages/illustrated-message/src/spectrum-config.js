@@ -11,6 +11,7 @@ governing permissions and limitations under the License.
 
 const config = {
     spectrum: 'illustratedmessage',
+    package: 'illustrated-message',
     components: [
         {
             name: 'illustratedmessage',

@@ -10,4 +10,669 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-/* THIS FILE IS MACHINE GENERATED. DO NOT EDIT */
+/*THIS FILE IS MACHINE GENERATED. DO NOT EDIT*/
+.spectrum-Table {
+    /*.spectrum-Table*/
+    border-collapse: separate;
+    border-spacing: 0;
+}
+.spectrum-Table--sizeS {
+    /*.spectrum-Table--sizeS*/
+    --spectrum-table-compact-quiet-border-radius: var(
+        --spectrum-table-s-compact-quiet-border-radius,
+        var(--spectrum-global-dimension-static-size-0)
+    );
+    --spectrum-table-compact-header-border-radius: var(
+        --spectrum-table-s-compact-header-border-radius,
+        var(--spectrum-global-dimension-static-size-0)
+    );
+    --spectrum-table-compact-cell-border-radius-key-focus: var(
+        --spectrum-table-s-compact-cell-border-radius-key-focus,
+        var(--spectrum-alias-border-radius-regular)
+    );
+    --spectrum-table-compact-divider-border-size: var(
+        --spectrum-table-s-compact-divider-border-size,
+        var(--spectrum-alias-border-size-thin)
+    );
+    --spectrum-table-compact-header-text-size: var(
+        --spectrum-table-s-compact-header-text-size,
+        var(--spectrum-global-dimension-font-size-50)
+    );
+    --spectrum-table-compact-header-text-font-weight: var(
+        --spectrum-table-s-compact-header-text-font-weight,
+        var(--spectrum-alias-detail-text-font-weight-regular)
+    );
+    --spectrum-table-compact-header-text-letter-spacing: var(
+        --spectrum-table-s-compact-header-text-letter-spacing,
+        var(--spectrum-global-font-letter-spacing-medium)
+    );
+    --spectrum-table-compact-header-text-line-height: var(
+        --spectrum-table-s-compact-header-text-line-height,
+        var(--spectrum-alias-heading-text-line-height)
+    );
+    --spectrum-table-compact-header-sort-icon-gap: var(
+        --spectrum-table-s-compact-header-sort-icon-gap,
+        var(--spectrum-global-dimension-size-125)
+    );
+    --spectrum-table-compact-header-min-height: var(
+        --spectrum-table-s-compact-header-min-height,
+        var(--spectrum-global-dimension-size-400)
+    );
+    --spectrum-table-compact-header-padding-top: var(
+        --spectrum-table-s-compact-header-padding-top,
+        var(--spectrum-global-dimension-static-size-125)
+    );
+    --spectrum-table-compact-header-padding-bottom: var(
+        --spectrum-table-s-compact-header-padding-bottom,
+        var(--spectrum-global-dimension-static-size-125)
+    );
+    --spectrum-table-compact-header-padding-left: var(
+        --spectrum-table-s-compact-header-padding-left,
+        var(--spectrum-global-dimension-static-size-200)
+    );
+    --spectrum-table-compact-header-padding-right: var(
+        --spectrum-table-s-compact-header-padding-right,
+        var(--spectrum-global-dimension-static-size-200)
+    );
+    --spectrum-table-compact-cell-text-size: var(
+        --spectrum-table-s-compact-cell-text-size,
+        var(--spectrum-global-dimension-font-size-75)
+    );
+    --spectrum-table-compact-cell-text-font-weight: var(
+        --spectrum-table-s-compact-cell-text-font-weight,
+        var(--spectrum-alias-body-text-font-weight)
+    );
+    --spectrum-table-compact-cell-text-line-height: var(
+        --spectrum-table-s-compact-cell-text-line-height,
+        var(--spectrum-alias-component-text-line-height)
+    );
+    --spectrum-table-compact-cell-checkbox-padding-right: var(
+        --spectrum-table-s-compact-cell-checkbox-padding-right,
+        var(--spectrum-global-dimension-size-100)
+    );
+    --spectrum-table-compact-cell-checkbox-vertical-alignment: var(
+        --spectrum-table-s-compact-cell-checkbox-vertical-alignment,
+        middle
+    );
+    --spectrum-table-compact-cell-min-height: var(
+        --spectrum-table-s-compact-cell-min-height,
+        var(--spectrum-global-dimension-size-300)
+    );
+    --spectrum-table-compact-cell-padding-top: var(
+        --spectrum-table-s-compact-cell-padding-top,
+        var(--spectrum-global-dimension-size-50)
+    );
+    --spectrum-table-compact-cell-padding-bottom: var(
+        --spectrum-table-s-compact-cell-padding-bottom,
+        var(--spectrum-global-dimension-size-50)
+    );
+    --spectrum-table-compact-cell-padding-left: var(
+        --spectrum-table-s-compact-cell-padding-left,
+        var(--spectrum-global-dimension-static-size-200)
+    );
+    --spectrum-table-compact-cell-padding-right: var(
+        --spectrum-table-s-compact-cell-padding-right,
+        var(--spectrum-global-dimension-static-size-200)
+    );
+    --spectrum-table-compact-cell-vertical-alignment: var(
+        --spectrum-table-s-compact-cell-vertical-alignment,
+        top
+    );
+    --spectrum-table-compact-border-radius: var(
+        --spectrum-table-s-compact-border-radius,
+        var(--spectrum-alias-border-radius-regular)
+    );
+    --spectrum-table-compact-border-size: var(
+        --spectrum-table-s-compact-border-size,
+        var(--spectrum-alias-border-size-thin)
+    );
+    --spectrum-table-regular-quiet-border-radius: var(
+        --spectrum-table-s-regular-quiet-border-radius,
+        var(--spectrum-global-dimension-static-size-0)
+    );
+    --spectrum-table-regular-header-border-radius: var(
+        --spectrum-table-s-regular-header-border-radius,
+        var(--spectrum-global-dimension-static-size-0)
+    );
+    --spectrum-table-regular-cell-border-radius-key-focus: var(
+        --spectrum-table-s-regular-cell-border-radius-key-focus,
+        var(--spectrum-alias-border-radius-regular)
+    );
+    --spectrum-table-regular-divider-border-size: var(
+        --spectrum-table-s-regular-divider-border-size,
+        var(--spectrum-alias-border-size-thin)
+    );
+    --spectrum-table-regular-header-text-size: var(
+        --spectrum-table-s-regular-header-text-size,
+        var(--spectrum-global-dimension-font-size-50)
+    );
+    --spectrum-table-regular-header-text-font-weight: var(
+        --spectrum-table-s-regular-header-text-font-weight,
+        var(--spectrum-alias-detail-text-font-weight-regular)
+    );
+    --spectrum-table-regular-header-text-letter-spacing: var(
+        --spectrum-table-s-regular-header-text-letter-spacing,
+        var(--spectrum-global-font-letter-spacing-medium)
+    );
+    --spectrum-table-regular-header-text-line-height: var(
+        --spectrum-table-s-regular-header-text-line-height,
+        var(--spectrum-alias-heading-text-line-height)
+    );
+    --spectrum-table-regular-header-sort-icon-gap: var(
+        --spectrum-table-s-regular-header-sort-icon-gap,
+        var(--spectrum-global-dimension-size-125)
+    );
+    --spectrum-table-regular-header-min-height: var(
+        --spectrum-table-s-regular-header-min-height,
+        var(--spectrum-global-dimension-size-400)
+    );
+    --spectrum-table-regular-header-padding-top: var(
+        --spectrum-table-s-regular-header-padding-top,
+        var(--spectrum-global-dimension-static-size-125)
+    );
+    --spectrum-table-regular-header-padding-bottom: var(
+        --spectrum-table-s-regular-header-padding-bottom,
+        var(--spectrum-global-dimension-static-size-125)
+    );
+    --spectrum-table-regular-header-padding-left: var(
+        --spectrum-table-s-regular-header-padding-left,
+        var(--spectrum-global-dimension-static-size-200)
+    );
+    --spectrum-table-regular-header-padding-right: var(
+        --spectrum-table-s-regular-header-padding-right,
+        var(--spectrum-global-dimension-static-size-200)
+    );
+    --spectrum-table-regular-cell-text-size: var(
+        --spectrum-table-s-regular-cell-text-size,
+        var(--spectrum-global-dimension-font-size-75)
+    );
+    --spectrum-table-regular-cell-text-font-weight: var(
+        --spectrum-table-s-regular-cell-text-font-weight,
+        var(--spectrum-alias-body-text-font-weight)
+    );
+    --spectrum-table-regular-cell-text-line-height: var(
+        --spectrum-table-s-regular-cell-text-line-height,
+        var(--spectrum-alias-component-text-line-height)
+    );
+    --spectrum-table-regular-cell-checkbox-padding-right: var(
+        --spectrum-table-s-regular-cell-checkbox-padding-right,
+        var(--spectrum-global-dimension-size-100)
+    );
+    --spectrum-table-regular-cell-checkbox-vertical-alignment: var(
+        --spectrum-table-s-regular-cell-checkbox-vertical-alignment,
+        middle
+    );
+    --spectrum-table-regular-cell-min-height: var(
+        --spectrum-table-s-regular-cell-min-height,
+        var(--spectrum-global-dimension-size-400)
+    );
+    --spectrum-table-regular-cell-padding-top: var(
+        --spectrum-table-s-regular-cell-padding-top,
+        var(--spectrum-global-dimension-size-85)
+    );
+    --spectrum-table-regular-cell-padding-bottom: var(
+        --spectrum-table-s-regular-cell-padding-bottom,
+        var(--spectrum-global-dimension-size-85)
+    );
+    --spectrum-table-regular-cell-padding-left: var(
+        --spectrum-table-s-regular-cell-padding-left,
+        var(--spectrum-global-dimension-static-size-200)
+    );
+    --spectrum-table-regular-cell-padding-right: var(
+        --spectrum-table-s-regular-cell-padding-right,
+        var(--spectrum-global-dimension-static-size-200)
+    );
+    --spectrum-table-regular-cell-vertical-alignment: var(
+        --spectrum-table-s-regular-cell-vertical-alignment,
+        top
+    );
+    --spectrum-table-regular-border-radius: var(
+        --spectrum-table-s-regular-border-radius,
+        var(--spectrum-alias-border-radius-regular)
+    );
+    --spectrum-table-regular-border-size: var(
+        --spectrum-table-s-regular-border-size,
+        var(--spectrum-alias-border-size-thin)
+    );
+    --spectrum-table-spacious-quiet-border-radius: var(
+        --spectrum-table-s-spacious-quiet-border-radius,
+        var(--spectrum-global-dimension-static-size-0)
+    );
+    --spectrum-table-spacious-header-border-radius: var(
+        --spectrum-table-s-spacious-header-border-radius,
+        var(--spectrum-global-dimension-static-size-0)
+    );
+    --spectrum-table-spacious-cell-border-radius-key-focus: var(
+        --spectrum-table-s-spacious-cell-border-radius-key-focus,
+        var(--spectrum-alias-border-radius-regular)
+    );
+    --spectrum-table-spacious-divider-border-size: var(
+        --spectrum-table-s-spacious-divider-border-size,
+        var(--spectrum-alias-border-size-thin)
+    );
+    --spectrum-table-spacious-header-text-size: var(
+        --spectrum-table-s-spacious-header-text-size,
+        var(--spectrum-global-dimension-font-size-50)
+    );
+    --spectrum-table-spacious-header-text-font-weight: var(
+        --spectrum-table-s-spacious-header-text-font-weight,
+        var(--spectrum-alias-detail-text-font-weight-regular)
+    );
+    --spectrum-table-spacious-header-text-letter-spacing: var(
+        --spectrum-table-s-spacious-header-text-letter-spacing,
+        var(--spectrum-global-font-letter-spacing-medium)
+    );
+    --spectrum-table-spacious-header-text-line-height: var(
+        --spectrum-table-s-spacious-header-text-line-height,
+        var(--spectrum-alias-heading-text-line-height)
+    );
+    --spectrum-table-spacious-header-sort-icon-gap: var(
+        --spectrum-table-s-spacious-header-sort-icon-gap,
+        var(--spectrum-global-dimension-size-125)
+    );
+    --spectrum-table-spacious-header-min-height: var(
+        --spectrum-table-s-spacious-header-min-height,
+        var(--spectrum-global-dimension-size-400)
+    );
+    --spectrum-table-spacious-header-padding-top: var(
+        --spectrum-table-s-spacious-header-padding-top,
+        var(--spectrum-global-dimension-static-size-125)
+    );
+    --spectrum-table-spacious-header-padding-bottom: var(
+        --spectrum-table-s-spacious-header-padding-bottom,
+        var(--spectrum-global-dimension-static-size-125)
+    );
+    --spectrum-table-spacious-header-padding-left: var(
+        --spectrum-table-s-spacious-header-padding-left,
+        var(--spectrum-global-dimension-static-size-200)
+    );
+    --spectrum-table-spacious-header-padding-right: var(
+        --spectrum-table-s-spacious-header-padding-right,
+        var(--spectrum-global-dimension-static-size-200)
+    );
+    --spectrum-table-spacious-cell-text-size: var(
+        --spectrum-table-s-spacious-cell-text-size,
+        var(--spectrum-global-dimension-font-size-75)
+    );
+    --spectrum-table-spacious-cell-text-font-weight: var(
+        --spectrum-table-s-spacious-cell-text-font-weight,
+        var(--spectrum-alias-body-text-font-weight)
+    );
+    --spectrum-table-spacious-cell-text-line-height: var(
+        --spectrum-table-s-spacious-cell-text-line-height,
+        var(--spectrum-alias-component-text-line-height)
+    );
+    --spectrum-table-spacious-cell-checkbox-padding-right: var(
+        --spectrum-table-s-spacious-cell-checkbox-padding-right,
+        var(--spectrum-global-dimension-size-100)
+    );
+    --spectrum-table-spacious-cell-checkbox-vertical-alignment: var(
+        --spectrum-table-s-spacious-cell-checkbox-vertical-alignment,
+        middle
+    );
+    --spectrum-table-spacious-cell-min-height: var(
+        --spectrum-table-s-spacious-cell-min-height,
+        var(--spectrum-global-dimension-size-500)
+    );
+    --spectrum-table-spacious-cell-padding-top: var(
+        --spectrum-table-s-spacious-cell-padding-top,
+        var(--spectrum-global-dimension-size-125)
+    );
+    --spectrum-table-spacious-cell-padding-bottom: var(
+        --spectrum-table-s-spacious-cell-padding-bottom,
+        var(--spectrum-global-dimension-size-125)
+    );
+    --spectrum-table-spacious-cell-padding-left: var(
+        --spectrum-table-s-spacious-cell-padding-left,
+        var(--spectrum-global-dimension-static-size-200)
+    );
+    --spectrum-table-spacious-cell-padding-right: var(
+        --spectrum-table-s-spacious-cell-padding-right,
+        var(--spectrum-global-dimension-static-size-200)
+    );
+    --spectrum-table-spacious-cell-vertical-alignment: var(
+        --spectrum-table-s-spacious-cell-vertical-alignment,
+        top
+    );
+    --spectrum-table-spacious-border-radius: var(
+        --spectrum-table-s-spacious-border-radius,
+        var(--spectrum-alias-border-radius-regular)
+    );
+    --spectrum-table-spacious-border-size: var(
+        --spectrum-table-s-spacious-border-size,
+        var(--spectrum-alias-border-size-thin)
+    );
+}
+.spectrum-Table--sizeM {
+    /*.spectrum-Table--sizeM*/
+    --spectrum-table-compact-quiet-border-radius: var(
+        --spectrum-table-m-compact-quiet-border-radius,
+        var(--spectrum-global-dimension-static-size-0)
+    );
+    --spectrum-table-compact-header-border-radius: var(
+        --spectrum-table-m-compact-header-border-radius,
+        var(--spectrum-global-dimension-static-size-0)
+    );
+    --spectrum-table-compact-cell-border-radius-key-focus: var(
+        --spectrum-table-m-compact-cell-border-radius-key-focus,
+        var(--spectrum-alias-border-radius-regular)
+    );
+    --spectrum-table-compact-divider-border-size: var(
+        --spectrum-table-m-compact-divider-border-size,
+        var(--spectrum-alias-border-size-thin)
+    );
+    --spectrum-table-compact-header-text-size: var(
+        --spectrum-table-m-compact-header-text-size,
+        var(--spectrum-global-dimension-font-size-50)
+    );
+    --spectrum-table-compact-header-text-font-weight: var(
+        --spectrum-table-m-compact-header-text-font-weight,
+        var(--spectrum-alias-detail-text-font-weight-regular)
+    );
+    --spectrum-table-compact-header-text-letter-spacing: var(
+        --spectrum-table-m-compact-header-text-letter-spacing,
+        var(--spectrum-global-font-letter-spacing-medium)
+    );
+    --spectrum-table-compact-header-text-line-height: var(
+        --spectrum-table-m-compact-header-text-line-height,
+        var(--spectrum-alias-heading-text-line-height)
+    );
+    --spectrum-table-compact-header-sort-icon-gap: var(
+        --spectrum-table-m-compact-header-sort-icon-gap,
+        var(--spectrum-global-dimension-size-125)
+    );
+    --spectrum-table-compact-header-min-height: var(
+        --spectrum-table-m-compact-header-min-height,
+        var(--spectrum-global-dimension-size-400)
+    );
+    --spectrum-table-compact-header-padding-top: var(
+        --spectrum-table-m-compact-header-padding-top,
+        var(--spectrum-global-dimension-static-size-125)
+    );
+    --spectrum-table-compact-header-padding-bottom: var(
+        --spectrum-table-m-compact-header-padding-bottom,
+        var(--spectrum-global-dimension-static-size-125)
+    );
+    --spectrum-table-compact-header-padding-left: var(
+        --spectrum-table-m-compact-header-padding-left,
+        var(--spectrum-global-dimension-static-size-200)
+    );
+    --spectrum-table-compact-header-padding-right: var(
+        --spectrum-table-m-compact-header-padding-right,
+        var(--spectrum-global-dimension-static-size-200)
+    );
+    --spectrum-table-compact-cell-text-size: var(
+        --spectrum-table-m-compact-cell-text-size,
+        var(--spectrum-global-dimension-font-size-100)
+    );
+    --spectrum-table-compact-cell-text-font-weight: var(
+        --spectrum-table-m-compact-cell-text-font-weight,
+        var(--spectrum-alias-body-text-font-weight)
+    );
+    --spectrum-table-compact-cell-text-line-height: var(
+        --spectrum-table-m-compact-cell-text-line-height,
+        var(--spectrum-alias-component-text-line-height)
+    );
+    --spectrum-table-compact-cell-checkbox-padding-right: var(
+        --spectrum-table-m-compact-cell-checkbox-padding-right,
+        var(--spectrum-global-dimension-size-100)
+    );
+    --spectrum-table-compact-cell-checkbox-vertical-alignment: var(
+        --spectrum-table-m-compact-cell-checkbox-vertical-alignment,
+        middle
+    );
+    --spectrum-table-compact-cell-min-height: var(
+        --spectrum-table-m-compact-cell-min-height,
+        var(--spectrum-global-dimension-size-400)
+    );
+    --spectrum-table-compact-cell-padding-top: var(
+        --spectrum-table-m-compact-cell-padding-top,
+        var(--spectrum-global-dimension-size-85)
+    );
+    --spectrum-table-compact-cell-padding-bottom: var(
+        --spectrum-table-m-compact-cell-padding-bottom,
+        var(--spectrum-global-dimension-size-85)
+    );
+    --spectrum-table-compact-cell-padding-left: var(
+        --spectrum-table-m-compact-cell-padding-left,
+        var(--spectrum-global-dimension-static-size-200)
+    );
+    --spectrum-table-compact-cell-padding-right: var(
+        --spectrum-table-m-compact-cell-padding-right,
+        var(--spectrum-global-dimension-static-size-200)
+    );
+    --spectrum-table-compact-cell-vertical-alignment: var(
+        --spectrum-table-m-compact-cell-vertical-alignment,
+        top
+    );
+    --spectrum-table-compact-border-radius: var(
+        --spectrum-table-m-compact-border-radius,
+        var(--spectrum-alias-border-radius-regular)
+    );
+    --spectrum-table-compact-border-size: var(
+        --spectrum-table-m-compact-border-size,
+        var(--spectrum-alias-border-size-thin)
+    );
+    --spectrum-table-regular-quiet-border-radius: var(
+        --spectrum-table-m-regular-quiet-border-radius,
+        var(--spectrum-global-dimension-static-size-0)
+    );
+    --spectrum-table-regular-header-border-radius: var(
+        --spectrum-table-m-regular-header-border-radius,
+        var(--spectrum-global-dimension-static-size-0)
+    );
+    --spectrum-table-regular-cell-border-radius-key-focus: var(
+        --spectrum-table-m-regular-cell-border-radius-key-focus,
+        var(--spectrum-alias-border-radius-regular)
+    );
+    --spectrum-table-regular-divider-border-size: var(
+        --spectrum-table-m-regular-divider-border-size,
+        var(--spectrum-alias-border-size-thin)
+    );
+    --spectrum-table-regular-header-text-size: var(
+        --spectrum-table-m-regular-header-text-size,
+        var(--spectrum-global-dimension-font-size-50)
+    );
+    --spectrum-table-regular-header-text-font-weight: var(
+        --spectrum-table-m-regular-header-text-font-weight,
+        var(--spectrum-alias-detail-text-font-weight-regular)
+    );
+    --spectrum-table-regular-header-text-letter-spacing: var(
+        --spectrum-table-m-regular-header-text-letter-spacing,
+        var(--spectrum-global-font-letter-spacing-medium)
+    );
+    --spectrum-table-regular-header-text-line-height: var(
+        --spectrum-table-m-regular-header-text-line-height,
+        var(--spectrum-alias-heading-text-line-height)
+    );
+    --spectrum-table-regular-header-sort-icon-gap: var(
+        --spectrum-table-m-regular-header-sort-icon-gap,
+        var(--spectrum-global-dimension-size-125)
+    );
+    --spectrum-table-regular-header-min-height: var(
+        --spectrum-table-m-regular-header-min-height,
+        var(--spectrum-global-dimension-size-400)
+    );
+    --spectrum-table-regular-header-padding-top: var(
+        --spectrum-table-m-regular-header-padding-top,
+        var(--spectrum-global-dimension-static-size-125)
+    );
+    --spectrum-table-regular-header-padding-bottom: var(
+        --spectrum-table-m-regular-header-padding-bottom,
+        var(--spectrum-global-dimension-static-size-125)
+    );
+    --spectrum-table-regular-header-padding-left: var(
+        --spectrum-table-m-regular-header-padding-left,
+        var(--spectrum-global-dimension-static-size-200)
+    );
+    --spectrum-table-regular-header-padding-right: var(
+        --spectrum-table-m-regular-header-padding-right,
+        var(--spectrum-global-dimension-static-size-200)
+    );
+    --spectrum-table-regular-cell-text-size: var(
+        --spectrum-table-m-regular-cell-text-size,
+        var(--spectrum-global-dimension-font-size-100)
+    );
+    --spectrum-table-regular-cell-text-font-weight: var(
+        --spectrum-table-m-regular-cell-text-font-weight,
+        var(--spectrum-alias-body-text-font-weight)
+    );
+    --spectrum-table-regular-cell-text-line-height: var(
+        --spectrum-table-m-regular-cell-text-line-height,
+        var(--spectrum-alias-component-text-line-height)
+    );
+    --spectrum-table-regular-cell-checkbox-padding-right: var(
+        --spectrum-table-m-regular-cell-checkbox-padding-right,
+        var(--spectrum-global-dimension-size-100)
+    );
+    --spectrum-table-regular-cell-checkbox-vertical-alignment: var(
+        --spectrum-table-m-regular-cell-checkbox-vertical-alignment,
+        middle
+    );
+    --spectrum-table-regular-cell-min-height: var(
+        --spectrum-table-m-regular-cell-min-height,
+        var(--spectrum-global-dimension-size-500)
+    );
+    --spectrum-table-regular-cell-padding-top: var(
+        --spectrum-table-m-regular-cell-padding-top,
+        var(--spectrum-global-dimension-size-130)
+    );
+    --spectrum-table-regular-cell-padding-bottom: var(
+        --spectrum-table-m-regular-cell-padding-bottom,
+        var(--spectrum-global-dimension-size-130)
+    );
+    --spectrum-table-regular-cell-padding-left: var(
+        --spectrum-table-m-regular-cell-padding-left,
+        var(--spectrum-global-dimension-static-size-200)
+    );
+    --spectrum-table-regular-cell-padding-right: var(
+        --spectrum-table-m-regular-cell-padding-right,
+        var(--spectrum-global-dimension-static-size-200)
+    );
+    --spectrum-table-regular-cell-vertical-alignment: var(
+        --spectrum-table-m-regular-cell-vertical-alignment,
+        top
+    );
+    --spectrum-table-regular-border-radius: var(
+        --spectrum-table-m-regular-border-radius,
+        var(--spectrum-alias-border-radius-regular)
+    );
+    --spectrum-table-regular-border-size: var(
+        --spectrum-table-m-regular-border-size,
+        var(--spectrum-alias-border-size-thin)
+    );
+    --spectrum-table-spacious-quiet-border-radius: var(
+        --spectrum-table-m-spacious-quiet-border-radius,
+        var(--spectrum-global-dimension-static-size-0)
+    );
+    --spectrum-table-spacious-header-border-radius: var(
+        --spectrum-table-m-spacious-header-border-radius,
+        var(--spectrum-global-dimension-static-size-0)
+    );
+    --spectrum-table-spacious-cell-border-radius-key-focus: var(
+        --spectrum-table-m-spacious-cell-border-radius-key-focus,
+        var(--spectrum-alias-border-radius-regular)
+    );
+    --spectrum-table-spacious-divider-border-size: var(
+        --spectrum-table-m-spacious-divider-border-size,
+        var(--spectrum-alias-border-size-thin)
+    );
+    --spectrum-table-spacious-header-text-size: var(
+        --spectrum-table-m-spacious-header-text-size,
+        var(--spectrum-global-dimension-font-size-50)
+    );
+    --spectrum-table-spacious-header-text-font-weight: var(
+        --spectrum-table-m-spacious-header-text-font-weight,
+        var(--spectrum-alias-detail-text-font-weight-regular)
+    );
+    --spectrum-table-spacious-header-text-letter-spacing: var(
+        --spectrum-table-m-spacious-header-text-letter-spacing,
+        var(--spectrum-global-font-letter-spacing-medium)
+    );
+    --spectrum-table-spacious-header-text-line-height: var(
+        --spectrum-table-m-spacious-header-text-line-height,
+        var(--spectrum-alias-heading-text-line-height)
+    );
+    --spectrum-table-spacious-header-sort-icon-gap: var(
+        --spectrum-table-m-spacious-header-sort-icon-gap,
+        var(--spectrum-global-dimension-size-125)
+    );
+    --spectrum-table-spacious-header-min-height: var(
+        --spectrum-table-m-spacious-header-min-height,
+        var(--spectrum-global-dimension-size-400)
+    );
+    --spectrum-table-spacious-header-padding-top: var(
+        --spectrum-table-m-spacious-header-padding-top,
+        var(--spectrum-global-dimension-static-size-125)
+    );
+    --spectrum-table-spacious-header-padding-bottom: var(
+        --spectrum-table-m-spacious-header-padding-bottom,
+        var(--spectrum-global-dimension-static-size-125)
+    );
+    --spectrum-table-spacious-header-padding-left: var(
+        --spectrum-table-m-spacious-header-padding-left,
+        var(--spectrum-global-dimension-static-size-200)
+    );
+    --spectrum-table-spacious-header-padding-right: var(
+        --spectrum-table-m-spacious-header-padding-right,
+        var(--spectrum-global-dimension-static-size-200)
+    );
+    --spectrum-table-spacious-cell-text-size: var(
+        --spectrum-table-m-spacious-cell-text-size,
+        var(--spectrum-global-dimension-font-size-100)
+    );
+    --spectrum-table-spacious-cell-text-font-weight: var(
+        --spectrum-table-m-spacious-cell-text-font-weight,
+        var(--spectrum-alias-body-text-font-weight)
+    );
+    --spectrum-table-spacious-cell-text-line-height: var(
+        --spectrum-table-m-spacious-cell-text-line-height,
+        var(--spectrum-alias-component-text-line-height)
+    );
+    --spectrum-table-spacious-cell-checkbox-padding-right: var(
+        --spectrum-table-m-spacious-cell-checkbox-padding-right,
+        var(--spectrum-global-dimension-size-100)
+    );
+    --spectrum-table-spacious-cell-checkbox-vertical-alignment: var(
+        --spectrum-table-m-spacious-cell-checkbox-vertical-alignment,
+        middle
+    );
+    --spectrum-table-spacious-cell-min-height: var(
+        --spectrum-table-m-spacious-cell-min-height,
+        var(--spectrum-global-dimension-size-600)
+    );
+    --spectrum-table-spacious-cell-padding-top: var(
+        --spectrum-table-m-spacious-cell-padding-top,
+        var(--spectrum-global-dimension-size-185)
+    );
+    --spectrum-table-spacious-cell-padding-bottom: var(
+        --spectrum-table-m-spacious-cell-padding-bottom,
+        var(--spectrum-global-dimension-size-185)
+    );
+    --spectrum-table-spacious-cell-padding-left: var(
+        --spectrum-table-m-spacious-cell-padding-left,
+        var(--spectrum-global-dimension-static-size-200)
+    );
+    --spectrum-table-spacious-cell-padding-right: var(
+        --spectrum-table-m-spacious-cell-padding-right,
+        var(--spectrum-global-dimension-static-size-200)
+    );
+    --spectrum-table-spacious-cell-vertical-alignment: var(
+        --spectrum-table-m-spacious-cell-vertical-alignment,
+        top
+    );
+    --spectrum-table-spacious-border-radius: var(
+        --spectrum-table-m-spacious-border-radius,
+        var(--spectrum-alias-border-radius-regular)
+    );
+    --spectrum-table-spacious-border-size: var(
+        --spectrum-table-m-spacious-border-size,
+        var(--spectrum-alias-border-size-thin)
+    );
+}
+.spectrum-Table-checkbox,
+.spectrum-Table--compact .spectrum-Table-checkbox,
+.spectrum-Table--spacious .spectrum-Table-checkbox {
+    /*.spectrum-Table--spacious .spectrum-Table-checkbox*/
+    vertical-align: super;
+}

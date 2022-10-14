@@ -10,13 +10,14 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-/* THIS FILE IS MACHINE GENERATED. DO NOT EDIT */
+/*THIS FILE IS MACHINE GENERATED. DO NOT EDIT*/
 @keyframes pulse {
     0% {
         opacity: var(
             --spectrum-coachmark-animation-indicator-keyframe-0-opacity,
             0
         );
+        /*0%*/
         -webkit-transform: scale(
             var(--spectrum-coachmark-animation-indicator-keyframe-0-scale, 1)
         );
@@ -26,6 +27,7 @@ governing permissions and limitations under the License.
             --spectrum-coachmark-animation-indicator-keyframe-50-opacity,
             1
         );
+        /*50%*/
         -webkit-transform: scale(
             var(--spectrum-coachmark-animation-indicator-keyframe-50-scale, 1.5)
         );
@@ -35,6 +37,7 @@ governing permissions and limitations under the License.
             --spectrum-coachmark-animation-indicator-keyframe-100-opacity,
             0
         );
+        /*100%*/
         -webkit-transform: scale(
             var(--spectrum-coachmark-animation-indicator-keyframe-100-scale, 2)
         );
@@ -46,6 +49,7 @@ governing permissions and limitations under the License.
             --spectrum-coachmark-animation-indicator-keyframe-0-opacity,
             0
         );
+        /*0%*/
         -webkit-transform: scale(
             var(
                 --spectrum-coachmark-quiet-animation-indicator-keyframe-0-scale,
@@ -58,6 +62,7 @@ governing permissions and limitations under the License.
             --spectrum-coachmark-animation-indicator-keyframe-50-opacity,
             1
         );
+        /*50%*/
         -webkit-transform: scale(
             var(--spectrum-coachmark-animation-indicator-keyframe-50-scale, 1.5)
         );
@@ -67,23 +72,142 @@ governing permissions and limitations under the License.
             --spectrum-coachmark-animation-indicator-keyframe-100-opacity,
             0
         );
+        /*100%*/
         -webkit-transform: scale(
             var(--spectrum-coachmark-animation-indicator-keyframe-100-scale, 2)
         );
     }
 }
-:host([dir='ltr']) .spectrum-CoachMarkPopover-footer {
-    text-align: right; /* [dir=ltr] .spectrum-CoachMarkPopover-footer */
+.spectrum-CoachMarkPopover {
+    border-radius: var(
+        --spectrum-coachmark-border-radius,
+        var(--spectrum-alias-border-radius-regular)
+    );
+    border-style: solid;
+    border-width: var(
+        --spectrum-coachmark-border-size,
+        var(--spectrum-alias-border-size-thin)
+    );
+    max-width: var(
+        --spectrum-coachmark-max-width,
+        var(--spectrum-global-dimension-size-5000)
+    );
+    min-width: var(
+        --spectrum-coachmark-min-width,
+        var(--spectrum-global-dimension-size-3400)
+    );
+    /*.spectrum-CoachMarkPopover*/
+    position: relative;
 }
-:host([dir='rtl']) .spectrum-CoachMarkPopover-footer {
-    text-align: left; /* [dir=rtl] .spectrum-CoachMarkPopover-footer */
+.spectrum-CoachMarkPopover-image {
+    /*.spectrum-CoachMarkPopover-image*/
+    border-radius: var(
+            --spectrum-coachmark-border-radius,
+            var(--spectrum-alias-border-radius-regular)
+        )
+        var(
+            --spectrum-coachmark-border-radius,
+            var(--spectrum-alias-border-radius-regular)
+        )
+        0 0;
+    width: 100%;
+}
+.spectrum-CoachMarkPopover-content,
+.spectrum-CoachMarkPopover-footer,
+.spectrum-CoachMarkPopover-header {
+    padding-bottom: 0;
+    padding-left: var(
+        --spectrum-coachmark-padding-x,
+        var(--spectrum-global-dimension-size-300)
+    );
+    padding-right: var(
+        --spectrum-coachmark-padding-x,
+        var(--spectrum-global-dimension-size-300)
+    );
+    /*.spectrum-CoachMarkPopover-header,
+.spectrum-CoachMarkPopover-content,
+.spectrum-CoachMarkPopover-footer*/
+    padding-top: 0;
+}
+.spectrum-CoachMarkPopover-header {
+    /*.spectrum-CoachMarkPopover-header*/
+    padding-top: var(
+        --spectrum-coachmark-padding-y,
+        var(--spectrum-global-dimension-size-300)
+    );
+}
+.spectrum-CoachMarkPopover-footer {
+    /*.spectrum-CoachMarkPopover-footer*/
+    padding-bottom: var(
+        --spectrum-coachmark-padding-y,
+        var(--spectrum-global-dimension-size-300)
+    );
+}
+.spectrum-CoachMarkPopover-header {
+    align-items: flex-end;
+    /*.spectrum-CoachMarkPopover-header*/
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(
+        --spectrum-coachmark-title-margin-bottom,
+        var(--spectrum-global-dimension-size-200)
+    );
+}
+.spectrum-CoachMarkPopover-title {
+    /*.spectrum-CoachMarkPopover-title*/
+    font-size: var(
+        --spectrum-coachmark-title-text-size,
+        var(--spectrum-alias-heading-xs-text-size)
+    );
+    font-weight: var(
+        --spectrum-coachmark-title-text-font-weight,
+        var(--spectrum-alias-heading-text-font-weight-regular)
+    );
+    line-height: var(
+        --spectrum-coachmark-title-text-line-height,
+        var(--spectrum-alias-heading-text-line-height)
+    );
+    margin-bottom: 0;
+}
+.spectrum-CoachMarkPopover-step {
+    /*.spectrum-CoachMarkPopover-step*/
+    align-self: start;
+    font-size: var(
+        --spectrum-coachmark-step-text-size,
+        var(--spectrum-global-dimension-font-size-100)
+    );
+    font-weight: var(
+        --spectrum-coachmark-step-text-font-weight,
+        var(--spectrum-alias-body-text-font-weight)
+    );
+    line-height: var(
+        --spectrum-coachmark-step-text-line-height,
+        var(--spectrum-alias-body-text-line-height)
+    );
+    white-space: nowrap;
+}
+.spectrum-CoachMarkPopover-content {
+    /*.spectrum-CoachMarkPopover-content*/
+    margin-bottom: var(
+        --spectrum-coachmark-content-margin-bottom,
+        var(--spectrum-global-dimension-size-200)
+    );
+}
+.spectrum-CoachMarkPopover-footer {
+    /*.spectrum-CoachMarkPopover-footer*/
+    margin-top: 0;
+    /*[dir="ltr"] .spectrum-CoachMarkPopover-footer*/
+    text-align: right;
+    /*[dir="rtl"] .spectrum-CoachMarkPopover-footer*/
+    text-align: left;
 }
 :host {
     margin: var(
         --spectrum-coachmark-indicator-gap,
         var(--spectrum-global-dimension-size-75)
     );
-    position: relative; /* .spectrum-CoachMarkIndicator */
+    /*.spectrum-CoachMarkIndicator*/
+    position: relative;
 }
 .ring {
     border-radius: 50%;
@@ -92,26 +216,29 @@ governing permissions and limitations under the License.
         --spectrum-coachmark-indicator-ring-border-size,
         var(--spectrum-global-dimension-static-size-25)
     );
-    display: block; /* .spectrum-CoachMarkIndicator-ring */
+    /*.spectrum-CoachMarkIndicator-ring*/
+    display: block;
     position: absolute;
 }
 .ring:nth-child(2) {
+    /*.spectrum-CoachMarkIndicator-ring:nth-child(2)*/
     animation-delay: calc(
         var(--spectrum-coachmark-animation-indicator-ring-duration, 3s) *
             var(
                 --spectrum-coachmark-animation-indicator-ring-center-delay-multiple,
                 -0.66
             )
-    ); /* .spectrum-CoachMarkIndicator-ring:nth-child(2) */
+    );
 }
 .ring:nth-child(3) {
+    /*.spectrum-CoachMarkIndicator-ring:nth-child(3)*/
     animation-delay: calc(
         var(--spectrum-coachmark-animation-indicator-ring-duration, 3s) *
             var(
                 --spectrum-coachmark-animation-indicator-ring-outer-delay-multiple,
                 -1
             )
-    ); /* .spectrum-CoachMarkIndicator-ring:nth-child(3) */
+    );
 }
 :host {
     min-height: calc(
@@ -120,28 +247,13 @@ governing permissions and limitations under the License.
                 var(--spectrum-global-dimension-size-200)
             ) * 3
     );
+    /*.spectrum-CoachMarkIndicator*/
     min-width: calc(
         var(
                 --spectrum-coachmark-indicator-ring-diameter,
                 var(--spectrum-global-dimension-size-200)
             ) * 3
-    ); /* .spectrum-CoachMarkIndicator */
-}
-:host([dir='ltr']) .ring {
-    left: calc(
-        var(
-                --spectrum-coachmark-indicator-ring-diameter,
-                var(--spectrum-global-dimension-size-200)
-            ) * 0.75
-    ); /* [dir=ltr] .spectrum-CoachMarkIndicator-ring */
-}
-:host([dir='rtl']) .ring {
-    right: calc(
-        var(
-                --spectrum-coachmark-indicator-ring-diameter,
-                var(--spectrum-global-dimension-size-200)
-            ) * 0.75
-    ); /* [dir=rtl] .spectrum-CoachMarkIndicator-ring */
+    );
 }
 .ring {
     animation: pulse
@@ -151,57 +263,76 @@ governing permissions and limitations under the License.
         --spectrum-coachmark-indicator-ring-diameter,
         var(--spectrum-global-dimension-size-200)
     );
+    /*[dir="ltr"] .spectrum-CoachMarkIndicator-ring*/
+    left: calc(
+        var(
+                --spectrum-coachmark-indicator-ring-diameter,
+                var(--spectrum-global-dimension-size-200)
+            ) * 0.75
+    );
+    /*[dir="rtl"] .spectrum-CoachMarkIndicator-ring*/
+    right: calc(
+        var(
+                --spectrum-coachmark-indicator-ring-diameter,
+                var(--spectrum-global-dimension-size-200)
+            ) * 0.75
+    );
+    /*.spectrum-CoachMarkIndicator-ring*/
     top: calc(
         var(
                 --spectrum-coachmark-indicator-ring-diameter,
                 var(--spectrum-global-dimension-size-200)
             ) * 0.75
-    ); /* .spectrum-CoachMarkIndicator-ring */
+    );
     width: var(
         --spectrum-coachmark-indicator-ring-diameter,
         var(--spectrum-global-dimension-size-200)
     );
 }
 .ring:first-child {
+    /*.spectrum-CoachMarkIndicator-ring:nth-child(1)*/
     animation-delay: calc(
         var(--spectrum-coachmark-animation-indicator-ring-duration, 3s) *
             var(
                 --spectrum-coachmark-animation-indicator-ring-inner-delay-multiple,
                 -0.5
             )
-    ); /* .spectrum-CoachMarkIndicator-ring:nth-child(1) */
+    );
 }
-:host([quiet]) {
+:host(:where([quiet])) {
     min-height: calc(
         var(
                 --spectrum-coachmark-quiet-indicator-ring-diameter,
                 var(--spectrum-global-dimension-size-100)
             ) * 2.75
     );
+    /*.spectrum-CoachMarkIndicator--quiet*/
     min-width: calc(
         var(
                 --spectrum-coachmark-quiet-indicator-ring-diameter,
                 var(--spectrum-global-dimension-size-100)
             ) * 2.75
-    ); /* .spectrum-CoachMarkIndicator--quiet */
+    );
 }
-:host([dir='ltr'][quiet]) .ring {
+:host(:where([dir='ltr'])) [quiet] .ring {
+    /*[dir="ltr"] .spectrum-CoachMarkIndicator--quiet .spectrum-CoachMarkIndicator-ring*/
     left: calc(
         var(
                 --spectrum-coachmark-quiet-indicator-ring-diameter,
                 var(--spectrum-global-dimension-size-100)
             ) * 0.75
-    ); /* [dir=ltr] .spectrum-CoachMarkIndicator--quiet .spectrum-CoachMarkIndicator-ring */
+    );
 }
-:host([dir='rtl'][quiet]) .ring {
+:host(:where([dir='rtl'])) [quiet] .ring {
+    /*[dir="rtl"] .spectrum-CoachMarkIndicator--quiet .spectrum-CoachMarkIndicator-ring*/
     right: calc(
         var(
                 --spectrum-coachmark-quiet-indicator-ring-diameter,
                 var(--spectrum-global-dimension-size-100)
             ) * 0.75
-    ); /* [dir=rtl] .spectrum-CoachMarkIndicator--quiet .spectrum-CoachMarkIndicator-ring */
+    );
 }
-:host([quiet]) .ring {
+:host(:where([quiet])) .ring {
     animation: pulse--quiet
         var(--spectrum-coachmark-animation-indicator-ring-duration, 3s) linear
         infinite;
@@ -209,41 +340,83 @@ governing permissions and limitations under the License.
         --spectrum-coachmark-quiet-indicator-ring-diameter,
         var(--spectrum-global-dimension-size-100)
     );
+    /*.spectrum-CoachMarkIndicator--quiet .spectrum-CoachMarkIndicator-ring*/
     top: calc(
         var(
                 --spectrum-coachmark-quiet-indicator-ring-diameter,
                 var(--spectrum-global-dimension-size-100)
             ) * 0.75
-    ); /* .spectrum-CoachMarkIndicator--quiet .spectrum-CoachMarkIndicator-ring */
+    );
     width: var(
         --spectrum-coachmark-quiet-indicator-ring-diameter,
         var(--spectrum-global-dimension-size-100)
     );
 }
-:host([quiet]) .ring:first-child {
+:host(:where([quiet])) .ring:first-child {
+    /*.spectrum-CoachMarkIndicator--quiet .spectrum-CoachMarkIndicator-ring:nth-child(1)*/
     animation-delay: calc(
         var(--spectrum-coachmark-animation-indicator-ring-duration, 3s) *
             var(
                 --spectrum-coachmark-quiet-animation-indicator-ring-inner-delay-multiple,
                 -0.33
             )
-    ); /* .spectrum-CoachMarkIndicator--quiet .spectrum-CoachMarkIndicator-ring:nth-child(1) */
+    );
+}
+.spectrum-CoachMarkPopover {
+    /*.spectrum-CoachMarkPopover*/
+    background-color: var(
+        --spectrum-coachmark-background-color,
+        var(--spectrum-global-color-gray-50)
+    );
+    border-color: var(
+        --spectrum-coachmark-border-color,
+        var(--spectrum-alias-border-color-dark)
+    );
+    box-shadow: 0 1px 4px
+        var(
+            --spectrum-coachmark-shadow-color,
+            var(--spectrum-alias-dropshadow-color)
+        );
+}
+.spectrum-CoachMarkPopover-title {
+    /*.spectrum-CoachMarkPopover-title*/
+    color: var(
+        --spectrum-coachmark-title-text-color,
+        var(--spectrum-alias-heading-text-color)
+    );
+}
+.spectrum-CoachMarkPopover-step {
+    /*.spectrum-CoachMarkPopover-step*/
+    color: var(
+        --spectrum-coachmark-step-text-color,
+        var(--spectrum-alias-label-text-color)
+    );
+}
+.spectrum-CoachMarkPopover-content {
+    /*.spectrum-CoachMarkPopover-content*/
+    color: var(
+        --spectrum-coachmark-content-text-color,
+        var(--spectrum-alias-text-color)
+    );
 }
 .ring {
+    /*.spectrum-CoachMarkIndicator-ring*/
     border-color: var(
         --spectrum-coachmark-indicator-ring-default-color,
         var(--spectrum-alias-focus-color)
-    ); /* .spectrum-CoachMarkIndicator-ring */
+    );
 }
-:host([variant='light']) .ring {
+:host(:where([variant='light'])) .ring {
+    /*.spectrum-CoachMarkIndicator--light .spectrum-CoachMarkIndicator-ring*/
     border-color: var(
         --spectrum-coachmark-indicator-ring-low-contrast-color,
         var(--spectrum-global-color-gray-50)
-    ); /* .spectrum-CoachMarkIndicator--light .spectrum-CoachMarkIndicator-ring */
+    );
 }
-:host([variant='dark']) .ring {
+:host(:where([variant='dark'])) .ring {
+    /*.spectrum-CoachMarkIndicator--dark .spectrum-CoachMarkIndicator-ring*/
     border-color: var(
         --spectrum-coachmark-indicator-ring-high-contrast-color,
         var(--spectrum-global-color-gray-900)
-    ); /* .spectrum-CoachMarkIndicator--dark .spectrum-CoachMarkIndicator-ring */
+    );
 }

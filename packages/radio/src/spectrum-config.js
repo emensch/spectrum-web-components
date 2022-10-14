@@ -12,6 +12,7 @@ governing permissions and limitations under the License.
 
 const config = {
     spectrum: 'radio',
+    package: 'radio',
     components: [
         {
             name: 'radio',
@@ -24,14 +25,6 @@ const config = {
                     type: 'boolean',
                     name: 'label-below',
                     selector: '.spectrum-Radio--labelBelow',
-                },
-                {
-                    type: 'boolean',
-                    selector: ':disabled',
-                },
-                {
-                    type: 'boolean',
-                    selector: ':checked',
                 },
                 {
                     type: 'boolean',

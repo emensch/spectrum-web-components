@@ -12,6 +12,7 @@ governing permissions and limitations under the License.
 
 const config = {
     spectrum: 'helptext',
+    package: 'help-text',
     components: [
         {
             name: 'help-text',

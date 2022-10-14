@@ -12,6 +12,7 @@ governing permissions and limitations under the License.
 
 const config = {
     spectrum: 'clearbutton',
+    package: 'clear-button',
     components: [
         {
             name: 'clear-button',

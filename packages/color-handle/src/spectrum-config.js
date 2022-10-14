@@ -12,6 +12,7 @@ governing permissions and limitations under the License.
 
 const config = {
     spectrum: 'colorhandle',
+    package: 'color-handle',
     components: [
         {
             name: 'color-handle',

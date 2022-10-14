@@ -12,6 +12,7 @@ governing permissions and limitations under the License.
 
 const config = {
     spectrum: 'colorloupe',
+    package: 'color-loupe',
     components: [
         {
             name: 'color-loupe',

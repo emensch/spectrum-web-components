@@ -10,8 +10,8 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-/* THIS FILE IS MACHINE GENERATED. DO NOT EDIT */
-.tray {
+/*THIS FILE IS MACHINE GENERATED. DO NOT EDIT*/
+:host {
     opacity: 0;
     pointer-events: none;
     transition: transform var(--spectrum-global-animation-duration-100, 0.13s)
@@ -19,33 +19,36 @@ governing permissions and limitations under the License.
         opacity var(--spectrum-global-animation-duration-100, 0.13s) ease-in-out,
         visibility 0ms linear
             var(--spectrum-global-animation-duration-100, 0.13s);
-    visibility: hidden; /* .spectrum-Tray */
+
+    /*.spectrum-Tray*/
+    visibility: hidden;
 }
-:host([open]) .tray {
+:host(:where([open])) {
     opacity: 1;
     pointer-events: auto;
     transition-delay: 0ms;
-    visibility: visible; /* .spectrum-Tray.is-open */
+    /*.spectrum-Tray.is-open*/
+    visibility: visible;
 }
 :host {
-    --spectrum-dialog-confirm-exit-animation-delay: 0ms; /* .spectrum-Tray */
+    /*.spectrum-Tray*/
+    --spectrum-dialog-confirm-exit-animation-delay: 0ms;
     --spectrum-tray-margin-top: 64px;
-}
-:host([dir='ltr']) .spectrum-Tray-wrapper {
-    left: 0; /* [dir=ltr] .spectrum-Tray-wrapper */
-}
-:host([dir='rtl']) .spectrum-Tray-wrapper {
-    right: 0; /* [dir=rtl] .spectrum-Tray-wrapper */
 }
 .spectrum-Tray-wrapper {
     bottom: 0;
     display: flex;
     justify-content: center;
-    position: fixed; /* .spectrum-Tray-wrapper */
+    /*[dir="ltr"] .spectrum-Tray-wrapper*/
+    left: 0;
+    /*.spectrum-Tray-wrapper*/
+    position: fixed;
+    /*[dir="rtl"] .spectrum-Tray-wrapper*/
+    right: 0;
     width: 100%;
     z-index: 2;
 }
-.tray {
+:host {
     border-radius: var(
             --spectrum-tray-full-width-border-radius,
             var(--spectrum-alias-border-radius-regular)
@@ -92,10 +95,12 @@ governing permissions and limitations under the License.
             )
             cubic-bezier(0.5, 0, 1, 1)
             var(--spectrum-dialog-confirm-exit-animation-delay, 0ms);
-    width: var(--spectrum-tray-width, 100%); /* .spectrum-Tray */
+    /*.spectrum-Tray*/
+    width: var(--spectrum-tray-width, 100%);
 }
-:host([open]) .tray {
+:host(:where([open])) {
     transform: translateY(0);
+    /*.spectrum-Tray.is-open*/
     transition: transform
             var(
                 --spectrum-dialog-confirm-entry-animation-duration,
@@ -115,10 +120,11 @@ governing permissions and limitations under the License.
             var(
                 --spectrum-dialog-confirm-entry-animation-delay,
                 var(--spectrum-global-animation-duration-200)
-            ); /* .spectrum-Tray.is-open */
+            );
 }
 @media (max-width: 375px) {
-    .tray {
+    :host {
+        /*.spectrum-Tray*/
         border-radius: var(--spectrum-tray-border-radius, 0);
     }
 }

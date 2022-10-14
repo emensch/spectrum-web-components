@@ -12,6 +12,7 @@ governing permissions and limitations under the License.
 
 const config = {
     spectrum: 'splitbutton',
+    package: 'split-button',
     components: [
         {
             name: 'split-button',

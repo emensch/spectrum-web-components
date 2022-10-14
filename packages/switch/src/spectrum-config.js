@@ -12,6 +12,7 @@ governing permissions and limitations under the License.
 
 const config = {
     spectrum: 'switch',
+    package: 'switch',
     components: [
         {
             name: 'switch',
@@ -40,15 +41,6 @@ const config = {
                             selector: '.spectrum-Switch--sizeXL',
                         },
                     ],
-                },
-                {
-                    type: 'boolean',
-                    selector: ':disabled',
-                },
-                {
-                    type: 'boolean',
-                    name: 'checked',
-                    selector: ':checked',
                 },
                 {
                     type: 'boolean',

@@ -12,6 +12,7 @@ governing permissions and limitations under the License.
 
 const config = {
     spectrum: 'fieldgroup',
+    package: 'field-group',
     components: [
         {
             name: 'field-group',

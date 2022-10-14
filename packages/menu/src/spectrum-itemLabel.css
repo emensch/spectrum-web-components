@@ -10,9 +10,10 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-/* THIS FILE IS MACHINE GENERATED. DO NOT EDIT */
-#label {
-    flex: 1 1 auto; /* .spectrum-Menu-itemLabel */
+/*THIS FILE IS MACHINE GENERATED. DO NOT EDIT*/
+:host {
+    /*.spectrum-Menu-itemLabel*/
+    flex: 1 1 auto;
     -webkit-hyphens: auto;
     hyphens: auto;
     line-height: var(--spectrum-listitem-texticon-label-line-height);
@@ -22,8 +23,9 @@ governing permissions and limitations under the License.
             var(--spectrum-listitem-texticon-icon-gap)
     );
 }
-.spectrum-Menu-itemLabel--wrapping {
+:host(:where(.spectrum-Menu-itemLabel--wrapping)) {
     overflow: hidden;
-    text-overflow: ellipsis; /* .spectrum-Menu-itemLabel--wrapping */
+    /*.spectrum-Menu-itemLabel--wrapping*/
+    text-overflow: ellipsis;
     white-space: nowrap;
 }

@@ -10,22 +10,21 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-/* THIS FILE IS MACHINE GENERATED. DO NOT EDIT */
+/*THIS FILE IS MACHINE GENERATED. DO NOT EDIT*/
 :host {
     align-items: flex-start;
-    display: inline-flex; /* .spectrum-SwatchGroup */
+    /*.spectrum-SwatchGroup*/
+    display: inline-flex;
     flex-direction: row;
     flex-wrap: wrap;
     gap: var(--spectrum-global-dimension-size-50);
     justify-content: flex-start;
 }
-:host([density='compact']) {
-    gap: var(
-        --spectrum-global-dimension-size-25
-    ); /* .spectrum-SwatchGroup--compact */
+:host(:where([density='compact'])) {
+    /*.spectrum-SwatchGroup--compact*/
+    gap: var(--spectrum-global-dimension-size-25);
 }
-:host([density='spacious']) {
-    gap: var(
-        --spectrum-global-dimension-size-100
-    ); /* .spectrum-SwatchGroup--spacious */
+:host(:where([density='spacious'])) {
+    /*.spectrum-SwatchGroup--spacious*/
+    gap: var(--spectrum-global-dimension-size-100);
 }

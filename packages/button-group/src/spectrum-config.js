@@ -12,6 +12,7 @@ governing permissions and limitations under the License.
 
 const config = {
     spectrum: 'buttongroup',
+    package: 'button-group',
     components: [
         {
             name: 'button-group',

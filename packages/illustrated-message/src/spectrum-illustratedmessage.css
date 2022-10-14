@@ -10,9 +10,10 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-/* THIS FILE IS MACHINE GENERATED. DO NOT EDIT */
+/*THIS FILE IS MACHINE GENERATED. DO NOT EDIT*/
 :host {
-    --spectrum-illustratedmessage-description-max-width: 500px; /* .spectrum-IllustratedMessage */
+    /*.spectrum-IllustratedMessage*/
+    --spectrum-illustratedmessage-description-max-width: 500px;
     --spectrum-illustratedmessage-heading-max-width: 500px;
     --spectrum-illustratedmessage-illustration-margin-bottom: 24px;
     --spectrum-illustratedmessage-heading-margin: 0;
@@ -22,20 +23,23 @@ governing permissions and limitations under the License.
     align-items: center;
     display: flex;
     flex-direction: column;
-    height: 100%; /* .spectrum-IllustratedMessage */
+    /*.spectrum-IllustratedMessage*/
+    height: 100%;
     justify-content: center;
     text-align: center;
 }
 #illustration {
+    /*.spectrum-IllustratedMessage-illustration*/
     margin-bottom: var(
         --spectrum-illustratedmessage-illustration-margin-bottom
-    ); /* .spectrum-IllustratedMessage-illustration */
+    );
 }
 #heading {
+    /*.spectrum-IllustratedMessage-heading*/
     color: var(
         --spectrum-illustratedmessage-heading-color,
         var(--spectrum-global-color-gray-800)
-    ); /* .spectrum-IllustratedMessage-heading */
+    );
     font-size: var(
         --spectrum-illustratedmessage-heading-font-size,
         var(--spectrum-alias-heading-m-text-size)
@@ -48,10 +52,11 @@ governing permissions and limitations under the License.
     max-width: var(--spectrum-illustratedmessage-heading-max-width);
 }
 #description {
+    /*.spectrum-IllustratedMessage-description*/
     color: var(
         --spectrum-illustratedmessage-description-color,
         var(--spectrum-global-color-gray-700)
-    ); /* .spectrum-IllustratedMessage-description */
+    );
     font-style: var(
         --spectrum-illustratedmessage-description-font-style,
         var(--spectrum-global-font-style-regular)
@@ -59,16 +64,16 @@ governing permissions and limitations under the License.
     margin: var(--spectrum-illustratedmessage-description-margin);
     max-width: var(--spectrum-illustratedmessage-description-max-width);
 }
-:host([cta]) #description {
+:host(:where([\\.spectrum-IllustratedMessage--cta])) #description {
+    /*.spectrum-IllustratedMessage--cta .spectrum-IllustratedMessage-description*/
     font-style: var(
         --spectrum-illustratedmessage-description-font-style,
         var(--spectrum-global-font-style-regular)
-    ); /* .spectrum-IllustratedMessage--cta .spectrum-IllustratedMessage-description */
+    );
 }
 #illustration {
     fill: currentColor;
     stroke: currentColor;
-    color: var(
-        --spectrum-global-color-gray-500
-    ); /* .spectrum-IllustratedMessage-illustration */
+    /*.spectrum-IllustratedMessage-illustration*/
+    color: var(--spectrum-global-color-gray-500);
 }

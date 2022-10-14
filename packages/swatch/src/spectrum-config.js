@@ -12,6 +12,7 @@ governing permissions and limitations under the License.
 const config = [
     {
         spectrum: 'swatchgroup',
+        package: 'swatch',
         components: [
             {
                 name: 'swatch-group',
@@ -40,6 +41,7 @@ const config = [
     },
     {
         spectrum: 'swatch',
+        package: 'swatch',
         components: [
             {
                 name: 'swatch',

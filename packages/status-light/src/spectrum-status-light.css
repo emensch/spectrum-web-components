@@ -10,9 +10,10 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-/* THIS FILE IS MACHINE GENERATED. DO NOT EDIT */
+/*THIS FILE IS MACHINE GENERATED. DO NOT EDIT*/
 :host([dir]) {
-    --spectrum-statuslight-corner-radius: 50%; /* .spectrum-StatusLight */
+    /*.spectrum-StatusLight*/
+    --spectrum-statuslight-corner-radius: 50%;
     --spectrum-statuslight-font-weight: 400;
     --spectrum-statuslight-border-width: var(--spectrum-border-width-100);
     --spectrum-statuslight-height: var(--spectrum-component-height-100);
@@ -101,10 +102,9 @@ governing permissions and limitations under the License.
         --spectrum-magenta-visual-color
     );
 }
-:host([size='s']) {
-    --spectrum-statuslight-height: var(
-        --spectrum-component-height-75
-    ); /* .spectrum-StatusLight--sizeS */
+:host(:where([size='s'])) {
+    /*.spectrum-StatusLight--sizeS*/
+    --spectrum-statuslight-height: var(--spectrum-component-height-75);
     --spectrum-statuslight-dot-size: var(
         --spectrum-status-light-dot-size-small
     );
@@ -122,10 +122,9 @@ governing permissions and limitations under the License.
         --spectrum-component-bottom-to-text-75
     );
 }
-:host([size='m']) {
-    --spectrum-statuslight-height: var(
-        --spectrum-component-height-100
-    ); /* .spectrum-StatusLight--sizeM */
+:host(:where([size='m'])) {
+    /*.spectrum-StatusLight--sizeM*/
+    --spectrum-statuslight-height: var(--spectrum-component-height-100);
     --spectrum-statuslight-dot-size: var(
         --spectrum-status-light-dot-size-medium
     );
@@ -143,10 +142,9 @@ governing permissions and limitations under the License.
         --spectrum-component-bottom-to-text-100
     );
 }
-:host([size='l']) {
-    --spectrum-statuslight-height: var(
-        --spectrum-component-height-200
-    ); /* .spectrum-StatusLight--sizeL */
+:host(:where([size='l'])) {
+    /*.spectrum-StatusLight--sizeL*/
+    --spectrum-statuslight-height: var(--spectrum-component-height-200);
     --spectrum-statuslight-dot-size: var(
         --spectrum-status-light-dot-size-large
     );
@@ -164,10 +162,9 @@ governing permissions and limitations under the License.
         --spectrum-component-bottom-to-text-200
     );
 }
-:host([size='xl']) {
-    --spectrum-statuslight-height: var(
-        --spectrum-component-height-300
-    ); /* .spectrum-StatusLight--sizeXL */
+:host(:where([size='xl'])) {
+    /*.spectrum-StatusLight--sizeXL*/
+    --spectrum-statuslight-height: var(--spectrum-component-height-300);
     --spectrum-statuslight-dot-size: var(
         --spectrum-status-light-dot-size-extra-large
     );
@@ -189,9 +186,11 @@ governing permissions and limitations under the License.
     :host([dir]) {
         --highcontrast-statuslight-content-color-default: CanvasText;
         --highcontrast-statuslight-subdued-content-color-default: CanvasText;
+        /*.spectrum-StatusLight*/
         forced-color-adjust: none;
     }
     :host:before {
+        /*.spectrum-StatusLight:before*/
         border: var(
                 --mod-statuslight-border-width,
                 var(--spectrum-statuslight-border-width)
@@ -209,7 +208,8 @@ governing permissions and limitations under the License.
             var(--spectrum-statuslight-content-color-default)
         )
     );
-    display: flex; /* .spectrum-StatusLight */
+    /*.spectrum-StatusLight*/
+    display: flex;
     flex-direction: row;
     font-size: var(
         --mod-statuslight-font-size,
@@ -237,18 +237,19 @@ governing permissions and limitations under the License.
     );
     padding-inline: 0;
 }
-:host(:lang(ja)),
-:host(:lang(ko)),
-:host(:lang(zh)) {
+:host(:where(:lang(ja))),
+:host(:where(:lang(ko))),
+:host(:where(:lang(zh))) {
+    /*.spectrum-StatusLight:lang(ja),
+  .spectrum-StatusLight:lang(zh),
+  .spectrum-StatusLight:lang(ko)*/
     line-height: var(
         --spectrum-statuslight-line-height-cjk,
         var(
             --mod-statuslight-line-height,
             var(--spectrum-statuslight-line-height)
         )
-    ); /* .spectrum-StatusLight:lang(ja),
-   * .spectrum-StatusLight:lang(zh),
-   * .spectrum-StatusLight:lang(ko) */
+    );
 }
 :host:before {
     --spectrum-statuslight-spacing-computed-top-to-dot: calc(
@@ -270,7 +271,8 @@ governing permissions and limitations under the License.
         --mod-statuslight-corner-radius,
         var(--spectrum-statuslight-corner-radius)
     );
-    content: ''; /* .spectrum-StatusLight:before */
+    /*.spectrum-StatusLight::before*/
+    content: '';
     display: inline-block;
     flex-grow: 0;
     flex-shrink: 0;
@@ -285,135 +287,157 @@ governing permissions and limitations under the License.
         var(--spectrum-statuslight-spacing-dot-to-label)
     );
 }
-:host([variant='neutral']) {
-    font-style: italic; /* .spectrum-StatusLight--neutral */
+:host(:where([variant='.spectrum-StatusLight--neutral'])) {
+    /*.spectrum-StatusLight--neutral*/
+    font-style: italic;
 }
-:host([variant='neutral']) {
+:host(:where([variant='.spectrum-StatusLight--neutral'])) {
+    /*.spectrum-StatusLight--neutral*/
     color: var(
         --highcontrast-statuslight-subdued-content-color-default,
         var(
             --mod-statuslight-subdued-content-color-default,
             var(--spectrum-statuslight-subdued-content-color-default)
         )
-    ); /* .spectrum-StatusLight--neutral */
+    );
 }
-:host([variant='neutral']):before {
+:host(:where([variant='.spectrum-StatusLight--neutral'])):before {
+    /*.spectrum-StatusLight--neutral::before*/
     background-color: var(
         --mod-statuslight-semantic-neutral-color,
         var(--spectrum-statuslight-semantic-neutral-color)
-    ); /* .spectrum-StatusLight--neutral:before */
+    );
 }
-.spectrum-StatusLight--accent:before {
+:host(:where(.spectrum-StatusLight--accent)):before {
+    /*.spectrum-StatusLight--accent::before*/
     background-color: var(
         --mod-statuslight-semantic-accent-color,
         var(--spectrum-statuslight-semantic-accent-color)
-    ); /* .spectrum-StatusLight--accent:before */
+    );
 }
-:host([variant='info']):before {
+:host(:where([variant='.spectrum-StatusLight--info'])):before {
+    /*.spectrum-StatusLight--info::before*/
     background-color: var(
         --mod-statuslight-semantic-info-color,
         var(--spectrum-statuslight-semantic-info-color)
-    ); /* .spectrum-StatusLight--info:before */
+    );
 }
-:host([variant='negative']):before {
+:host(:where([variant='.spectrum-StatusLight--negative'])):before {
+    /*.spectrum-StatusLight--negative::before*/
     background-color: var(
         --mod-statuslight-semantic-negative-color,
         var(--spectrum-statuslight-semantic-negative-color)
-    ); /* .spectrum-StatusLight--negative:before */
+    );
 }
-:host([variant='notice']):before {
+:host(:where([variant='.spectrum-StatusLight--notice'])):before {
+    /*.spectrum-StatusLight--notice::before*/
     background-color: var(
         --mod-statuslight-semantic-notice-color,
         var(--spectrum-statuslight-semantic-notice-color)
-    ); /* .spectrum-StatusLight--notice:before */
+    );
 }
-:host([variant='positive']):before {
+:host(:where([variant='.spectrum-StatusLight--positive'])):before {
+    /*.spectrum-StatusLight--positive::before*/
     background-color: var(
         --mod-statuslight-semantic-positive-color,
         var(--spectrum-statuslight-semantic-positive-color)
-    ); /* .spectrum-StatusLight--positive:before */
+    );
 }
-.spectrum-StatusLight--gray:before {
+:host(:where(.spectrum-StatusLight--gray)):before {
+    /*.spectrum-StatusLight--gray::before*/
     background-color: var(
         --mod-statuslight-nonsemantic-gray-color,
         var(--spectrum-statuslight-nonsemantic-gray-color)
-    ); /* .spectrum-StatusLight--gray:before */
+    );
 }
-.spectrum-StatusLight--red:before {
+:host(:where(.spectrum-StatusLight--red)):before {
+    /*.spectrum-StatusLight--red::before*/
     background-color: var(
         --mod-statuslight-nonsemantic-red-color,
         var(--spectrum-statuslight-nonsemantic-red-color)
-    ); /* .spectrum-StatusLight--red:before */
+    );
 }
-.spectrum-StatusLight--orange:before {
+:host(:where(.spectrum-StatusLight--orange)):before {
+    /*.spectrum-StatusLight--orange::before*/
     background-color: var(
         --mod-statuslight-nonsemantic-orange-color,
         var(--spectrum-statuslight-nonsemantic-orange-color)
-    ); /* .spectrum-StatusLight--orange:before */
+    );
 }
-:host([variant='yellow']):before {
+:host(:where([variant='.spectrum-StatusLight--yellow'])):before {
+    /*.spectrum-StatusLight--yellow::before*/
     background-color: var(
         --mod-statuslight-nonsemantic-yellow-color,
         var(--spectrum-statuslight-nonsemantic-yellow-color)
-    ); /* .spectrum-StatusLight--yellow:before */
+    );
 }
-:host([variant='chartreuse']):before {
+:host(:where([variant='.spectrum-StatusLight--chartreuse'])):before {
+    /*.spectrum-StatusLight--chartreuse::before*/
     background-color: var(
         --mod-statuslight-nonsemantic-chartreuse-color,
         var(--spectrum-statuslight-nonsemantic-chartreuse-color)
-    ); /* .spectrum-StatusLight--chartreuse:before */
+    );
 }
-:host([variant='celery']):before {
+:host(:where([variant='.spectrum-StatusLight--celery'])):before {
+    /*.spectrum-StatusLight--celery::before*/
     background-color: var(
         --mod-statuslight-nonsemantic-celery-color,
         var(--spectrum-statuslight-nonsemantic-celery-color)
-    ); /* .spectrum-StatusLight--celery:before */
+    );
 }
-.spectrum-StatusLight--green:before {
+:host(:where(.spectrum-StatusLight--green)):before {
+    /*.spectrum-StatusLight--green::before*/
     background-color: var(
         --mod-statuslight-nonsemantic-green-color,
         var(--spectrum-statuslight-nonsemantic-green-color)
-    ); /* .spectrum-StatusLight--green:before */
+    );
 }
-:host([variant='seafoam']):before {
+:host(:where([variant='.spectrum-StatusLight--seafoam'])):before {
+    /*.spectrum-StatusLight--seafoam::before*/
     background-color: var(
         --mod-statuslight-nonsemantic-seafoam-color,
         var(--spectrum-statuslight-nonsemantic-seafoam-color)
-    ); /* .spectrum-StatusLight--seafoam:before */
+    );
 }
-.spectrum-StatusLight--cyan:before {
+:host(:where(.spectrum-StatusLight--cyan)):before {
+    /*.spectrum-StatusLight--cyan::before*/
     background-color: var(
         --mod-statuslight-nonsemantic-cyan-color,
         var(--spectrum-statuslight-nonsemantic-cyan-color)
-    ); /* .spectrum-StatusLight--cyan:before */
+    );
 }
-.spectrum-StatusLight--blue:before {
+:host(:where(.spectrum-StatusLight--blue)):before {
+    /*.spectrum-StatusLight--blue::before*/
     background-color: var(
         --mod-statuslight-nonsemantic-blue-color,
         var(--spectrum-statuslight-nonsemantic-blue-color)
-    ); /* .spectrum-StatusLight--blue:before */
+    );
 }
-:host([variant='indigo']):before {
+:host(:where([variant='.spectrum-StatusLight--indigo'])):before {
+    /*.spectrum-StatusLight--indigo::before*/
     background-color: var(
         --mod-statuslight-nonsemantic-indigo-color,
         var(--spectrum-statuslight-nonsemantic-indigo-color)
-    ); /* .spectrum-StatusLight--indigo:before */
+    );
 }
-:host([variant='purple']):before {
+:host(:where([variant='.spectrum-StatusLight--purple'])):before {
+    /*.spectrum-StatusLight--purple::before*/
     background-color: var(
         --mod-statuslight-nonsemantic-purple-color,
         var(--spectrum-statuslight-nonsemantic-purple-color)
-    ); /* .spectrum-StatusLight--purple:before */
+    );
 }
-:host([variant='fuchsia']):before {
+:host(:where([variant='.spectrum-StatusLight--fuchsia'])):before {
+    /*.spectrum-StatusLight--fuchsia::before*/
     background-color: var(
         --mod-statuslight-nonsemantic-fuchsia-color,
         var(--spectrum-statuslight-nonsemantic-fuchsia-color)
-    ); /* .spectrum-StatusLight--fuchsia:before */
+    );
 }
-:host([variant='magenta']):before {
+:host(:where([variant='.spectrum-StatusLight--magenta'])):before {
+    /*.spectrum-StatusLight--magenta::before*/
     background-color: var(
         --mod-statuslight-nonsemantic-magenta-color,
         var(--spectrum-statuslight-nonsemantic-magenta-color)
-    ); /* .spectrum-StatusLight--magenta:before */
+    );
 }

@@ -60,7 +60,7 @@
         "pretest:visual": "yarn build && yarn build",
         "process-icons": "run-p icons icons:ui icons:workflow",
         "process-spectrum": "yarn spectrum-vars && yarn spectrum-css && yarn spectrum-tokens",
-        "spectrum-css": "node ./scripts/process-spectrum-css.js",
+        "spectrum-css": "node ./tasks/process-spectrum-css.js",
         "spectrum-tokens": "node ./scripts/spectrum-tokens.js",
         "spectrum-vars": "node ./scripts/spectrum-vars.js",
         "start": "yarn storybook",

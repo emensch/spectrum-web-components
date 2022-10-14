@@ -12,6 +12,7 @@ governing permissions and limitations under the License.
 
 const config = {
     spectrum: 'splitview',
+    package: 'split-view',
     components: [
         {
             name: 'split-view',

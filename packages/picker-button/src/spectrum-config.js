@@ -11,6 +11,7 @@ governing permissions and limitations under the License.
 */
 const config = {
     spectrum: 'pickerbutton',
+    package: 'picker-button',
     components: [
         {
             name: 'picker-button',

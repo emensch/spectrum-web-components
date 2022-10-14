@@ -10,13 +10,14 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-/* THIS FILE IS MACHINE GENERATED. DO NOT EDIT */
+/*THIS FILE IS MACHINE GENERATED. DO NOT EDIT*/
 :host {
     border-radius: var(
         --spectrum-banner-border-radius,
         var(--spectrum-global-dimension-static-size-100)
     );
-    display: inline-block; /* .spectrum-Banner */
+    /*.spectrum-Banner*/
+    display: inline-block;
     font-size: var(
         --spectrum-banner-text-size,
         var(--spectrum-global-dimension-font-size-75)
@@ -35,39 +36,47 @@ governing permissions and limitations under the License.
         );
 }
 #header {
-    font-weight: 700; /* .spectrum-Banner-header */
+    /*.spectrum-Banner-header*/
+    font-weight: 700;
 }
-:host([dir='ltr'][corner]) {
-    right: -10px; /* [dir=ltr] .spectrum-Banner--corner */
+:host(:where([dir='ltr'])) [corner] {
+    /*[dir="ltr"] .spectrum-Banner--corner*/
+    right: -10px;
 }
-:host([dir='rtl'][corner]) {
-    left: -10px; /* [dir=rtl] .spectrum-Banner--corner */
+:host(:where([dir='rtl'])) [corner] {
+    /*[dir="rtl"] .spectrum-Banner--corner*/
+    left: -10px;
 }
-:host([corner]) {
-    position: absolute; /* .spectrum-Banner--corner */
+:host(:where([corner])) {
+    /*.spectrum-Banner--corner*/
+    position: absolute;
     top: -10px;
 }
 :host {
+    /*.spectrum-Banner*/
     color: var(
         --spectrum-banner-text-color,
         var(--spectrum-global-color-static-white)
-    ); /* .spectrum-Banner */
+    );
 }
-:host([type='info']) {
+:host(:where([type='info'])) {
+    /*.spectrum-Banner--info*/
     background-color: var(
         --spectrum-banner-info-background-color,
         var(--spectrum-semantic-informative-color-default)
-    ); /* .spectrum-Banner--info */
+    );
 }
-:host([type='warning']) {
+:host(:where([type='warning'])) {
+    /*.spectrum-Banner--warning*/
     background-color: var(
         --spectrum-banner-warning-background-color,
         var(--spectrum-semantic-notice-color-default)
-    ); /* .spectrum-Banner--warning */
+    );
 }
-:host([type='error']) {
+:host(:where([type='error'])) {
+    /*.spectrum-Banner--error*/
     background-color: var(
         --spectrum-banner-error-background-color,
         var(--spectrum-semantic-negative-color-default)
-    ); /* .spectrum-Banner--error */
+    );
 }

@@ -12,6 +12,7 @@ governing permissions and limitations under the License.
 
 const config = {
     spectrum: 'colorwheel',
+    package: 'color-wheel',
     components: [
         {
             name: 'color-wheel',

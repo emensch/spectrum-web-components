@@ -10,12 +10,13 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-/* THIS FILE IS MACHINE GENERATED. DO NOT EDIT */
+/*THIS FILE IS MACHINE GENERATED. DO NOT EDIT*/
 :host {
+    /*.spectrum-Tooltip*/
     --spectrum-overlay-animation-distance: var(
         --spectrum-picker-m-texticon-popover-offset-y,
         var(--spectrum-global-dimension-size-75)
-    ); /* .spectrum-Tooltip */
+    );
     opacity: 0;
     pointer-events: none;
     transition: transform var(--spectrum-global-animation-duration-100, 0.13s)
@@ -25,34 +26,36 @@ governing permissions and limitations under the License.
             var(--spectrum-global-animation-duration-100, 0.13s);
     visibility: hidden;
 }
-:host([open]) {
+:host(:where([open])) {
     opacity: 1;
     pointer-events: auto;
     transition-delay: 0ms;
-    visibility: visible; /* .spectrum-Tooltip.is-open */
+    /*.spectrum-Tooltip.is-open*/
+    visibility: visible;
 }
-:host([placement*='bottom'][open]) {
-    transform: translateY(
-        var(--spectrum-overlay-animation-distance)
-    ); /* .spectrum-Tooltip--bottom.is-open */
+:host(:where([placement='bottom'][open])) {
+    /*.spectrum-Tooltip--bottom.is-open*/
+    transform: translateY(var(--spectrum-overlay-animation-distance));
 }
-:host([placement*='top'][open]) {
+:host(:where([placement='top'][open])) {
+    /*.spectrum-Tooltip--top.is-open*/
     transform: translateY(
         calc(var(--spectrum-overlay-animation-distance) * -1)
-    ); /* .spectrum-Tooltip--top.is-open */
+    );
 }
-:host([placement*='right'][open]) {
-    transform: translateX(
-        var(--spectrum-overlay-animation-distance)
-    ); /* .spectrum-Tooltip--right.is-open */
+:host(:where([placement='right'][open])) {
+    /*.spectrum-Tooltip--right.is-open*/
+    transform: translateX(var(--spectrum-overlay-animation-distance));
 }
-:host([placement*='left'][open]) {
+:host(:where([placement='left'][open])) {
+    /*.spectrum-Tooltip--left.is-open*/
     transform: translateX(
         calc(var(--spectrum-overlay-animation-distance) * -1)
-    ); /* .spectrum-Tooltip--left.is-open */
+    );
 }
 :host {
-    --spectrum-tooltip-neutral-target-offset: 3px; /* .spectrum-Tooltip */
+    /*.spectrum-Tooltip*/
+    --spectrum-tooltip-neutral-target-offset: 3px;
     --spectrum-tooltip-neutral-tip-width: var(
         --spectrum-tooltip-neutral-tip-height,
         var(--spectrum-global-dimension-size-50)
@@ -94,19 +97,23 @@ governing permissions and limitations under the License.
             --spectrum-tooltip-neutral-padding-x,
             var(--spectrum-global-dimension-size-85)
         );
-    position: relative; /* .spectrum-Tooltip */
+
+    /*.spectrum-Tooltip*/
+    position: relative;
     top: 0;
     vertical-align: top;
     width: auto;
     word-break: break-word;
 }
 :host {
-    cursor: default; /* .spectrum-Tooltip */
+    /*.spectrum-Tooltip*/
+    cursor: default;
     -webkit-user-select: none;
     user-select: none;
 }
 p {
-    margin: 0; /* .spectrum-Tooltip p */
+    /*.spectrum-Tooltip p*/
+    margin: 0;
 }
 #tip {
     border-bottom-color: transparent;
@@ -118,59 +125,60 @@ p {
         var(--spectrum-global-dimension-size-100)
     );
     height: 0;
-    position: absolute; /* .spectrum-Tooltip-tip */
+    /*.spectrum-Tooltip-tip*/
+    position: absolute;
     width: 0;
 }
-:host([placement*='left']) #tip,
-:host([placement*='right']) #tip {
+:host(:where([placement='left'])) #tip,
+:host(:where([placement='right'])) #tip {
     margin-top: calc(
         var(
                 --spectrum-tooltip-neutral-tip-width,
                 var(--spectrum-global-dimension-size-100)
             ) * -1
     );
-    top: 50%; /* .spectrum-Tooltip--right .spectrum-Tooltip-tip,
-   * .spectrum-Tooltip--left .spectrum-Tooltip-tip */
+    /*.spectrum-Tooltip--right .spectrum-Tooltip-tip, .spectrum-Tooltip--left .spectrum-Tooltip-tip*/
+    top: 50%;
 }
-:host([placement*='right']) {
-    margin-left: var(
-        --spectrum-tooltip-neutral-target-offset
-    ); /* .spectrum-Tooltip--right */
+:host(:where([placement='right'])) {
+    /*.spectrum-Tooltip--right*/
+    margin-left: var(--spectrum-tooltip-neutral-target-offset);
 }
-:host([placement*='right']) #tip {
-    right: 100%; /* .spectrum-Tooltip--right .spectrum-Tooltip-tip */
+:host(:where([placement='right'])) #tip {
+    /*.spectrum-Tooltip--right .spectrum-Tooltip-tip*/
+    right: 100%;
     transform: rotate(90deg);
 }
-:host([placement*='left']) {
-    margin-right: var(
-        --spectrum-tooltip-neutral-target-offset
-    ); /* .spectrum-Tooltip--left */
+:host(:where([placement='left'])) {
+    /*.spectrum-Tooltip--left*/
+    margin-right: var(--spectrum-tooltip-neutral-target-offset);
 }
-:host([placement*='left']) #tip {
-    left: 100%; /* .spectrum-Tooltip--left .spectrum-Tooltip-tip */
+:host(:where([placement='left'])) #tip {
+    /*.spectrum-Tooltip--left .spectrum-Tooltip-tip*/
+    left: 100%;
     transform: rotate(-90deg);
 }
-:host([placement*='top']) {
-    margin-bottom: var(
-        --spectrum-tooltip-neutral-target-offset
-    ); /* .spectrum-Tooltip--top */
+:host(:where([placement='top'])) {
+    /*.spectrum-Tooltip--top*/
+    margin-bottom: var(--spectrum-tooltip-neutral-target-offset);
 }
-:host([placement*='top']) #tip {
-    top: 100%; /* .spectrum-Tooltip--top .spectrum-Tooltip-tip */
+:host(:where([placement='top'])) #tip {
+    /*.spectrum-Tooltip--top .spectrum-Tooltip-tip*/
+    top: 100%;
 }
-:host([placement*='bottom']) {
-    margin-top: var(
-        --spectrum-tooltip-neutral-target-offset
-    ); /* .spectrum-Tooltip--bottom */
+:host(:where([placement='bottom'])) {
+    /*.spectrum-Tooltip--bottom*/
+    margin-top: var(--spectrum-tooltip-neutral-target-offset);
 }
-:host([placement*='bottom']) #tip {
-    bottom: 100%; /* .spectrum-Tooltip--bottom .spectrum-Tooltip-tip */
+:host(:where([placement='bottom'])) #tip {
+    /*.spectrum-Tooltip--bottom .spectrum-Tooltip-tip*/
+    bottom: 100%;
     transform: rotate(-180deg);
 }
-:host([placement*='bottom']) #tip,
-:host([placement*='top']) #tip {
-    left: 50%; /* .spectrum-Tooltip--bottom .spectrum-Tooltip-tip,
-   * .spectrum-Tooltip--top .spectrum-Tooltip-tip */
+:host(:where([placement='bottom'])) #tip,
+:host(:where([placement='top'])) #tip {
+    /*.spectrum-Tooltip--bottom .spectrum-Tooltip-tip, .spectrum-Tooltip--top .spectrum-Tooltip-tip*/
+    left: 50%;
     margin-left: calc(
         var(
                 --spectrum-tooltip-neutral-tip-width,
@@ -178,7 +186,8 @@ p {
             ) * -1
     );
 }
-:host([dir='ltr']) ::slotted([slot='icon']) {
+::slotted([slot='icon']) {
+    /*[dir="ltr"] .spectrum-Tooltip-typeIcon*/
     margin-left: calc(
         var(
                 --spectrum-tooltip-neutral-icon-margin-x,
@@ -188,9 +197,10 @@ p {
                 --spectrum-tooltip-neutral-padding-x,
                 var(--spectrum-global-dimension-size-85)
             )
-    ); /* [dir=ltr] .spectrum-Tooltip-typeIcon */
+    );
 }
-:host([dir='rtl']) ::slotted([slot='icon']) {
+::slotted([slot='icon']) {
+    /*[dir="rtl"] .spectrum-Tooltip-typeIcon*/
     margin-right: calc(
         var(
                 --spectrum-tooltip-neutral-icon-margin-x,
@@ -200,19 +210,21 @@ p {
                 --spectrum-tooltip-neutral-padding-x,
                 var(--spectrum-global-dimension-size-85)
             )
-    ); /* [dir=rtl] .spectrum-Tooltip-typeIcon */
+    );
 }
-:host([dir='ltr']) ::slotted([slot='icon']) {
+::slotted([slot='icon']) {
+    /*[dir="ltr"] .spectrum-Tooltip-typeIcon*/
     margin-right: var(
         --spectrum-tooltip-neutral-icon-margin-x,
         var(--spectrum-global-dimension-size-85)
-    ); /* [dir=ltr] .spectrum-Tooltip-typeIcon */
+    );
 }
-:host([dir='rtl']) ::slotted([slot='icon']) {
+::slotted([slot='icon']) {
+    /*[dir="rtl"] .spectrum-Tooltip-typeIcon*/
     margin-left: var(
         --spectrum-tooltip-neutral-icon-margin-x,
         var(--spectrum-global-dimension-size-85)
-    ); /* [dir=rtl] .spectrum-Tooltip-typeIcon */
+    );
 }
 ::slotted([slot='icon']) {
     align-self: flex-start;
@@ -225,92 +237,241 @@ p {
         --spectrum-tooltip-neutral-icon-margin-y,
         var(--spectrum-global-dimension-size-50)
     );
+    /*.spectrum-Tooltip-typeIcon*/
     margin-top: var(
         --spectrum-tooltip-neutral-icon-margin-y,
         var(--spectrum-global-dimension-size-50)
-    ); /* .spectrum-Tooltip-typeIcon */
+    );
     width: var(
         --spectrum-tooltip-neutral-icon-size,
         var(--spectrum-global-dimension-size-200)
     );
 }
 #label {
+    /*.spectrum-Tooltip-label*/
     line-height: var(
         --spectrum-tooltip-neutral-text-line-height,
         var(--spectrum-alias-component-text-line-height)
-    ); /* .spectrum-Tooltip-label */
+    );
     margin-bottom: var(--spectrum-tooltip-neutral-text-margin-bottom);
     margin-top: var(
         --spectrum-tooltip-neutral-text-margin-top,
         var(--spectrum-global-dimension-static-size-50)
     );
 }
+.u-tooltip-showOnHover {
+    /*.u-tooltip-showOnHover*/
+    display: inline-block;
+    position: relative;
+}
+:host(:where(.u-tooltip-showOnHover)) {
+    /*.u-tooltip-showOnHover .spectrum-Tooltip*/
+    position: absolute;
+    top: -100%;
+    transition: transform var(--spectrum-global-animation-duration-100, 0.13s)
+        ease-in-out;
+    visibility: visible !important;
+    white-space: nowrap;
+}
+.u-tooltip-showOnHover #label {
+    /*.u-tooltip-showOnHover .spectrum-Tooltip-label*/
+    max-width: none;
+}
+:host(:where(.u-tooltip-showOnHover)) [placement='left'],
+:host(:where(.u-tooltip-showOnHover)) [placement='right'] {
+    /*.u-tooltip-showOnHover .spectrum-Tooltip--right,
+  .u-tooltip-showOnHover .spectrum-Tooltip--left*/
+    top: 50%;
+}
+:host(:where(.u-tooltip-showOnHover)) [placement='left'] #tip,
+:host(:where(.u-tooltip-showOnHover)) [placement='right'] #tip {
+    /*.u-tooltip-showOnHover .spectrum-Tooltip--right .spectrum-Tooltip-tip, .u-tooltip-showOnHover .spectrum-Tooltip--left .spectrum-Tooltip-tip*/
+    top: 50%;
+}
+:host(:where(.u-tooltip-showOnHover)) [placement='right'] {
+    /*.u-tooltip-showOnHover .spectrum-Tooltip--right*/
+    left: 100%;
+    transform: translateY(-50%);
+}
+:host(:where(.u-tooltip-showOnHover)) [placement='left'] {
+    /*.u-tooltip-showOnHover .spectrum-Tooltip--left*/
+    transform: translate(-100%, -50%);
+}
+:host(:where(.u-tooltip-showOnHover)) [placement='bottom'],
+:host(:where(.u-tooltip-showOnHover)) [placement='top'] {
+    /*.u-tooltip-showOnHover .spectrum-Tooltip--bottom,
+  .u-tooltip-showOnHover .spectrum-Tooltip--top*/
+    left: 50%;
+}
+:host(:where(.u-tooltip-showOnHover)) [placement='bottom'] #tip,
+:host(:where(.u-tooltip-showOnHover)) [placement='top'] #tip {
+    /*.u-tooltip-showOnHover .spectrum-Tooltip--bottom .spectrum-Tooltip-tip, .u-tooltip-showOnHover .spectrum-Tooltip--top .spectrum-Tooltip-tip*/
+    left: 50%;
+}
+:host(:where(.u-tooltip-showOnHover)) [placement='bottom'] {
+    /*.u-tooltip-showOnHover .spectrum-Tooltip--bottom*/
+    top: 100%;
+    transform: translate(
+        -50%,
+        calc(
+            var(
+                    --spectrum-tooltip-neutral-tip-margin,
+                    var(--spectrum-global-dimension-size-50)
+                ) * -1
+        )
+    );
+}
+:host(:where(.u-tooltip-showOnHover)) [placement='top'] {
+    /*.u-tooltip-showOnHover .spectrum-Tooltip--top*/
+    transform: translate(
+        -50%,
+        var(
+            --spectrum-tooltip-neutral-tip-margin,
+            var(--spectrum-global-dimension-size-50)
+        )
+    );
+}
+:host(:where(.u-tooltip-showOnHover)) :focus,
+:host(:where(.u-tooltip-showOnHover.is-focused)),
+:host(:where(.u-tooltip-showOnHover:focus)),
+:host(:where(.u-tooltip-showOnHover:hover)) {
+    /*.u-tooltip-showOnHover:hover .spectrum-Tooltip,
+  .u-tooltip-showOnHover:focus .spectrum-Tooltip,
+  .u-tooltip-showOnHover.is-focused .spectrum-Tooltip,
+  .u-tooltip-showOnHover *:focus .spectrum-Tooltip*/
+    opacity: 1;
+}
+:host(:where(.u-tooltip-showOnHover)) :focus[placement='bottom'],
+:host(:where(.u-tooltip-showOnHover.is-focused))[placement='bottom'],
+:host(:where(.u-tooltip-showOnHover:focus))[placement='bottom'],
+:host(:where(.u-tooltip-showOnHover:hover))[placement='bottom'] {
+    /*.u-tooltip-showOnHover:hover .spectrum-Tooltip.spectrum-Tooltip--bottom,
+  .u-tooltip-showOnHover:focus .spectrum-Tooltip.spectrum-Tooltip--bottom,
+  .u-tooltip-showOnHover.is-focused .spectrum-Tooltip.spectrum-Tooltip--bottom,
+  .u-tooltip-showOnHover *:focus .spectrum-Tooltip.spectrum-Tooltip--bottom*/
+    transform: translate(-50%);
+}
+:host(:where(.u-tooltip-showOnHover)) :focus[placement='top'],
+:host(:where(.u-tooltip-showOnHover.is-focused))[placement='top'],
+:host(:where(.u-tooltip-showOnHover:focus))[placement='top'],
+:host(:where(.u-tooltip-showOnHover:hover))[placement='top'] {
+    /*.u-tooltip-showOnHover:hover .spectrum-Tooltip.spectrum-Tooltip--top,
+  .u-tooltip-showOnHover:focus .spectrum-Tooltip.spectrum-Tooltip--top,
+  .u-tooltip-showOnHover.is-focused .spectrum-Tooltip.spectrum-Tooltip--top,
+  .u-tooltip-showOnHover *:focus .spectrum-Tooltip.spectrum-Tooltip--top*/
+    transform: translate(
+        -50%,
+        calc(
+            var(
+                    --spectrum-tooltip-neutral-tip-margin,
+                    var(--spectrum-global-dimension-size-50)
+                ) * -1
+        )
+    );
+}
+:host(:where(.u-tooltip-showOnHover)) :focus[placement='left'],
+:host(:where(.u-tooltip-showOnHover.is-focused))[placement='left'],
+:host(:where(.u-tooltip-showOnHover:focus))[placement='left'],
+:host(:where(.u-tooltip-showOnHover:hover))[placement='left'] {
+    /*.u-tooltip-showOnHover:hover .spectrum-Tooltip.spectrum-Tooltip--left,
+  .u-tooltip-showOnHover:focus .spectrum-Tooltip.spectrum-Tooltip--left,
+  .u-tooltip-showOnHover.is-focused .spectrum-Tooltip.spectrum-Tooltip--left,
+  .u-tooltip-showOnHover *:focus .spectrum-Tooltip.spectrum-Tooltip--left*/
+    transform: translate(
+        calc(
+            -100% - var(--spectrum-tooltip-neutral-tip-margin, var(--spectrum-global-dimension-size-50))
+        ),
+        -50%
+    );
+}
+:host(:where(.u-tooltip-showOnHover)) :focus[placement='right'],
+:host(:where(.u-tooltip-showOnHover.is-focused))[placement='right'],
+:host(:where(.u-tooltip-showOnHover:focus))[placement='right'],
+:host(:where(.u-tooltip-showOnHover:hover))[placement='right'] {
+    /*.u-tooltip-showOnHover:hover .spectrum-Tooltip.spectrum-Tooltip--right,
+  .u-tooltip-showOnHover:focus .spectrum-Tooltip.spectrum-Tooltip--right,
+  .u-tooltip-showOnHover.is-focused .spectrum-Tooltip.spectrum-Tooltip--right,
+  .u-tooltip-showOnHover *:focus .spectrum-Tooltip.spectrum-Tooltip--right*/
+    transform: translate(
+        var(
+            --spectrum-tooltip-neutral-tip-margin,
+            var(--spectrum-global-dimension-size-50)
+        ),
+        -50%
+    );
+}
 :host {
+    /*.spectrum-Tooltip*/
     background-color: var(
         --spectrum-tooltip-neutral-background-color,
         var(--spectrum-semantic-neutral-background-color-default)
-    ); /* .spectrum-Tooltip */
+    );
     color: var(
         --spectrum-tooltip-neutral-text-color,
         var(--spectrum-global-color-static-white)
     );
 }
 #tip {
+    /*.spectrum-Tooltip-tip*/
     border-top-color: var(
         --spectrum-tooltip-neutral-background-color,
         var(--spectrum-semantic-neutral-background-color-default)
-    ); /* .spectrum-Tooltip-tip */
+    );
 }
-.spectrum-Tooltip--error,
-:host([variant='negative']) {
+:host(:where(.spectrum-Tooltip--error)),
+:host(:where([variant='negative'])) {
+    /*.spectrum-Tooltip--negative,
+.spectrum-Tooltip--error*/
     background-color: var(
         --spectrum-tooltip-negative-background-color,
         var(--spectrum-semantic-negative-background-color)
-    ); /* .spectrum-Tooltip--negative,
-   * .spectrum-Tooltip--error */
+    );
 }
-.spectrum-Tooltip--error #tip,
-:host([variant='negative']) #tip {
+:host(:where(.spectrum-Tooltip--error)) #tip,
+:host(:where([variant='negative'])) #tip {
+    /*.spectrum-Tooltip--negative .spectrum-Tooltip-tip, .spectrum-Tooltip--error .spectrum-Tooltip-tip*/
     border-top-color: var(
         --spectrum-tooltip-negative-background-color,
         var(--spectrum-semantic-negative-background-color)
-    ); /* .spectrum-Tooltip--negative .spectrum-Tooltip-tip,
-   * .spectrum-Tooltip--error .spectrum-Tooltip-tip */
+    );
 }
-.spectrum-Tooltip--help,
-:host([variant='info']) {
+:host(:where(.spectrum-Tooltip--help)),
+:host(:where([variant='info'])) {
+    /*.spectrum-Tooltip--info,
+.spectrum-Tooltip--help*/
     background-color: var(
         --spectrum-tooltip-info-background-color,
         var(--spectrum-semantic-informative-background-color)
-    ); /* .spectrum-Tooltip--info,
-   * .spectrum-Tooltip--help */
+    );
 }
-.spectrum-Tooltip--help #tip,
-:host([variant='info']) #tip {
+:host(:where(.spectrum-Tooltip--help)) #tip,
+:host(:where([variant='info'])) #tip {
+    /*.spectrum-Tooltip--info .spectrum-Tooltip-tip, .spectrum-Tooltip--help .spectrum-Tooltip-tip*/
     border-top-color: var(
         --spectrum-tooltip-info-background-color,
         var(--spectrum-semantic-informative-background-color)
-    ); /* .spectrum-Tooltip--info .spectrum-Tooltip-tip,
-   * .spectrum-Tooltip--help .spectrum-Tooltip-tip */
+    );
 }
-.spectrum-Tooltip--success,
-:host([variant='positive']) {
+:host(:where(.spectrum-Tooltip--success)),
+:host(:where([variant='positive'])) {
+    /*.spectrum-Tooltip--positive,
+.spectrum-Tooltip--success*/
     background-color: var(
         --spectrum-tooltip-positive-background-color,
         var(--spectrum-semantic-positive-background-color)
-    ); /* .spectrum-Tooltip--positive,
-   * .spectrum-Tooltip--success */
+    );
 }
-.spectrum-Tooltip--success #tip,
-:host([variant='positive']) #tip {
+:host(:where(.spectrum-Tooltip--success)) #tip,
+:host(:where([variant='positive'])) #tip {
+    /*.spectrum-Tooltip--positive .spectrum-Tooltip-tip, .spectrum-Tooltip--success .spectrum-Tooltip-tip*/
     border-top-color: var(
         --spectrum-tooltip-positive-background-color,
         var(--spectrum-semantic-positive-background-color)
-    ); /* .spectrum-Tooltip--positive .spectrum-Tooltip-tip,
-   * .spectrum-Tooltip--success .spectrum-Tooltip-tip */
+    );
 }
 @media (forced-colors: active) {
     :host {
+        /*.spectrum-Tooltip*/
         border: 1px solid transparent;
     }
     #tip {
@@ -318,6 +479,7 @@ p {
         --spectrum-tooltip-negative-background-color: CanvasText;
         --spectrum-tooltip-info-background-color: CanvasText;
         --spectrum-tooltip-positive-background-color: CanvasText;
+        /*.spectrum-Tooltip-tip*/
         forced-color-adjust: none;
     }
 }

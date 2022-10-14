@@ -12,6 +12,7 @@ governing permissions and limitations under the License.
 
 const config = {
     spectrum: 'search',
+    package: 'search',
     components: [
         {
             name: 'search',

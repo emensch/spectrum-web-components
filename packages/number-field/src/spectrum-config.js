@@ -12,6 +12,7 @@ governing permissions and limitations under the License.
 
 const config = {
     spectrum: 'stepper',
+    package: 'number-field',
     components: [
         {
             name: 'number-field',

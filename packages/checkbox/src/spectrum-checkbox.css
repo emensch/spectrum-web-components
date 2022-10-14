@@ -10,10 +10,11 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-/* THIS FILE IS MACHINE GENERATED. DO NOT EDIT */
+/*THIS FILE IS MACHINE GENERATED. DO NOT EDIT*/
 :host {
     align-items: flex-start;
-    display: inline-flex; /* .spectrum-Checkbox */
+    /*.spectrum-Checkbox*/
+    display: inline-flex;
     max-width: 100%;
     min-height: var(--spectrum-checkbox-height);
     position: relative;
@@ -22,7 +23,8 @@ governing permissions and limitations under the License.
 #input {
     box-sizing: border-box;
     cursor: pointer;
-    font-family: inherit; /* .spectrum-Checkbox-input */
+    /*.spectrum-Checkbox-input*/
+    font-family: inherit;
     font-size: 100%;
     height: 100%;
     line-height: 1.15;
@@ -35,40 +37,42 @@ governing permissions and limitations under the License.
     z-index: 1;
 }
 #input:disabled {
-    cursor: default; /* .spectrum-Checkbox-input:disabled */
+    /*.spectrum-Checkbox-input:disabled*/
+    cursor: default;
 }
 #input:checked + #box:before {
-    border-width: calc(
-        var(--spectrum-checkbox-box-size) / 2
-    ); /* .spectrum-Checkbox-input:checked+.spectrum-Checkbox-box:before */
+    /*.spectrum-Checkbox-input:checked + .spectrum-Checkbox-box:before*/
+    border-width: calc(var(--spectrum-checkbox-box-size) / 2);
 }
 #input:checked + #box #checkmark {
     opacity: 1;
-    transform: scale(
-        1
-    ); /* .spectrum-Checkbox-input:checked+.spectrum-Checkbox-box .spectrum-Checkbox-checkmark */
+    /*.spectrum-Checkbox-input:checked + .spectrum-Checkbox-box .spectrum-Checkbox-checkmark*/
+    transform: scale(1);
 }
 #input.focus-visible + #box:after {
+    /*.spectrum-Checkbox-input.focus-ring + .spectrum-Checkbox-box:after*/
     margin: calc(
         var(
                 --spectrum-alias-focus-ring-gap,
                 var(--spectrum-global-dimension-static-size-25)
             ) * -1
-    ); /* .spectrum-Checkbox-input.focus-ring+.spectrum-Checkbox-box:after */
+    );
 }
 #input:focus-visible + #box:after {
+    /*.spectrum-Checkbox-input.focus-ring + .spectrum-Checkbox-box:after*/
     margin: calc(
         var(
                 --spectrum-alias-focus-ring-gap,
                 var(--spectrum-global-dimension-static-size-25)
             ) * -1
-    ); /* .spectrum-Checkbox-input.focus-ring+.spectrum-Checkbox-box:after */
+    );
 }
-:host([size='s']) {
+:host(:where([size='s'])) {
+    /*.spectrum-Checkbox--sizeS*/
     --spectrum-checkbox-box-border-radius: var(
         --spectrum-checkbox-s-box-border-radius,
         var(--spectrum-alias-border-radius-small)
-    ); /* .spectrum-Checkbox--sizeS */
+    );
     --spectrum-checkbox-box-border-size: var(
         --spectrum-checkbox-s-box-border-size,
         var(--spectrum-alias-border-size-thick)
@@ -110,11 +114,12 @@ governing permissions and limitations under the License.
         var(--spectrum-global-dimension-size-300)
     );
 }
-:host([size='m']) {
+:host(:where([size='m'])) {
+    /*.spectrum-Checkbox--sizeM*/
     --spectrum-checkbox-box-border-radius: var(
         --spectrum-checkbox-m-box-border-radius,
         var(--spectrum-alias-border-radius-small)
-    ); /* .spectrum-Checkbox--sizeM */
+    );
     --spectrum-checkbox-box-border-size: var(
         --spectrum-checkbox-m-box-border-size,
         var(--spectrum-alias-border-size-thick)
@@ -156,10 +161,11 @@ governing permissions and limitations under the License.
         var(--spectrum-global-dimension-size-400)
     );
 }
-:host([size='l']) {
+:host(:where([size='l'])) {
+    /*.spectrum-Checkbox--sizeL*/
     --spectrum-checkbox-text-padding-top: var(
         --spectrum-checkbox-l-text-padding-top
-    ); /* .spectrum-Checkbox--sizeL */
+    );
     --spectrum-checkbox-box-border-radius: var(
         --spectrum-checkbox-l-box-border-radius,
         var(--spectrum-alias-border-radius-small)
@@ -201,11 +207,12 @@ governing permissions and limitations under the License.
         var(--spectrum-global-dimension-size-500)
     );
 }
-:host([size='xl']) {
+:host(:where([size='xl'])) {
+    /*.spectrum-Checkbox--sizeXL*/
     --spectrum-checkbox-box-border-radius: var(
         --spectrum-checkbox-xl-box-border-radius,
         var(--spectrum-alias-border-radius-small)
-    ); /* .spectrum-Checkbox--sizeXL */
+    );
     --spectrum-checkbox-box-border-size: var(
         --spectrum-checkbox-xl-box-border-size,
         var(--spectrum-alias-border-size-thick)
@@ -247,49 +254,38 @@ governing permissions and limitations under the License.
         var(--spectrum-global-dimension-size-600)
     );
 }
-:host([indeterminate]) #box:before,
-:host([indeterminate]) #input:checked + #box:before {
-    border-width: calc(
-        var(--spectrum-checkbox-box-size) / 2
-    ); /* .spectrum-Checkbox.is-indeterminate .spectrum-Checkbox-box:before,
-   * .spectrum-Checkbox.is-indeterminate .spectrum-Checkbox-input:checked+.spectrum-Checkbox-box:before */
+:host(:where([indeterminate])) #box:before,
+:host(:where([indeterminate])) #input:checked + #box:before {
+    /*.spectrum-Checkbox.is-indeterminate .spectrum-Checkbox-box:before, .spectrum-Checkbox.is-indeterminate .spectrum-Checkbox-input:checked + .spectrum-Checkbox-box:before*/
+    border-width: calc(var(--spectrum-checkbox-box-size) / 2);
 }
-:host([indeterminate]) #box #checkmark,
-:host([indeterminate]) #input:checked + #box #checkmark {
-    display: none; /* .spectrum-Checkbox.is-indeterminate .spectrum-Checkbox-box .spectrum-Checkbox-checkmark,
-   * .spectrum-Checkbox.is-indeterminate .spectrum-Checkbox-input:checked+.spectrum-Checkbox-box .spectrum-Checkbox-checkmark */
+:host(:where([indeterminate])) #box #checkmark,
+:host(:where([indeterminate])) #input:checked + #box #checkmark {
+    /*.spectrum-Checkbox.is-indeterminate .spectrum-Checkbox-box .spectrum-Checkbox-checkmark, .spectrum-Checkbox.is-indeterminate .spectrum-Checkbox-input:checked + .spectrum-Checkbox-box .spectrum-Checkbox-checkmark*/
+    display: none;
 }
-:host([indeterminate]) #box #partialCheckmark,
-:host([indeterminate]) #input:checked + #box #partialCheckmark {
-    display: block; /* .spectrum-Checkbox.is-indeterminate .spectrum-Checkbox-box .spectrum-Checkbox-partialCheckmark,
-   * .spectrum-Checkbox.is-indeterminate .spectrum-Checkbox-input:checked+.spectrum-Checkbox-box .spectrum-Checkbox-partialCheckmark */
+:host(:where([indeterminate])) #box #partialCheckmark,
+:host(:where([indeterminate])) #input:checked + #box #partialCheckmark {
+    /*.spectrum-Checkbox.is-indeterminate .spectrum-Checkbox-box .spectrum-Checkbox-partialCheckmark, .spectrum-Checkbox.is-indeterminate .spectrum-Checkbox-input:checked + .spectrum-Checkbox-box .spectrum-Checkbox-partialCheckmark*/
+    display: block;
     opacity: 1;
     transform: scale(1);
-}
-:host([dir='ltr']) #label {
-    text-align: left; /* [dir=ltr] .spectrum-Checkbox-label */
-}
-:host([dir='rtl']) #label {
-    text-align: right; /* [dir=rtl] .spectrum-Checkbox-label */
-}
-:host([dir='ltr']) #label {
-    margin-left: var(
-        --spectrum-checkbox-text-gap
-    ); /* [dir=ltr] .spectrum-Checkbox-label */
-}
-:host([dir='rtl']) #label {
-    margin-right: var(
-        --spectrum-checkbox-text-gap
-    ); /* [dir=rtl] .spectrum-Checkbox-label */
 }
 #label {
     font-size: var(--spectrum-checkbox-text-size);
     font-style: var(--spectrum-checkbox-text-font-style);
     font-weight: var(--spectrum-checkbox-text-font-weight);
     line-height: var(--spectrum-checkbox-text-line-height);
-    margin-top: var(
-        --spectrum-checkbox-text-padding-top
-    ); /* .spectrum-Checkbox-label */
+    /*[dir="ltr"] .spectrum-Checkbox-label*/
+    margin-left: var(--spectrum-checkbox-text-gap);
+    /*[dir="rtl"] .spectrum-Checkbox-label*/
+    margin-right: var(--spectrum-checkbox-text-gap);
+    /*.spectrum-Checkbox-label*/
+    margin-top: var(--spectrum-checkbox-text-padding-top);
+    /*[dir="ltr"] .spectrum-Checkbox-label*/
+    text-align: left;
+    /*[dir="rtl"] .spectrum-Checkbox-label*/
+    text-align: right;
     transition: color var(--spectrum-global-animation-duration-100, 0.13s)
         ease-in-out;
 }
@@ -305,7 +301,8 @@ governing permissions and limitations under the License.
                 ) / 2
         )
         0;
-    position: relative; /* .spectrum-Checkbox-box */
+    /*.spectrum-Checkbox-box*/
+    position: relative;
     width: var(--spectrum-checkbox-box-size);
 }
 #box:before {
@@ -314,7 +311,8 @@ governing permissions and limitations under the License.
     border-width: var(--spectrum-checkbox-box-border-size);
     box-sizing: border-box;
     content: '';
-    display: block; /* .spectrum-Checkbox-box:before */
+    /*.spectrum-Checkbox-box:before*/
+    display: block;
     height: var(--spectrum-checkbox-box-size);
     position: absolute;
     transition: border var(--spectrum-global-animation-duration-100, 0.13s)
@@ -325,13 +323,14 @@ governing permissions and limitations under the License.
     z-index: 0;
 }
 #box:after {
+    /*.spectrum-Checkbox-box:after*/
     border-radius: calc(
         var(--spectrum-checkbox-box-border-radius) +
             var(
                 --spectrum-alias-focus-ring-gap,
                 var(--spectrum-global-dimension-static-size-25)
             )
-    ); /* .spectrum-Checkbox-box:after */
+    );
     bottom: 0;
     content: '';
     display: block;
@@ -348,23 +347,18 @@ governing permissions and limitations under the License.
             ease-out,
         margin var(--spectrum-global-animation-duration-100, 0.13s) ease-out;
 }
-:host([dir='ltr']) #checkmark,
-:host([dir='ltr']) #partialCheckmark {
-    left: 50%; /* [dir=ltr] .spectrum-Checkbox-checkmark,
-   * [dir=ltr] 
-.spectrum-Checkbox-partialCheckmark */
-}
-:host([dir='rtl']) #checkmark,
-:host([dir='rtl']) #partialCheckmark {
-    right: 50%; /* [dir=rtl] .spectrum-Checkbox-checkmark,
-   * [dir=rtl] 
-.spectrum-Checkbox-partialCheckmark */
-}
 #checkmark,
 #partialCheckmark {
+    /*[dir="ltr"] .spectrum-Checkbox-checkmark,[dir="ltr"] 
+.spectrum-Checkbox-partialCheckmark*/
+    left: 50%;
     opacity: 0;
-    position: absolute; /* .spectrum-Checkbox-checkmark,
-   * .spectrum-Checkbox-partialCheckmark */
+    /*.spectrum-Checkbox-checkmark,
+.spectrum-Checkbox-partialCheckmark*/
+    position: absolute;
+    /*[dir="rtl"] .spectrum-Checkbox-checkmark,[dir="rtl"] 
+.spectrum-Checkbox-partialCheckmark*/
+    right: 50%;
     top: 50%;
     transform: scale(0);
     transition: opacity var(--spectrum-global-animation-duration-100, 0.13s)
@@ -372,50 +366,41 @@ governing permissions and limitations under the License.
         transform var(--spectrum-global-animation-duration-100, 0.13s)
             ease-in-out;
 }
-:host([dir='ltr']) #checkmark {
-    margin-left: calc(
-        var(--spectrum-checkbox-checkmark-size) / -2
-    ); /* [dir=ltr] .spectrum-Checkbox-checkmark */
-}
-:host([dir='rtl']) #checkmark {
-    margin-right: calc(
-        var(--spectrum-checkbox-checkmark-size) / -2
-    ); /* [dir=rtl] .spectrum-Checkbox-checkmark */
-}
 #checkmark {
-    margin-top: calc(
-        var(--spectrum-checkbox-checkmark-size) / -2
-    ); /* .spectrum-Checkbox-checkmark */
-}
-:host([dir='ltr']) #partialCheckmark {
-    margin-left: calc(
-        var(--spectrum-checkbox-checkmark-size) / -2
-    ); /* [dir=ltr] .spectrum-Checkbox-partialCheckmark */
-}
-:host([dir='rtl']) #partialCheckmark {
-    margin-right: calc(
-        var(--spectrum-checkbox-checkmark-size) / -2
-    ); /* [dir=rtl] .spectrum-Checkbox-partialCheckmark */
-}
-#partialCheckmark {
-    display: none;
-    margin-top: calc(
-        var(--spectrum-checkbox-checkmark-size) / -2
-    ); /* .spectrum-Checkbox-partialCheckmark */ /* .spectrum-Checkbox-partialCheckmark */
-}
-:host {
-    color: var(
-        --spectrum-checkbox-m-text-color,
-        var(--spectrum-alias-component-text-color-default)
-    ); /* .spectrum-Checkbox */
+    /*[dir="ltr"] .spectrum-Checkbox-checkmark*/
+    /*[dir="rtl"] .spectrum-Checkbox-checkmark*/
+    margin-right: calc(var(--spectrum-checkbox-checkmark-size) / -2);
+    /*.spectrum-Checkbox-checkmark*/
+    margin-top: calc(var(--spectrum-checkbox-checkmark-size) / -2);
 }
 #checkmark,
 #partialCheckmark {
+    margin-left: calc(var(--spectrum-checkbox-checkmark-size) / -2);
+}
+#partialCheckmark {
+    /*.spectrum-Checkbox-partialCheckmark*/
+    display: none;
+    /*[dir="ltr"] .spectrum-Checkbox-partialCheckmark*/
+    /*[dir="rtl"] .spectrum-Checkbox-partialCheckmark*/
+    margin-right: calc(var(--spectrum-checkbox-checkmark-size) / -2);
+    /*.spectrum-Checkbox-partialCheckmark*/
+    margin-top: calc(var(--spectrum-checkbox-checkmark-size) / -2);
+}
+:host {
+    /*.spectrum-Checkbox*/
+    color: var(
+        --spectrum-checkbox-m-text-color,
+        var(--spectrum-alias-component-text-color-default)
+    );
+}
+#checkmark,
+#partialCheckmark {
+    /*.spectrum-Checkbox-checkmark,
+.spectrum-Checkbox-partialCheckmark*/
     color: var(
         --spectrum-checkbox-m-checkmark-color,
         var(--spectrum-alias-toggle-icon-color-selected)
-    ); /* .spectrum-Checkbox-checkmark,
-   * .spectrum-Checkbox-partialCheckmark */
+    );
 }
 #box:before {
     background-color: var(
@@ -426,118 +411,130 @@ governing permissions and limitations under the License.
         --spectrum-checkbox-m-box-border-color,
         var(--spectrum-alias-toggle-border-color-default)
     );
-    forced-color-adjust: none; /* .spectrum-Checkbox-box:before */
+    /*.spectrum-Checkbox-box:before*/
+    forced-color-adjust: none;
 }
 #label {
+    /*.spectrum-Checkbox-label*/
     color: var(
         --spectrum-checkbox-m-text-color,
         var(--spectrum-alias-component-text-color-default)
-    ); /* .spectrum-Checkbox-label */
+    );
 }
 #input:checked + #box:before,
-:host([indeterminate]) #box:before {
+:host(:where([indeterminate])) #box:before {
+    /*.spectrum-Checkbox.is-indeterminate .spectrum-Checkbox-box:before, .spectrum-Checkbox-input:checked + .spectrum-Checkbox-box:before*/
     border-color: var(
         --spectrum-checkbox-m-box-border-color-selected,
         var(--spectrum-alias-toggle-background-color-default)
-    ); /* .spectrum-Checkbox.is-indeterminate .spectrum-Checkbox-box:before,
-   * .spectrum-Checkbox-input:checked+.spectrum-Checkbox-box:before */
+    );
 }
-:host(:hover) #input:checked + #box:before,
-:host(:hover[indeterminate]) #box:before {
+:host(:where(:hover)) #input:checked + #box:before,
+:host(:where(:hover[indeterminate])) #box:before {
+    /*.spectrum-Checkbox:hover.is-indeterminate .spectrum-Checkbox-box:before, .spectrum-Checkbox:hover .spectrum-Checkbox-input:checked + .spectrum-Checkbox-box:before*/
     border-color: var(
         --spectrum-checkbox-m-box-border-color-selected-hover,
         var(--spectrum-alias-toggle-background-color-hover)
-    ); /* .spectrum-Checkbox:hover.is-indeterminate .spectrum-Checkbox-box:before,
-   * .spectrum-Checkbox:hover .spectrum-Checkbox-input:checked+.spectrum-Checkbox-box:before */
+    );
 }
-:host(:active) #input:checked + #box:before,
-:host(:active[indeterminate]) #box:before {
+:host(:where(:active)) #input:checked + #box:before,
+:host(:where(:active[indeterminate])) #box:before {
+    /*.spectrum-Checkbox:active.is-indeterminate .spectrum-Checkbox-box:before, .spectrum-Checkbox:active .spectrum-Checkbox-input:checked + .spectrum-Checkbox-box:before*/
     border-color: var(
         --spectrum-checkbox-m-box-border-color-selected-down,
         var(--spectrum-alias-toggle-background-color-down)
-    ); /* .spectrum-Checkbox:active.is-indeterminate .spectrum-Checkbox-box:before,
-   * .spectrum-Checkbox:active .spectrum-Checkbox-input:checked+.spectrum-Checkbox-box:before */
+    );
 }
 :host {
+    /*.spectrum-Checkbox*/
     border-color: var(
         --spectrum-checkbox-m-box-border-color,
         var(--spectrum-alias-toggle-border-color-default)
-    ); /* .spectrum-Checkbox */
+    );
 }
-:host(:hover) #box:before {
+:host(:where(:hover)) #box:before {
+    /*.spectrum-Checkbox:hover .spectrum-Checkbox-box:before*/
     border-color: var(
         --spectrum-checkbox-m-box-border-color-hover,
         var(--spectrum-alias-toggle-border-color-hover)
-    ); /* .spectrum-Checkbox:hover .spectrum-Checkbox-box:before */
+    );
 }
-:host(:hover) #label {
+:host(:where(:hover)) #label {
+    /*.spectrum-Checkbox:hover .spectrum-Checkbox-label*/
     color: var(
         --spectrum-checkbox-m-text-color-hover,
         var(--spectrum-alias-component-text-color-hover)
-    ); /* .spectrum-Checkbox:hover .spectrum-Checkbox-label */
+    );
 }
-:host(:active) #box:before {
+:host(:where(:active)) #box:before {
+    /*.spectrum-Checkbox:active .spectrum-Checkbox-box:before*/
     border-color: var(
         --spectrum-checkbox-m-box-border-color-down,
         var(--spectrum-alias-toggle-border-color-down)
-    ); /* .spectrum-Checkbox:active .spectrum-Checkbox-box:before */
+    );
 }
-:host(:active) #label {
+:host(:where(:active)) #label {
+    /*.spectrum-Checkbox:active .spectrum-Checkbox-label*/
     color: var(
         --spectrum-checkbox-m-text-color-down,
         var(--spectrum-alias-component-text-color-down)
-    ); /* .spectrum-Checkbox:active .spectrum-Checkbox-label */
+    );
 }
-:host([readonly]) {
+:host(:where([readonly])) {
+    /*.spectrum-Checkbox.is-readOnly*/
     border-color: var(
         --spectrum-checkbox-m-box-border-color,
         var(--spectrum-alias-toggle-border-color-default)
-    ); /* .spectrum-Checkbox.is-readOnly */
+    );
 }
-:host([readonly]:hover) #box:before {
+:host(:where([readonly]:hover)) #box:before {
+    /*.spectrum-Checkbox.is-readOnly:hover .spectrum-Checkbox-box:before*/
     border-color: var(
         --spectrum-checkbox-m-box-border-color-hover,
         var(--spectrum-alias-toggle-border-color-hover)
-    ); /* .spectrum-Checkbox.is-readOnly:hover .spectrum-Checkbox-box:before */
+    );
 }
-:host([readonly]:hover) #label {
+:host(:where([readonly]:hover)) #label {
+    /*.spectrum-Checkbox.is-readOnly:hover .spectrum-Checkbox-label*/
     color: var(
         --spectrum-checkbox-m-text-color-hover,
         var(--spectrum-alias-component-text-color-hover)
-    ); /* .spectrum-Checkbox.is-readOnly:hover .spectrum-Checkbox-label */
+    );
 }
-:host([readonly]:active) #box:before {
+:host(:where([readonly]:active)) #box:before {
+    /*.spectrum-Checkbox.is-readOnly:active .spectrum-Checkbox-box:before*/
     border-color: var(
         --spectrum-checkbox-m-box-border-color-down,
         var(--spectrum-alias-toggle-border-color-down)
-    ); /* .spectrum-Checkbox.is-readOnly:active .spectrum-Checkbox-box:before */
+    );
 }
-:host([readonly]:active) #label {
+:host(:where([readonly]:active)) #label {
+    /*.spectrum-Checkbox.is-readOnly:active .spectrum-Checkbox-label*/
     color: var(
         --spectrum-checkbox-m-text-color-down,
         var(--spectrum-alias-component-text-color-down)
-    ); /* .spectrum-Checkbox.is-readOnly:active .spectrum-Checkbox-label */
+    );
 }
-:host([readonly]) #input:checked:disabled + #box:before,
-:host([readonly]) #input:disabled + #box:before {
+:host(:where([readonly])) #input:checked:disabled + #box:before,
+:host(:where([readonly])) #input:disabled + #box:before {
     background-color: var(
         --spectrum-checkbox-m-box-background-color,
         var(--spectrum-global-color-gray-75)
     );
+    /*.spectrum-Checkbox.is-readOnly .spectrum-Checkbox-input:disabled + .spectrum-Checkbox-box:before, .spectrum-Checkbox.is-readOnly .spectrum-Checkbox-input:checked:disabled + .spectrum-Checkbox-box:before*/
     border-color: var(
         --spectrum-checkbox-m-box-border-color,
         var(--spectrum-alias-toggle-border-color-default)
-    ); /* .spectrum-Checkbox.is-readOnly .spectrum-Checkbox-input:disabled+.spectrum-Checkbox-box:before,
-   * .spectrum-Checkbox.is-readOnly .spectrum-Checkbox-input:checked:disabled+.spectrum-Checkbox-box:before */
+    );
 }
-:host([readonly]) #input:checked:disabled ~ #label,
-:host([readonly]) #input:disabled ~ #label {
+:host(:where([readonly])) #input:checked:disabled ~ #label,
+:host(:where([readonly])) #input:disabled ~ #label {
     color: var(
         --spectrum-checkbox-m-text-color,
         var(--spectrum-alias-component-text-color-default)
     );
-    forced-color-adjust: none; /* .spectrum-Checkbox.is-readOnly .spectrum-Checkbox-input:disabled~.spectrum-Checkbox-label,
-   * .spectrum-Checkbox.is-readOnly .spectrum-Checkbox-input:checked:disabled~.spectrum-Checkbox-label */
+    /*.spectrum-Checkbox.is-readOnly .spectrum-Checkbox-input:disabled ~ .spectrum-Checkbox-label, .spectrum-Checkbox.is-readOnly .spectrum-Checkbox-input:checked:disabled ~ .spectrum-Checkbox-label*/
+    forced-color-adjust: none;
 }
 #input:disabled + #box:before,
 :host([dir]) #input:checked:disabled + #box:before {
@@ -545,11 +542,11 @@ governing permissions and limitations under the License.
         --spectrum-checkbox-m-box-background-color-disabled,
         var(--spectrum-global-color-gray-75)
     );
+    /*.spectrum-Checkbox .spectrum-Checkbox-input:disabled + .spectrum-Checkbox-box:before, .spectrum-Checkbox .spectrum-Checkbox-input:checked:disabled + .spectrum-Checkbox-box:before*/
     border-color: var(
         --spectrum-checkbox-m-box-border-color-disabled,
         var(--spectrum-global-color-gray-400)
-    ); /* .spectrum-Checkbox .spectrum-Checkbox-input:disabled+.spectrum-Checkbox-box:before,
-   * .spectrum-Checkbox .spectrum-Checkbox-input:checked:disabled+.spectrum-Checkbox-box:before */
+    );
 }
 #input:checked:disabled ~ #label,
 #input:disabled ~ #label {
@@ -557,20 +554,22 @@ governing permissions and limitations under the License.
         --spectrum-checkbox-m-text-color-disabled,
         var(--spectrum-alias-component-text-color-disabled)
     );
-    forced-color-adjust: none; /* .spectrum-Checkbox .spectrum-Checkbox-input:disabled~.spectrum-Checkbox-label,
-   * .spectrum-Checkbox .spectrum-Checkbox-input:checked:disabled~.spectrum-Checkbox-label */
+    /*.spectrum-Checkbox .spectrum-Checkbox-input:disabled ~ .spectrum-Checkbox-label, .spectrum-Checkbox .spectrum-Checkbox-input:checked:disabled ~ .spectrum-Checkbox-label*/
+    forced-color-adjust: none;
 }
 #input.focus-visible + #box:before {
+    /*.spectrum-Checkbox-input.focus-ring + .spectrum-Checkbox-box:before*/
     border-color: var(
         --spectrum-checkbox-m-box-border-color-key-focus,
         var(--spectrum-alias-toggle-border-color-key-focus)
-    ); /* .spectrum-Checkbox-input.focus-ring+.spectrum-Checkbox-box:before */
+    );
 }
 #input:focus-visible + #box:before {
+    /*.spectrum-Checkbox-input.focus-ring + .spectrum-Checkbox-box:before*/
     border-color: var(
         --spectrum-checkbox-m-box-border-color-key-focus,
         var(--spectrum-alias-toggle-border-color-key-focus)
-    ); /* .spectrum-Checkbox-input.focus-ring+.spectrum-Checkbox-box:before */
+    );
 }
 #input.focus-visible + #box:after {
     box-shadow: 0 0 0
@@ -582,7 +581,8 @@ governing permissions and limitations under the License.
             --spectrum-checkbox-m-focus-ring-color-key-focus,
             var(--spectrum-alias-focus-ring-color)
         );
-    forced-color-adjust: none; /* .spectrum-Checkbox-input.focus-ring+.spectrum-Checkbox-box:after */
+    /*.spectrum-Checkbox-input.focus-ring + .spectrum-Checkbox-box:after*/
+    forced-color-adjust: none;
 }
 #input:focus-visible + #box:after {
     box-shadow: 0 0 0
@@ -594,160 +594,165 @@ governing permissions and limitations under the License.
             --spectrum-checkbox-m-focus-ring-color-key-focus,
             var(--spectrum-alias-focus-ring-color)
         );
-    forced-color-adjust: none; /* .spectrum-Checkbox-input.focus-ring+.spectrum-Checkbox-box:after */
+    /*.spectrum-Checkbox-input.focus-ring + .spectrum-Checkbox-box:after*/
+    forced-color-adjust: none;
 }
 #input:checked.focus-visible + #box:before,
-:host([indeterminate]) #input.focus-visible + #box:before {
+:host(:where([indeterminate])) #input.focus-visible + #box:before {
+    /*.spectrum-Checkbox.is-indeterminate .spectrum-Checkbox-input.focus-ring + .spectrum-Checkbox-box:before, .spectrum-Checkbox-input:checked.focus-ring + .spectrum-Checkbox-box:before*/
     border-color: var(
         --spectrum-checkbox-m-box-border-color-selected-key-focus,
         var(--spectrum-alias-toggle-background-color-key-focus)
-    ); /* .spectrum-Checkbox.is-indeterminate .spectrum-Checkbox-input.focus-ring+.spectrum-Checkbox-box:before,
-   * .spectrum-Checkbox-input:checked.focus-ring+.spectrum-Checkbox-box:before */
+    );
 }
 #input:checked:focus-visible + #box:before,
-:host([indeterminate]) #input:focus-visible + #box:before {
+:host(:where([indeterminate])) #input:focus-visible + #box:before {
+    /*.spectrum-Checkbox.is-indeterminate .spectrum-Checkbox-input.focus-ring + .spectrum-Checkbox-box:before, .spectrum-Checkbox-input:checked.focus-ring + .spectrum-Checkbox-box:before*/
     border-color: var(
         --spectrum-checkbox-m-box-border-color-selected-key-focus,
         var(--spectrum-alias-toggle-background-color-key-focus)
-    ); /* .spectrum-Checkbox.is-indeterminate .spectrum-Checkbox-input.focus-ring+.spectrum-Checkbox-box:before,
-   * .spectrum-Checkbox-input:checked.focus-ring+.spectrum-Checkbox-box:before */
+    );
 }
 #input.focus-visible ~ #label {
+    /*.spectrum-Checkbox-input.focus-ring ~ .spectrum-Checkbox-label*/
     color: var(
         --spectrum-checkbox-m-text-color-key-focus,
         var(--spectrum-alias-component-text-color-key-focus)
-    ); /* .spectrum-Checkbox-input.focus-ring~.spectrum-Checkbox-label */
+    );
 }
 #input:focus-visible ~ #label {
+    /*.spectrum-Checkbox-input.focus-ring ~ .spectrum-Checkbox-label*/
     color: var(
         --spectrum-checkbox-m-text-color-key-focus,
         var(--spectrum-alias-component-text-color-key-focus)
-    ); /* .spectrum-Checkbox-input.focus-ring~.spectrum-Checkbox-label */
+    );
 }
-:host([emphasized]) #input:checked + #box:before,
-:host([emphasized][indeterminate]) #box:before,
-:host([emphasized][indeterminate]) #input.focus-visible + #box:before {
+:host(:where([emphasized])) #input:checked + #box:before,
+:host(:where([emphasized][indeterminate])) #box:before,
+:host(:where([emphasized][indeterminate])) #input.focus-visible + #box:before {
+    /*.spectrum-Checkbox--emphasized
+  .spectrum-Checkbox-input:checked
+  + .spectrum-Checkbox-box:before, .spectrum-Checkbox--emphasized.is-indeterminate .spectrum-Checkbox-box:before, .spectrum-Checkbox--emphasized.is-indeterminate
+  .spectrum-Checkbox-input.focus-ring
+  + .spectrum-Checkbox-box:before*/
     border-color: var(
         --spectrum-checkbox-m-emphasized-box-border-color-selected,
         var(
             --spectrum-alias-toggle-background-color-emphasized-selected-default
         )
-    ); /* .spectrum-Checkbox--emphasized
-  .spectrum-Checkbox-input:checked
- +.spectrum-Checkbox-box:before,
-   * .spectrum-Checkbox--emphasized.is-indeterminate .spectrum-Checkbox-box:before,
-   * .spectrum-Checkbox--emphasized.is-indeterminate
-  .spectrum-Checkbox-input.focus-ring
- +.spectrum-Checkbox-box:before */
+    );
 }
-:host([emphasized]) #input:checked + #box:before,
-:host([emphasized][indeterminate]) #box:before,
-:host([emphasized][indeterminate]) #input:focus-visible + #box:before {
+:host(:where([emphasized])) #input:checked + #box:before,
+:host(:where([emphasized][indeterminate])) #box:before,
+:host(:where([emphasized][indeterminate])) #input:focus-visible + #box:before {
+    /*.spectrum-Checkbox--emphasized
+  .spectrum-Checkbox-input:checked
+  + .spectrum-Checkbox-box:before, .spectrum-Checkbox--emphasized.is-indeterminate .spectrum-Checkbox-box:before, .spectrum-Checkbox--emphasized.is-indeterminate
+  .spectrum-Checkbox-input.focus-ring
+  + .spectrum-Checkbox-box:before*/
     border-color: var(
         --spectrum-checkbox-m-emphasized-box-border-color-selected,
         var(
             --spectrum-alias-toggle-background-color-emphasized-selected-default
         )
-    ); /* .spectrum-Checkbox--emphasized
-  .spectrum-Checkbox-input:checked
- +.spectrum-Checkbox-box:before,
-   * .spectrum-Checkbox--emphasized.is-indeterminate .spectrum-Checkbox-box:before,
-   * .spectrum-Checkbox--emphasized.is-indeterminate
-  .spectrum-Checkbox-input.focus-ring
- +.spectrum-Checkbox-box:before */
+    );
 }
-:host([emphasized]:hover) #input:checked + #box:before,
-:host([emphasized][indeterminate]:hover) #box:before {
+:host(:where([emphasized]:hover)) #input:checked + #box:before,
+:host(:where([emphasized]:hover[indeterminate])) #box:before {
+    /*.spectrum-Checkbox--emphasized:hover.is-indeterminate .spectrum-Checkbox-box:before, .spectrum-Checkbox--emphasized:hover .spectrum-Checkbox-input:checked + .spectrum-Checkbox-box:before*/
     border-color: var(
         --spectrum-checkbox-m-emphasized-box-border-color-selected-hover,
         var(--spectrum-alias-toggle-background-color-emphasized-selected-hover)
-    ); /* .spectrum-Checkbox--emphasized:hover.is-indeterminate .spectrum-Checkbox-box:before,
-   * .spectrum-Checkbox--emphasized:hover .spectrum-Checkbox-input:checked+.spectrum-Checkbox-box:before */
+    );
 }
-:host([emphasized]:active) #input:checked + #box:before,
-:host([emphasized][indeterminate]:active) #box:before {
+:host(:where([emphasized]:active)) #input:checked + #box:before,
+:host(:where([emphasized]:active[indeterminate])) #box:before {
+    /*.spectrum-Checkbox--emphasized:active.is-indeterminate .spectrum-Checkbox-box:before, .spectrum-Checkbox--emphasized:active .spectrum-Checkbox-input:checked + .spectrum-Checkbox-box:before*/
     border-color: var(
         --spectrum-checkbox-m-emphasized-box-border-color-selected-down,
         var(--spectrum-alias-toggle-background-color-emphasized-selected-down)
-    ); /* .spectrum-Checkbox--emphasized:active.is-indeterminate .spectrum-Checkbox-box:before,
-   * .spectrum-Checkbox--emphasized:active .spectrum-Checkbox-input:checked+.spectrum-Checkbox-box:before */
+    );
 }
 :host([invalid][dir]) #box:before,
 :host([invalid][dir]) #input:checked + #box:before {
+    /*.spectrum-Checkbox.is-invalid .spectrum-Checkbox-input:checked + .spectrum-Checkbox-box:before, .spectrum-Checkbox.is-invalid .spectrum-Checkbox-box:before*/
     border-color: var(
         --spectrum-checkbox-m-box-border-color-error,
         var(--spectrum-global-color-red-500)
-    ); /* .spectrum-Checkbox.is-invalid .spectrum-Checkbox-input:checked+.spectrum-Checkbox-box:before,
-   * .spectrum-Checkbox.is-invalid .spectrum-Checkbox-box:before */
+    );
 }
-:host([invalid]) #label {
+:host(:where([invalid])) #label {
+    /*.spectrum-Checkbox.is-invalid .spectrum-Checkbox-label*/
     color: var(
         --spectrum-checkbox-m-text-color-error,
         var(--spectrum-alias-component-text-color-error-default)
-    ); /* .spectrum-Checkbox.is-invalid .spectrum-Checkbox-label */
+    );
 }
-:host([invalid]) #input.focus-visible + #box:before,
-:host([invalid][indeterminate]) #input.focus-visible + #box:before {
+:host(:where([invalid])) #input.focus-visible + #box:before,
+:host(:where([invalid][indeterminate])) #input.focus-visible + #box:before {
+    /*.spectrum-Checkbox.is-invalid.is-indeterminate .spectrum-Checkbox-input.focus-ring + .spectrum-Checkbox-box:before, .spectrum-Checkbox.is-invalid .spectrum-Checkbox-input.focus-ring + .spectrum-Checkbox-box:before*/
     border-color: var(
         --spectrum-checkbox-m-box-border-color-error-hover,
         var(--spectrum-global-color-red-600)
-    ); /* .spectrum-Checkbox.is-invalid.is-indeterminate .spectrum-Checkbox-input.focus-ring+.spectrum-Checkbox-box:before,
-   * .spectrum-Checkbox.is-invalid .spectrum-Checkbox-input.focus-ring+.spectrum-Checkbox-box:before */
+    );
 }
-:host([invalid]) #input:focus-visible + #box:before,
-:host([invalid][indeterminate]) #input:focus-visible + #box:before {
+:host(:where([invalid])) #input:focus-visible + #box:before,
+:host(:where([invalid][indeterminate])) #input:focus-visible + #box:before {
+    /*.spectrum-Checkbox.is-invalid.is-indeterminate .spectrum-Checkbox-input.focus-ring + .spectrum-Checkbox-box:before, .spectrum-Checkbox.is-invalid .spectrum-Checkbox-input.focus-ring + .spectrum-Checkbox-box:before*/
     border-color: var(
         --spectrum-checkbox-m-box-border-color-error-hover,
         var(--spectrum-global-color-red-600)
-    ); /* .spectrum-Checkbox.is-invalid.is-indeterminate .spectrum-Checkbox-input.focus-ring+.spectrum-Checkbox-box:before,
-   * .spectrum-Checkbox.is-invalid .spectrum-Checkbox-input.focus-ring+.spectrum-Checkbox-box:before */
+    );
 }
-:host([invalid]) #input.focus-visible ~ #label,
-:host([invalid][indeterminate]) #input.focus-visible ~ #label {
+:host(:where([invalid])) #input.focus-visible ~ #label,
+:host(:where([invalid][indeterminate])) #input.focus-visible ~ #label {
+    /*.spectrum-Checkbox.is-invalid.is-indeterminate .spectrum-Checkbox-input.focus-ring ~ .spectrum-Checkbox-label, .spectrum-Checkbox.is-invalid .spectrum-Checkbox-input.focus-ring ~ .spectrum-Checkbox-label*/
     color: var(
         --spectrum-checkbox-m-text-color-error-hover,
         var(--spectrum-alias-component-text-color-error-hover)
-    ); /* .spectrum-Checkbox.is-invalid.is-indeterminate .spectrum-Checkbox-input.focus-ring~.spectrum-Checkbox-label,
-   * .spectrum-Checkbox.is-invalid .spectrum-Checkbox-input.focus-ring~.spectrum-Checkbox-label */
+    );
 }
-:host([invalid]) #input:focus-visible ~ #label,
-:host([invalid][indeterminate]) #input:focus-visible ~ #label {
+:host(:where([invalid])) #input:focus-visible ~ #label,
+:host(:where([invalid][indeterminate])) #input:focus-visible ~ #label {
+    /*.spectrum-Checkbox.is-invalid.is-indeterminate .spectrum-Checkbox-input.focus-ring ~ .spectrum-Checkbox-label, .spectrum-Checkbox.is-invalid .spectrum-Checkbox-input.focus-ring ~ .spectrum-Checkbox-label*/
     color: var(
         --spectrum-checkbox-m-text-color-error-hover,
         var(--spectrum-alias-component-text-color-error-hover)
-    ); /* .spectrum-Checkbox.is-invalid.is-indeterminate .spectrum-Checkbox-input.focus-ring~.spectrum-Checkbox-label,
-   * .spectrum-Checkbox.is-invalid .spectrum-Checkbox-input.focus-ring~.spectrum-Checkbox-label */
+    );
 }
-:host([invalid]:hover) #box:before,
-:host([invalid][dir]:hover) #input:checked + #box:before {
+:host(:where([invalid]:hover)) #box:before,
+:host([invalid]:hover[dir]) #input:checked + #box:before {
+    /*.spectrum-Checkbox.is-invalid:hover .spectrum-Checkbox-input:checked + .spectrum-Checkbox-box:before, .spectrum-Checkbox.is-invalid:hover .spectrum-Checkbox-box:before*/
     border-color: var(
         --spectrum-checkbox-m-box-border-color-error-hover,
         var(--spectrum-global-color-red-600)
-    ); /* .spectrum-Checkbox.is-invalid:hover .spectrum-Checkbox-input:checked+.spectrum-Checkbox-box:before,
-   * .spectrum-Checkbox.is-invalid:hover .spectrum-Checkbox-box:before */
+    );
 }
-:host([invalid]:hover) #label {
+:host(:where([invalid]:hover)) #label {
+    /*.spectrum-Checkbox.is-invalid:hover .spectrum-Checkbox-label*/
     color: var(
         --spectrum-checkbox-m-text-color-error-hover,
         var(--spectrum-alias-component-text-color-error-hover)
-    ); /* .spectrum-Checkbox.is-invalid:hover .spectrum-Checkbox-label */
+    );
 }
-:host([invalid]:active) #box:before,
-:host([invalid]:active) #input:checked + #box:before {
+:host(:where([invalid]:active)) #box:before,
+:host(:where([invalid]:active)) #input:checked + #box:before {
+    /*.spectrum-Checkbox.is-invalid:active .spectrum-Checkbox-input:checked + .spectrum-Checkbox-box:before, .spectrum-Checkbox.is-invalid:active .spectrum-Checkbox-box:before*/
     border-color: var(
         --spectrum-checkbox-m-box-border-color-error-down,
         var(--spectrum-global-color-red-700)
-    ); /* .spectrum-Checkbox.is-invalid:active .spectrum-Checkbox-input:checked+.spectrum-Checkbox-box:before,
-   * .spectrum-Checkbox.is-invalid:active .spectrum-Checkbox-box:before */
+    );
 }
-:host([invalid]:active) #label {
+:host(:where([invalid]:active)) #label {
+    /*.spectrum-Checkbox.is-invalid:active .spectrum-Checkbox-label*/
     color: var(
         --spectrum-checkbox-m-text-color-error-down,
         var(--spectrum-alias-component-text-color-error-down)
-    ); /* .spectrum-Checkbox.is-invalid:active .spectrum-Checkbox-label */
+    );
 }
 @media (forced-colors: active) {
     #input.focus-visible + #box {
+        /*.spectrum-Checkbox-input.focus-ring + .spectrum-Checkbox-box*/
         forced-color-adjust: none;
         outline-color: var(
             --spectrum-checkbox-m-focus-ring-color-key-focus,
@@ -764,6 +769,7 @@ governing permissions and limitations under the License.
         );
     }
     #input:focus-visible + #box {
+        /*.spectrum-Checkbox-input.focus-ring + .spectrum-Checkbox-box*/
         forced-color-adjust: none;
         outline-color: var(
             --spectrum-checkbox-m-focus-ring-color-key-focus,
@@ -780,6 +786,7 @@ governing permissions and limitations under the License.
         );
     }
     :host {
+        /*.spectrum-Checkbox*/
         --spectrum-checkbox-m-box-background-color-disabled: ButtonFace;
         --spectrum-checkbox-m-box-background-color: ButtonFace;
         --spectrum-checkbox-m-box-border-color-disabled: GrayText;
@@ -817,18 +824,21 @@ governing permissions and limitations under the License.
         --spectrum-checkbox-m-text-color: FieldText;
     }
     :host([invalid][dir]) #box:before {
+        /*.spectrum-Checkbox.is-invalid .spectrum-Checkbox-box:before*/
         border-color: var(
             --spectrum-checkbox-m-box-border-color,
             var(--spectrum-alias-toggle-border-color-default)
         );
     }
-    :host([invalid][indeterminate]) #box:before {
+    :host(:where([invalid][indeterminate])) #box:before {
+        /*.spectrum-Checkbox.is-invalid.is-indeterminate .spectrum-Checkbox-box:before*/
         border-color: var(
             --spectrum-checkbox-m-box-border-color-error,
             var(--spectrum-global-color-red-500)
         );
     }
     :host([invalid][dir]) #input:checked + #box:before {
+        /*.spectrum-Checkbox.is-invalid .spectrum-Checkbox-input:checked + .spectrum-Checkbox-box:before*/
         border-color: var(
             --spectrum-checkbox-m-box-border-color-error,
             var(--spectrum-global-color-red-500)

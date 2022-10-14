@@ -12,6 +12,7 @@ governing permissions and limitations under the License.
 
 const config = {
     spectrum: 'actionbar',
+    package: 'action-bar',
     components: [
         {
             name: 'action-bar',

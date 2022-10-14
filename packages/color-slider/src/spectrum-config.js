@@ -12,6 +12,7 @@ governing permissions and limitations under the License.
 
 const config = {
     spectrum: 'colorslider',
+    package: 'color-slider',
     components: [
         {
             name: 'color-slider',

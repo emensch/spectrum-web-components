@@ -10,45 +10,50 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-/* THIS FILE IS MACHINE GENERATED. DO NOT EDIT */
+/*THIS FILE IS MACHINE GENERATED. DO NOT EDIT*/
 :host {
-    --spectrum-buttongroup-button-gap-reset: 0; /* .spectrum-ButtonGroup */
+    /*.spectrum-ButtonGroup*/
+    --spectrum-buttongroup-button-gap-reset: 0;
 }
 :host {
-    display: flex; /* .spectrum-ButtonGroup */
+    /*.spectrum-ButtonGroup*/
+    display: flex;
 }
-::slotted(*) {
-    flex-shrink: 0; /* .spectrum-ButtonGroup .spectrum-ButtonGroup-item */
+::slotted([slot='undefined']) {
+    /*.spectrum-ButtonGroup .spectrum-ButtonGroup-item*/
+    flex-shrink: 0;
 }
-:host([dir='ltr']) ::slotted(:not(:first-of-type)) {
+:host(:where([dir='ltr'])) ::slotted(:not(:first-of-type)) {
+    /*[dir="ltr"] .spectrum-ButtonGroup .spectrum-ButtonGroup-item + .spectrum-ButtonGroup-item*/
     margin-left: var(
         --spectrum-buttongroup-button-gap-x,
         var(--spectrum-global-dimension-static-size-200)
-    ); /* [dir=ltr] .spectrum-ButtonGroup .spectrum-ButtonGroup-item+.spectrum-ButtonGroup-item */
+    );
 }
-:host([dir='rtl']) ::slotted(:not(:first-of-type)) {
+:host(:where([dir='rtl'])) ::slotted(:not(:first-of-type)) {
+    /*[dir="rtl"] .spectrum-ButtonGroup .spectrum-ButtonGroup-item + .spectrum-ButtonGroup-item*/
     margin-right: var(
         --spectrum-buttongroup-button-gap-x,
         var(--spectrum-global-dimension-static-size-200)
-    ); /* [dir=rtl] .spectrum-ButtonGroup .spectrum-ButtonGroup-item+.spectrum-ButtonGroup-item */
+    );
 }
-:host([vertical]) {
-    display: inline-flex; /* .spectrum-ButtonGroup--vertical */
+:host(:where([vertical])) {
+    /*.spectrum-ButtonGroup--vertical*/
+    display: inline-flex;
     flex-direction: column;
 }
-:host([dir='ltr'][vertical]) ::slotted(:not(:first-of-type)) {
-    margin-left: var(
-        --spectrum-buttongroup-button-gap-reset
-    ); /* [dir=ltr] .spectrum-ButtonGroup--vertical .spectrum-ButtonGroup-item+.spectrum-ButtonGroup-item */
+:host(:where([dir='ltr'])) [vertical] ::slotted(:not(:first-of-type)) {
+    /*[dir="ltr"] .spectrum-ButtonGroup--vertical .spectrum-ButtonGroup-item + .spectrum-ButtonGroup-item*/
+    margin-left: var(--spectrum-buttongroup-button-gap-reset);
 }
-:host([dir='rtl'][vertical]) ::slotted(:not(:first-of-type)) {
-    margin-right: var(
-        --spectrum-buttongroup-button-gap-reset
-    ); /* [dir=rtl] .spectrum-ButtonGroup--vertical .spectrum-ButtonGroup-item+.spectrum-ButtonGroup-item */
+:host(:where([dir='rtl'])) [vertical] ::slotted(:not(:first-of-type)) {
+    /*[dir="rtl"] .spectrum-ButtonGroup--vertical .spectrum-ButtonGroup-item + .spectrum-ButtonGroup-item*/
+    margin-right: var(--spectrum-buttongroup-button-gap-reset);
 }
-:host([vertical]) ::slotted(:not(:first-of-type)) {
+:host(:where([vertical])) ::slotted(:not(:first-of-type)) {
+    /*.spectrum-ButtonGroup--vertical .spectrum-ButtonGroup-item + .spectrum-ButtonGroup-item*/
     margin-top: var(
         --spectrum-buttongroup-button-gap-y,
         var(--spectrum-global-dimension-static-size-200)
-    ); /* .spectrum-ButtonGroup--vertical .spectrum-ButtonGroup-item+.spectrum-ButtonGroup-item */
+    );
 }

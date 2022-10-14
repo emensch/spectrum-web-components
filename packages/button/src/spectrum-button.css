@@ -10,7 +10,7 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-/* THIS FILE IS MACHINE GENERATED. DO NOT EDIT */
+/*THIS FILE IS MACHINE GENERATED. DO NOT EDIT*/
 :host {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -30,7 +30,8 @@ governing permissions and limitations under the License.
     );
     margin: 0;
     overflow: visible;
-    position: relative; /* .spectrum-Button */
+    /*.spectrum-Button*/
+    position: relative;
     text-decoration: none;
     text-transform: none;
     transition: background var(--spectrum-global-animation-duration-100, 0.13s)
@@ -43,24 +44,29 @@ governing permissions and limitations under the License.
     -webkit-user-select: none;
     vertical-align: top;
 }
-:host(:focus) {
-    outline: none; /* .spectrum-Button:focus */
+:host(:where(:focus)) {
+    /*.spectrum-Button:focus*/
+    outline: none;
 }
-:host(::-moz-focus-inner) {
-    border: 0; /* .spectrum-Button::-moz-focus-inner */
+:host::-moz-focus-inner {
+    /*.spectrum-Button::-moz-focus-inner*/
+    border: 0;
     border-style: none;
     margin-bottom: -2px;
     margin-top: -2px;
     padding: 0;
 }
-:host([disabled]) {
-    cursor: default; /* .spectrum-Button:disabled */
+:host(:where([disabled])) {
+    /*.spectrum-Button:disabled*/
+    cursor: default;
 }
 ::slotted([slot='icon']) {
     flex-shrink: 0;
-    max-height: 100%; /* .spectrum-Button .spectrum-Icon */
+    /*.spectrum-Button .spectrum-Icon*/
+    max-height: 100%;
 }
 :host:after {
+    /*.spectrum-Button:after*/
     border-radius: calc(
         var(
                 --spectrum-button-m-primary-fill-texticon-border-radius,
@@ -70,7 +76,7 @@ governing permissions and limitations under the License.
                 --spectrum-alias-focus-ring-gap,
                 var(--spectrum-global-dimension-static-size-25)
             )
-    ); /* .spectrum-Button:after */
+    );
     bottom: 0;
     content: '';
     display: block;
@@ -88,34 +94,45 @@ governing permissions and limitations under the License.
             ease-out,
         margin var(--spectrum-global-animation-duration-100, 0.13s) ease-out;
 }
-:host(.focus-visible):after {
+:host(:where(.focus-visible)):after {
+    /*.spectrum-Button.focus-ring:after*/
     margin: calc(
         var(
                 --spectrum-alias-focus-ring-gap,
                 var(--spectrum-global-dimension-static-size-25)
             ) * -2
-    ); /* .spectrum-Button.focus-ring:after */
+    );
 }
-:host(:focus-visible):after {
+:host(:where(:focus-visible)):after {
+    /*.spectrum-Button.focus-ring:after*/
     margin: calc(
         var(
                 --spectrum-alias-focus-ring-gap,
                 var(--spectrum-global-dimension-static-size-25)
             ) * -2
-    ); /* .spectrum-Button.focus-ring:after */
+    );
+}
+:host(:where(a)) {
+    /*a.spectrum-Button*/
+    -webkit-appearance: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 #label {
-    align-self: center; /* .spectrum-Button-label */
+    /*.spectrum-Button-label*/
+    align-self: center;
     justify-self: center;
     text-align: center;
 }
 #label:empty {
-    display: none; /* .spectrum-Button-label:empty */
+    /*.spectrum-Button-label:empty*/
+    display: none;
 }
-:host([size='s']) {
+:host(:where([size='s'])) {
+    /*.spectrum-Button--sizeS*/
     --spectrum-button-primary-fill-textonly-text-padding-bottom: var(
         --spectrum-button-s-primary-fill-textonly-text-padding-bottom
-    ); /* .spectrum-Button--sizeS */
+    );
     --spectrum-button-primary-fill-texticon-text-size: var(
         --spectrum-button-s-primary-fill-texticon-text-size,
         var(--spectrum-global-dimension-font-size-75)
@@ -175,10 +192,11 @@ governing permissions and limitations under the License.
             ) - 1px
     );
 }
-:host([size='m']) {
+:host(:where([size='m'])) {
+    /*.spectrum-Button--sizeM*/
     --spectrum-button-primary-fill-texticon-padding-left: var(
         --spectrum-button-m-primary-fill-texticon-padding-left
-    ); /* .spectrum-Button--sizeM */
+    );
     --spectrum-button-primary-fill-texticon-text-size: var(
         --spectrum-button-m-primary-fill-texticon-text-size,
         var(--spectrum-global-dimension-font-size-100)
@@ -238,10 +256,11 @@ governing permissions and limitations under the License.
             ) - 1px
     );
 }
-:host([size='l']) {
+:host(:where([size='l'])) {
+    /*.spectrum-Button--sizeL*/
     --spectrum-button-primary-fill-textonly-text-padding-top: var(
         --spectrum-button-l-primary-fill-textonly-text-padding-top
-    ); /* .spectrum-Button--sizeL */
+    );
     --spectrum-button-primary-fill-texticon-text-size: var(
         --spectrum-button-l-primary-fill-texticon-text-size,
         var(--spectrum-global-dimension-font-size-200)
@@ -299,10 +318,11 @@ governing permissions and limitations under the License.
         var(--spectrum-global-dimension-size-500)
     );
 }
-:host([size='xl']) {
+:host(:where([size='xl'])) {
+    /*.spectrum-Button--sizeXL*/
     --spectrum-button-primary-fill-texticon-padding-left: var(
         --spectrum-button-xl-primary-fill-texticon-padding-left
-    ); /* .spectrum-Button--sizeXL */
+    );
     --spectrum-button-primary-fill-texticon-text-size: var(
         --spectrum-button-xl-primary-fill-texticon-text-size,
         var(--spectrum-global-dimension-font-size-300)
@@ -363,10 +383,11 @@ governing permissions and limitations under the License.
     );
 }
 :host {
+    /*.spectrum-Button*/
     --spectrum-button-primary-fill-padding-left-adjusted: calc(
         var(--spectrum-button-primary-fill-texticon-padding-left) -
             var(--spectrum-button-primary-fill-texticon-border-size)
-    ); /* .spectrum-Button */
+    );
     --spectrum-button-primary-fill-textonly-padding-left-adjusted: calc(
         var(--spectrum-button-primary-fill-textonly-padding-left) -
             var(--spectrum-button-primary-fill-texticon-border-size)
@@ -376,21 +397,23 @@ governing permissions and limitations under the License.
             var(--spectrum-button-primary-fill-texticon-border-size)
     );
 }
-:host([dir='ltr']) {
+:host(:where([dir='ltr'])) {
+    /*[dir="ltr"] .spectrum-Button*/
     padding-left: var(
         --spectrum-button-primary-fill-textonly-padding-left-adjusted
-    ); /* [dir=ltr] .spectrum-Button */
+    );
     padding-right: var(
         --spectrum-button-primary-fill-textonly-padding-right-adjusted
     );
 }
-:host([dir='rtl']) {
+:host(:where([dir='rtl'])) {
     padding-left: var(
         --spectrum-button-primary-fill-textonly-padding-right-adjusted
     );
+    /*[dir="rtl"] .spectrum-Button*/
     padding-right: var(
         --spectrum-button-primary-fill-textonly-padding-left-adjusted
-    ); /* [dir=rtl] .spectrum-Button */
+    );
 }
 :host {
     --spectrum-button-focus-ring-color: var(
@@ -399,9 +422,9 @@ governing permissions and limitations under the License.
     );
     border-radius: var(--spectrum-button-primary-fill-texticon-border-radius);
     border-style: solid;
-    border-width: var(
-        --spectrum-button-primary-fill-texticon-border-size
-    ); /* .spectrum-Button */
+
+    /*.spectrum-Button*/
+    border-width: var(--spectrum-button-primary-fill-texticon-border-size);
     color: inherit;
     font-size: var(--spectrum-button-primary-fill-texticon-text-size);
     font-weight: var(--spectrum-button-primary-fill-texticon-text-font-weight);
@@ -411,12 +434,14 @@ governing permissions and limitations under the License.
     padding-bottom: 0;
     padding-top: 0;
 }
-:host(:hover),
-:host([active]) {
-    box-shadow: none; /* .spectrum-Button:hover,
-   * .spectrum-Button:active */
+:host(:where(:hover)),
+:host(:where([active])) {
+    /*.spectrum-Button:hover,
+  .spectrum-Button:active*/
+    box-shadow: none;
 }
-:host([dir='ltr']) ::slotted([slot='icon']) {
+:host(:where([dir='ltr'])) ::slotted([slot='icon']) {
+    /*[dir="ltr"] .spectrum-Button .spectrum-Icon*/
     margin-left: calc(
         (
                 var(
@@ -424,9 +449,10 @@ governing permissions and limitations under the License.
                     ) -
                     var(--spectrum-button-primary-fill-padding-left-adjusted)
             ) * -1
-    ); /* [dir=ltr] .spectrum-Button .spectrum-Icon */
+    );
 }
-:host([dir='rtl']) ::slotted([slot='icon']) {
+:host(:where([dir='rtl'])) ::slotted([slot='icon']) {
+    /*[dir="rtl"] .spectrum-Button .spectrum-Icon*/
     margin-right: calc(
         (
                 var(
@@ -434,37 +460,37 @@ governing permissions and limitations under the License.
                     ) -
                     var(--spectrum-button-primary-fill-padding-left-adjusted)
             ) * -1
-    ); /* [dir=rtl] .spectrum-Button .spectrum-Icon */
+    );
 }
-:host([dir='ltr']) slot[name='icon'] + #label {
-    padding-left: var(
-        --spectrum-button-primary-fill-texticon-icon-gap
-    ); /* [dir=ltr] .spectrum-Button .spectrum-Icon+.spectrum-Button-label */
+:host(:where([dir='ltr'])) slot[name='icon'] + #label {
+    /*[dir="ltr"] .spectrum-Button .spectrum-Icon + .spectrum-Button-label*/
+    padding-left: var(--spectrum-button-primary-fill-texticon-icon-gap);
 }
-:host([dir='rtl']) slot[name='icon'] + #label {
-    padding-right: var(
-        --spectrum-button-primary-fill-texticon-icon-gap
-    ); /* [dir=rtl] .spectrum-Button .spectrum-Icon+.spectrum-Button-label */
+:host(:where([dir='rtl'])) slot[name='icon'] + #label {
+    /*[dir="rtl"] .spectrum-Button .spectrum-Icon + .spectrum-Button-label*/
+    padding-right: var(--spectrum-button-primary-fill-texticon-icon-gap);
 }
-:host([dir='ltr']) slot[name='icon'] + #label {
-    padding-right: 0; /* [dir=ltr] .spectrum-Button .spectrum-Icon+.spectrum-Button-label */
+:host(:where([dir='ltr'])) slot[name='icon'] + #label {
+    /*[dir="ltr"] .spectrum-Button .spectrum-Icon + .spectrum-Button-label*/
+    padding-right: 0;
 }
-:host([dir='rtl']) slot[name='icon'] + #label {
-    padding-left: 0; /* [dir=rtl] .spectrum-Button .spectrum-Icon+.spectrum-Button-label */
+:host(:where([dir='rtl'])) slot[name='icon'] + #label {
+    /*[dir="rtl"] .spectrum-Button .spectrum-Icon + .spectrum-Button-label*/
+    padding-left: 0;
 }
 :host:after {
+    /*.spectrum-Button:after*/
     border-radius: calc(
         var(--spectrum-button-primary-fill-texticon-border-radius) +
             var(
                 --spectrum-alias-focus-ring-gap,
                 var(--spectrum-global-dimension-static-size-25)
             )
-    ); /* .spectrum-Button:after */
+    );
 }
 #label {
-    line-height: var(
-        --spectrum-button-primary-fill-texticon-text-line-height
-    ); /* .spectrum-Button-label */
+    /*.spectrum-Button-label*/
+    line-height: var(--spectrum-button-primary-fill-texticon-text-line-height);
     padding-bottom: calc(
         var(--spectrum-button-primary-fill-textonly-text-padding-bottom) -
             var(--spectrum-button-primary-fill-textonly-border-size)
@@ -474,1291 +500,1472 @@ governing permissions and limitations under the License.
             var(--spectrum-button-primary-fill-textonly-border-size)
     );
 }
-:host(.focus-visible):after,
-:host([focused]):after {
+:host(:where(.focus-visible)):after,
+:host(:where([focused])):after {
+    /*.spectrum-Button.focus-ring:after, .spectrum-Button.is-focused:after*/
     box-shadow: 0 0 0
         var(--spectrum-button-primary-fill-texticon-focus-ring-size)
-        var(--spectrum-button-focus-ring-color); /* .spectrum-Button.focus-ring:after,
-   * .spectrum-Button.is-focused:after */
+        var(--spectrum-button-focus-ring-color);
 }
-:host(:focus-visible):after,
-:host([focused]):after {
+:host(:where(:focus-visible)):after,
+:host(:where([focused])):after {
+    /*.spectrum-Button.focus-ring:after, .spectrum-Button.is-focused:after*/
     box-shadow: 0 0 0
         var(--spectrum-button-primary-fill-texticon-focus-ring-size)
-        var(--spectrum-button-focus-ring-color); /* .spectrum-Button.focus-ring:after,
-   * .spectrum-Button.is-focused:after */
+        var(--spectrum-button-focus-ring-color);
 }
-:host([variant='white']) {
+:host(:where([variant='white'])) {
+    /*.spectrum-Button--staticWhite*/
     --spectrum-button-focus-ring-color: var(
         --spectrum-button-m-primary-fill-white-texticon-focus-ring-color-key-focus,
         var(--spectrum-global-color-static-white)
-    ); /* .spectrum-Button--staticWhite */
+    );
 }
-:host([variant='black']) {
+:host(:where([variant='black'])) {
+    /*.spectrum-Button--staticBlack*/
     --spectrum-button-focus-ring-color: var(
         --spectrum-button-m-primary-fill-black-texticon-focus-ring-color-key-focus,
         var(--spectrum-global-color-static-black)
-    ); /* .spectrum-Button--staticBlack */
+    );
 }
-:host(:not([variant='white']):not([variant='black'])[disabled])
+:host(:where(:not([variant='white']):not([variant='black'])[disabled]))
     ::slotted([slot='icon']) {
+    /*.spectrum-Button:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):disabled .spectrum-Icon*/
     color: var(
         --spectrum-button-m-primary-fill-texticon-icon-color-disabled,
         var(--spectrum-global-color-gray-500)
-    ); /* .spectrum-Button:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):disabled .spectrum-Icon */
+    );
 }
-:host(:not([variant='white']):not([variant='black'])[disabled]) #label {
+:host(:where(:not([variant='white']):not([variant='black'])[disabled])) #label {
+    /*.spectrum-Button:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):disabled .spectrum-Button-label*/
     color: var(
         --spectrum-button-m-primary-fill-texticon-text-color-disabled,
         var(--spectrum-global-color-gray-500)
-    ); /* .spectrum-Button:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):disabled .spectrum-Button-label */
+    );
 }
-:host([variant='white'][disabled]) ::slotted([slot='icon']) {
+:host(:where([variant='white'][disabled])) ::slotted([slot='icon']) {
+    /*.spectrum-Button.spectrum-Button--staticWhite:disabled .spectrum-Icon*/
     color: var(
         --spectrum-button-m-primary-fill-white-texticon-icon-color-disabled,
         var(--spectrum-global-color-static-transparent-white-500)
-    ); /* .spectrum-Button.spectrum-Button--staticWhite:disabled .spectrum-Icon */
+    );
 }
-:host([variant='white'][disabled]) #label {
+:host(:where([variant='white'][disabled])) #label {
+    /*.spectrum-Button.spectrum-Button--staticWhite:disabled .spectrum-Button-label*/
     color: var(
         --spectrum-button-m-primary-fill-white-texticon-text-color-disabled,
         var(--spectrum-global-color-static-transparent-white-500)
-    ); /* .spectrum-Button.spectrum-Button--staticWhite:disabled .spectrum-Button-label */
+    );
 }
-:host([variant='white'][treatment='fill']:not([variant='secondary']):not([disabled])) {
+:host(:where([variant='white'][treatment='fill']:not([variant='secondary']):not([disabled]))) {
+    /*.spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--fill:not(.spectrum-Button--secondary):not(:disabled)*/
     background-color: var(
         --spectrum-button-m-primary-fill-white-texticon-background-color,
         var(--spectrum-global-color-static-white)
-    ); /* .spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--fill:not(.spectrum-Button--secondary):not(:disabled) */
+    );
 }
-:host([variant='white'][treatment='fill']:not([variant='secondary']):not([disabled]))
+:host(:where([variant='white'][treatment='fill']:not([variant='secondary']):not([disabled])))
     ::slotted([slot='icon']) {
-    color: inherit; /* .spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--fill:not(.spectrum-Button--secondary):not(:disabled) .spectrum-Icon */
+    /*.spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--fill:not(.spectrum-Button--secondary):not(:disabled) .spectrum-Icon*/
+    color: inherit;
 }
-:host([variant='white'][treatment='fill']:not([variant='secondary']):not([disabled]))
+:host(:where([variant='white'][treatment='fill']:not([variant='secondary']):not([disabled])))
     #label {
-    color: inherit; /* .spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--fill:not(.spectrum-Button--secondary):not(:disabled) .spectrum-Button-label */
+    /*.spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--fill:not(.spectrum-Button--secondary):not(:disabled) .spectrum-Button-label*/
+    color: inherit;
 }
-:host([variant='white'][treatment='fill'][variant='secondary']:not([disabled])) {
+:host(:where([variant='white'][treatment='fill'][variant='secondary']:not([disabled]))) {
+    /*.spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--fill.spectrum-Button--secondary:not(:disabled)*/
     background-color: var(
         --spectrum-button-m-secondary-fill-white-texticon-background-color,
         var(--spectrum-global-color-static-transparent-white-200)
-    ); /* .spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--fill.spectrum-Button--secondary:not(:disabled) */
+    );
 }
-:host([variant='white'][treatment='fill'][variant='secondary']:not([disabled]))
+:host(:where([variant='white'][treatment='fill'][variant='secondary']:not([disabled])))
     ::slotted([slot='icon']) {
+    /*.spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--fill.spectrum-Button--secondary:not(:disabled) .spectrum-Icon*/
     color: var(
         --spectrum-button-m-secondary-fill-white-texticon-icon-color,
         var(--spectrum-global-color-static-white)
-    ); /* .spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--fill.spectrum-Button--secondary:not(:disabled) .spectrum-Icon */
+    );
 }
-:host([variant='white'][treatment='fill'][variant='secondary']:not([disabled]))
+:host(:where([variant='white'][treatment='fill'][variant='secondary']:not([disabled])))
     #label {
+    /*.spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--fill.spectrum-Button--secondary:not(:disabled) .spectrum-Button-label*/
     color: var(
         --spectrum-button-m-secondary-fill-white-texticon-text-color,
         var(--spectrum-global-color-static-white)
-    ); /* .spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--fill.spectrum-Button--secondary:not(:disabled) .spectrum-Button-label */
+    );
 }
-:host([variant='white'][treatment='fill'][variant='secondary']:not([disabled]):hover) {
+:host(:where([variant='white'][treatment='fill'][variant='secondary']:not([disabled]):hover)) {
+    /*.spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--fill.spectrum-Button--secondary:not(:disabled):hover*/
     background-color: var(
         --spectrum-button-m-secondary-fill-white-texticon-background-color-hover,
         var(--spectrum-global-color-static-transparent-white-300)
-    ); /* .spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--fill.spectrum-Button--secondary:not(:disabled):hover */
+    );
 }
-:host([variant='white'][treatment='fill'][variant='secondary']:not([disabled])[active]) {
+:host(:where([variant='white'][treatment='fill'][variant='secondary']:not([disabled])[active])) {
+    /*.spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--fill.spectrum-Button--secondary:not(:disabled):active*/
     background-color: var(
         --spectrum-button-m-secondary-fill-white-texticon-background-color-down,
         var(--spectrum-global-color-static-transparent-white-400)
-    ); /* .spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--fill.spectrum-Button--secondary:not(:disabled):active */
+    );
 }
-:host([variant='white'][treatment='fill'][variant='secondary']:not([disabled]).focus-visible) {
+:host(:where([variant='white'][treatment='fill'][variant='secondary']:not([disabled]).focus-visible)) {
+    /*.spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--fill.spectrum-Button--secondary:not(:disabled):focus-visible*/
     background-color: var(
         --spectrum-button-m-secondary-fill-white-texticon-background-color-key-focus,
         var(--spectrum-global-color-static-transparent-white-300)
-    ); /* .spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--fill.spectrum-Button--secondary:not(:disabled):focus-visible */
+    );
 }
-:host([variant='white'][treatment='fill'][variant='secondary']:not([disabled]):focus-visible) {
+:host(:where([variant='white'][treatment='fill'][variant='secondary']:not([disabled]):focus-visible)) {
+    /*.spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--fill.spectrum-Button--secondary:not(:disabled):focus-visible*/
     background-color: var(
         --spectrum-button-m-secondary-fill-white-texticon-background-color-key-focus,
         var(--spectrum-global-color-static-transparent-white-300)
-    ); /* .spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--fill.spectrum-Button--secondary:not(:disabled):focus-visible */
+    );
 }
-:host([variant='white'][treatment='fill'][variant='secondary']:not([disabled]).is-keyboardFocused) {
+:host(:where([variant='white'][treatment='fill'][variant='secondary']:not([disabled]).is-keyboardFocused)) {
+    /*.spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--fill.spectrum-Button--secondary:not(:disabled).is-keyboardFocused*/
     background-color: var(
         --spectrum-button-m-secondary-fill-white-texticon-background-color-key-focus,
         var(--spectrum-global-color-static-transparent-white-300)
-    ); /* .spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--fill.spectrum-Button--secondary:not(:disabled).is-keyboardFocused */
+    );
 }
-:host([variant='white'][treatment='fill'][disabled]) {
+:host(:where([variant='white'][treatment='fill'][disabled])) {
+    /*.spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--fill:disabled*/
     background-color: var(
         --spectrum-button-m-secondary-fill-white-texticon-background-color-disabled,
         var(--spectrum-global-color-static-transparent-white-200)
-    ); /* .spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--fill:disabled */
+    );
 }
-:host([variant='white'][treatment='outline']:not([disabled]))
+:host(:where([variant='white'][treatment='outline']:not([disabled])))
     ::slotted([slot='icon']) {
+    /*.spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--outline:not(:disabled) .spectrum-Icon*/
     color: var(
         --spectrum-button-m-secondary-outline-white-texticon-icon-color,
         var(--spectrum-global-color-static-white)
-    ); /* .spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--outline:not(:disabled) .spectrum-Icon */
+    );
 }
-:host([variant='white'][treatment='outline']:not([disabled])) #label {
+:host(:where([variant='white'][treatment='outline']:not([disabled]))) #label {
+    /*.spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--outline:not(:disabled) .spectrum-Button-label*/
     color: var(
         --spectrum-button-m-secondary-outline-white-texticon-text-color,
         var(--spectrum-global-color-static-white)
-    ); /* .spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--outline:not(:disabled) .spectrum-Button-label */
+    );
 }
-:host([variant='white'][treatment='outline'][disabled]) {
+:host(:where([variant='white'][treatment='outline'][disabled])) {
     background-color: var(
         --spectrum-button-m-secondary-outline-white-texticon-background-color-disabled,
         var(--spectrum-alias-background-color-transparent)
     );
+    /*.spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--outline:disabled*/
     border-color: var(
         --spectrum-button-m-secondary-outline-white-texticon-border-color-disabled,
         var(--spectrum-global-color-static-transparent-white-200)
-    ); /* .spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--outline:disabled */
+    );
 }
-:host([variant='white'][treatment='outline']:not([variant='secondary']):not([disabled])) {
+:host(:where([variant='white'][treatment='outline']:not([variant='secondary']):not([disabled]))) {
     background-color: var(
         --spectrum-button-m-primary-outline-white-texticon-background-color,
         var(--spectrum-alias-background-color-transparent)
     );
+    /*.spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--outline:not(.spectrum-Button--secondary):not(:disabled)*/
     border-color: var(
         --spectrum-button-m-primary-outline-white-texticon-border-color,
         var(--spectrum-global-color-static-white)
-    ); /* .spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--outline:not(.spectrum-Button--secondary):not(:disabled) */
+    );
 }
-:host([variant='white'][treatment='outline']:not([variant='secondary']):not([disabled]):hover) {
+:host(:where([variant='white'][treatment='outline']:not([variant='secondary']):not([disabled]):hover)) {
+    /*.spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--outline:not(.spectrum-Button--secondary):not(:disabled):hover*/
     background-color: var(
         --spectrum-button-m-primary-outline-white-texticon-background-color-hover,
         var(--spectrum-global-color-static-transparent-white-300)
-    ); /* .spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--outline:not(.spectrum-Button--secondary):not(:disabled):hover */
+    );
 }
-:host([variant='white'][treatment='outline']:not([variant='secondary']):not([disabled])[active]) {
+:host(:where([variant='white'][treatment='outline']:not([variant='secondary']):not([disabled])[active])) {
+    /*.spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--outline:not(.spectrum-Button--secondary):not(:disabled):active*/
     background-color: var(
         --spectrum-button-m-primary-outline-white-texticon-background-color-down,
         var(--spectrum-global-color-static-transparent-white-400)
-    ); /* .spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--outline:not(.spectrum-Button--secondary):not(:disabled):active */
+    );
 }
-:host([variant='white'][treatment='outline']:not([variant='secondary']):not([disabled]).focus-visible) {
+:host(:where([variant='white'][treatment='outline']:not([variant='secondary']):not([disabled]).focus-visible)) {
+    /*.spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--outline:not(.spectrum-Button--secondary):not(:disabled):focus-visible*/
     background-color: var(
         --spectrum-button-m-primary-outline-white-texticon-background-color-key-focus,
         var(--spectrum-global-color-static-transparent-white-300)
-    ); /* .spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--outline:not(.spectrum-Button--secondary):not(:disabled):focus-visible */
+    );
 }
-:host([variant='white'][treatment='outline']:not([variant='secondary']):not([disabled]):focus-visible) {
+:host(:where([variant='white'][treatment='outline']:not([variant='secondary']):not([disabled]):focus-visible)) {
+    /*.spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--outline:not(.spectrum-Button--secondary):not(:disabled):focus-visible*/
     background-color: var(
         --spectrum-button-m-primary-outline-white-texticon-background-color-key-focus,
         var(--spectrum-global-color-static-transparent-white-300)
-    ); /* .spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--outline:not(.spectrum-Button--secondary):not(:disabled):focus-visible */
+    );
 }
-:host([variant='white'][treatment='outline']:not([variant='secondary']):not([disabled]).is-keyboardFocused) {
+:host(:where([variant='white'][treatment='outline']:not([variant='secondary']):not([disabled]).is-keyboardFocused)) {
+    /*.spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--outline:not(.spectrum-Button--secondary):not(:disabled).is-keyboardFocused*/
     background-color: var(
         --spectrum-button-m-primary-outline-white-texticon-background-color-key-focus,
         var(--spectrum-global-color-static-transparent-white-300)
-    ); /* .spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--outline:not(.spectrum-Button--secondary):not(:disabled).is-keyboardFocused */
+    );
 }
-:host([variant='white'][treatment='outline'][variant='secondary']:not([disabled])) {
+:host(:where([variant='white'][treatment='outline'][variant='secondary']:not([disabled]))) {
     background-color: var(
         --spectrum-button-m-secondary-outline-white-texticon-background-color,
         var(--spectrum-alias-background-color-transparent)
     );
+    /*.spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--outline.spectrum-Button--secondary:not(:disabled)*/
     border-color: var(
         --spectrum-button-m-secondary-outline-white-texticon-border-color,
         var(--spectrum-global-color-static-transparent-white-200)
-    ); /* .spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--outline.spectrum-Button--secondary:not(:disabled) */
+    );
 }
-:host([variant='white'][treatment='outline'][variant='secondary']:not([disabled]):hover) {
+:host(:where([variant='white'][treatment='outline'][variant='secondary']:not([disabled]):hover)) {
+    /*.spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--outline.spectrum-Button--secondary:not(:disabled):hover*/
     background-color: var(
         --spectrum-button-m-secondary-outline-white-texticon-background-color-hover,
         var(--spectrum-global-color-static-transparent-white-300)
-    ); /* .spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--outline.spectrum-Button--secondary:not(:disabled):hover */
+    );
 }
-:host([variant='white'][treatment='outline'][variant='secondary']:not([disabled])[active]) {
+:host(:where([variant='white'][treatment='outline'][variant='secondary']:not([disabled])[active])) {
+    /*.spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--outline.spectrum-Button--secondary:not(:disabled):active*/
     background-color: var(
         --spectrum-button-m-secondary-outline-white-texticon-background-color-down,
         var(--spectrum-global-color-static-transparent-white-400)
-    ); /* .spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--outline.spectrum-Button--secondary:not(:disabled):active */
+    );
 }
-:host([variant='white'][treatment='outline'][variant='secondary']:not([disabled]).focus-visible) {
+:host(:where([variant='white'][treatment='outline'][variant='secondary']:not([disabled]).focus-visible)) {
+    /*.spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--outline.spectrum-Button--secondary:not(:disabled):focus-visible*/
     background-color: var(
         --spectrum-button-m-secondary-outline-white-texticon-background-color-key-focus,
         var(--spectrum-global-color-static-transparent-white-300)
-    ); /* .spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--outline.spectrum-Button--secondary:not(:disabled):focus-visible */
+    );
 }
-:host([variant='white'][treatment='outline'][variant='secondary']:not([disabled]):focus-visible) {
+:host(:where([variant='white'][treatment='outline'][variant='secondary']:not([disabled]):focus-visible)) {
+    /*.spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--outline.spectrum-Button--secondary:not(:disabled):focus-visible*/
     background-color: var(
         --spectrum-button-m-secondary-outline-white-texticon-background-color-key-focus,
         var(--spectrum-global-color-static-transparent-white-300)
-    ); /* .spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--outline.spectrum-Button--secondary:not(:disabled):focus-visible */
+    );
 }
-:host([variant='white'][treatment='outline'][variant='secondary']:not([disabled]).is-keyboardFocused) {
+:host(:where([variant='white'][treatment='outline'][variant='secondary']:not([disabled]).is-keyboardFocused)) {
+    /*.spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--outline.spectrum-Button--secondary:not(:disabled).is-keyboardFocused*/
     background-color: var(
         --spectrum-button-m-secondary-outline-white-texticon-background-color-key-focus,
         var(--spectrum-global-color-static-transparent-white-300)
-    ); /* .spectrum-Button.spectrum-Button--staticWhite.spectrum-Button--outline.spectrum-Button--secondary:not(:disabled).is-keyboardFocused */
+    );
 }
-:host([variant='black'][disabled]) ::slotted([slot='icon']) {
+:host(:where([variant='black'][disabled])) ::slotted([slot='icon']) {
+    /*.spectrum-Button.spectrum-Button--staticBlack:disabled .spectrum-Icon*/
     color: var(
         --spectrum-button-m-primary-fill-black-texticon-icon-color-disabled,
         var(--spectrum-global-color-static-transparent-black-500)
-    ); /* .spectrum-Button.spectrum-Button--staticBlack:disabled .spectrum-Icon */
+    );
 }
-:host([variant='black'][disabled]) #label {
+:host(:where([variant='black'][disabled])) #label {
+    /*.spectrum-Button.spectrum-Button--staticBlack:disabled .spectrum-Button-label*/
     color: var(
         --spectrum-button-m-primary-fill-black-texticon-text-color-disabled,
         var(--spectrum-global-color-static-transparent-black-500)
-    ); /* .spectrum-Button.spectrum-Button--staticBlack:disabled .spectrum-Button-label */
+    );
 }
-:host([variant='black'][treatment='fill']:not([variant='secondary']):not([disabled])) {
+:host(:where([variant='black'][treatment='fill']:not([variant='secondary']):not([disabled]))) {
+    /*.spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--fill:not(.spectrum-Button--secondary):not(:disabled)*/
     background-color: var(
         --spectrum-button-m-primary-fill-black-texticon-background-color,
         var(--spectrum-global-color-static-black)
-    ); /* .spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--fill:not(.spectrum-Button--secondary):not(:disabled) */
+    );
 }
-:host([variant='black'][treatment='fill']:not([variant='secondary']):not([disabled]))
+:host(:where([variant='black'][treatment='fill']:not([variant='secondary']):not([disabled])))
     ::slotted([slot='icon']) {
-    color: inherit; /* .spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--fill:not(.spectrum-Button--secondary):not(:disabled) .spectrum-Icon */
+    /*.spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--fill:not(.spectrum-Button--secondary):not(:disabled) .spectrum-Icon*/
+    color: inherit;
 }
-:host([variant='black'][treatment='fill']:not([variant='secondary']):not([disabled]))
+:host(:where([variant='black'][treatment='fill']:not([variant='secondary']):not([disabled])))
     #label {
-    color: inherit; /* .spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--fill:not(.spectrum-Button--secondary):not(:disabled) .spectrum-Button-label */
+    /*.spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--fill:not(.spectrum-Button--secondary):not(:disabled) .spectrum-Button-label*/
+    color: inherit;
 }
-:host([variant='black'][treatment='fill'][variant='secondary']:not([disabled])) {
+:host(:where([variant='black'][treatment='fill'][variant='secondary']:not([disabled]))) {
+    /*.spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--fill.spectrum-Button--secondary:not(:disabled)*/
     background-color: var(
         --spectrum-button-m-secondary-fill-black-texticon-background-color,
         var(--spectrum-global-color-static-transparent-black-200)
-    ); /* .spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--fill.spectrum-Button--secondary:not(:disabled) */
+    );
 }
-:host([variant='black'][treatment='fill'][variant='secondary']:not([disabled]))
+:host(:where([variant='black'][treatment='fill'][variant='secondary']:not([disabled])))
     ::slotted([slot='icon']) {
+    /*.spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--fill.spectrum-Button--secondary:not(:disabled) .spectrum-Icon*/
     color: var(
         --spectrum-button-m-secondary-fill-black-texticon-icon-color,
         var(--spectrum-global-color-static-black)
-    ); /* .spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--fill.spectrum-Button--secondary:not(:disabled) .spectrum-Icon */
+    );
 }
-:host([variant='black'][treatment='fill'][variant='secondary']:not([disabled]))
+:host(:where([variant='black'][treatment='fill'][variant='secondary']:not([disabled])))
     #label {
+    /*.spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--fill.spectrum-Button--secondary:not(:disabled) .spectrum-Button-label*/
     color: var(
         --spectrum-button-m-secondary-fill-black-texticon-text-color,
         var(--spectrum-global-color-static-black)
-    ); /* .spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--fill.spectrum-Button--secondary:not(:disabled) .spectrum-Button-label */
+    );
 }
-:host([variant='black'][treatment='fill'][variant='secondary']:not([disabled]):hover) {
+:host(:where([variant='black'][treatment='fill'][variant='secondary']:not([disabled]):hover)) {
+    /*.spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--fill.spectrum-Button--secondary:not(:disabled):hover*/
     background-color: var(
         --spectrum-button-m-secondary-fill-black-texticon-background-color-hover,
         var(--spectrum-global-color-static-transparent-black-300)
-    ); /* .spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--fill.spectrum-Button--secondary:not(:disabled):hover */
+    );
 }
-:host([variant='black'][treatment='fill'][variant='secondary']:not([disabled])[active]) {
+:host(:where([variant='black'][treatment='fill'][variant='secondary']:not([disabled])[active])) {
+    /*.spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--fill.spectrum-Button--secondary:not(:disabled):active*/
     background-color: var(
         --spectrum-button-m-secondary-fill-black-texticon-background-color-down,
         var(--spectrum-global-color-static-transparent-black-400)
-    ); /* .spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--fill.spectrum-Button--secondary:not(:disabled):active */
+    );
 }
-:host([variant='black'][treatment='fill'][variant='secondary']:not([disabled]).focus-visible) {
+:host(:where([variant='black'][treatment='fill'][variant='secondary']:not([disabled]).focus-visible)) {
+    /*.spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--fill.spectrum-Button--secondary:not(:disabled):focus-visible*/
     background-color: var(
         --spectrum-button-m-secondary-fill-black-texticon-background-color-key-focus,
         var(--spectrum-global-color-static-transparent-black-300)
-    ); /* .spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--fill.spectrum-Button--secondary:not(:disabled):focus-visible */
+    );
 }
-:host([variant='black'][treatment='fill'][variant='secondary']:not([disabled]):focus-visible) {
+:host(:where([variant='black'][treatment='fill'][variant='secondary']:not([disabled]):focus-visible)) {
+    /*.spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--fill.spectrum-Button--secondary:not(:disabled):focus-visible*/
     background-color: var(
         --spectrum-button-m-secondary-fill-black-texticon-background-color-key-focus,
         var(--spectrum-global-color-static-transparent-black-300)
-    ); /* .spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--fill.spectrum-Button--secondary:not(:disabled):focus-visible */
+    );
 }
-:host([variant='black'][treatment='fill'][variant='secondary']:not([disabled]).is-keyboardFocused) {
+:host(:where([variant='black'][treatment='fill'][variant='secondary']:not([disabled]).is-keyboardFocused)) {
+    /*.spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--fill.spectrum-Button--secondary:not(:disabled).is-keyboardFocused*/
     background-color: var(
         --spectrum-button-m-secondary-fill-black-texticon-background-color-key-focus,
         var(--spectrum-global-color-static-transparent-black-300)
-    ); /* .spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--fill.spectrum-Button--secondary:not(:disabled).is-keyboardFocused */
+    );
 }
-:host([variant='black'][treatment='fill'][disabled]) {
+:host(:where([variant='black'][treatment='fill'][disabled])) {
+    /*.spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--fill:disabled*/
     background-color: var(
         --spectrum-button-m-secondary-fill-black-texticon-background-color-disabled,
         var(--spectrum-global-color-static-transparent-black-200)
-    ); /* .spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--fill:disabled */
+    );
 }
-:host([variant='black'][treatment='outline']:not([disabled]))
+:host(:where([variant='black'][treatment='outline']:not([disabled])))
     ::slotted([slot='icon']) {
+    /*.spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--outline:not(:disabled) .spectrum-Icon*/
     color: var(
         --spectrum-button-m-secondary-outline-black-texticon-icon-color,
         var(--spectrum-global-color-static-black)
-    ); /* .spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--outline:not(:disabled) .spectrum-Icon */
+    );
 }
-:host([variant='black'][treatment='outline']:not([disabled])) #label {
+:host(:where([variant='black'][treatment='outline']:not([disabled]))) #label {
+    /*.spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--outline:not(:disabled) .spectrum-Button-label*/
     color: var(
         --spectrum-button-m-secondary-outline-black-texticon-text-color,
         var(--spectrum-global-color-static-black)
-    ); /* .spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--outline:not(:disabled) .spectrum-Button-label */
+    );
 }
-:host([variant='black'][treatment='outline'][disabled]) {
+:host(:where([variant='black'][treatment='outline'][disabled])) {
     background-color: var(
         --spectrum-button-m-secondary-outline-black-texticon-background-color-disabled,
         var(--spectrum-alias-background-color-transparent)
     );
+    /*.spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--outline:disabled*/
     border-color: var(
         --spectrum-button-m-secondary-outline-black-texticon-border-color-disabled,
         var(--spectrum-global-color-static-transparent-black-200)
-    ); /* .spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--outline:disabled */
+    );
 }
-:host([variant='black'][treatment='outline']:not([variant='secondary']):not([disabled])) {
+:host(:where([variant='black'][treatment='outline']:not([variant='secondary']):not([disabled]))) {
     background-color: var(
         --spectrum-button-m-primary-outline-black-texticon-background-color,
         var(--spectrum-alias-background-color-transparent)
     );
+    /*.spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--outline:not(.spectrum-Button--secondary):not(:disabled)*/
     border-color: var(
         --spectrum-button-m-primary-outline-black-texticon-border-color,
         var(--spectrum-global-color-static-black)
-    ); /* .spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--outline:not(.spectrum-Button--secondary):not(:disabled) */
+    );
 }
-:host([variant='black'][treatment='outline']:not([variant='secondary']):not([disabled]):hover) {
+:host(:where([variant='black'][treatment='outline']:not([variant='secondary']):not([disabled]):hover)) {
+    /*.spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--outline:not(.spectrum-Button--secondary):not(:disabled):hover*/
     background-color: var(
         --spectrum-button-m-primary-outline-black-texticon-background-color-hover,
         var(--spectrum-global-color-static-transparent-black-300)
-    ); /* .spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--outline:not(.spectrum-Button--secondary):not(:disabled):hover */
+    );
 }
-:host([variant='black'][treatment='outline']:not([variant='secondary']):not([disabled])[active]) {
+:host(:where([variant='black'][treatment='outline']:not([variant='secondary']):not([disabled])[active])) {
+    /*.spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--outline:not(.spectrum-Button--secondary):not(:disabled):active*/
     background-color: var(
         --spectrum-button-m-primary-outline-black-texticon-background-color-down,
         var(--spectrum-global-color-static-transparent-black-400)
-    ); /* .spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--outline:not(.spectrum-Button--secondary):not(:disabled):active */
+    );
 }
-:host([variant='black'][treatment='outline']:not([variant='secondary']):not([disabled]).focus-visible) {
+:host(:where([variant='black'][treatment='outline']:not([variant='secondary']):not([disabled]).focus-visible)) {
+    /*.spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--outline:not(.spectrum-Button--secondary):not(:disabled):focus-visible*/
     background-color: var(
         --spectrum-button-m-primary-outline-black-texticon-background-color-key-focus,
         var(--spectrum-global-color-static-transparent-black-300)
-    ); /* .spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--outline:not(.spectrum-Button--secondary):not(:disabled):focus-visible */
+    );
 }
-:host([variant='black'][treatment='outline']:not([variant='secondary']):not([disabled]):focus-visible) {
+:host(:where([variant='black'][treatment='outline']:not([variant='secondary']):not([disabled]):focus-visible)) {
+    /*.spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--outline:not(.spectrum-Button--secondary):not(:disabled):focus-visible*/
     background-color: var(
         --spectrum-button-m-primary-outline-black-texticon-background-color-key-focus,
         var(--spectrum-global-color-static-transparent-black-300)
-    ); /* .spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--outline:not(.spectrum-Button--secondary):not(:disabled):focus-visible */
+    );
 }
-:host([variant='black'][treatment='outline']:not([variant='secondary']):not([disabled]).is-keyboardFocused) {
+:host(:where([variant='black'][treatment='outline']:not([variant='secondary']):not([disabled]).is-keyboardFocused)) {
+    /*.spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--outline:not(.spectrum-Button--secondary):not(:disabled).is-keyboardFocused*/
     background-color: var(
         --spectrum-button-m-primary-outline-black-texticon-background-color-key-focus,
         var(--spectrum-global-color-static-transparent-black-300)
-    ); /* .spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--outline:not(.spectrum-Button--secondary):not(:disabled).is-keyboardFocused */
+    );
 }
-:host([variant='black'][treatment='outline'][variant='secondary']:not([disabled])) {
+:host(:where([variant='black'][treatment='outline'][variant='secondary']:not([disabled]))) {
     background-color: var(
         --spectrum-button-m-secondary-outline-black-texticon-background-color,
         var(--spectrum-alias-background-color-transparent)
     );
+    /*.spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--outline.spectrum-Button--secondary:not(:disabled)*/
     border-color: var(
         --spectrum-button-m-secondary-outline-black-texticon-border-color,
         var(--spectrum-global-color-static-transparent-black-200)
-    ); /* .spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--outline.spectrum-Button--secondary:not(:disabled) */
+    );
 }
-:host([variant='black'][treatment='outline'][variant='secondary']:not([disabled]):hover) {
+:host(:where([variant='black'][treatment='outline'][variant='secondary']:not([disabled]):hover)) {
+    /*.spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--outline.spectrum-Button--secondary:not(:disabled):hover*/
     background-color: var(
         --spectrum-button-m-secondary-outline-black-texticon-background-color-hover,
         var(--spectrum-global-color-static-transparent-black-300)
-    ); /* .spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--outline.spectrum-Button--secondary:not(:disabled):hover */
+    );
 }
-:host([variant='black'][treatment='outline'][variant='secondary']:not([disabled])[active]) {
+:host(:where([variant='black'][treatment='outline'][variant='secondary']:not([disabled])[active])) {
+    /*.spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--outline.spectrum-Button--secondary:not(:disabled):active*/
     background-color: var(
         --spectrum-button-m-secondary-outline-black-texticon-background-color-down,
         var(--spectrum-global-color-static-transparent-black-400)
-    ); /* .spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--outline.spectrum-Button--secondary:not(:disabled):active */
+    );
 }
-:host([variant='black'][treatment='outline'][variant='secondary']:not([disabled]).focus-visible) {
+:host(:where([variant='black'][treatment='outline'][variant='secondary']:not([disabled]).focus-visible)) {
+    /*.spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--outline.spectrum-Button--secondary:not(:disabled):focus-visible*/
     background-color: var(
         --spectrum-button-m-secondary-outline-black-texticon-background-color-key-focus,
         var(--spectrum-global-color-static-transparent-black-300)
-    ); /* .spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--outline.spectrum-Button--secondary:not(:disabled):focus-visible */
+    );
 }
-:host([variant='black'][treatment='outline'][variant='secondary']:not([disabled]):focus-visible) {
+:host(:where([variant='black'][treatment='outline'][variant='secondary']:not([disabled]):focus-visible)) {
+    /*.spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--outline.spectrum-Button--secondary:not(:disabled):focus-visible*/
     background-color: var(
         --spectrum-button-m-secondary-outline-black-texticon-background-color-key-focus,
         var(--spectrum-global-color-static-transparent-black-300)
-    ); /* .spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--outline.spectrum-Button--secondary:not(:disabled):focus-visible */
+    );
 }
-:host([variant='black'][treatment='outline'][variant='secondary']:not([disabled]).is-keyboardFocused) {
+:host(:where([variant='black'][treatment='outline'][variant='secondary']:not([disabled]).is-keyboardFocused)) {
+    /*.spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--outline.spectrum-Button--secondary:not(:disabled).is-keyboardFocused*/
     background-color: var(
         --spectrum-button-m-secondary-outline-black-texticon-background-color-key-focus,
         var(--spectrum-global-color-static-transparent-black-300)
-    ); /* .spectrum-Button.spectrum-Button--staticBlack.spectrum-Button--outline.spectrum-Button--secondary:not(:disabled).is-keyboardFocused */
+    );
 }
-:host([treatment='fill'][variant='accent']:not([variant='white']):not([variant='black']):not([disabled])) {
+:host(:where([treatment='fill'][variant='accent']:not([variant='white']):not([variant='black']):not([disabled]))) {
+    /*.spectrum-Button.spectrum-Button--fill.spectrum-Button--accent:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled)*/
     background-color: var(
         --spectrum-button-m-accent-fill-texticon-background-color,
         var(--spectrum-semantic-cta-background-color-default)
-    ); /* .spectrum-Button.spectrum-Button--fill.spectrum-Button--accent:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled) */
+    );
 }
-:host([treatment='fill'][variant='accent']:not([variant='white']):not([variant='black']):not([disabled]))
+:host(:where([treatment='fill'][variant='accent']:not([variant='white']):not([variant='black']):not([disabled])))
     ::slotted([slot='icon']) {
+    /*.spectrum-Button.spectrum-Button--fill.spectrum-Button--accent:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled) .spectrum-Icon*/
     color: var(
         --spectrum-button-m-accent-fill-texticon-icon-color,
         var(--spectrum-global-color-static-white)
-    ); /* .spectrum-Button.spectrum-Button--fill.spectrum-Button--accent:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled) .spectrum-Icon */
+    );
 }
-:host([treatment='fill'][variant='accent']:not([variant='white']):not([variant='black']):not([disabled]))
+:host(:where([treatment='fill'][variant='accent']:not([variant='white']):not([variant='black']):not([disabled])))
     #label {
+    /*.spectrum-Button.spectrum-Button--fill.spectrum-Button--accent:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled) .spectrum-Button-label*/
     color: var(
         --spectrum-button-m-accent-fill-texticon-text-color,
         var(--spectrum-global-color-static-white)
-    ); /* .spectrum-Button.spectrum-Button--fill.spectrum-Button--accent:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled) .spectrum-Button-label */
+    );
 }
-:host([treatment='fill'][variant='accent']:not([variant='white']):not([variant='black']):not([disabled]):hover) {
+:host(:where([treatment='fill'][variant='accent']:not([variant='white']):not([variant='black']):not([disabled]):hover)) {
+    /*.spectrum-Button.spectrum-Button--fill.spectrum-Button--accent:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):hover*/
     background-color: var(
         --spectrum-button-m-accent-fill-texticon-background-color-hover,
         var(--spectrum-semantic-cta-background-color-hover)
-    ); /* .spectrum-Button.spectrum-Button--fill.spectrum-Button--accent:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):hover */
+    );
 }
-:host([treatment='fill'][variant='accent']:not([variant='white']):not([variant='black']):not([disabled])[active]) {
+:host(:where([treatment='fill'][variant='accent']:not([variant='white']):not([variant='black']):not([disabled])[active])) {
+    /*.spectrum-Button.spectrum-Button--fill.spectrum-Button--accent:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):active*/
     background-color: var(
         --spectrum-button-m-accent-fill-texticon-background-color-down,
         var(--spectrum-semantic-cta-background-color-down)
-    ); /* .spectrum-Button.spectrum-Button--fill.spectrum-Button--accent:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):active */
+    );
 }
-:host([treatment='fill'][variant='accent']:not([variant='white']):not([variant='black']):not([disabled]).focus-visible) {
+:host(:where([treatment='fill'][variant='accent']:not([variant='white']):not([variant='black']):not([disabled]).focus-visible)) {
+    /*.spectrum-Button.spectrum-Button--fill.spectrum-Button--accent:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible*/
     background-color: var(
         --spectrum-button-m-accent-fill-texticon-background-color-key-focus,
         var(--spectrum-semantic-cta-background-color-key-focus)
-    ); /* .spectrum-Button.spectrum-Button--fill.spectrum-Button--accent:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible */
+    );
 }
-:host([treatment='fill'][variant='accent']:not([variant='white']):not([variant='black']):not([disabled]):focus-visible) {
+:host(:where([treatment='fill'][variant='accent']:not([variant='white']):not([variant='black']):not([disabled]):focus-visible)) {
+    /*.spectrum-Button.spectrum-Button--fill.spectrum-Button--accent:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible*/
     background-color: var(
         --spectrum-button-m-accent-fill-texticon-background-color-key-focus,
         var(--spectrum-semantic-cta-background-color-key-focus)
-    ); /* .spectrum-Button.spectrum-Button--fill.spectrum-Button--accent:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible */
+    );
 }
-:host([treatment='fill'][variant='accent']:not([variant='white']):not([variant='black']):not([disabled]).is-keyboardFocused) {
+:host(:where([treatment='fill'][variant='accent']:not([variant='white']):not([variant='black']):not([disabled]).is-keyboardFocused)) {
+    /*.spectrum-Button.spectrum-Button--fill.spectrum-Button--accent:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled).is-keyboardFocused*/
     background-color: var(
         --spectrum-button-m-accent-fill-texticon-background-color-key-focus,
         var(--spectrum-semantic-cta-background-color-key-focus)
-    ); /* .spectrum-Button.spectrum-Button--fill.spectrum-Button--accent:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled).is-keyboardFocused */
+    );
 }
-:host([treatment='fill'][variant='negative']:not([variant='white']):not([variant='black']):not([disabled])) {
+:host(:where([treatment='fill'][variant='negative']:not([variant='white']):not([variant='black']):not([disabled]))) {
+    /*.spectrum-Button.spectrum-Button--fill.spectrum-Button--negative:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled)*/
     background-color: var(
         --spectrum-button-m-negative-fill-texticon-background-color,
         var(--spectrum-global-color-static-red-600)
-    ); /* .spectrum-Button.spectrum-Button--fill.spectrum-Button--negative:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled) */
+    );
 }
-:host([treatment='fill'][variant='negative']:not([variant='white']):not([variant='black']):not([disabled]))
+:host(:where([treatment='fill'][variant='negative']:not([variant='white']):not([variant='black']):not([disabled])))
     ::slotted([slot='icon']) {
+    /*.spectrum-Button.spectrum-Button--fill.spectrum-Button--negative:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled) .spectrum-Icon*/
     color: var(
         --spectrum-button-m-negative-fill-texticon-icon-color,
         var(--spectrum-global-color-static-white)
-    ); /* .spectrum-Button.spectrum-Button--fill.spectrum-Button--negative:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled) .spectrum-Icon */
+    );
 }
-:host([treatment='fill'][variant='negative']:not([variant='white']):not([variant='black']):not([disabled]))
+:host(:where([treatment='fill'][variant='negative']:not([variant='white']):not([variant='black']):not([disabled])))
     #label {
+    /*.spectrum-Button.spectrum-Button--fill.spectrum-Button--negative:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled) .spectrum-Button-label*/
     color: var(
         --spectrum-button-m-negative-fill-texticon-text-color,
         var(--spectrum-global-color-static-white)
-    ); /* .spectrum-Button.spectrum-Button--fill.spectrum-Button--negative:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled) .spectrum-Button-label */
+    );
 }
-:host([treatment='fill'][variant='negative']:not([variant='white']):not([variant='black']):not([disabled]):hover) {
+:host(:where([treatment='fill'][variant='negative']:not([variant='white']):not([variant='black']):not([disabled]):hover)) {
+    /*.spectrum-Button.spectrum-Button--fill.spectrum-Button--negative:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):hover*/
     background-color: var(
         --spectrum-button-m-negative-fill-texticon-background-color-hover,
         var(--spectrum-global-color-static-red-700)
-    ); /* .spectrum-Button.spectrum-Button--fill.spectrum-Button--negative:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):hover */
+    );
 }
-:host([treatment='fill'][variant='negative']:not([variant='white']):not([variant='black']):not([disabled])[active]) {
+:host(:where([treatment='fill'][variant='negative']:not([variant='white']):not([variant='black']):not([disabled])[active])) {
+    /*.spectrum-Button.spectrum-Button--fill.spectrum-Button--negative:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):active*/
     background-color: var(
         --spectrum-button-m-negative-fill-texticon-background-color-down,
         var(--spectrum-global-color-static-red-800)
-    ); /* .spectrum-Button.spectrum-Button--fill.spectrum-Button--negative:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):active */
+    );
 }
-:host([treatment='fill'][variant='negative']:not([variant='white']):not([variant='black']):not([disabled]).focus-visible) {
+:host(:where([treatment='fill'][variant='negative']:not([variant='white']):not([variant='black']):not([disabled]).focus-visible)) {
+    /*.spectrum-Button.spectrum-Button--fill.spectrum-Button--negative:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible*/
     background-color: var(
         --spectrum-button-m-negative-fill-texticon-background-color-key-focus,
         var(--spectrum-global-color-static-red-700)
-    ); /* .spectrum-Button.spectrum-Button--fill.spectrum-Button--negative:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible */
+    );
 }
-:host([treatment='fill'][variant='negative']:not([variant='white']):not([variant='black']):not([disabled]):focus-visible) {
+:host(:where([treatment='fill'][variant='negative']:not([variant='white']):not([variant='black']):not([disabled]):focus-visible)) {
+    /*.spectrum-Button.spectrum-Button--fill.spectrum-Button--negative:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible*/
     background-color: var(
         --spectrum-button-m-negative-fill-texticon-background-color-key-focus,
         var(--spectrum-global-color-static-red-700)
-    ); /* .spectrum-Button.spectrum-Button--fill.spectrum-Button--negative:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible */
+    );
 }
-:host([treatment='fill'][variant='negative']:not([variant='white']):not([variant='black']):not([disabled]).is-keyboardFocused) {
+:host(:where([treatment='fill'][variant='negative']:not([variant='white']):not([variant='black']):not([disabled]).is-keyboardFocused)) {
+    /*.spectrum-Button.spectrum-Button--fill.spectrum-Button--negative:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled).is-keyboardFocused*/
     background-color: var(
         --spectrum-button-m-negative-fill-texticon-background-color-key-focus,
         var(--spectrum-global-color-static-red-700)
-    ); /* .spectrum-Button.spectrum-Button--fill.spectrum-Button--negative:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled).is-keyboardFocused */
+    );
 }
-:host([treatment='fill'][variant='primary']:not([variant='white']):not([variant='black']):not([disabled])) {
+:host(:where([treatment='fill'][variant='primary']:not([variant='white']):not([variant='black']):not([disabled]))) {
+    /*.spectrum-Button.spectrum-Button--fill.spectrum-Button--primary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled)*/
     background-color: var(
         --spectrum-button-m-primary-fill-texticon-background-color,
         var(--spectrum-global-color-gray-800)
-    ); /* .spectrum-Button.spectrum-Button--fill.spectrum-Button--primary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled) */
+    );
 }
-:host([treatment='fill'][variant='primary']:not([variant='white']):not([variant='black']):not([disabled]))
+:host(:where([treatment='fill'][variant='primary']:not([variant='white']):not([variant='black']):not([disabled])))
     ::slotted([slot='icon']) {
+    /*.spectrum-Button.spectrum-Button--fill.spectrum-Button--primary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled) .spectrum-Icon*/
     color: var(
         --spectrum-button-m-primary-fill-texticon-icon-color,
         var(--spectrum-global-color-gray-50)
-    ); /* .spectrum-Button.spectrum-Button--fill.spectrum-Button--primary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled) .spectrum-Icon */
+    );
 }
-:host([treatment='fill'][variant='primary']:not([variant='white']):not([variant='black']):not([disabled]))
+:host(:where([treatment='fill'][variant='primary']:not([variant='white']):not([variant='black']):not([disabled])))
     #label {
+    /*.spectrum-Button.spectrum-Button--fill.spectrum-Button--primary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled) .spectrum-Button-label*/
     color: var(
         --spectrum-button-m-primary-fill-texticon-text-color,
         var(--spectrum-global-color-gray-50)
-    ); /* .spectrum-Button.spectrum-Button--fill.spectrum-Button--primary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled) .spectrum-Button-label */
+    );
 }
-:host([treatment='fill'][variant='primary']:not([variant='white']):not([variant='black']):not([disabled]):hover) {
+:host(:where([treatment='fill'][variant='primary']:not([variant='white']):not([variant='black']):not([disabled]):hover)) {
+    /*.spectrum-Button.spectrum-Button--fill.spectrum-Button--primary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):hover*/
     background-color: var(
         --spectrum-button-m-primary-fill-texticon-background-color-hover,
         var(--spectrum-global-color-gray-900)
-    ); /* .spectrum-Button.spectrum-Button--fill.spectrum-Button--primary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):hover */
+    );
 }
-:host([treatment='fill'][variant='primary']:not([variant='white']):not([variant='black']):not([disabled])[active]) {
+:host(:where([treatment='fill'][variant='primary']:not([variant='white']):not([variant='black']):not([disabled])[active])) {
+    /*.spectrum-Button.spectrum-Button--fill.spectrum-Button--primary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):active*/
     background-color: var(
         --spectrum-button-m-primary-fill-texticon-background-color-down,
         var(--spectrum-global-color-gray-900)
-    ); /* .spectrum-Button.spectrum-Button--fill.spectrum-Button--primary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):active */
+    );
 }
-:host([treatment='fill'][variant='primary']:not([variant='white']):not([variant='black']):not([disabled]).focus-visible) {
+:host(:where([treatment='fill'][variant='primary']:not([variant='white']):not([variant='black']):not([disabled]).focus-visible)) {
+    /*.spectrum-Button.spectrum-Button--fill.spectrum-Button--primary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible*/
     background-color: var(
         --spectrum-button-m-primary-fill-texticon-background-color-key-focus,
         var(--spectrum-global-color-gray-900)
-    ); /* .spectrum-Button.spectrum-Button--fill.spectrum-Button--primary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible */
+    );
 }
-:host([treatment='fill'][variant='primary']:not([variant='white']):not([variant='black']):not([disabled]):focus-visible) {
+:host(:where([treatment='fill'][variant='primary']:not([variant='white']):not([variant='black']):not([disabled]):focus-visible)) {
+    /*.spectrum-Button.spectrum-Button--fill.spectrum-Button--primary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible*/
     background-color: var(
         --spectrum-button-m-primary-fill-texticon-background-color-key-focus,
         var(--spectrum-global-color-gray-900)
-    ); /* .spectrum-Button.spectrum-Button--fill.spectrum-Button--primary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible */
+    );
 }
-:host([treatment='fill'][variant='primary']:not([variant='white']):not([variant='black']):not([disabled]).is-keyboardFocused) {
+:host(:where([treatment='fill'][variant='primary']:not([variant='white']):not([variant='black']):not([disabled]).is-keyboardFocused)) {
+    /*.spectrum-Button.spectrum-Button--fill.spectrum-Button--primary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled).is-keyboardFocused*/
     background-color: var(
         --spectrum-button-m-primary-fill-texticon-background-color-key-focus,
         var(--spectrum-global-color-gray-900)
-    ); /* .spectrum-Button.spectrum-Button--fill.spectrum-Button--primary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled).is-keyboardFocused */
+    );
 }
-:host([treatment='fill'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled])) {
+:host(:where([treatment='fill'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]))) {
+    /*.spectrum-Button.spectrum-Button--fill.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled)*/
     background-color: var(
         --spectrum-button-m-secondary-fill-texticon-background-color,
         var(--spectrum-global-color-gray-200)
-    ); /* .spectrum-Button.spectrum-Button--fill.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled) */
+    );
 }
-:host([treatment='fill'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]))
+:host(:where([treatment='fill'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled])))
     ::slotted([slot='icon']) {
+    /*.spectrum-Button.spectrum-Button--fill.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled) .spectrum-Icon*/
     color: var(
         --spectrum-button-m-secondary-fill-texticon-icon-color,
         var(--spectrum-global-color-gray-800)
-    ); /* .spectrum-Button.spectrum-Button--fill.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled) .spectrum-Icon */
+    );
 }
-:host([treatment='fill'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]):hover) {
+:host(:where([treatment='fill'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]):hover)) {
+    /*.spectrum-Button.spectrum-Button--fill.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):hover*/
     background-color: var(
         --spectrum-button-m-secondary-fill-texticon-background-color-hover,
         var(--spectrum-global-color-gray-300)
-    ); /* .spectrum-Button.spectrum-Button--fill.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):hover */
+    );
 }
-:host([treatment='fill'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]):hover)
+:host(:where([treatment='fill'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]):hover))
     ::slotted([slot='icon']) {
+    /*.spectrum-Button.spectrum-Button--fill.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):hover .spectrum-Icon*/
     color: var(
         --spectrum-button-m-secondary-fill-texticon-icon-color-hover,
         var(--spectrum-global-color-gray-900)
-    ); /* .spectrum-Button.spectrum-Button--fill.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):hover .spectrum-Icon */
+    );
 }
-:host([treatment='fill'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]):hover)
+:host(:where([treatment='fill'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]):hover))
     #label {
+    /*.spectrum-Button.spectrum-Button--fill.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):hover .spectrum-Button-label*/
     color: var(
         --spectrum-button-m-secondary-fill-texticon-text-color-hover,
         var(--spectrum-global-color-gray-900)
-    ); /* .spectrum-Button.spectrum-Button--fill.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):hover .spectrum-Button-label */
+    );
 }
-:host([treatment='fill'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled])[active]) {
+:host(:where([treatment='fill'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled])[active])) {
+    /*.spectrum-Button.spectrum-Button--fill.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):active*/
     background-color: var(
         --spectrum-button-m-secondary-fill-texticon-background-color-down,
         var(--spectrum-global-color-gray-400)
-    ); /* .spectrum-Button.spectrum-Button--fill.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):active */
+    );
 }
-:host([treatment='fill'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled])[active])
+:host(:where([treatment='fill'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled])[active]))
     ::slotted([slot='icon']) {
+    /*.spectrum-Button.spectrum-Button--fill.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):active .spectrum-Icon*/
     color: var(
         --spectrum-button-m-secondary-fill-texticon-icon-color-down,
         var(--spectrum-global-color-gray-900)
-    ); /* .spectrum-Button.spectrum-Button--fill.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):active .spectrum-Icon */
+    );
 }
-:host([treatment='fill'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled])[active])
+:host(:where([treatment='fill'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled])[active]))
     #label {
+    /*.spectrum-Button.spectrum-Button--fill.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):active .spectrum-Button-label*/
     color: var(
         --spectrum-button-m-secondary-fill-texticon-text-color-down,
         var(--spectrum-global-color-gray-900)
-    ); /* .spectrum-Button.spectrum-Button--fill.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):active .spectrum-Button-label */
+    );
 }
-:host([treatment='fill'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]).focus-visible) {
+:host(:where([treatment='fill'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]).focus-visible)) {
+    /*.spectrum-Button.spectrum-Button--fill.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible*/
     background-color: var(
         --spectrum-button-m-secondary-fill-texticon-background-color-key-focus,
         var(--spectrum-global-color-gray-300)
-    ); /* .spectrum-Button.spectrum-Button--fill.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible */
+    );
 }
-:host([treatment='fill'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]):focus-visible) {
+:host(:where([treatment='fill'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]):focus-visible)) {
+    /*.spectrum-Button.spectrum-Button--fill.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible*/
     background-color: var(
         --spectrum-button-m-secondary-fill-texticon-background-color-key-focus,
         var(--spectrum-global-color-gray-300)
-    ); /* .spectrum-Button.spectrum-Button--fill.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible */
+    );
 }
-:host([treatment='fill'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]).focus-visible)
+:host(:where([treatment='fill'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]).focus-visible))
     ::slotted([slot='icon']) {
+    /*.spectrum-Button.spectrum-Button--fill.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible .spectrum-Icon*/
     color: var(
         --spectrum-button-m-secondary-fill-texticon-icon-color-key-focus,
         var(--spectrum-global-color-gray-900)
-    ); /* .spectrum-Button.spectrum-Button--fill.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible .spectrum-Icon */
+    );
 }
-:host([treatment='fill'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]):focus-visible)
+:host(:where([treatment='fill'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]):focus-visible))
     ::slotted([slot='icon']) {
+    /*.spectrum-Button.spectrum-Button--fill.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible .spectrum-Icon*/
     color: var(
         --spectrum-button-m-secondary-fill-texticon-icon-color-key-focus,
         var(--spectrum-global-color-gray-900)
-    ); /* .spectrum-Button.spectrum-Button--fill.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible .spectrum-Icon */
+    );
 }
-:host([treatment='fill'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]).focus-visible)
+:host(:where([treatment='fill'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]).focus-visible))
     #label {
+    /*.spectrum-Button.spectrum-Button--fill.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible .spectrum-Button-label*/
     color: var(
         --spectrum-button-m-secondary-fill-texticon-text-color-key-focus,
         var(--spectrum-global-color-gray-900)
-    ); /* .spectrum-Button.spectrum-Button--fill.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible .spectrum-Button-label */
+    );
 }
-:host([treatment='fill'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]):focus-visible)
+:host(:where([treatment='fill'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]):focus-visible))
     #label {
+    /*.spectrum-Button.spectrum-Button--fill.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible .spectrum-Button-label*/
     color: var(
         --spectrum-button-m-secondary-fill-texticon-text-color-key-focus,
         var(--spectrum-global-color-gray-900)
-    ); /* .spectrum-Button.spectrum-Button--fill.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible .spectrum-Button-label */
+    );
 }
-:host([treatment='fill'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]).is-keyboardFocused) {
+:host(:where([treatment='fill'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]).is-keyboardFocused)) {
+    /*.spectrum-Button.spectrum-Button--fill.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled).is-keyboardFocused*/
     background-color: var(
         --spectrum-button-m-secondary-fill-texticon-background-color-key-focus,
         var(--spectrum-global-color-gray-300)
-    ); /* .spectrum-Button.spectrum-Button--fill.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled).is-keyboardFocused */
+    );
 }
-:host([treatment='fill'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]).is-keyboardFocused)
+:host(:where([treatment='fill'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]).is-keyboardFocused))
     ::slotted([slot='icon']) {
+    /*.spectrum-Button.spectrum-Button--fill.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled).is-keyboardFocused .spectrum-Icon*/
     color: var(
         --spectrum-button-m-secondary-fill-texticon-icon-color-key-focus,
         var(--spectrum-global-color-gray-900)
-    ); /* .spectrum-Button.spectrum-Button--fill.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled).is-keyboardFocused .spectrum-Icon */
+    );
 }
-:host([treatment='fill'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]).is-keyboardFocused)
+:host(:where([treatment='fill'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]).is-keyboardFocused))
     #label {
+    /*.spectrum-Button.spectrum-Button--fill.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled).is-keyboardFocused .spectrum-Button-label*/
     color: var(
         --spectrum-button-m-secondary-fill-texticon-text-color-key-focus,
         var(--spectrum-global-color-gray-900)
-    ); /* .spectrum-Button.spectrum-Button--fill.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled).is-keyboardFocused .spectrum-Button-label */
+    );
 }
-:host([treatment='fill'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]))
+:host(:where([treatment='fill'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled])))
     #label {
+    /*.spectrum-Button.spectrum-Button--fill.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled) .spectrum-Button-label*/
     color: var(
         --spectrum-button-m-secondary-fill-texticon-text-color,
         var(--spectrum-global-color-gray-800)
-    ); /* .spectrum-Button.spectrum-Button--fill.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled) .spectrum-Button-label */
+    );
 }
-:host([treatment='fill']:not([variant='white']):not([variant='black'])[disabled]) {
+:host(:where([treatment='fill']:not([variant='white']):not([variant='black'])[disabled])) {
+    /*.spectrum-Button.spectrum-Button--fill:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):disabled*/
     background-color: var(
         --spectrum-button-m-primary-fill-texticon-background-color-disabled,
         var(--spectrum-global-color-gray-200)
-    ); /* .spectrum-Button.spectrum-Button--fill:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):disabled */
+    );
 }
-:host([treatment='fill'][disabled]) {
+:host(:where([treatment='fill'][disabled])) {
+    /*.spectrum-Button.spectrum-Button--fill:disabled*/
     border-color: var(
         --spectrum-button-m-primary-fill-texticon-border-color-disabled,
         transparent
-    ); /* .spectrum-Button.spectrum-Button--fill:disabled */
+    );
 }
-:host([treatment='fill']:not([disabled])) {
+:host(:where([treatment='fill']:not([disabled]))) {
+    /*.spectrum-Button.spectrum-Button--fill:not(:disabled)*/
     border-color: var(
         --spectrum-button-m-primary-fill-texticon-border-color,
         transparent
-    ); /* .spectrum-Button.spectrum-Button--fill:not(:disabled) */
+    );
 }
-:host([treatment='outline'][variant='accent']:not([variant='white']):not([variant='black']):not([disabled])) {
+:host(:where([treatment='outline'][variant='accent']:not([variant='white']):not([variant='black']):not([disabled]))) {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--accent:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled)*/
     background-color: var(
         --spectrum-button-m-accent-outline-texticon-background-color,
         var(--spectrum-alias-background-color-transparent)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--accent:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled) */
+    );
     border-color: var(
         --spectrum-button-m-accent-outline-texticon-border-color,
         var(--spectrum-semantic-emphasized-border-color-default)
     );
 }
-:host([treatment='outline'][variant='accent']:not([variant='white']):not([variant='black']):not([disabled]))
+:host(:where([treatment='outline'][variant='accent']:not([variant='white']):not([variant='black']):not([disabled])))
     ::slotted([slot='icon']) {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--accent:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled) .spectrum-Icon*/
     color: var(
         --spectrum-button-m-accent-outline-texticon-icon-color,
         var(--spectrum-semantic-emphasized-border-color-default)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--accent:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled) .spectrum-Icon */
+    );
 }
-:host([treatment='outline'][variant='accent']:not([variant='white']):not([variant='black']):not([disabled]):hover) {
+:host(:where([treatment='outline'][variant='accent']:not([variant='white']):not([variant='black']):not([disabled]):hover)) {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--accent:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):hover*/
     background-color: var(
         --spectrum-button-m-accent-outline-texticon-background-color-hover,
         var(--spectrum-alias-transparent-blue-background-color-hover)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--accent:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):hover */
+    );
     border-color: var(
         --spectrum-button-m-accent-outline-texticon-border-color-hover,
         var(--spectrum-semantic-emphasized-border-color-hover)
     );
 }
-:host([treatment='outline'][variant='accent']:not([variant='white']):not([variant='black']):not([disabled]):hover)
+:host(:where([treatment='outline'][variant='accent']:not([variant='white']):not([variant='black']):not([disabled]):hover))
     ::slotted([slot='icon']) {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--accent:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):hover .spectrum-Icon*/
     color: var(
         --spectrum-button-m-accent-outline-texticon-icon-color-hover,
         var(--spectrum-semantic-emphasized-border-color-hover)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--accent:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):hover .spectrum-Icon */
+    );
 }
-:host([treatment='outline'][variant='accent']:not([variant='white']):not([variant='black']):not([disabled]):hover)
+:host(:where([treatment='outline'][variant='accent']:not([variant='white']):not([variant='black']):not([disabled]):hover))
     #label {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--accent:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):hover .spectrum-Button-label*/
     color: var(
         --spectrum-button-m-accent-outline-texticon-text-color-hover,
         var(--spectrum-semantic-emphasized-border-color-hover)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--accent:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):hover .spectrum-Button-label */
+    );
 }
-:host([treatment='outline'][variant='accent']:not([variant='white']):not([variant='black']):not([disabled])[active]) {
+:host(:where([treatment='outline'][variant='accent']:not([variant='white']):not([variant='black']):not([disabled])[active])) {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--accent:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):active*/
     background-color: var(
         --spectrum-button-m-accent-outline-texticon-background-color-down,
         var(--spectrum-alias-transparent-blue-background-color-down)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--accent:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):active */
+    );
     border-color: var(
         --spectrum-button-m-accent-outline-texticon-border-color-down,
         var(--spectrum-semantic-emphasized-border-color-down)
     );
 }
-:host([treatment='outline'][variant='accent']:not([variant='white']):not([variant='black']):not([disabled])[active])
+:host(:where([treatment='outline'][variant='accent']:not([variant='white']):not([variant='black']):not([disabled])[active]))
     ::slotted([slot='icon']) {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--accent:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):active .spectrum-Icon*/
     color: var(
         --spectrum-button-m-accent-outline-texticon-icon-color-down,
         var(--spectrum-semantic-emphasized-border-color-down)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--accent:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):active .spectrum-Icon */
+    );
 }
-:host([treatment='outline'][variant='accent']:not([variant='white']):not([variant='black']):not([disabled])[active])
+:host(:where([treatment='outline'][variant='accent']:not([variant='white']):not([variant='black']):not([disabled])[active]))
     #label {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--accent:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):active .spectrum-Button-label*/
     color: var(
         --spectrum-button-m-accent-outline-texticon-text-color-down,
         var(--spectrum-semantic-emphasized-border-color-down)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--accent:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):active .spectrum-Button-label */
+    );
 }
-:host([treatment='outline'][variant='accent']:not([variant='white']):not([variant='black']):not([disabled]).focus-visible) {
+:host(:where([treatment='outline'][variant='accent']:not([variant='white']):not([variant='black']):not([disabled]).focus-visible)) {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--accent:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible*/
     background-color: var(
         --spectrum-button-m-accent-outline-texticon-background-color-key-focus,
         var(--spectrum-alias-transparent-blue-background-color-key-focus)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--accent:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible */
+    );
     border-color: var(
         --spectrum-button-m-accent-outline-texticon-border-color-key-focus,
         var(--spectrum-semantic-emphasized-border-color-key-focus)
     );
 }
-:host([treatment='outline'][variant='accent']:not([variant='white']):not([variant='black']):not([disabled]):focus-visible) {
+:host(:where([treatment='outline'][variant='accent']:not([variant='white']):not([variant='black']):not([disabled]):focus-visible)) {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--accent:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible*/
     background-color: var(
         --spectrum-button-m-accent-outline-texticon-background-color-key-focus,
         var(--spectrum-alias-transparent-blue-background-color-key-focus)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--accent:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible */
+    );
     border-color: var(
         --spectrum-button-m-accent-outline-texticon-border-color-key-focus,
         var(--spectrum-semantic-emphasized-border-color-key-focus)
     );
 }
-:host([treatment='outline'][variant='accent']:not([variant='white']):not([variant='black']):not([disabled]).focus-visible)
+:host(:where([treatment='outline'][variant='accent']:not([variant='white']):not([variant='black']):not([disabled]).focus-visible))
     ::slotted([slot='icon']) {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--accent:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible .spectrum-Icon*/
     color: var(
         --spectrum-button-m-accent-outline-texticon-icon-color-key-focus,
         var(--spectrum-semantic-emphasized-border-color-key-focus)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--accent:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible .spectrum-Icon */
+    );
 }
-:host([treatment='outline'][variant='accent']:not([variant='white']):not([variant='black']):not([disabled]):focus-visible)
+:host(:where([treatment='outline'][variant='accent']:not([variant='white']):not([variant='black']):not([disabled]):focus-visible))
     ::slotted([slot='icon']) {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--accent:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible .spectrum-Icon*/
     color: var(
         --spectrum-button-m-accent-outline-texticon-icon-color-key-focus,
         var(--spectrum-semantic-emphasized-border-color-key-focus)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--accent:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible .spectrum-Icon */
+    );
 }
-:host([treatment='outline'][variant='accent']:not([variant='white']):not([variant='black']):not([disabled]).focus-visible)
+:host(:where([treatment='outline'][variant='accent']:not([variant='white']):not([variant='black']):not([disabled]).focus-visible))
     #label {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--accent:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible .spectrum-Button-label*/
     color: var(
         --spectrum-button-m-accent-outline-texticon-text-color-key-focus,
         var(--spectrum-semantic-emphasized-border-color-key-focus)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--accent:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible .spectrum-Button-label */
+    );
 }
-:host([treatment='outline'][variant='accent']:not([variant='white']):not([variant='black']):not([disabled]):focus-visible)
+:host(:where([treatment='outline'][variant='accent']:not([variant='white']):not([variant='black']):not([disabled]):focus-visible))
     #label {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--accent:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible .spectrum-Button-label*/
     color: var(
         --spectrum-button-m-accent-outline-texticon-text-color-key-focus,
         var(--spectrum-semantic-emphasized-border-color-key-focus)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--accent:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible .spectrum-Button-label */
+    );
 }
-:host([treatment='outline'][variant='accent']:not([variant='white']):not([variant='black']):not([disabled]).is-keyboardFocused) {
+:host(:where([treatment='outline'][variant='accent']:not([variant='white']):not([variant='black']):not([disabled]).is-keyboardFocused)) {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--accent:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled).is-keyboardFocused*/
     background-color: var(
         --spectrum-button-m-accent-outline-texticon-background-color-key-focus,
         var(--spectrum-alias-transparent-blue-background-color-key-focus)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--accent:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled).is-keyboardFocused */
+    );
     border-color: var(
         --spectrum-button-m-accent-outline-texticon-border-color-key-focus,
         var(--spectrum-semantic-emphasized-border-color-key-focus)
     );
 }
-:host([treatment='outline'][variant='accent']:not([variant='white']):not([variant='black']):not([disabled]).is-keyboardFocused)
+:host(:where([treatment='outline'][variant='accent']:not([variant='white']):not([variant='black']):not([disabled]).is-keyboardFocused))
     ::slotted([slot='icon']) {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--accent:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled).is-keyboardFocused .spectrum-Icon*/
     color: var(
         --spectrum-button-m-accent-outline-texticon-icon-color-key-focus,
         var(--spectrum-semantic-emphasized-border-color-key-focus)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--accent:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled).is-keyboardFocused .spectrum-Icon */
+    );
 }
-:host([treatment='outline'][variant='accent']:not([variant='white']):not([variant='black']):not([disabled]).is-keyboardFocused)
+:host(:where([treatment='outline'][variant='accent']:not([variant='white']):not([variant='black']):not([disabled]).is-keyboardFocused))
     #label {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--accent:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled).is-keyboardFocused .spectrum-Button-label*/
     color: var(
         --spectrum-button-m-accent-outline-texticon-text-color-key-focus,
         var(--spectrum-semantic-emphasized-border-color-key-focus)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--accent:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled).is-keyboardFocused .spectrum-Button-label */
+    );
 }
-:host([treatment='outline'][variant='accent']:not([variant='white']):not([variant='black']):not([disabled]))
+:host(:where([treatment='outline'][variant='accent']:not([variant='white']):not([variant='black']):not([disabled])))
     #label {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--accent:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled) .spectrum-Button-label*/
     color: var(
         --spectrum-button-m-accent-outline-texticon-text-color,
         var(--spectrum-semantic-emphasized-border-color-default)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--accent:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled) .spectrum-Button-label */
+    );
 }
-:host([treatment='outline'][variant='negative']:not([variant='white']):not([variant='black']):not([disabled])) {
+:host(:where([treatment='outline'][variant='negative']:not([variant='white']):not([variant='black']):not([disabled]))) {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--negative:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled)*/
     background-color: var(
         --spectrum-button-m-negative-outline-texticon-background-color,
         var(--spectrum-alias-background-color-transparent)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--negative:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled) */
+    );
     border-color: var(
         --spectrum-button-m-negative-outline-texticon-border-color,
         var(--spectrum-global-color-red-500)
     );
 }
-:host([treatment='outline'][variant='negative']:not([variant='white']):not([variant='black']):not([disabled]))
+:host(:where([treatment='outline'][variant='negative']:not([variant='white']):not([variant='black']):not([disabled])))
     ::slotted([slot='icon']) {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--negative:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled) .spectrum-Icon*/
     color: var(
         --spectrum-button-m-negative-outline-texticon-icon-color,
         var(--spectrum-global-color-red-500)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--negative:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled) .spectrum-Icon */
+    );
 }
-:host([treatment='outline'][variant='negative']:not([variant='white']):not([variant='black']):not([disabled]):hover) {
+:host(:where([treatment='outline'][variant='negative']:not([variant='white']):not([variant='black']):not([disabled]):hover)) {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--negative:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):hover*/
     background-color: var(
         --spectrum-button-m-negative-outline-texticon-background-color-hover,
         var(--spectrum-alias-transparent-red-background-color-hover)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--negative:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):hover */
+    );
     border-color: var(
         --spectrum-button-m-negative-outline-texticon-border-color-hover,
         var(--spectrum-global-color-red-600)
     );
 }
-:host([treatment='outline'][variant='negative']:not([variant='white']):not([variant='black']):not([disabled]):hover)
+:host(:where([treatment='outline'][variant='negative']:not([variant='white']):not([variant='black']):not([disabled]):hover))
     ::slotted([slot='icon']) {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--negative:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):hover .spectrum-Icon*/
     color: var(
         --spectrum-button-m-negative-outline-texticon-icon-color-hover,
         var(--spectrum-global-color-red-600)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--negative:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):hover .spectrum-Icon */
+    );
 }
-:host([treatment='outline'][variant='negative']:not([variant='white']):not([variant='black']):not([disabled]):hover)
+:host(:where([treatment='outline'][variant='negative']:not([variant='white']):not([variant='black']):not([disabled]):hover))
     #label {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--negative:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):hover .spectrum-Button-label*/
     color: var(
         --spectrum-button-m-negative-outline-texticon-text-color-hover,
         var(--spectrum-global-color-red-600)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--negative:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):hover .spectrum-Button-label */
+    );
 }
-:host([treatment='outline'][variant='negative']:not([variant='white']):not([variant='black']):not([disabled])[active]) {
+:host(:where([treatment='outline'][variant='negative']:not([variant='white']):not([variant='black']):not([disabled])[active])) {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--negative:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):active*/
     background-color: var(
         --spectrum-button-m-negative-outline-texticon-background-color-down,
         var(--spectrum-alias-transparent-red-background-color-down)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--negative:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):active */
+    );
     border-color: var(
         --spectrum-button-m-negative-outline-texticon-border-color-down,
         var(--spectrum-global-color-red-700)
     );
 }
-:host([treatment='outline'][variant='negative']:not([variant='white']):not([variant='black']):not([disabled])[active])
+:host(:where([treatment='outline'][variant='negative']:not([variant='white']):not([variant='black']):not([disabled])[active]))
     ::slotted([slot='icon']) {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--negative:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):active .spectrum-Icon*/
     color: var(
         --spectrum-button-m-negative-outline-texticon-icon-color-down,
         var(--spectrum-global-color-red-700)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--negative:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):active .spectrum-Icon */
+    );
 }
-:host([treatment='outline'][variant='negative']:not([variant='white']):not([variant='black']):not([disabled])[active])
+:host(:where([treatment='outline'][variant='negative']:not([variant='white']):not([variant='black']):not([disabled])[active]))
     #label {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--negative:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):active .spectrum-Button-label*/
     color: var(
         --spectrum-button-m-negative-outline-texticon-text-color-down,
         var(--spectrum-global-color-red-700)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--negative:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):active .spectrum-Button-label */
+    );
 }
-:host([treatment='outline'][variant='negative']:not([variant='white']):not([variant='black']):not([disabled]).focus-visible) {
+:host(:where([treatment='outline'][variant='negative']:not([variant='white']):not([variant='black']):not([disabled]).focus-visible)) {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--negative:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible*/
     background-color: var(
         --spectrum-button-m-negative-outline-texticon-background-color-key-focus,
         var(--spectrum-alias-transparent-red-background-color-key-focus)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--negative:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible */
+    );
     border-color: var(
         --spectrum-button-m-negative-outline-texticon-border-color-key-focus,
         var(--spectrum-global-color-red-600)
     );
 }
-:host([treatment='outline'][variant='negative']:not([variant='white']):not([variant='black']):not([disabled]):focus-visible) {
+:host(:where([treatment='outline'][variant='negative']:not([variant='white']):not([variant='black']):not([disabled]):focus-visible)) {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--negative:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible*/
     background-color: var(
         --spectrum-button-m-negative-outline-texticon-background-color-key-focus,
         var(--spectrum-alias-transparent-red-background-color-key-focus)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--negative:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible */
+    );
     border-color: var(
         --spectrum-button-m-negative-outline-texticon-border-color-key-focus,
         var(--spectrum-global-color-red-600)
     );
 }
-:host([treatment='outline'][variant='negative']:not([variant='white']):not([variant='black']):not([disabled]).focus-visible)
+:host(:where([treatment='outline'][variant='negative']:not([variant='white']):not([variant='black']):not([disabled]).focus-visible))
     ::slotted([slot='icon']) {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--negative:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible .spectrum-Icon*/
     color: var(
         --spectrum-button-m-negative-outline-texticon-icon-color-key-focus,
         var(--spectrum-global-color-red-600)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--negative:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible .spectrum-Icon */
+    );
 }
-:host([treatment='outline'][variant='negative']:not([variant='white']):not([variant='black']):not([disabled]):focus-visible)
+:host(:where([treatment='outline'][variant='negative']:not([variant='white']):not([variant='black']):not([disabled]):focus-visible))
     ::slotted([slot='icon']) {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--negative:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible .spectrum-Icon*/
     color: var(
         --spectrum-button-m-negative-outline-texticon-icon-color-key-focus,
         var(--spectrum-global-color-red-600)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--negative:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible .spectrum-Icon */
+    );
 }
-:host([treatment='outline'][variant='negative']:not([variant='white']):not([variant='black']):not([disabled]).focus-visible)
+:host(:where([treatment='outline'][variant='negative']:not([variant='white']):not([variant='black']):not([disabled]).focus-visible))
     #label {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--negative:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible .spectrum-Button-label*/
     color: var(
         --spectrum-button-m-negative-outline-texticon-text-color-key-focus,
         var(--spectrum-global-color-red-600)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--negative:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible .spectrum-Button-label */
+    );
 }
-:host([treatment='outline'][variant='negative']:not([variant='white']):not([variant='black']):not([disabled]):focus-visible)
+:host(:where([treatment='outline'][variant='negative']:not([variant='white']):not([variant='black']):not([disabled]):focus-visible))
     #label {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--negative:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible .spectrum-Button-label*/
     color: var(
         --spectrum-button-m-negative-outline-texticon-text-color-key-focus,
         var(--spectrum-global-color-red-600)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--negative:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible .spectrum-Button-label */
+    );
 }
-:host([treatment='outline'][variant='negative']:not([variant='white']):not([variant='black']):not([disabled]).is-keyboardFocused) {
+:host(:where([treatment='outline'][variant='negative']:not([variant='white']):not([variant='black']):not([disabled]).is-keyboardFocused)) {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--negative:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled).is-keyboardFocused*/
     background-color: var(
         --spectrum-button-m-negative-outline-texticon-background-color-key-focus,
         var(--spectrum-alias-transparent-red-background-color-key-focus)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--negative:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled).is-keyboardFocused */
+    );
     border-color: var(
         --spectrum-button-m-negative-outline-texticon-border-color-key-focus,
         var(--spectrum-global-color-red-600)
     );
 }
-:host([treatment='outline'][variant='negative']:not([variant='white']):not([variant='black']):not([disabled]).is-keyboardFocused)
+:host(:where([treatment='outline'][variant='negative']:not([variant='white']):not([variant='black']):not([disabled]).is-keyboardFocused))
     ::slotted([slot='icon']) {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--negative:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled).is-keyboardFocused .spectrum-Icon*/
     color: var(
         --spectrum-button-m-negative-outline-texticon-icon-color-key-focus,
         var(--spectrum-global-color-red-600)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--negative:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled).is-keyboardFocused .spectrum-Icon */
+    );
 }
-:host([treatment='outline'][variant='negative']:not([variant='white']):not([variant='black']):not([disabled]).is-keyboardFocused)
+:host(:where([treatment='outline'][variant='negative']:not([variant='white']):not([variant='black']):not([disabled]).is-keyboardFocused))
     #label {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--negative:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled).is-keyboardFocused .spectrum-Button-label*/
     color: var(
         --spectrum-button-m-negative-outline-texticon-text-color-key-focus,
         var(--spectrum-global-color-red-600)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--negative:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled).is-keyboardFocused .spectrum-Button-label */
+    );
 }
-:host([treatment='outline'][variant='negative']:not([variant='white']):not([variant='black']):not([disabled]))
+:host(:where([treatment='outline'][variant='negative']:not([variant='white']):not([variant='black']):not([disabled])))
     #label {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--negative:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled) .spectrum-Button-label*/
     color: var(
         --spectrum-button-m-negative-outline-texticon-text-color,
         var(--spectrum-global-color-red-500)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--negative:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled) .spectrum-Button-label */
+    );
 }
-:host([treatment='outline'][variant='primary']:not([variant='white']):not([variant='black']):not([disabled])) {
+:host(:where([treatment='outline'][variant='primary']:not([variant='white']):not([variant='black']):not([disabled]))) {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--primary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled)*/
     background-color: var(
         --spectrum-button-m-primary-outline-texticon-background-color,
         var(--spectrum-alias-background-color-transparent)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--primary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled) */
+    );
     border-color: var(
         --spectrum-button-m-primary-outline-texticon-border-color,
         var(--spectrum-global-color-gray-800)
     );
 }
-:host([treatment='outline'][variant='primary']:not([variant='white']):not([variant='black']):not([disabled]))
+:host(:where([treatment='outline'][variant='primary']:not([variant='white']):not([variant='black']):not([disabled])))
     ::slotted([slot='icon']) {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--primary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled) .spectrum-Icon*/
     color: var(
         --spectrum-button-m-primary-outline-texticon-icon-color,
         var(--spectrum-global-color-gray-800)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--primary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled) .spectrum-Icon */
+    );
 }
-:host([treatment='outline'][variant='primary']:not([variant='white']):not([variant='black']):not([disabled]):hover) {
+:host(:where([treatment='outline'][variant='primary']:not([variant='white']):not([variant='black']):not([disabled]):hover)) {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--primary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):hover*/
     background-color: var(
         --spectrum-button-m-primary-outline-texticon-background-color-hover,
         var(--spectrum-global-color-gray-300)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--primary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):hover */
+    );
     border-color: var(
         --spectrum-button-m-primary-outline-texticon-border-color-hover,
         var(--spectrum-global-color-gray-900)
     );
 }
-:host([treatment='outline'][variant='primary']:not([variant='white']):not([variant='black']):not([disabled]):hover)
+:host(:where([treatment='outline'][variant='primary']:not([variant='white']):not([variant='black']):not([disabled]):hover))
     ::slotted([slot='icon']) {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--primary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):hover .spectrum-Icon*/
     color: var(
         --spectrum-button-m-primary-outline-texticon-icon-color-hover,
         var(--spectrum-global-color-gray-900)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--primary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):hover .spectrum-Icon */
+    );
 }
-:host([treatment='outline'][variant='primary']:not([variant='white']):not([variant='black']):not([disabled]):hover)
+:host(:where([treatment='outline'][variant='primary']:not([variant='white']):not([variant='black']):not([disabled]):hover))
     #label {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--primary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):hover .spectrum-Button-label*/
     color: var(
         --spectrum-button-m-primary-outline-texticon-text-color-hover,
         var(--spectrum-global-color-gray-900)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--primary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):hover .spectrum-Button-label */
+    );
 }
-:host([treatment='outline'][variant='primary']:not([variant='white']):not([variant='black']):not([disabled])[active]) {
+:host(:where([treatment='outline'][variant='primary']:not([variant='white']):not([variant='black']):not([disabled])[active])) {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--primary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):active*/
     background-color: var(
         --spectrum-button-m-primary-outline-texticon-background-color-down,
         var(--spectrum-global-color-gray-400)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--primary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):active */
+    );
     border-color: var(
         --spectrum-button-m-primary-outline-texticon-border-color-down,
         var(--spectrum-global-color-gray-900)
     );
 }
-:host([treatment='outline'][variant='primary']:not([variant='white']):not([variant='black']):not([disabled])[active])
+:host(:where([treatment='outline'][variant='primary']:not([variant='white']):not([variant='black']):not([disabled])[active]))
     ::slotted([slot='icon']) {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--primary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):active .spectrum-Icon*/
     color: var(
         --spectrum-button-m-primary-outline-texticon-icon-color-down,
         var(--spectrum-global-color-gray-900)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--primary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):active .spectrum-Icon */
+    );
 }
-:host([treatment='outline'][variant='primary']:not([variant='white']):not([variant='black']):not([disabled])[active])
+:host(:where([treatment='outline'][variant='primary']:not([variant='white']):not([variant='black']):not([disabled])[active]))
     #label {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--primary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):active .spectrum-Button-label*/
     color: var(
         --spectrum-button-m-primary-outline-texticon-text-color-down,
         var(--spectrum-global-color-gray-900)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--primary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):active .spectrum-Button-label */
+    );
 }
-:host([treatment='outline'][variant='primary']:not([variant='white']):not([variant='black']):not([disabled]).focus-visible) {
+:host(:where([treatment='outline'][variant='primary']:not([variant='white']):not([variant='black']):not([disabled]).focus-visible)) {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--primary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible*/
     background-color: var(
         --spectrum-button-m-primary-outline-texticon-background-color-key-focus,
         var(--spectrum-global-color-gray-300)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--primary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible */
+    );
     border-color: var(
         --spectrum-button-m-primary-outline-texticon-border-color-key-focus,
         var(--spectrum-global-color-gray-900)
     );
 }
-:host([treatment='outline'][variant='primary']:not([variant='white']):not([variant='black']):not([disabled]):focus-visible) {
+:host(:where([treatment='outline'][variant='primary']:not([variant='white']):not([variant='black']):not([disabled]):focus-visible)) {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--primary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible*/
     background-color: var(
         --spectrum-button-m-primary-outline-texticon-background-color-key-focus,
         var(--spectrum-global-color-gray-300)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--primary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible */
+    );
     border-color: var(
         --spectrum-button-m-primary-outline-texticon-border-color-key-focus,
         var(--spectrum-global-color-gray-900)
     );
 }
-:host([treatment='outline'][variant='primary']:not([variant='white']):not([variant='black']):not([disabled]).focus-visible)
+:host(:where([treatment='outline'][variant='primary']:not([variant='white']):not([variant='black']):not([disabled]).focus-visible))
     ::slotted([slot='icon']) {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--primary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible .spectrum-Icon*/
     color: var(
         --spectrum-button-m-primary-outline-texticon-icon-color-key-focus,
         var(--spectrum-global-color-gray-900)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--primary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible .spectrum-Icon */
+    );
 }
-:host([treatment='outline'][variant='primary']:not([variant='white']):not([variant='black']):not([disabled]):focus-visible)
+:host(:where([treatment='outline'][variant='primary']:not([variant='white']):not([variant='black']):not([disabled]):focus-visible))
     ::slotted([slot='icon']) {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--primary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible .spectrum-Icon*/
     color: var(
         --spectrum-button-m-primary-outline-texticon-icon-color-key-focus,
         var(--spectrum-global-color-gray-900)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--primary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible .spectrum-Icon */
+    );
 }
-:host([treatment='outline'][variant='primary']:not([variant='white']):not([variant='black']):not([disabled]).focus-visible)
+:host(:where([treatment='outline'][variant='primary']:not([variant='white']):not([variant='black']):not([disabled]).focus-visible))
     #label {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--primary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible .spectrum-Button-label*/
     color: var(
         --spectrum-button-m-primary-outline-texticon-text-color-key-focus,
         var(--spectrum-global-color-gray-900)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--primary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible .spectrum-Button-label */
+    );
 }
-:host([treatment='outline'][variant='primary']:not([variant='white']):not([variant='black']):not([disabled]):focus-visible)
+:host(:where([treatment='outline'][variant='primary']:not([variant='white']):not([variant='black']):not([disabled]):focus-visible))
     #label {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--primary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible .spectrum-Button-label*/
     color: var(
         --spectrum-button-m-primary-outline-texticon-text-color-key-focus,
         var(--spectrum-global-color-gray-900)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--primary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible .spectrum-Button-label */
+    );
 }
-:host([treatment='outline'][variant='primary']:not([variant='white']):not([variant='black']):not([disabled]).is-keyboardFocused) {
+:host(:where([treatment='outline'][variant='primary']:not([variant='white']):not([variant='black']):not([disabled]).is-keyboardFocused)) {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--primary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled).is-keyboardFocused*/
     background-color: var(
         --spectrum-button-m-primary-outline-texticon-background-color-key-focus,
         var(--spectrum-global-color-gray-300)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--primary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled).is-keyboardFocused */
+    );
     border-color: var(
         --spectrum-button-m-primary-outline-texticon-border-color-key-focus,
         var(--spectrum-global-color-gray-900)
     );
 }
-:host([treatment='outline'][variant='primary']:not([variant='white']):not([variant='black']):not([disabled]).is-keyboardFocused)
+:host(:where([treatment='outline'][variant='primary']:not([variant='white']):not([variant='black']):not([disabled]).is-keyboardFocused))
     ::slotted([slot='icon']) {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--primary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled).is-keyboardFocused .spectrum-Icon*/
     color: var(
         --spectrum-button-m-primary-outline-texticon-icon-color-key-focus,
         var(--spectrum-global-color-gray-900)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--primary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled).is-keyboardFocused .spectrum-Icon */
+    );
 }
-:host([treatment='outline'][variant='primary']:not([variant='white']):not([variant='black']):not([disabled]).is-keyboardFocused)
+:host(:where([treatment='outline'][variant='primary']:not([variant='white']):not([variant='black']):not([disabled]).is-keyboardFocused))
     #label {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--primary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled).is-keyboardFocused .spectrum-Button-label*/
     color: var(
         --spectrum-button-m-primary-outline-texticon-text-color-key-focus,
         var(--spectrum-global-color-gray-900)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--primary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled).is-keyboardFocused .spectrum-Button-label */
+    );
 }
-:host([treatment='outline'][variant='primary']:not([variant='white']):not([variant='black']):not([disabled]))
+:host(:where([treatment='outline'][variant='primary']:not([variant='white']):not([variant='black']):not([disabled])))
     #label {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--primary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled) .spectrum-Button-label*/
     color: var(
         --spectrum-button-m-primary-outline-texticon-text-color,
         var(--spectrum-global-color-gray-800)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--primary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled) .spectrum-Button-label */
+    );
 }
-:host([treatment='outline'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled])) {
+:host(:where([treatment='outline'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]))) {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled)*/
     background-color: var(
         --spectrum-button-m-secondary-outline-texticon-background-color,
         var(--spectrum-alias-background-color-transparent)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled) */
+    );
     border-color: var(
         --spectrum-button-m-secondary-outline-texticon-border-color,
         var(--spectrum-global-color-gray-300)
     );
 }
-:host([treatment='outline'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]))
+:host(:where([treatment='outline'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled])))
     ::slotted([slot='icon']) {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled) .spectrum-Icon*/
     color: var(
         --spectrum-button-m-secondary-outline-texticon-icon-color,
         var(--spectrum-global-color-gray-800)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled) .spectrum-Icon */
+    );
 }
-:host([treatment='outline'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]):hover) {
+:host(:where([treatment='outline'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]):hover)) {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):hover*/
     background-color: var(
         --spectrum-button-m-secondary-outline-texticon-background-color-hover,
         var(--spectrum-global-color-gray-300)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):hover */
+    );
     border-color: var(
         --spectrum-button-m-secondary-outline-texticon-border-color-hover,
         var(--spectrum-global-color-gray-400)
     );
 }
-:host([treatment='outline'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]):hover)
+:host(:where([treatment='outline'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]):hover))
     ::slotted([slot='icon']) {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):hover .spectrum-Icon*/
     color: var(
         --spectrum-button-m-secondary-outline-texticon-icon-color-hover,
         var(--spectrum-global-color-gray-900)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):hover .spectrum-Icon */
+    );
 }
-:host([treatment='outline'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]):hover)
+:host(:where([treatment='outline'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]):hover))
     #label {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):hover .spectrum-Button-label*/
     color: var(
         --spectrum-button-m-secondary-outline-texticon-text-color-hover,
         var(--spectrum-global-color-gray-900)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):hover .spectrum-Button-label */
+    );
 }
-:host([treatment='outline'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled])[active]) {
+:host(:where([treatment='outline'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled])[active])) {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):active*/
     background-color: var(
         --spectrum-button-m-secondary-outline-texticon-background-color-down,
         var(--spectrum-global-color-gray-400)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):active */
+    );
     border-color: var(
         --spectrum-button-m-secondary-outline-texticon-border-color-down,
         var(--spectrum-global-color-gray-500)
     );
 }
-:host([treatment='outline'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled])[active])
+:host(:where([treatment='outline'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled])[active]))
     ::slotted([slot='icon']) {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):active .spectrum-Icon*/
     color: var(
         --spectrum-button-m-secondary-outline-texticon-icon-color-down,
         var(--spectrum-global-color-gray-900)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):active .spectrum-Icon */
+    );
 }
-:host([treatment='outline'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled])[active])
+:host(:where([treatment='outline'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled])[active]))
     #label {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):active .spectrum-Button-label*/
     color: var(
         --spectrum-button-m-secondary-outline-texticon-text-color-down,
         var(--spectrum-global-color-gray-900)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):active .spectrum-Button-label */
+    );
 }
-:host([treatment='outline'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]).focus-visible) {
+:host(:where([treatment='outline'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]).focus-visible)) {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible*/
     background-color: var(
         --spectrum-button-m-secondary-outline-texticon-background-color-key-focus,
         var(--spectrum-global-color-gray-300)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible */
+    );
     border-color: var(
         --spectrum-button-m-secondary-outline-texticon-border-color-key-focus,
         var(--spectrum-global-color-gray-400)
     );
 }
-:host([treatment='outline'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]):focus-visible) {
+:host(:where([treatment='outline'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]):focus-visible)) {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible*/
     background-color: var(
         --spectrum-button-m-secondary-outline-texticon-background-color-key-focus,
         var(--spectrum-global-color-gray-300)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible */
+    );
     border-color: var(
         --spectrum-button-m-secondary-outline-texticon-border-color-key-focus,
         var(--spectrum-global-color-gray-400)
     );
 }
-:host([treatment='outline'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]).focus-visible)
+:host(:where([treatment='outline'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]).focus-visible))
     ::slotted([slot='icon']) {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible .spectrum-Icon*/
     color: var(
         --spectrum-button-m-secondary-outline-texticon-icon-color-key-focus,
         var(--spectrum-global-color-gray-900)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible .spectrum-Icon */
+    );
 }
-:host([treatment='outline'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]):focus-visible)
+:host(:where([treatment='outline'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]):focus-visible))
     ::slotted([slot='icon']) {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible .spectrum-Icon*/
     color: var(
         --spectrum-button-m-secondary-outline-texticon-icon-color-key-focus,
         var(--spectrum-global-color-gray-900)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible .spectrum-Icon */
+    );
 }
-:host([treatment='outline'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]).focus-visible)
+:host(:where([treatment='outline'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]).focus-visible))
     #label {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible .spectrum-Button-label*/
     color: var(
         --spectrum-button-m-secondary-outline-texticon-text-color-key-focus,
         var(--spectrum-global-color-gray-900)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible .spectrum-Button-label */
+    );
 }
-:host([treatment='outline'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]):focus-visible)
+:host(:where([treatment='outline'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]):focus-visible))
     #label {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible .spectrum-Button-label*/
     color: var(
         --spectrum-button-m-secondary-outline-texticon-text-color-key-focus,
         var(--spectrum-global-color-gray-900)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled):focus-visible .spectrum-Button-label */
+    );
 }
-:host([treatment='outline'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]).is-keyboardFocused) {
+:host(:where([treatment='outline'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]).is-keyboardFocused)) {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled).is-keyboardFocused*/
     background-color: var(
         --spectrum-button-m-secondary-outline-texticon-background-color-key-focus,
         var(--spectrum-global-color-gray-300)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled).is-keyboardFocused */
+    );
     border-color: var(
         --spectrum-button-m-secondary-outline-texticon-border-color-key-focus,
         var(--spectrum-global-color-gray-400)
     );
 }
-:host([treatment='outline'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]).is-keyboardFocused)
+:host(:where([treatment='outline'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]).is-keyboardFocused))
     ::slotted([slot='icon']) {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled).is-keyboardFocused .spectrum-Icon*/
     color: var(
         --spectrum-button-m-secondary-outline-texticon-icon-color-key-focus,
         var(--spectrum-global-color-gray-900)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled).is-keyboardFocused .spectrum-Icon */
+    );
 }
-:host([treatment='outline'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]).is-keyboardFocused)
+:host(:where([treatment='outline'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]).is-keyboardFocused))
     #label {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled).is-keyboardFocused .spectrum-Button-label*/
     color: var(
         --spectrum-button-m-secondary-outline-texticon-text-color-key-focus,
         var(--spectrum-global-color-gray-900)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled).is-keyboardFocused .spectrum-Button-label */
+    );
 }
-:host([treatment='outline'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled]))
+:host(:where([treatment='outline'][variant='secondary']:not([variant='white']):not([variant='black']):not([disabled])))
     #label {
+    /*.spectrum-Button.spectrum-Button--outline.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled) .spectrum-Button-label*/
     color: var(
         --spectrum-button-m-secondary-outline-texticon-text-color,
         var(--spectrum-global-color-gray-800)
-    ); /* .spectrum-Button.spectrum-Button--outline.spectrum-Button--secondary:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):not(:disabled) .spectrum-Button-label */
+    );
 }
-:host([treatment='outline']:not([variant='white']):not([variant='black'])[disabled]) {
+:host(:where([treatment='outline']:not([variant='white']):not([variant='black'])[disabled])) {
     background-color: var(
         --spectrum-button-m-primary-outline-texticon-background-color-disabled,
         var(--spectrum-alias-background-color-transparent)
     );
+    /*.spectrum-Button.spectrum-Button--outline:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):disabled*/
     border-color: var(
         --spectrum-button-m-primary-outline-texticon-border-color-disabled,
         var(--spectrum-global-color-gray-200)
-    ); /* .spectrum-Button.spectrum-Button--outline:not(.spectrum-Button--staticWhite):not(.spectrum-Button--staticBlack):disabled */
+    );
 }
 @media (forced-colors: active) {
     :host {
+        /*.spectrum-Button*/
         --spectrum-button-m-accent-fill-texticon-background-color-down: Highlight;
         --spectrum-button-m-accent-fill-texticon-background-color-hover: Highlight;
         --spectrum-button-m-accent-fill-texticon-background-color-key-focus: Highlight;
@@ -1794,21 +2001,24 @@ governing permissions and limitations under the License.
         --spectrum-button-m-primary-fill-texticon-background-color-disabled: ButtonFace;
         --spectrum-button-m-primary-outline-texticon-background-color-disabled: ButtonFace;
     }
-    :host(.focus-visible):after,
-    :host([focused]):after {
+    :host(:where(.focus-visible)):after,
+    :host(:where([focused])):after {
         box-shadow: 0 0 0
             var(--spectrum-button-primary-fill-texticon-focus-ring-size)
             ButtonText;
+        /*.spectrum-Button.focus-ring:after, .spectrum-Button.is-focused:after*/
         forced-color-adjust: none;
     }
-    :host(:focus-visible):after,
-    :host([focused]):after {
+    :host(:where(:focus-visible)):after,
+    :host(:where([focused])):after {
         box-shadow: 0 0 0
             var(--spectrum-button-primary-fill-texticon-focus-ring-size)
             ButtonText;
+        /*.spectrum-Button.focus-ring:after, .spectrum-Button.is-focused:after*/
         forced-color-adjust: none;
     }
-    :host([variant='accent']) #label {
+    :host(:where([variant='accent'])) #label {
+        /*.spectrum-Button--accent .spectrum-Button-label*/
         forced-color-adjust: none;
     }
 }

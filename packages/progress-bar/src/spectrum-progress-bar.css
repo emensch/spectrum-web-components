@@ -10,11 +10,12 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-/* THIS FILE IS MACHINE GENERATED. DO NOT EDIT */
-:host([size='s']) {
+/*THIS FILE IS MACHINE GENERATED. DO NOT EDIT*/
+:host(:where([size='s'])) {
+    /*.spectrum-ProgressBar--sizeS*/
     --spectrum-progressbar-border-radius: var(
         --spectrum-progressbar-s-border-radius
-    ); /* .spectrum-ProgressBar--sizeS */
+    );
     --spectrum-progressbar-indeterminate-fill-width: var(
         --spectrum-progressbar-s-indeterminate-fill-width,
         var(--spectrum-global-dimension-static-percent-70)
@@ -36,10 +37,11 @@ governing permissions and limitations under the License.
         var(--spectrum-global-dimension-static-size-2400)
     );
 }
-:host([size='m']) {
+:host(:where([size='m'])) {
+    /*.spectrum-ProgressBar--sizeM*/
     --spectrum-progressbar-border-radius: var(
         --spectrum-progressbar-m-border-radius
-    ); /* .spectrum-ProgressBar--sizeM */
+    );
     --spectrum-progressbar-indeterminate-fill-width: var(
         --spectrum-progressbar-m-indeterminate-fill-width,
         var(--spectrum-global-dimension-static-percent-70)
@@ -65,11 +67,12 @@ governing permissions and limitations under the License.
         var(--spectrum-global-dimension-size-150)
     );
 }
-:host([size='l']) {
+:host(:where([size='l'])) {
+    /*.spectrum-ProgressBar--sizeL*/
     --spectrum-progressbar-indeterminate-fill-width: var(
         --spectrum-progressbar-l-indeterminate-fill-width,
         var(--spectrum-global-dimension-static-percent-70)
-    ); /* .spectrum-ProgressBar--sizeL */
+    );
     --spectrum-progressbar-indeterminate-duration: var(
         --spectrum-progressbar-l-indeterminate-duration,
         var(--spectrum-global-animation-duration-2000)
@@ -91,10 +94,11 @@ governing permissions and limitations under the License.
         var(--spectrum-global-dimension-static-size-2500)
     );
 }
-:host([size='xl']) {
+:host(:where([size='xl'])) {
+    /*.spectrum-ProgressBar--sizeXL*/
     --spectrum-progressbar-border-radius: var(
         --spectrum-progressbar-xl-border-radius
-    ); /* .spectrum-ProgressBar--sizeXL */
+    );
     --spectrum-progressbar-indeterminate-fill-width: var(
         --spectrum-progressbar-xl-indeterminate-fill-width,
         var(--spectrum-global-dimension-static-percent-70)
@@ -121,13 +125,15 @@ governing permissions and limitations under the License.
     display: inline-flex;
     flex-flow: row wrap;
     justify-content: space-between;
-    position: relative; /* .spectrum-ProgressBar */
+    /*.spectrum-ProgressBar*/
+    position: relative;
     vertical-align: top;
     width: var(--spectrum-progressbar-width);
 }
 .track {
     border-radius: var(--spectrum-progressbar-border-radius);
-    overflow: hidden; /* .spectrum-ProgressBar-track */
+    /*.spectrum-ProgressBar-track*/
+    overflow: hidden;
     width: 100%;
     z-index: 1;
 }
@@ -136,189 +142,194 @@ governing permissions and limitations under the License.
     height: var(--spectrum-progressbar-height);
 }
 .fill {
-    border: none; /* .spectrum-ProgressBar-fill */
+    /*.spectrum-ProgressBar-fill*/
+    border: none;
     transition: width 1s;
-}
-:host([dir='ltr']) .label,
-:host([dir='ltr']) .percentage {
-    text-align: left; /* [dir=ltr] .spectrum-ProgressBar-label,
-   * [dir=ltr] 
-.spectrum-ProgressBar-percentage */
-}
-:host([dir='rtl']) .label,
-:host([dir='rtl']) .percentage {
-    text-align: right; /* [dir=rtl] .spectrum-ProgressBar-label,
-   * [dir=rtl] 
-.spectrum-ProgressBar-percentage */
 }
 .label,
 .percentage {
-    margin-bottom: var(
-        --spectrum-progressbar-value-gap-y
-    ); /* .spectrum-ProgressBar-label,
-   * .spectrum-ProgressBar-percentage */
+    /*.spectrum-ProgressBar-label,
+.spectrum-ProgressBar-percentage*/
+    margin-bottom: var(--spectrum-progressbar-value-gap-y);
+    /*[dir="ltr"] .spectrum-ProgressBar-label,[dir="ltr"] 
+.spectrum-ProgressBar-percentage*/
+    text-align: left;
+    /*[dir="rtl"] .spectrum-ProgressBar-label,[dir="rtl"] 
+.spectrum-ProgressBar-percentage*/
+    text-align: right;
 }
 .label {
-    flex: 1 1 0%; /* .spectrum-ProgressBar-label */
-}
-:host([dir='ltr']) .percentage {
-    margin-left: var(
-        --spectrum-fieldlabel-side-padding-right
-    ); /* [dir=ltr] .spectrum-ProgressBar-percentage */
-}
-:host([dir='rtl']) .percentage {
-    margin-right: var(
-        --spectrum-fieldlabel-side-padding-right
-    ); /* [dir=rtl] .spectrum-ProgressBar-percentage */
+    /*.spectrum-ProgressBar-label*/
+    flex: 1 1 0%;
 }
 .percentage {
-    align-self: flex-start; /* .spectrum-ProgressBar-percentage */
+    /*.spectrum-ProgressBar-percentage*/
+    align-self: flex-start;
+    /*[dir="ltr"] .spectrum-ProgressBar-percentage*/
+    margin-left: var(--spectrum-fieldlabel-side-padding-right);
+    /*[dir="rtl"] .spectrum-ProgressBar-percentage*/
+    margin-right: var(--spectrum-fieldlabel-side-padding-right);
 }
-:host([side-label]) {
-    display: inline-flex; /* .spectrum-ProgressBar--sideLabel */
+:host(:where([side-label])) {
+    /*.spectrum-ProgressBar--sideLabel*/
+    display: inline-flex;
     flex-flow: row;
     justify-content: space-between;
     width: auto;
 }
-:host([side-label]) .track {
+:host(:where([side-label])) .track {
     flex: 1 1 var(--spectrum-progressbar-width);
-    min-width: var(
-        --spectrum-progressbar-width
-    ); /* .spectrum-ProgressBar--sideLabel .spectrum-ProgressBar-track */
+    /*.spectrum-ProgressBar--sideLabel .spectrum-ProgressBar-track*/
+    min-width: var(--spectrum-progressbar-width);
 }
-:host([dir='ltr'][side-label]) .label {
-    margin-right: var(
-        --spectrum-fieldlabel-side-padding-right
-    ); /* [dir=ltr] .spectrum-ProgressBar--sideLabel .spectrum-ProgressBar-label */
+:host(:where([dir='ltr'])) [side-label] .label {
+    /*[dir="ltr"] .spectrum-ProgressBar--sideLabel .spectrum-ProgressBar-label*/
+    margin-right: var(--spectrum-fieldlabel-side-padding-right);
 }
-:host([dir='rtl'][side-label]) .label {
-    margin-left: var(
-        --spectrum-fieldlabel-side-padding-right
-    ); /* [dir=rtl] .spectrum-ProgressBar--sideLabel .spectrum-ProgressBar-label */
+:host(:where([dir='rtl'])) [side-label] .label {
+    /*[dir="rtl"] .spectrum-ProgressBar--sideLabel .spectrum-ProgressBar-label*/
+    margin-left: var(--spectrum-fieldlabel-side-padding-right);
 }
-:host([side-label]) .label {
-    flex-grow: 0; /* .spectrum-ProgressBar--sideLabel .spectrum-ProgressBar-label */
+:host(:where([side-label])) .label {
+    /*.spectrum-ProgressBar--sideLabel .spectrum-ProgressBar-label*/
+    flex-grow: 0;
     margin-bottom: 0;
 }
-:host([dir='ltr'][side-label]) .percentage {
-    text-align: right; /* [dir=ltr] .spectrum-ProgressBar--sideLabel .spectrum-ProgressBar-percentage */
+:host(:where([dir='ltr'])) [side-label] .percentage {
+    /*[dir="ltr"] .spectrum-ProgressBar--sideLabel .spectrum-ProgressBar-percentage*/
+    text-align: right;
 }
-:host([dir='rtl'][side-label]) .percentage {
-    text-align: left; /* [dir=rtl] .spectrum-ProgressBar--sideLabel .spectrum-ProgressBar-percentage */
+:host(:where([dir='rtl'])) [side-label] .percentage {
+    /*[dir="rtl"] .spectrum-ProgressBar--sideLabel .spectrum-ProgressBar-percentage*/
+    text-align: left;
 }
-:host([dir='ltr'][side-label]) .percentage {
-    margin-left: var(
-        --spectrum-fieldlabel-side-padding-right
-    ); /* [dir=ltr] .spectrum-ProgressBar--sideLabel .spectrum-ProgressBar-percentage */
+:host(:where([dir='ltr'])) [side-label] .percentage {
+    /*[dir="ltr"] .spectrum-ProgressBar--sideLabel .spectrum-ProgressBar-percentage*/
+    margin-left: var(--spectrum-fieldlabel-side-padding-right);
 }
-:host([dir='rtl'][side-label]) .percentage {
-    margin-right: var(
-        --spectrum-fieldlabel-side-padding-right
-    ); /* [dir=rtl] .spectrum-ProgressBar--sideLabel .spectrum-ProgressBar-percentage */
+:host(:where([dir='rtl'])) [side-label] .percentage {
+    /*[dir="rtl"] .spectrum-ProgressBar--sideLabel .spectrum-ProgressBar-percentage*/
+    margin-right: var(--spectrum-fieldlabel-side-padding-right);
 }
-:host([side-label]) .percentage {
+:host(:where([side-label])) .percentage {
     margin-bottom: 0;
-    order: 3; /* .spectrum-ProgressBar--sideLabel .spectrum-ProgressBar-percentage */
+    /*.spectrum-ProgressBar--sideLabel .spectrum-ProgressBar-percentage*/
+    order: 3;
 }
-:host([indeterminate]) .fill {
+:host(:where([indeterminate])) .fill {
     animation-timing-function: var(
         --spectrum-progressbar-indeterminate-animation-ease
     );
     position: relative;
-    width: var(
-        --spectrum-progressbar-indeterminate-fill-width
-    ); /* .spectrum-ProgressBar--indeterminate .spectrum-ProgressBar-fill */
+    /*.spectrum-ProgressBar--indeterminate .spectrum-ProgressBar-fill*/
+    width: var(--spectrum-progressbar-indeterminate-fill-width);
     will-change: transform;
 }
-:host([dir='ltr'][indeterminate]) .fill {
+:host(:where([dir='ltr'])) [indeterminate] .fill {
+    /*[dir="ltr"] .spectrum-ProgressBar--indeterminate .spectrum-ProgressBar-fill*/
     animation: indeterminate-loop-ltr
-        var(--spectrum-progressbar-indeterminate-duration) infinite; /* [dir=ltr] .spectrum-ProgressBar--indeterminate .spectrum-ProgressBar-fill */
+        var(--spectrum-progressbar-indeterminate-duration) infinite;
 }
-:host([dir='rtl'][indeterminate]) .fill {
+:host(:where([dir='rtl'])) [indeterminate] .fill {
+    /*[dir="rtl"] .spectrum-ProgressBar--indeterminate .spectrum-ProgressBar-fill*/
     animation: indeterminate-loop-rtl
-        var(--spectrum-progressbar-indeterminate-duration) infinite; /* [dir=rtl] .spectrum-ProgressBar--indeterminate .spectrum-ProgressBar-fill */
+        var(--spectrum-progressbar-indeterminate-duration) infinite;
 }
 @keyframes indeterminate-loop-ltr {
     0% {
+        /*from*/
         transform: translate(
             calc(var(--spectrum-progressbar-indeterminate-fill-width) * -1)
         );
     }
     to {
+        /*to*/
         transform: translate(var(--spectrum-progressbar-width));
     }
 }
 @keyframes indeterminate-loop-rtl {
     0% {
+        /*from*/
         transform: translate(var(--spectrum-progressbar-width));
     }
     to {
+        /*to*/
         transform: translate(calc(var(--spectrum-progressbar-width) * -1));
     }
 }
 .fill {
+    /*.spectrum-ProgressBar .spectrum-ProgressBar-fill*/
     background: var(
         --spectrum-progressbar-m-track-fill-color,
         var(--spectrum-semantic-informative-color-default)
-    ); /* .spectrum-ProgressBar .spectrum-ProgressBar-fill */
+    );
 }
 .track {
+    /*.spectrum-ProgressBar .spectrum-ProgressBar-track*/
     background-color: var(
         --spectrum-progressbar-m-track-color,
         var(--spectrum-alias-track-color-default)
-    ); /* .spectrum-ProgressBar .spectrum-ProgressBar-track */
+    );
 }
-:host([over-background]) .fill {
+:host(:where([over-background])) .fill {
+    /*.spectrum-ProgressBar.spectrum-ProgressBar--overBackground .spectrum-ProgressBar-fill*/
     background: var(
         --spectrum-progressbar-m-overbackground-track-fill-color,
         var(--spectrum-alias-track-fill-color-overbackground)
-    ); /* .spectrum-ProgressBar.spectrum-ProgressBar--overBackground .spectrum-ProgressBar-fill */
+    );
 }
-:host([over-background]) .label,
-:host([over-background]) .percentage {
+:host(:where([over-background])) .label,
+:host(:where([over-background])) .percentage {
+    /*.spectrum-ProgressBar.spectrum-ProgressBar--overBackground .spectrum-ProgressBar-label,
+    .spectrum-ProgressBar.spectrum-ProgressBar--overBackground .spectrum-ProgressBar-percentage*/
     color: var(
         --spectrum-progressbar-m-overbackground-track-fill-color,
         var(--spectrum-alias-track-fill-color-overbackground)
-    ); /* .spectrum-ProgressBar.spectrum-ProgressBar--overBackground .spectrum-ProgressBar-label,
-   * .spectrum-ProgressBar.spectrum-ProgressBar--overBackground .spectrum-ProgressBar-percentage */
+    );
 }
-:host([over-background]) .track {
+:host(:where([over-background])) .track {
+    /*.spectrum-ProgressBar.spectrum-ProgressBar--overBackground .spectrum-ProgressBar-track*/
     background-color: var(
         --spectrum-progressbar-m-overbackground-track-color,
         var(--spectrum-alias-track-color-overbackground)
-    ); /* .spectrum-ProgressBar.spectrum-ProgressBar--overBackground .spectrum-ProgressBar-track */
+    );
 }
-:host([positive]) .fill {
+:host(:where([positive])) .fill {
+    /*.spectrum-ProgressBar.is-positive .spectrum-ProgressBar-fill*/
     background: var(
         --spectrum-meter-m-positive-track-fill-color,
         var(--spectrum-semantic-positive-status-color)
-    ); /* .spectrum-ProgressBar.is-positive .spectrum-ProgressBar-fill */
+    );
 }
-:host(.is-notice) .fill {
+:host(:where(.is-notice)) .fill {
+    /*.spectrum-ProgressBar.is-notice .spectrum-ProgressBar-fill*/
     background: var(
         --spectrum-meter-m-notice-track-fill-color,
         var(--spectrum-semantic-notice-status-color)
-    ); /* .spectrum-ProgressBar.is-notice .spectrum-ProgressBar-fill */
+    );
 }
-:host(.is-negative) .fill {
+:host(:where(.is-negative)) .fill {
+    /*.spectrum-ProgressBar.is-negative .spectrum-ProgressBar-fill*/
     background: var(
         --spectrum-meter-m-negative-track-fill-color,
         var(--spectrum-semantic-negative-status-color)
-    ); /* .spectrum-ProgressBar.is-negative .spectrum-ProgressBar-fill */
+    );
 }
 .label,
 .percentage {
+    /*.spectrum-ProgressBar-label,
+.spectrum-ProgressBar-percentage*/
     color: var(
         --spectrum-fieldlabel-m-text-color,
         var(--spectrum-alias-label-text-color)
-    ); /* .spectrum-ProgressBar-label,
-   * .spectrum-ProgressBar-percentage */
+    );
 }
 @media (forced-colors: active) {
     .track {
         --spectrum-progressbar-m-track-fill-color: ButtonText;
         --spectrum-progressbar-m-track-color: ButtonFace;
         border: 1px solid ButtonText;
+        /*.spectrum-ProgressBar-track*/
         forced-color-adjust: none;
     }
 }

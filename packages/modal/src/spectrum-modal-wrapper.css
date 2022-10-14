@@ -10,7 +10,32 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-/* THIS FILE IS MACHINE GENERATED. DO NOT EDIT */
+/*THIS FILE IS MACHINE GENERATED. DO NOT EDIT*/
+.spectrum-Modal {
+    opacity: 0;
+    pointer-events: none;
+    transition: transform var(--spectrum-global-animation-duration-100, 0.13s)
+            ease-in-out,
+        opacity var(--spectrum-global-animation-duration-100, 0.13s) ease-in-out,
+        visibility 0ms linear
+            var(--spectrum-global-animation-duration-100, 0.13s);
+
+    /*.spectrum-Modal*/
+    visibility: hidden;
+}
+.spectrum-Modal[open] {
+    opacity: 1;
+    pointer-events: auto;
+    transition-delay: 0ms;
+    /*.spectrum-Modal.is-open*/
+    visibility: visible;
+}
+.spectrum-Modal {
+    /*.spectrum-Modal*/
+    --spectrum-dialog-confirm-exit-animation-delay: 0ms;
+    --spectrum-dialog-fullscreen-margin: 32px;
+    --spectrum-dialog-max-height: 90vh;
+}
 :host {
     align-items: center;
     box-sizing: border-box;
@@ -22,7 +47,8 @@ governing permissions and limitations under the License.
     justify-content: center;
     left: 0;
     pointer-events: none;
-    position: fixed; /* .spectrum-Modal-wrapper */
+    /*.spectrum-Modal-wrapper*/
+    position: fixed;
     top: 0;
     transition: visibility 0ms linear
         var(--spectrum-global-animation-duration-100, 0.13s);
@@ -30,19 +56,123 @@ governing permissions and limitations under the License.
     width: 100vw;
     z-index: 2;
 }
-:host([open]) {
-    visibility: visible; /* .spectrum-Modal-wrapper.is-open */
+:host(:where([open])) {
+    /*.spectrum-Modal-wrapper.is-open*/
+    visibility: visible;
+}
+.spectrum-Modal {
+    border-radius: var(
+        --spectrum-dialog-confirm-border-radius,
+        var(--spectrum-alias-component-border-radius)
+    );
+    max-height: var(--spectrum-dialog-max-height);
+    outline: none;
+    overflow: hidden;
+    pointer-events: auto;
+    /*.spectrum-Modal*/
+    transform: translateY(
+        var(
+            --spectrum-dialog-confirm-entry-animation-distance,
+            var(--spectrum-global-dimension-size-250)
+        )
+    );
+    transition: opacity
+            var(
+                --spectrum-dialog-confirm-exit-animation-duration,
+                var(--spectrum-global-animation-duration-100)
+            )
+            cubic-bezier(0.5, 0, 1, 1)
+            var(--spectrum-dialog-confirm-exit-animation-delay, 0ms),
+        visibility 0ms linear
+            calc(
+                var(--spectrum-dialog-confirm-exit-animation-delay, 0ms) +
+                    var(
+                        --spectrum-dialog-confirm-exit-animation-duration,
+                        var(--spectrum-global-animation-duration-100)
+                    )
+            ),
+        transform 0ms linear
+            calc(
+                var(--spectrum-dialog-confirm-exit-animation-delay, 0ms) +
+                    var(
+                        --spectrum-dialog-confirm-exit-animation-duration,
+                        var(--spectrum-global-animation-duration-100)
+                    )
+            );
+    z-index: 2;
+}
+.spectrum-Modal[open] {
+    transform: translateY(0);
+    /*.spectrum-Modal.is-open*/
+    transition: transform
+            var(
+                --spectrum-dialog-confirm-entry-animation-duration,
+                var(--spectrum-global-animation-duration-500)
+            )
+            cubic-bezier(0, 0, 0.4, 1)
+            var(
+                --spectrum-dialog-confirm-entry-animation-delay,
+                var(--spectrum-global-animation-duration-200)
+            ),
+        opacity
+            var(
+                --spectrum-dialog-confirm-entry-animation-duration,
+                var(--spectrum-global-animation-duration-500)
+            )
+            cubic-bezier(0, 0, 0.4, 1)
+            var(
+                --spectrum-dialog-confirm-entry-animation-delay,
+                var(--spectrum-global-animation-duration-200)
+            );
 }
 @media only screen and (max-device-height: 350px),
     only screen and (max-device-width: 400px) {
-    :host([responsive]) {
+    [responsive] {
         border-radius: 0;
         height: 100%;
         max-height: 100%;
         max-width: 100%;
+        /*.spectrum-Modal--responsive*/
         width: 100%;
     }
-    :host([responsive]) {
+    [responsive] {
+        /*.spectrum-Modal-wrapper .spectrum-Modal--responsive*/
         margin-top: 0;
     }
+}
+.spectrum-Modal--fullscreen {
+    bottom: var(--spectrum-dialog-fullscreen-margin);
+    left: var(--spectrum-dialog-fullscreen-margin);
+    max-height: none;
+    max-width: none;
+    /*.spectrum-Modal--fullscreen*/
+    position: fixed;
+    right: var(--spectrum-dialog-fullscreen-margin);
+    top: var(--spectrum-dialog-fullscreen-margin);
+}
+.spectrum-Modal--fullscreenTakeover {
+    border: none;
+    border-radius: 0;
+    bottom: 0;
+    box-sizing: border-box;
+    left: 0;
+    max-height: none;
+    max-width: none;
+    /*.spectrum-Modal--fullscreenTakeover*/
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+.spectrum-Modal--fullscreenTakeover,
+.spectrum-Modal--fullscreenTakeover[open] {
+    /*.spectrum-Modal--fullscreenTakeover,
+  .spectrum-Modal--fullscreenTakeover.is-open*/
+    transform: none;
+}
+.spectrum-Modal {
+    /*.spectrum-Modal*/
+    background: var(
+        --spectrum-dialog-confirm-background-color,
+        var(--spectrum-alias-background-color-default)
+    );
 }

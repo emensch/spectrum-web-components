@@ -10,12 +10,13 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-/* THIS FILE IS MACHINE GENERATED. DO NOT EDIT */
-:host([size='s']) {
+/*THIS FILE IS MACHINE GENERATED. DO NOT EDIT*/
+:host(:where([size='s'])) {
+    /*.spectrum-FieldLabel--sizeS*/
     --spectrum-fieldlabel-padding-top: var(
         --spectrum-fieldlabel-s-padding-top,
         var(--spectrum-global-dimension-size-50)
-    ); /* .spectrum-FieldLabel--sizeS */
+    );
     --spectrum-fieldlabel-padding-bottom: var(
         --spectrum-fieldlabel-s-padding-bottom,
         var(--spectrum-global-dimension-size-65)
@@ -37,11 +38,12 @@ governing permissions and limitations under the License.
         var(--spectrum-global-dimension-size-50)
     );
 }
-:host([size='m']) {
+:host(:where([size='m'])) {
+    /*.spectrum-FieldLabel--sizeM*/
     --spectrum-fieldlabel-padding-top: var(
         --spectrum-fieldlabel-m-padding-top,
         var(--spectrum-global-dimension-size-50)
-    ); /* .spectrum-FieldLabel--sizeM */
+    );
     --spectrum-fieldlabel-padding-bottom: var(
         --spectrum-fieldlabel-m-padding-bottom,
         var(--spectrum-global-dimension-size-65)
@@ -63,11 +65,12 @@ governing permissions and limitations under the License.
         var(--spectrum-global-dimension-size-50)
     );
 }
-:host([size='l']) {
+:host(:where([size='l'])) {
+    /*.spectrum-FieldLabel--sizeL*/
     --spectrum-fieldlabel-padding-top: var(
         --spectrum-fieldlabel-l-padding-top,
         var(--spectrum-global-dimension-size-75)
-    ); /* .spectrum-FieldLabel--sizeL */
+    );
     --spectrum-fieldlabel-padding-bottom: var(
         --spectrum-fieldlabel-l-padding-bottom,
         var(--spectrum-global-dimension-size-115)
@@ -89,11 +92,12 @@ governing permissions and limitations under the License.
         var(--spectrum-global-dimension-size-65)
     );
 }
-:host([size='xl']) {
+:host(:where([size='xl'])) {
+    /*.spectrum-FieldLabel--sizeXL*/
     --spectrum-fieldlabel-padding-top: var(
         --spectrum-fieldlabel-xl-padding-top,
         var(--spectrum-global-dimension-size-115)
-    ); /* .spectrum-FieldLabel--sizeXL */
+    );
     --spectrum-fieldlabel-padding-bottom: var(
         --spectrum-fieldlabel-xl-padding-bottom,
         var(--spectrum-global-dimension-size-130)
@@ -115,13 +119,15 @@ governing permissions and limitations under the License.
         var(--spectrum-global-dimension-size-65)
     );
 }
+.spectrum-Form-itemLabel,
 :host {
     -webkit-font-smoothing: subpixel-antialiased;
     -moz-osx-font-smoothing: auto;
     font-smoothing: subpixel-antialiased;
     box-sizing: border-box;
-    display: block; /* .spectrum-FieldLabel,
-   * .spectrum-Form-itemLabel */
+    /*.spectrum-FieldLabel,
+.spectrum-Form-itemLabel*/
+    display: block;
     font-size: var(--spectrum-fieldlabel-text-size);
     font-weight: var(--spectrum-fieldlabel-text-font-weight);
     line-height: var(--spectrum-fieldlabel-text-line-height);
@@ -131,115 +137,162 @@ governing permissions and limitations under the License.
     padding-top: var(--spectrum-fieldlabel-padding-top);
     vertical-align: top;
 }
-:host([dir='ltr']) .required-icon {
-    margin-left: var(
-        --spectrum-fieldlabel-asterisk-gap
-    ); /* [dir=ltr] .spectrum-FieldLabel-requiredIcon */
-    margin-right: 0;
-}
-:host([dir='rtl']) .required-icon {
-    margin-left: 0;
-    margin-right: var(
-        --spectrum-fieldlabel-asterisk-gap
-    ); /* [dir=rtl] .spectrum-FieldLabel-requiredIcon */
-}
 .required-icon {
     margin-bottom: 0;
-    margin-top: 0; /* .spectrum-FieldLabel-requiredIcon */
+    /*[dir="ltr"] .spectrum-FieldLabel-requiredIcon*/
+    margin-left: var(--spectrum-fieldlabel-asterisk-gap);
+    margin-left: 0;
+    margin-right: 0;
+    /*[dir="rtl"] .spectrum-FieldLabel-requiredIcon*/
+    margin-right: var(--spectrum-fieldlabel-asterisk-gap);
+    /*.spectrum-FieldLabel-requiredIcon*/
+    margin-top: 0;
 }
-:host([dir='ltr'][side-aligned='start']) {
-    padding-left: 0; /* [dir=ltr] .spectrum-FieldLabel--left */
+:host(:where([dir='ltr'])) [side-aligned='start'] {
+    /*[dir="ltr"] .spectrum-FieldLabel--left*/
+    padding-left: 0;
     padding-right: var(
         --spectrum-fieldlabel-m-side-padding-right,
         var(--spectrum-global-dimension-size-150)
     );
 }
-:host([dir='rtl'][side-aligned='start']) {
+:host(:where([dir='rtl'])) [side-aligned='start'] {
     padding-left: var(
         --spectrum-fieldlabel-m-side-padding-right,
         var(--spectrum-global-dimension-size-150)
     );
-    padding-right: 0; /* [dir=rtl] .spectrum-FieldLabel--left */
+    /*[dir="rtl"] .spectrum-FieldLabel--left*/
+    padding-right: 0;
 }
-:host([side-aligned='start']) {
-    display: inline-block; /* .spectrum-FieldLabel--left */
+:host(:where([side-aligned='start'])) {
+    /*.spectrum-FieldLabel--left*/
+    display: inline-block;
     padding-bottom: 0;
     padding-top: var(
         --spectrum-fieldlabel-m-side-padding-top,
         var(--spectrum-global-dimension-size-100)
     );
 }
-:host([dir='ltr'][side-aligned='start']) .required-icon {
-    margin-left: var(
-        --spectrum-fieldlabel-asterisk-gap
-    ); /* [dir=ltr] .spectrum-FieldLabel--left .spectrum-FieldLabel-requiredIcon */
+:host(:where([dir='ltr'])) [side-aligned='start'] .required-icon {
+    /*[dir="ltr"] .spectrum-FieldLabel--left .spectrum-FieldLabel-requiredIcon*/
+    margin-left: var(--spectrum-fieldlabel-asterisk-gap);
     margin-right: 0;
 }
-:host([dir='rtl'][side-aligned='start']) .required-icon {
+:host(:where([dir='rtl'])) [side-aligned='start'] .required-icon {
     margin-left: 0;
-    margin-right: var(
-        --spectrum-fieldlabel-asterisk-gap
-    ); /* [dir=rtl] .spectrum-FieldLabel--left .spectrum-FieldLabel-requiredIcon */
+    /*[dir="rtl"] .spectrum-FieldLabel--left .spectrum-FieldLabel-requiredIcon*/
+    margin-right: var(--spectrum-fieldlabel-asterisk-gap);
 }
-:host([side-aligned='start']) .required-icon {
+:host(:where([side-aligned='start'])) .required-icon {
     margin-bottom: 0;
+    /*.spectrum-FieldLabel--left .spectrum-FieldLabel-requiredIcon*/
     margin-top: var(
         --spectrum-fieldlabel-m-side-asterisk-margin-y,
         var(--spectrum-global-dimension-size-100)
-    ); /* .spectrum-FieldLabel--left .spectrum-FieldLabel-requiredIcon */
+    );
 }
-:host([dir='ltr'][side-aligned='end']) {
-    text-align: right; /* [dir=ltr] .spectrum-FieldLabel--right */
+:host(:where([dir='ltr'])) [side-aligned='end'] {
+    /*[dir="ltr"] .spectrum-FieldLabel--right*/
+    text-align: right;
 }
-:host([dir='rtl'][side-aligned='end']) {
-    text-align: left; /* [dir=rtl] .spectrum-FieldLabel--right */
+:host(:where([dir='rtl'])) [side-aligned='end'] {
+    /*[dir="rtl"] .spectrum-FieldLabel--right*/
+    text-align: left;
 }
-:host([dir='ltr'][side-aligned='end']) {
-    padding-left: 0; /* [dir=ltr] .spectrum-FieldLabel--right */
+:host(:where([dir='ltr'])) [side-aligned='end'] {
+    /*[dir="ltr"] .spectrum-FieldLabel--right*/
+    padding-left: 0;
     padding-right: var(
         --spectrum-fieldlabel-m-side-padding-right,
         var(--spectrum-global-dimension-size-150)
     );
 }
-:host([dir='rtl'][side-aligned='end']) {
+:host(:where([dir='rtl'])) [side-aligned='end'] {
     padding-left: var(
         --spectrum-fieldlabel-m-side-padding-right,
         var(--spectrum-global-dimension-size-150)
     );
-    padding-right: 0; /* [dir=rtl] .spectrum-FieldLabel--right */
+    /*[dir="rtl"] .spectrum-FieldLabel--right*/
+    padding-right: 0;
 }
-:host([side-aligned='end']) {
-    display: inline-block; /* .spectrum-FieldLabel--right */
+:host(:where([side-aligned='end'])) {
+    /*.spectrum-FieldLabel--right*/
+    display: inline-block;
     padding-bottom: 0;
     padding-top: var(
         --spectrum-fieldlabel-m-side-padding-top,
         var(--spectrum-global-dimension-size-100)
     );
 }
+.spectrum-Form {
+    /*.spectrum-Form*/
+    --spectrum-tableform-border-spacing: 0
+        var(--spectrum-global-dimension-size-300);
+    --spectrum-tableform-margin: calc(
+            var(--spectrum-global-dimension-size-250) * -1
+        )
+        0;
+    --spectrum-tableform-labelsabove-item-gap: var(
+        --spectrum-global-dimension-size-100
+    );
+    border-collapse: separate;
+    border-spacing: var(--spectrum-tableform-border-spacing);
+    display: table;
+    margin: var(--spectrum-tableform-margin);
+}
+.spectrum-Form-item {
+    /*.spectrum-Form-item*/
+    display: table-row;
+}
+.spectrum-Form-itemLabel,
+.spectrum-Form-itemField {
+    /*.spectrum-Form-itemField*/
+    display: table-cell;
+}
+.spectrum-Form--labelsAbove {
+    /*.spectrum-Form--labelsAbove*/
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+.spectrum-Form--labelsAbove .spectrum-Form-item {
+    /*.spectrum-Form--labelsAbove .spectrum-Form-item*/
+    display: flex;
+    flex-direction: column;
+}
+.spectrum-Form--labelsAbove .spectrum-Form-item + .spectrum-Form-item {
+    /*.spectrum-Form--labelsAbove .spectrum-Form-item + .spectrum-Form-item*/
+    margin-top: var(--spectrum-tableform-labelsabove-item-gap);
+}
+.spectrum-Form-itemLabel,
 :host {
+    /*.spectrum-FieldLabel,
+.spectrum-Form-itemLabel*/
     color: var(
         --spectrum-fieldlabel-m-text-color,
         var(--spectrum-alias-label-text-color)
-    ); /* .spectrum-FieldLabel,
-   * .spectrum-Form-itemLabel */
+    );
 }
-:host([disabled]) {
+.spectrum-Form-itemLabel[disabled],
+:host(:where([disabled])) {
+    /*.spectrum-FieldLabel.is-disabled, .spectrum-Form-itemLabel.is-disabled*/
     color: var(
         --spectrum-fieldlabel-m-text-color-disabled,
         var(--spectrum-alias-text-color-disabled)
-    ); /* .spectrum-FieldLabel.is-disabled,
-   * .spectrum-Form-itemLabel.is-disabled */
+    );
 }
-:host([disabled]) .required-icon {
+.spectrum-Form-itemLabel[disabled] .required-icon,
+:host(:where([disabled])) .required-icon {
+    /*.spectrum-FieldLabel.is-disabled .spectrum-FieldLabel-requiredIcon, .spectrum-Form-itemLabel.is-disabled .spectrum-FieldLabel-requiredIcon*/
     color: var(
         --spectrum-fieldlabel-m-asterisk-color-disabled,
         var(--spectrum-alias-text-color-disabled)
-    ); /* .spectrum-FieldLabel.is-disabled .spectrum-FieldLabel-requiredIcon,
-   * .spectrum-Form-itemLabel.is-disabled .spectrum-FieldLabel-requiredIcon */
+    );
 }
 .required-icon {
+    /*.spectrum-FieldLabel-requiredIcon*/
     color: var(
         --spectrum-fieldlabel-m-asterisk-color,
         var(--spectrum-global-color-gray-600)
-    ); /* .spectrum-FieldLabel-requiredIcon */
+    );
 }

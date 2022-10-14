@@ -12,6 +12,7 @@ governing permissions and limitations under the License.
 
 const config = {
     spectrum: 'modal',
+    package: 'modal',
     components: [
         {
             name: 'modal-wrapper',

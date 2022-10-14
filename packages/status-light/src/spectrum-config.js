@@ -11,6 +11,7 @@ governing permissions and limitations under the License.
 
 const config = {
     spectrum: 'statuslight',
+    package: 'status-light',
     components: [
         {
             name: 'status-light',

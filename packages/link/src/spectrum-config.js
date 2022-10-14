@@ -12,6 +12,7 @@ governing permissions and limitations under the License.
 
 const config = {
     spectrum: 'link',
+    package: 'link',
     components: [
         {
             name: 'link',
@@ -32,9 +33,7 @@ const config = {
                 {
                     type: 'enum',
                     name: 'variant',
-                    values: [
-                        '.spectrum-Link--secondary',
-                    ],
+                    values: ['.spectrum-Link--secondary'],
                 },
                 {
                     type: 'enum',

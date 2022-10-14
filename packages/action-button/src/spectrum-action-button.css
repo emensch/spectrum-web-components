@@ -10,7 +10,7 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-/* THIS FILE IS MACHINE GENERATED. DO NOT EDIT */
+/*THIS FILE IS MACHINE GENERATED. DO NOT EDIT*/
 :host {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -19,7 +19,8 @@ governing permissions and limitations under the License.
     border-style: solid;
     box-sizing: border-box;
     cursor: pointer;
-    display: inline-flex; /* .spectrum-ActionButton */
+    /*.spectrum-ActionButton*/
+    display: inline-flex;
     font-family: var(--spectrum-font-family-base);
     justify-content: center;
     line-height: var(--spectrum-line-height-small);
@@ -35,35 +36,48 @@ governing permissions and limitations under the License.
     -webkit-user-select: none;
     vertical-align: top;
 }
-:host(:focus) {
-    outline: none; /* .spectrum-ActionButton:focus */
+:host(:where(:focus)) {
+    /*.spectrum-ActionButton:focus*/
+    outline: none;
 }
-:host(::-moz-focus-inner) {
-    border: 0; /* .spectrum-ActionButton::-moz-focus-inner */
+:host::-moz-focus-inner {
+    /*.spectrum-ActionButton::-moz-focus-inner*/
+    border: 0;
     border-style: none;
     margin-block-end: -2px;
     margin-block-start: -2px;
     padding: 0;
 }
-:host([disabled]) {
-    cursor: default; /* .spectrum-ActionButton:disabled */
+:host(:where([disabled])) {
+    /*.spectrum-ActionButton:disabled*/
+    cursor: default;
 }
 ::slotted([slot='icon']) {
     flex-shrink: 0;
-    max-block-size: 100%; /* .spectrum-ActionButton-icon */
+    /*.spectrum-ActionButton-icon*/
+    max-block-size: 100%;
+}
+:host(:where(a)) {
+    /*a.spectrum-ActionButton*/
+    -webkit-appearance: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 #label {
-    align-self: center; /* .spectrum-ActionButton-label */
+    /*.spectrum-ActionButton-label*/
+    align-self: center;
     justify-self: center;
     text-align: center;
 }
 #label:empty {
-    display: none; /* .spectrum-ActionButton-label:empty */
+    /*.spectrum-ActionButton-label:empty*/
+    display: none;
 }
 :host {
+    /*.spectrum-ActionButton*/
     --spectrum-actionbutton-animation-duration: var(
         --spectrum-animation-duration-100
-    ); /* .spectrum-ActionButton */
+    );
     --spectrum-actionbutton-border-radius: var(--spectrum-corner-radius-100);
     --spectrum-actionbutton-border-width: var(--spectrum-border-width-100);
     --spectrum-actionbutton-focus-ring-gap: var(--spectrum-focus-ring-gap);
@@ -76,11 +90,12 @@ governing permissions and limitations under the License.
             var(--spectrum-actionbutton-focus-ring-gap)
     );
 }
-:host([size='xs']) {
+:host(:where([size='xs'])) {
+    /*.spectrum-ActionButton--sizeXS*/
     --spectrum-actionbutton-min-width: calc(
         var(--spectrum-component-edge-to-visual-only-75) * 2 +
             var(--spectrum-workflow-icon-size-75)
-    ); /* .spectrum-ActionButton--sizeXS */
+    );
     --spectrum-actionbutton-height: var(--spectrum-component-height-50);
     --spectrum-actionbutton-icon-size: var(--spectrum-workflow-icon-size-50);
     --spectrum-actionbutton-font-size: var(--spectrum-font-size-50);
@@ -101,11 +116,12 @@ governing permissions and limitations under the License.
             var(--spectrum-actionbutton-border-width)
     );
 }
-:host([size='s']) {
+:host(:where([size='s'])) {
+    /*.spectrum-ActionButton--sizeS*/
     --spectrum-actionbutton-min-width: calc(
         var(--spectrum-component-edge-to-visual-only-75) * 2 +
             var(--spectrum-workflow-icon-size-75)
-    ); /* .spectrum-ActionButton--sizeS */
+    );
     --spectrum-actionbutton-height: var(--spectrum-component-height-75);
     --spectrum-actionbutton-icon-size: var(--spectrum-workflow-icon-size-75);
     --spectrum-actionbutton-font-size: var(--spectrum-font-size-75);
@@ -126,11 +142,12 @@ governing permissions and limitations under the License.
             var(--spectrum-actionbutton-border-width)
     );
 }
-:host([size='m']) {
+:host(:where([size='m'])) {
+    /*.spectrum-ActionButton--sizeM*/
     --spectrum-actionbutton-min-width: calc(
         var(--spectrum-component-edge-to-visual-only-100) * 2 +
             var(--spectrum-workflow-icon-size-100)
-    ); /* .spectrum-ActionButton--sizeM */
+    );
     --spectrum-actionbutton-height: var(--spectrum-component-height-100);
     --spectrum-actionbutton-icon-size: var(--spectrum-workflow-icon-size-100);
     --spectrum-actionbutton-font-size: var(--spectrum-font-size-100);
@@ -151,11 +168,12 @@ governing permissions and limitations under the License.
             var(--spectrum-actionbutton-border-width)
     );
 }
-:host([size='l']) {
+:host(:where([size='l'])) {
+    /*.spectrum-ActionButton--sizeL*/
     --spectrum-actionbutton-min-width: calc(
         var(--spectrum-component-edge-to-visual-only-200) * 2 +
             var(--spectrum-workflow-icon-size-200)
-    ); /* .spectrum-ActionButton--sizeL */
+    );
     --spectrum-actionbutton-height: var(--spectrum-component-height-200);
     --spectrum-actionbutton-icon-size: var(--spectrum-workflow-icon-size-200);
     --spectrum-actionbutton-font-size: var(--spectrum-font-size-200);
@@ -176,11 +194,12 @@ governing permissions and limitations under the License.
             var(--spectrum-actionbutton-border-width)
     );
 }
-:host([size='xl']) {
+:host(:where([size='xl'])) {
+    /*.spectrum-ActionButton--sizeXL*/
     --spectrum-actionbutton-min-width: calc(
         var(--spectrum-component-edge-to-visual-only-300) * 2 +
             var(--spectrum-workflow-icon-size-300)
-    ); /* .spectrum-ActionButton--sizeXL */
+    );
     --spectrum-actionbutton-height: var(--spectrum-component-height-300);
     --spectrum-actionbutton-icon-size: var(--spectrum-workflow-icon-size-300);
     --spectrum-actionbutton-font-size: var(--spectrum-font-size-300);
@@ -203,12 +222,15 @@ governing permissions and limitations under the License.
 }
 @media (forced-colors: active) {
     :host {
+        /*.spectrum-ActionButton*/
         --highcontrast-actionbutton-focus-ring-color: ButtonText;
     }
     :host:after {
+        /*.spectrum-ActionButton:after*/
         forced-color-adjust: none;
     }
-    :host([selected]) {
+    :host(:where([selected])) {
+        /*.spectrum-ActionButton.is-selected*/
         --highcontrast-actionbutton-background-color-default: Highlight;
         --highcontrast-actionbutton-background-color-hover: Highlight;
         --highcontrast-actionbutton-background-color-focus: Highlight;
@@ -225,9 +247,12 @@ governing permissions and limitations under the License.
         --highcontrast-actionbutton-content-color-down: HighlightText;
         --highcontrast-actionbutton-content-color-disabled: GrayText;
     }
-    :host([selected]) #label,
-    :host([selected]) .hold-affordance,
-    :host([selected]) ::slotted([slot='icon']) {
+    :host(:where([selected])) #label,
+    :host(:where([selected])) .hold-affordance,
+    :host(:where([selected])) ::slotted([slot='icon']) {
+        /*.spectrum-ActionButton.is-selected .spectrum-ActionButton-icon,
+      .spectrum-ActionButton.is-selected .spectrum-ActionButton-hold,
+      .spectrum-ActionButton.is-selected .spectrum-ActionButton-label*/
         forced-color-adjust: none;
     }
 }
@@ -274,16 +299,18 @@ governing permissions and limitations under the License.
         --mod-actionbutton-edge-to-text,
         var(--spectrum-actionbutton-edge-to-text)
     );
-    position: relative; /* .spectrum-ActionButton */
+    /*.spectrum-ActionButton*/
+    position: relative;
 }
-:host(:hover) {
+:host(:where(:hover)) {
+    /*.spectrum-ActionButton:hover*/
     background-color: var(
         --highcontrast-actionbutton-background-color-hover,
         var(
             --mod-actionbutton-background-color-hover,
             var(--spectrum-actionbutton-background-color-hover)
         )
-    ); /* .spectrum-ActionButton:hover */
+    );
     border-color: var(
         --highcontrast-actionbutton-border-color-hover,
         var(
@@ -299,14 +326,15 @@ governing permissions and limitations under the License.
         )
     );
 }
-:host(.focus-visible) {
+:host(:where(.focus-visible)) {
+    /*.spectrum-ActionButton.focus-ring*/
     background-color: var(
         --highcontrast-actionbutton-background-color-focus,
         var(
             --mod-actionbutton-background-color-focus,
             var(--spectrum-actionbutton-background-color-focus)
         )
-    ); /* .spectrum-ActionButton.focus-ring */
+    );
     border-color: var(
         --highcontrast-actionbutton-border-color-focus,
         var(
@@ -322,14 +350,15 @@ governing permissions and limitations under the License.
         )
     );
 }
-:host(:focus-visible) {
+:host(:where(:focus-visible)) {
+    /*.spectrum-ActionButton.focus-ring*/
     background-color: var(
         --highcontrast-actionbutton-background-color-focus,
         var(
             --mod-actionbutton-background-color-focus,
             var(--spectrum-actionbutton-background-color-focus)
         )
-    ); /* .spectrum-ActionButton.focus-ring */
+    );
     border-color: var(
         --highcontrast-actionbutton-border-color-focus,
         var(
@@ -345,14 +374,15 @@ governing permissions and limitations under the License.
         )
     );
 }
-:host([active]) {
+:host(:where([active])) {
+    /*.spectrum-ActionButton:active*/
     background-color: var(
         --highcontrast-actionbutton-background-color-down,
         var(
             --mod-actionbutton-background-color-down,
             var(--spectrum-actionbutton-background-color-down)
         )
-    ); /* .spectrum-ActionButton:active */
+    );
     border-color: var(
         --highcontrast-actionbutton-border-color-down,
         var(
@@ -368,16 +398,16 @@ governing permissions and limitations under the License.
         )
     );
 }
-:host([disabled]),
-:host([disabled]) {
+:host(:where([disabled])) {
+    /*.spectrum-ActionButton:disabled,
+  .spectrum-ActionButton.is-disabled*/
     background-color: var(
         --highcontrast-actionbutton-background-color-disabled,
         var(
             --mod-actionbutton-background-color-disabled,
             var(--spectrum-actionbutton-background-color-disabled)
         )
-    ); /* .spectrum-ActionButton:disabled,
-   * .spectrum-ActionButton.is-disabled */
+    );
     border-color: var(
         --highcontrast-actionbutton-border-color-disabled,
         var(
@@ -423,17 +453,20 @@ governing permissions and limitations under the License.
                     )
             ) * -1
     );
+
+    /*.spectrum-ActionButton-icon*/
     width: var(
         --mod-actionbutton-icon-size,
         var(--spectrum-actionbutton-icon-size)
-    ); /* .spectrum-ActionButton-icon */
+    );
 }
 slot[name='icon'] + #label {
     padding-inline-end: 0;
+    /*.spectrum-ActionButton-icon + .spectrum-ActionButton-label*/
     padding-inline-start: var(
         --mod-actionbutton-text-to-visual,
         var(--spectrum-actionbutton-text-to-visual)
-    ); /* .spectrum-ActionButton-icon+.spectrum-ActionButton-label */
+    );
 }
 .hold-affordance + ::slotted([slot='icon']),
 slot[icon-only]::slotted([slot='icon']) {
@@ -449,6 +482,8 @@ slot[icon-only]::slotted([slot='icon']) {
                     )
             ) * -1
     );
+    /*.spectrum-ActionButton-hold + .spectrum-ActionButton-icon,
+.spectrum-ActionButton-icon:only-child*/
     margin-inline-start: calc(
         (
                 var(
@@ -460,28 +495,19 @@ slot[icon-only]::slotted([slot='icon']) {
                         var(--spectrum-actionbutton-edge-to-visual-only)
                     )
             ) * -1
-    ); /* .spectrum-ActionButton-hold+.spectrum-ActionButton-icon,
-   * .spectrum-ActionButton-icon:only-child */
+    );
 }
 #label {
     color: inherit;
+
+    /*.spectrum-ActionButton-label*/
     font-size: var(
         --mod-actionbutton-font-size,
         var(--spectrum-actionbutton-font-size)
-    ); /* .spectrum-ActionButton-label */
+    );
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-}
-[dir='rtl'] .hold-affordance {
-    transform: matrix(
-        -1,
-        0,
-        0,
-        1,
-        0,
-        0
-    ); /* .spectrum-ActionButton-hold:dir(rtl) */
 }
 .hold-affordance {
     color: inherit;
@@ -505,15 +531,25 @@ slot[icon-only]::slotted([slot='icon']) {
                 var(--spectrum-actionbutton-border-width)
             )
     );
-    position: absolute; /* .spectrum-ActionButton-hold */
+    /*.spectrum-ActionButton-hold*/
+    position: absolute;
+    transform: matrix(
+        -1,
+        0,
+        0,
+        1,
+        0,
+        0
+    ); /*.spectrum-ActionButton-hold:dir(rtl)*/
 }
 :host {
+    /*.spectrum-ActionButton*/
     transition: border-color
         var(
             --mod-actionbutton-animation-duration,
             var(--spectrum-actionbutton-animation-duration)
         )
-        ease-in-out; /* .spectrum-ActionButton */
+        ease-in-out;
 }
 :host:after {
     border-radius: var(
@@ -535,7 +571,8 @@ slot[icon-only]::slotted([slot='icon']) {
             ) * -1
     );
     pointer-events: none;
-    position: absolute; /* .spectrum-ActionButton:after */
+    /*.spectrum-ActionButton:after*/
+    position: absolute;
     transition: box-shadow
         var(
             --mod-actionbutton-animation-duration,
@@ -543,13 +580,16 @@ slot[icon-only]::slotted([slot='icon']) {
         )
         ease-in-out;
 }
-:host(.focus-visible) {
-    box-shadow: none; /* .spectrum-ActionButton.focus-ring */
+:host(:where(.focus-visible)) {
+    /*.spectrum-ActionButton.focus-ring*/
+    box-shadow: none;
 }
-:host(:focus-visible) {
-    box-shadow: none; /* .spectrum-ActionButton.focus-ring */
+:host(:where(:focus-visible)) {
+    /*.spectrum-ActionButton.focus-ring*/
+    box-shadow: none;
 }
-:host(.focus-visible):after {
+:host(:where(.focus-visible)):after {
+    /*.spectrum-ActionButton.focus-ring:after*/
     box-shadow: 0 0 0
         var(
             --mod-actionbutton-focus-ring-thickness,
@@ -561,9 +601,10 @@ slot[icon-only]::slotted([slot='icon']) {
                 --mod-actionbutton-focus-ring-color,
                 var(--spectrum-actionbutton-focus-ring-color)
             )
-        ); /* .spectrum-ActionButton.focus-ring:after */
+        );
 }
-:host(:focus-visible):after {
+:host(:where(:focus-visible)):after {
+    /*.spectrum-ActionButton.focus-ring:after*/
     box-shadow: 0 0 0
         var(
             --mod-actionbutton-focus-ring-thickness,
@@ -575,12 +616,13 @@ slot[icon-only]::slotted([slot='icon']) {
                 --mod-actionbutton-focus-ring-color,
                 var(--spectrum-actionbutton-focus-ring-color)
             )
-        ); /* .spectrum-ActionButton.focus-ring:after */
+        );
 }
 :host {
+    /*.spectrum-ActionButton*/
     --spectrum-actionbutton-background-color-default: var(
         --system-spectrum-actionbutton-background-color-default
-    ); /* .spectrum-ActionButton */
+    );
     --spectrum-actionbutton-background-color-hover: var(
         --system-spectrum-actionbutton-background-color-hover
     );
@@ -624,10 +666,11 @@ slot[icon-only]::slotted([slot='icon']) {
         --system-spectrum-actionbutton-content-color-disabled
     );
 }
-:host([quiet]) {
+:host(:where([quiet])) {
+    /*.spectrum-ActionButton.spectrum-ActionButton--quiet*/
     --spectrum-actionbutton-background-color-default: var(
         --system-spectrum-actionbutton-quiet-background-color-default
-    ); /* .spectrum-ActionButton.spectrum-ActionButton--quiet */
+    );
     --spectrum-actionbutton-background-color-hover: var(
         --system-spectrum-actionbutton-quiet-background-color-hover
     );
@@ -656,10 +699,11 @@ slot[icon-only]::slotted([slot='icon']) {
         --system-spectrum-actionbutton-quiet-border-color-disabled
     );
 }
-:host([selected]) {
+:host(:where([selected])) {
+    /*.spectrum-ActionButton.is-selected*/
     --spectrum-actionbutton-background-color-default: var(
         --system-spectrum-actionbutton-selected-background-color-default
-    ); /* .spectrum-ActionButton.is-selected */
+    );
     --spectrum-actionbutton-background-color-hover: var(
         --system-spectrum-actionbutton-selected-background-color-hover
     );
@@ -700,10 +744,11 @@ slot[icon-only]::slotted([slot='icon']) {
         --system-spectrum-actionbutton-selected-border-color-disabled
     );
 }
-:host([selected][emphasized]) {
+:host(:where([selected][emphasized])) {
+    /*.spectrum-ActionButton.is-selected.spectrum-ActionButton--emphasized*/
     --spectrum-actionbutton-background-color-default: var(
         --system-spectrum-actionbutton-selected-emphasized-background-color-default
-    ); /* .spectrum-ActionButton.is-selected.spectrum-ActionButton--emphasized */
+    );
     --spectrum-actionbutton-background-color-hover: var(
         --system-spectrum-actionbutton-selected-emphasized-background-color-hover
     );
@@ -714,10 +759,11 @@ slot[icon-only]::slotted([slot='icon']) {
         --system-spectrum-actionbutton-selected-emphasized-background-color-focus
     );
 }
-:host([variant='black'][quiet]) {
+:host(:where([variant='black'][quiet])) {
+    /*.spectrum-ActionButton.spectrum-ActionButton--staticBlack.spectrum-ActionButton--quiet*/
     --spectrum-actionbutton-border-color-default: var(
         --system-spectrum-actionbutton-staticblack-quiet-border-color-default
-    ); /* .spectrum-ActionButton.spectrum-ActionButton--staticBlack.spectrum-ActionButton--quiet */
+    );
     --spectrum-actionbutton-border-color-hover: var(
         --system-spectrum-actionbutton-staticblack-quiet-border-color-hover
     );
@@ -731,10 +777,11 @@ slot[icon-only]::slotted([slot='icon']) {
         --system-spectrum-actionbutton-staticblack-quiet-border-color-disabled
     );
 }
-:host([variant='white'][quiet]) {
+:host(:where([variant='white'][quiet])) {
+    /*.spectrum-ActionButton.spectrum-ActionButton--staticWhite.spectrum-ActionButton--quiet*/
     --spectrum-actionbutton-border-color-default: var(
         --system-spectrum-actionbutton-staticwhite-quiet-border-color-default
-    ); /* .spectrum-ActionButton.spectrum-ActionButton--staticWhite.spectrum-ActionButton--quiet */
+    );
     --spectrum-actionbutton-border-color-hover: var(
         --system-spectrum-actionbutton-staticwhite-quiet-border-color-hover
     );
@@ -748,10 +795,11 @@ slot[icon-only]::slotted([slot='icon']) {
         --system-spectrum-actionbutton-staticwhite-quiet-border-color-disabled
     );
 }
-:host([variant='black']) {
+:host(:where([variant='black'])) {
+    /*.spectrum-ActionButton.spectrum-ActionButton--staticBlack*/
     --spectrum-actionbutton-background-color-default: var(
         --system-spectrum-actionbutton-staticblack-background-color-default
-    ); /* .spectrum-ActionButton.spectrum-ActionButton--staticBlack */
+    );
     --spectrum-actionbutton-background-color-hover: var(
         --system-spectrum-actionbutton-staticblack-background-color-hover
     );
@@ -798,10 +846,11 @@ slot[icon-only]::slotted([slot='icon']) {
         --system-spectrum-actionbutton-staticblack-content-color-disabled
     );
 }
-:host([variant='black'][selected]) {
+:host(:where([variant='black'][selected])) {
+    /*.spectrum-ActionButton.spectrum-ActionButton--staticBlack.is-selected*/
     --spectrum-actionbutton-background-color-default: var(
         --system-spectrum-actionbutton-staticblack-selected-background-color-default
-    ); /* .spectrum-ActionButton.spectrum-ActionButton--staticBlack.is-selected */
+    );
     --spectrum-actionbutton-background-color-hover: var(
         --system-spectrum-actionbutton-staticblack-selected-background-color-hover
     );
@@ -842,10 +891,11 @@ slot[icon-only]::slotted([slot='icon']) {
         --system-spectrum-actionbutton-staticblack-selected-background-color-disabled
     );
 }
-:host([variant='white']) {
+:host(:where([variant='white'])) {
+    /*.spectrum-ActionButton.spectrum-ActionButton--staticWhite*/
     --spectrum-actionbutton-background-color-default: var(
         --system-spectrum-actionbutton-staticwhite-background-color-default
-    ); /* .spectrum-ActionButton.spectrum-ActionButton--staticWhite */
+    );
     --spectrum-actionbutton-background-color-hover: var(
         --system-spectrum-actionbutton-staticwhite-background-color-hover
     );
@@ -892,10 +942,11 @@ slot[icon-only]::slotted([slot='icon']) {
         --system-spectrum-actionbutton-staticwhite-content-color-disabled
     );
 }
-:host([variant='white'][selected]) {
+:host(:where([variant='white'][selected])) {
+    /*.spectrum-ActionButton.spectrum-ActionButton--staticWhite.is-selected*/
     --spectrum-actionbutton-background-color-default: var(
         --system-spectrum-actionbutton-staticwhite-selected-background-color-default
-    ); /* .spectrum-ActionButton.spectrum-ActionButton--staticWhite.is-selected */
+    );
     --spectrum-actionbutton-background-color-hover: var(
         --system-spectrum-actionbutton-staticwhite-selected-background-color-hover
     );

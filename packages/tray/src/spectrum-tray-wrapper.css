@@ -10,23 +10,125 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-/* THIS FILE IS MACHINE GENERATED. DO NOT EDIT */
-:host([dir='ltr']) {
-    left: 0; /* [dir=ltr] .spectrum-Tray-wrapper */
+/*THIS FILE IS MACHINE GENERATED. DO NOT EDIT*/
+.spectrum-Tray {
+    opacity: 0;
+    pointer-events: none;
+    transition: transform var(--spectrum-global-animation-duration-100, 0.13s)
+            ease-in-out,
+        opacity var(--spectrum-global-animation-duration-100, 0.13s) ease-in-out,
+        visibility 0ms linear
+            var(--spectrum-global-animation-duration-100, 0.13s);
+
+    /*.spectrum-Tray*/
+    visibility: hidden;
 }
-:host([dir='rtl']) {
-    right: 0; /* [dir=rtl] .spectrum-Tray-wrapper */
+.spectrum-Tray[open] {
+    opacity: 1;
+    pointer-events: auto;
+    transition-delay: 0ms;
+    /*.spectrum-Tray.is-open*/
+    visibility: visible;
+}
+.spectrum-Tray {
+    /*.spectrum-Tray*/
+    --spectrum-dialog-confirm-exit-animation-delay: 0ms;
+    --spectrum-tray-margin-top: 64px;
+}
+:host(:where([dir='ltr'])) {
+    /*[dir="ltr"] .spectrum-Tray-wrapper*/
+    left: 0;
+}
+:host(:where([dir='rtl'])) {
+    /*[dir="rtl"] .spectrum-Tray-wrapper*/
+    right: 0;
 }
 :host {
     bottom: 0;
     display: flex;
     justify-content: center;
-    position: fixed; /* .spectrum-Tray-wrapper */
+    /*.spectrum-Tray-wrapper*/
+    position: fixed;
     width: 100%;
     z-index: 2;
 }
+.spectrum-Tray {
+    border-radius: var(
+            --spectrum-tray-full-width-border-radius,
+            var(--spectrum-alias-border-radius-regular)
+        )
+        var(
+            --spectrum-tray-full-width-border-radius,
+            var(--spectrum-alias-border-radius-regular)
+        )
+        var(--spectrum-tray-border-radius, 0)
+        var(--spectrum-tray-border-radius, 0);
+    max-height: calc(100vh - var(--spectrum-tray-margin-top));
+    max-width: var(--spectrum-tray-max-width, 375px);
+    min-height: var(
+        --spectrum-tray-min-height,
+        var(--spectrum-global-dimension-static-size-800)
+    );
+    outline: none;
+    overflow: auto;
+    padding: var(--spectrum-tray-padding-y, 0)
+        var(
+            --spectrum-tray-padding-x,
+            var(--spectrum-global-dimension-static-size-100)
+        );
+    transform: translateY(100%);
+    transition: opacity
+            var(
+                --spectrum-dialog-confirm-exit-animation-duration,
+                var(--spectrum-global-animation-duration-100)
+            )
+            cubic-bezier(0.5, 0, 1, 1)
+            var(--spectrum-dialog-confirm-exit-animation-delay, 0ms),
+        visibility 0ms linear
+            calc(
+                var(--spectrum-dialog-confirm-exit-animation-delay, 0ms) +
+                    var(
+                        --spectrum-dialog-confirm-exit-animation-duration,
+                        var(--spectrum-global-animation-duration-100)
+                    )
+            ),
+        transform
+            var(
+                --spectrum-dialog-confirm-exit-animation-duration,
+                var(--spectrum-global-animation-duration-100)
+            )
+            cubic-bezier(0.5, 0, 1, 1)
+            var(--spectrum-dialog-confirm-exit-animation-delay, 0ms);
+    /*.spectrum-Tray*/
+    width: var(--spectrum-tray-width, 100%);
+}
+.spectrum-Tray[open] {
+    transform: translateY(0);
+    /*.spectrum-Tray.is-open*/
+    transition: transform
+            var(
+                --spectrum-dialog-confirm-entry-animation-duration,
+                var(--spectrum-global-animation-duration-500)
+            )
+            cubic-bezier(0, 0, 0.4, 1)
+            var(
+                --spectrum-dialog-confirm-entry-animation-delay,
+                var(--spectrum-global-animation-duration-200)
+            ),
+        opacity
+            var(
+                --spectrum-dialog-confirm-entry-animation-duration,
+                var(--spectrum-global-animation-duration-500)
+            )
+            cubic-bezier(0, 0, 0.4, 1)
+            var(
+                --spectrum-dialog-confirm-entry-animation-delay,
+                var(--spectrum-global-animation-duration-200)
+            );
+}
 @media (max-width: 375px) {
     .spectrum-Tray {
+        /*.spectrum-Tray*/
         border-radius: var(--spectrum-tray-border-radius, 0);
     }
 }

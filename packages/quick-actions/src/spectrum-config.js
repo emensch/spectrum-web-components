@@ -12,6 +12,7 @@ governing permissions and limitations under the License.
 
 const config = {
     spectrum: 'quickaction',
+    package: 'quick-actions',
     components: [
         {
             name: 'quick-actions',

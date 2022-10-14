@@ -10,12 +10,13 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-/* THIS FILE IS MACHINE GENERATED. DO NOT EDIT */
+/*THIS FILE IS MACHINE GENERATED. DO NOT EDIT*/
 :host {
+    /*.spectrum-ColorLoupe*/
     --spectrum-colorloupe-width-adjusted: calc(
         var(--spectrum-colorloupe-width, var(--spectrum-alias-colorloupe-width)) +
             var(--spectrum-global-dimension-static-size-100, 8px)
-    ); /* .spectrum-ColorLoupe */
+    );
     --spectrum-colorloupe-height-adjusted: calc(
         var(
                 --spectrum-colorloupe-height,
@@ -41,39 +42,43 @@ governing permissions and limitations under the License.
     transform: translateY(var(--spectrum-colorloupe-animation-distance));
     transform-origin: bottom center;
     transition: transform 0.1s ease-in-out, opacity 125ms ease-in-out;
-    width: var(--spectrum-colorloupe-width-adjusted); /* .spectrum-ColorLoupe */
+    /*.spectrum-ColorLoupe*/
+    width: var(--spectrum-colorloupe-width-adjusted);
 }
-:host([open]) {
+:host(:where([open])) {
     opacity: 1;
-    transform: translate(0); /* .spectrum-ColorLoupe.is-open */
+    /*.spectrum-ColorLoupe.is-open*/
+    transform: translate(0);
 }
 .outer {
-    stroke-width: var(
-        --spectrum-colorloupe-outer-border-size,
-        0
-    ); /* .spectrum-ColorLoupe-outer */
+    /*.spectrum-ColorLoupe-outer*/
+    stroke-width: var(--spectrum-colorloupe-outer-border-size, 0);
 }
 .spectrum-ColorLoupe-express {
-    display: var(
-        --spectrum-colorloupe-express-visibility,
-        none
-    ); /* .spectrum-ColorLoupe-express */
+    /*.spectrum-ColorLoupe-express*/
+    display: var(--spectrum-colorloupe-express-visibility, none);
 }
 .spectrum-ColorLoupe-spectrum {
-    display: var(
-        --spectrum-colorloupe-spectrum-visibility,
-        block
-    ); /* .spectrum-ColorLoupe-spectrum */
+    /*.spectrum-ColorLoupe-spectrum*/
+    display: var(--spectrum-colorloupe-spectrum-visibility, block);
+}
+.🤫 {
+    /*.🤫*/
+    --spectrum-picked-color: 0;
+    --spectrum-colorloupe-outer-stroke-width: 0;
+    --spectrum-colorloupe-outer-stroke-color: 0;
 }
 .outer {
+    /*.spectrum-ColorLoupe-outer*/
     fill: var(
         --spectrum-colorloupe-inner-border-color,
         var(--spectrum-global-color-static-white)
-    ); /* .spectrum-ColorLoupe-outer */
+    );
     stroke: var(--spectrum-colorloupe-outer-border-color, transparent);
 }
 .inner {
-    fill: var(--spectrum-picked-color); /* .spectrum-ColorLoupe-inner */
+    /*.spectrum-ColorLoupe-inner*/
+    fill: var(--spectrum-picked-color);
     stroke: var(
         --spectrum-colorloupe-outer-stroke-color,
         var(--spectrum-global-color-static-transparent-black-200)
@@ -85,6 +90,7 @@ governing permissions and limitations under the License.
 }
 @media (forced-colors: active) {
     :host {
+        /*.spectrum-ColorLoupe*/
         --spectrum-colorloupe-outer-border-color: CanvasText;
     }
 }

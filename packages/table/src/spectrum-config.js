@@ -11,6 +11,7 @@ governing permissions and limitations under the License.
 */
 const config = {
     spectrum: 'table',
+    package: 'table',
     components: [
         {
             name: 'table',

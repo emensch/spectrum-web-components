@@ -10,9 +10,10 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-/* THIS FILE IS MACHINE GENERATED. DO NOT EDIT */
+/*THIS FILE IS MACHINE GENERATED. DO NOT EDIT*/
 :host {
-    --spectrum-colorwheel-border-radius: 100%; /* .spectrum-ColorWheel */
+    /*.spectrum-ColorWheel*/
+    --spectrum-colorwheel-border-radius: 100%;
     --spectrum-colorwheel-width: calc(
         var(--spectrum-global-dimension-size-125) * 16
     );
@@ -21,7 +22,7 @@ governing permissions and limitations under the License.
         var(--spectrum-global-dimension-size-2400)
     );
 }
-:host([focused]) .handle {
+:host(:where([focused])) .handle {
     height: calc(
         var(
                 --spectrum-colorhandle-size,
@@ -40,18 +41,20 @@ governing permissions and limitations under the License.
                 var(--spectrum-global-dimension-size-200)
             ) * -1
     );
+    /*.spectrum-ColorWheel.is-focused .spectrum-ColorWheel-handle*/
     width: calc(
         var(
                 --spectrum-colorhandle-size,
                 var(--spectrum-global-dimension-size-200)
             ) * 2
-    ); /* .spectrum-ColorWheel.is-focused .spectrum-ColorWheel-handle */
+    );
 }
 .slider {
     height: 100%;
     left: 0;
     margin: 0;
-    opacity: 0; /* .spectrum-ColorWheel-slider */
+    /*.spectrum-ColorWheel-slider*/
+    opacity: 0;
     pointer-events: none;
     position: absolute;
     top: 0;
@@ -66,7 +69,8 @@ governing permissions and limitations under the License.
         --spectrum-colorwheel-height,
         var(--spectrum-global-dimension-size-2400)
     );
-    position: relative; /* .spectrum-ColorWheel */
+    /*.spectrum-ColorWheel*/
+    position: relative;
     -webkit-user-select: none;
     user-select: none;
     width: var(
@@ -74,14 +78,17 @@ governing permissions and limitations under the License.
         var(--spectrum-global-dimension-size-2400)
     );
 }
-:host([focused]) {
-    z-index: 2; /* .spectrum-ColorWheel.is-focused */
+:host(:where([focused])) {
+    /*.spectrum-ColorWheel.is-focused*/
+    z-index: 2;
 }
-:host([disabled]) {
-    pointer-events: none; /* .spectrum-ColorWheel.is-disabled */
+:host(:where([disabled])) {
+    /*.spectrum-ColorWheel.is-disabled*/
+    pointer-events: none;
 }
-:host([dragged]) {
-    z-index: 2; /* .spectrum-ColorWheel.is-dragged */
+:host(:where([dragged])) {
+    /*.spectrum-ColorWheel.is-dragged*/
+    z-index: 2;
 }
 ::slotted([slot='gradient']) {
     border-radius: 100%;
@@ -95,7 +102,8 @@ governing permissions and limitations under the License.
         --spectrum-colorwheel-height,
         var(--spectrum-global-dimension-size-2400)
     );
-    position: relative; /* .spectrum-ColorWheel-gradient */
+    /*.spectrum-ColorWheel-gradient*/
+    position: relative;
     width: var(
         --spectrum-colorwheel-width,
         var(--spectrum-global-dimension-size-2400)
@@ -103,65 +111,76 @@ governing permissions and limitations under the License.
     z-index: 0;
 }
 .wheel {
-    position: relative; /* .spectrum-ColorWheel-wheel */
+    /*.spectrum-ColorWheel-wheel*/
+    position: relative;
     z-index: 1;
 }
 .innerCircle,
 .outerCircle {
-    fill: transparent; /* .spectrum-ColorWheel-outerCircle,
-   * .spectrum-ColorWheel-innerCircle */
+    /*.spectrum-ColorWheel-outerCircle,
+.spectrum-ColorWheel-innerCircle*/
+    fill: transparent;
     stroke-width: var(
         --spectrum-colorwheel-border-size,
         var(--spectrum-alias-border-size-thin)
     );
 }
 .handle {
-    left: 50%; /* .spectrum-ColorWheel-handle */
+    /*.spectrum-ColorWheel-handle*/
+    left: 50%;
     top: 50%;
 }
 :host {
+    /*.spectrum-ColorWheel*/
     --spectrum-colorwheel-border-color: var(
         --spectrum-colorarea-border-color,
         var(--spectrum-alias-border-color-translucent)
-    ); /* .spectrum-ColorWheel */
+    );
 }
-:host([disabled]) .innerCircle,
-:host([disabled]) .outerCircle {
+:host(:where([disabled])) .innerCircle,
+:host(:where([disabled])) .outerCircle {
+    /*.spectrum-ColorWheel.is-disabled .spectrum-ColorWheel-outerCircle,
+    .spectrum-ColorWheel.is-disabled .spectrum-ColorWheel-innerCircle*/
     stroke: var(
         --spectrum-colorwheel-border-color-disabled,
         var(--spectrum-alias-track-color-disabled)
-    ); /* .spectrum-ColorWheel.is-disabled .spectrum-ColorWheel-outerCircle,
-   * .spectrum-ColorWheel.is-disabled .spectrum-ColorWheel-innerCircle */
+    );
 }
-:host([disabled]) .outerCircle {
+:host(:where([disabled])) .outerCircle {
+    /*.spectrum-ColorWheel.is-disabled .spectrum-ColorWheel-outerCircle*/
     fill: var(
         --spectrum-colorwheel-fill-color-disabled,
         var(--spectrum-alias-track-color-disabled)
-    ); /* .spectrum-ColorWheel.is-disabled .spectrum-ColorWheel-outerCircle */
+    );
 }
-:host([disabled]) .segment {
-    display: none; /* .spectrum-ColorWheel.is-disabled .spectrum-ColorWheel-segment */
+:host(:where([disabled])) .segment {
+    /*.spectrum-ColorWheel.is-disabled .spectrum-ColorWheel-segment*/
+    display: none;
 }
 ::slotted([slot='gradient']) {
+    /*.spectrum-ColorWheel-gradient*/
     border-color: var(
         --spectrum-colorwheel-border-color,
         var(--spectrum-alias-border-color-translucent)
-    ); /* .spectrum-ColorWheel-gradient */
+    );
 }
 .innerCircle,
 .outerCircle {
+    /*.spectrum-ColorWheel-outerCircle,
+.spectrum-ColorWheel-innerCircle*/
     stroke: var(
         --spectrum-colorwheel-border-color,
         var(--spectrum-alias-border-color-translucent)
-    ); /* .spectrum-ColorWheel-outerCircle,
-   * .spectrum-ColorWheel-innerCircle */
+    );
 }
 @media (forced-colors: active) {
     :host {
+        /*.spectrum-ColorWheel*/
         --spectrum-colorwheel-border-color-disabled: GrayText;
         --spectrum-colorwheel-fill-color-disabled: Canvas;
     }
     :host {
+        /*.spectrum-ColorWheel*/
         forced-color-adjust: none;
     }
 }

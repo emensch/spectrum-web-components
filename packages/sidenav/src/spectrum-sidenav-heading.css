@@ -10,35 +10,35 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 
-/* THIS FILE IS MACHINE GENERATED. DO NOT EDIT */
+/*THIS FILE IS MACHINE GENERATED. DO NOT EDIT*/
 #list {
-    --spectrum-sidenav-item-padding-y: var(
-        --spectrum-global-dimension-size-65
-    ); /* .spectrum-SideNav */ /* .spectrum-SideNav */
+    /*.spectrum-SideNav*/
+    --spectrum-sidenav-item-padding-y: var(--spectrum-global-dimension-size-65);
+    /*.spectrum-SideNav*/
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
-:host([dir='ltr']) #heading {
-    margin-right: 0; /* [dir=ltr] .spectrum-SideNav-heading */
+:host(:where([dir='ltr'])) {
+    /*[dir="ltr"] .spectrum-SideNav-heading*/
+    margin-right: 0;
 }
-:host([dir='rtl']) #heading {
-    margin-left: 0; /* [dir=rtl] .spectrum-SideNav-heading */
+:host(:where([dir='rtl'])) {
+    /*[dir="rtl"] .spectrum-SideNav-heading*/
+    margin-left: 0;
 }
-:host([dir='ltr']) #heading {
-    margin-left: 0; /* [dir=ltr] .spectrum-SideNav-heading */
+:host(:where([dir='ltr'])) {
+    /*[dir="ltr"] .spectrum-SideNav-heading*/
+    margin-left: 0;
 }
-:host([dir='rtl']) #heading {
-    margin-right: 0; /* [dir=rtl] .spectrum-SideNav-heading */
+:host(:where([dir='rtl'])) {
+    /*[dir="rtl"] .spectrum-SideNav-heading*/
+    margin-right: 0;
 }
-#heading {
+:host {
     border-radius: var(
         --spectrum-sidenav-heading-border-radius,
         var(--spectrum-alias-border-radius-regular)
-    );
-    color: var(
-        --spectrum-sidenav-heading-text-color,
-        var(--spectrum-global-color-gray-700)
     );
     font-size: var(
         --spectrum-sidenav-heading-text-size,
@@ -49,10 +49,11 @@ governing permissions and limitations under the License.
         --spectrum-sidenav-heading-text-font-weight,
         var(--spectrum-global-font-weight-medium)
     );
+    /*.spectrum-SideNav-heading*/
     height: var(
         --spectrum-sidenav-heading-height,
         var(--spectrum-alias-single-line-height)
-    ); /* .spectrum-SideNav-heading */
+    );
     letter-spacing: var(
         --spectrum-sidenav-heading-text-letter-spacing,
         var(--spectrum-global-font-letter-spacing-medium)
@@ -79,5 +80,17 @@ governing permissions and limitations under the License.
         var(--spectrum-global-dimension-size-150)
     );
     padding-top: 0;
-    text-transform: uppercase; /* .spectrum-SideNav-heading */
+    text-transform: uppercase;
+}
+.spectrum-SideNav--multiLevel #list {
+    /*.spectrum-SideNav--multiLevel .spectrum-SideNav*/
+    margin: 0;
+    padding: 0;
+}
+:host {
+    /*.spectrum-SideNav-heading*/
+    color: var(
+        --spectrum-sidenav-heading-text-color,
+        var(--spectrum-global-color-gray-700)
+    );
 }
