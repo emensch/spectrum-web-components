@@ -210,7 +210,7 @@ export class OverlayStack {
     };
 
     private get document(): Document {
-        return this.root.ownerDocument /* c8 ignore next */ || document;
+        return this.root?.ownerDocument /* c8 ignore next */ || document;
     }
 
     private get topOverlay(): ActiveOverlay | undefined {

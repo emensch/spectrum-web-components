@@ -64,7 +64,7 @@ body {
 }
 
 @media screen and (min-width: 961px) {
-    docs-page:not(:defined) {
+    /* docs-page:not(:defined) {
         position: absolute;
         left: 0;
         right: 0;
@@ -112,7 +112,7 @@ body {
 
     docs-page:not(:defined) sp-tabs {
         padding: 0;
-    }
+    } */
 
     sp-sidenav:not(:defined) {
         width: var(--spectrum-global-dimension-size-2400);
@@ -120,7 +120,7 @@ body {
 }
 
 @media screen and (max-width: 960px) {
-    docs-page:not(:defined) {
+    /* docs-page:not(:defined) {
         display: block;
         padding: 114px var(--spectrum-global-dimension-size-300) 24px;
         overflow: hidden;
@@ -149,7 +149,7 @@ body {
         box-sizing: border-box;
         column-count: 4;
         padding: 0 24px 24px;
-    }
+    } */
 }
 
 @media screen and (max-width: 750px) {
@@ -165,8 +165,11 @@ body {
 }
 
 @media screen and (max-width: 458px) {
-    docs-page:not(:defined) {
+    /* docs-page:not(:defined) {
         padding: 212px var(--spectrum-global-dimension-size-300) 24px;
+    } */
+    docs-page:not(:defined) {
+        padding: var(--spectrum-global-dimension-size-600) var(--spectrum-global-dimension-size-300) 24px;
     }
 }
 
@@ -213,11 +216,11 @@ body {
     );
 }
 
-docs-page:not(:defined) #title-header {
+/* docs-page:not(:defined) #title-header {
     overflow: visible;
-}
+} */
 
-docs-page:not(:defined) sp-tabs,
+/* docs-page:not(:defined) sp-tabs, */
 sp-tabs:not(:defined) {
     display: block;
     margin-bottom: 2px;
@@ -277,9 +280,9 @@ docs-page sp-button:not(:defined) {
     display: inline-block;
 }
 
-docs-page:not(:defined) code-example {
+/* docs-page:not(:defined) code-example {
     color: var(--spectrum-body-3-text-color, var(--spectrum-alias-text-color));
-}
+} */
 
 sp-sidenav:not(:defined) {
     display: block;
@@ -312,11 +315,6 @@ sp-sidenav > sp-sidenav-item.spectrum-web {
 
 sp-sidenav-item:not(:defined) a,
 sp-sidenav-item:not(:defined) span {
-    min-height: var(
-        --spectrum-sidenav-item-height,
-        var(--spectrum-alias-single-line-height)
-    );
-    color: var(--spectrum-body-3-text-color, var(--spectrum-alias-text-color));
     padding: var(--spectrum-global-dimension-size-65)
         var(
             --spectrum-sidenav-item-padding-x,
@@ -381,9 +379,9 @@ sp-sidenav-item:not(:defined) a {
     );
 }
 
-docs-page:not(:defined) .header-anchor {
+/* docs-page:not(:defined) .header-anchor {
     display: none;
-}
+} */
 
 sp-divider[size='l']:not(:defined) {
     display: block;
@@ -637,10 +635,10 @@ code-example {
     box-sizing: border-box;
 }
 
-docs-page:not(:defined) [aria-labelledby='component-name'] {
+/* docs-page:not(:defined) [aria-labelledby='component-name'] {
     display: flex;
     flex-direction: column;
-}
+} */
 
 docs-page:defined [aria-labelledby='component-name'] {
     display: grid;
@@ -674,7 +672,7 @@ docs-page:defined .section:not([selected]) {
         height 0s ease var(--spectrum-global-animation-duration-300);
 }
 
-docs-page:not(:defined) .section,
+/* docs-page:not(:defined) .section, */
 sp-tabs[selected='examples'] sp-tab[value='api']:not(:defined),
 sp-tabs[selected='api'] sp-tab[value='examples']:not(:defined),
 sp-tabs[selected='examples'] sp-tab-panel[value='api'],
@@ -682,7 +680,7 @@ sp-tabs[selected='api'] sp-tab-panel[value='examples'] {
     order: 2;
 }
 
-docs-page:not(:defined) .section[selected],
+/* docs-page:not(:defined) .section[selected], */
 sp-tabs[selected='examples'] sp-tab[value='examples']:not(:defined),
 sp-tabs[selected='api'] sp-tab[value='api']:not(:defined),
 sp-tabs[selected='examples'] sp-tab-panel[value='examples'],

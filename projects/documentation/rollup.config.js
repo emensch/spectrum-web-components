@@ -120,6 +120,7 @@ module.exports = async () => {
                         removeStyleLinkTypeAttributes: true,
                         useShortDoctype: true,
                         minifyCSS: true,
+                        ignoreCustomComments: [/lit-/],
                         /** @param {string} code */
                         minifyJS: (code) => Terser.minify(code).code,
                     }),

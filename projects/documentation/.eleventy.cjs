@@ -10,6 +10,7 @@ OF ANY KIND, either express or implied. See the License for the specific languag
 governing permissions and limitations under the License.
 */
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
+const litPlugin = require('@lit-labs/eleventy-plugin-lit');
 
 module.exports = function (eleventyConfig) {
     eleventyConfig.addNunjucksGlobal('WATCH_MODE', process.env.WATCH_MODE);
@@ -99,6 +100,13 @@ module.exports = function (eleventyConfig) {
             Prism.languages['html-live'] = Prism.languages.html;
             Prism.languages['html-no-demo'] = Prism.languages.html;
         },
+    });
+
+    eleventyConfig.addPlugin(litPlugin, {
+        mode: 'worker',
+        componentModules: [
+            '_site/src/components/layout-element.js',
+        ],
     });
 
     return {

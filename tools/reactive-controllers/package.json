@@ -68,7 +68,7 @@
         "reactive controllers"
     ],
     "dependencies": {
-        "lit": "^2.1.2",
+        "lit": "^2.4.0",
         "tslib": "^2.0.0"
     },
     "types": "./src/index.d.ts",
