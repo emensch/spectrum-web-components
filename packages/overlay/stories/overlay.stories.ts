@@ -215,6 +215,73 @@ export const openClickContent = (args: Properties): TemplateResult =>
         open: 'click',
     });
 
+class ScrollForcer extends HTMLElement {
+    ready!: (value: boolean | PromiseLike<boolean>) => void;
+
+    constructor() {
+        super();
+        this.readyPromise = new Promise((res) => {
+            this.ready = res;
+            this.setup();
+        });
+    }
+
+    async setup(): Promise<void> {
+        await nextFrame();
+
+        this.nextElementSibling?.addEventListener('sp-opened', () => {
+            this.doScroll();
+        });
+    }
+
+    async doScroll(): Promise<void> {
+        await nextFrame();
+        await nextFrame();
+
+        if (document.scrollingElement) {
+            document.scrollingElement.scrollTop = 100;
+        }
+
+        await nextFrame();
+        await nextFrame();
+        this.ready(true);
+    }
+
+    private readyPromise: Promise<boolean> = Promise.resolve(false);
+
+    get updateComplete(): Promise<boolean> {
+        return this.readyPromise;
+    }
+}
+
+customElements.define('scroll-forcer', ScrollForcer);
+
+export const clickContentClosedOnScroll = (
+    args: Properties
+): TemplateResult => html`
+    <div style="margin: 50vh 0 100vh;">
+        ${template({
+            ...args,
+            open: 'click',
+        })}
+    </div>
+`;
+clickContentClosedOnScroll.decorators = [
+    (story: () => TemplateResult): TemplateResult => html`
+        <style>
+            html,
+            body,
+            #root,
+            #root-inner,
+            sp-story-decorator {
+                height: auto !important;
+            }
+        </style>
+        <scroll-forcer></scroll-forcer>
+        ${story()}
+    `,
+];
+
 export const customizedClickContent = (
     args: Properties
 ): TemplateResult => html`
