@@ -31,10 +31,21 @@ const tokensRoot = path.join(
 
 const tokenPackages = [
     'actionbutton',
+    'checkbox',
     'closebutton',
     'helptext',
     'radio',
+    'switch',
+    'statuslight',
+    'toast',
+    'actiongroup',
+    'divider',
+    'fieldlabel',
+    'progresscircle',
     'progressbar',
+    'buttongroup',
+    'swatch',
+    'swatchgroup',
 ];
 
 const packagePaths = tokenPackages.map((packageName) => {

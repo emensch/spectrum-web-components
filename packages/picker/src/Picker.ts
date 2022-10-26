@@ -195,10 +195,16 @@ export class PickerBase extends SizedMixin(Focusable) {
     }
 
     public handleChange(event: Event): void {
-        event.stopPropagation();
         const target = event.target as Menu;
         const [selected] = target.selectedItems;
-        this.setValueFromItem(selected, event);
+        if (event.cancelable) {
+            event.stopPropagation();
+            this.setValueFromItem(selected, event);
+        } else {
+            // Non-cancelable "change" events announce a selection with no value
+            // change that should close the Picker element.
+            this.open = false;
+        }
     }
 
     protected onKeydown = (event: KeyboardEvent): void => {
@@ -231,9 +237,9 @@ export class PickerBase extends SizedMixin(Focusable) {
             if (menuChangeEvent) {
                 menuChangeEvent.preventDefault();
             }
-            this.selectedItem.selected = false;
+            this.setMenuItemSelected(this.selectedItem, false);
             if (oldSelectedItem) {
-                oldSelectedItem.selected = true;
+                this.setMenuItemSelected(oldSelectedItem, true);
             }
             this.selectedItem = oldSelectedItem;
             this.value = oldValue;
@@ -241,9 +247,15 @@ export class PickerBase extends SizedMixin(Focusable) {
             return;
         }
         if (oldSelectedItem) {
-            oldSelectedItem.selected = false;
+            this.setMenuItemSelected(oldSelectedItem, false);
         }
-        item.selected = !!this.selects;
+        this.setMenuItemSelected(item, !!this.selects);
+    }
+
+    protected setMenuItemSelected(item: MenuItem, value: boolean): void {
+        // matches null | undefined
+        if (this.selects == null) return;
+        item.selected = value;
     }
 
     public toggle(target?: boolean): void {
@@ -320,7 +332,7 @@ export class PickerBase extends SizedMixin(Focusable) {
                 }
             ) => {
                 if (this.value === el.value) {
-                    el.selected = true;
+                    this.setMenuItemSelected(el as MenuItem, true);
                 }
                 return (el) => {
                     if (typeof el.focused !== 'undefined') {
@@ -458,7 +470,7 @@ export class PickerBase extends SizedMixin(Focusable) {
                     this,
                     `You no longer need to provide an <sp-menu> child to ${localName}. Any styling or attributes on the <sp-menu> will be ignored.`,
                     'https://opensource.adobe.com/spectrum-web-components/components/picker/#sizes',
-                    { level: 'deprecation' },
+                    { level: 'deprecation' }
                 );
             }
         }
@@ -556,6 +568,8 @@ export class PickerBase extends SizedMixin(Focusable) {
     }
 
     protected async manageSelection(): Promise<void> {
+        if (this.selects == null) return;
+
         await this.menuStatePromise;
         this.selectionPromise = new Promise(
             (res) => (this.selectionResolver = res)

@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.13.5](https://github.com/adobe/spectrum-web-components/compare/@spectrum-web-components/picker@0.13.4...@spectrum-web-components/picker@0.13.5) (2022-10-17)
+
+### Bug Fixes
+
+-   style icons in Picker correctly ([0bbdf84](https://github.com/adobe/spectrum-web-components/commit/0bbdf84df595a573b355721698262b1c5a1f3b01))
+
+## [0.13.4](https://github.com/adobe/spectrum-web-components/compare/@spectrum-web-components/picker@0.13.3...@spectrum-web-components/picker@0.13.4) (2022-10-10)
+
+**Note:** Version bump only for package @spectrum-web-components/picker
+
+## [0.13.3](https://github.com/adobe/spectrum-web-components/compare/@spectrum-web-components/picker@0.13.2...@spectrum-web-components/picker@0.13.3) (2022-09-15)
+
+### Bug Fixes
+
+-   **action-menu:** fix 2510, unable to control top-level action-menu selection ([c9198c2](https://github.com/adobe/spectrum-web-components/commit/c9198c29c0f2f9be83d9e153147e5634c6c00b06))
+-   **action-menu:** never set item selected values when selects is undefined ([5237fdb](https://github.com/adobe/spectrum-web-components/commit/5237fdb30694364934e1cd30f3d9cf82efa2c5c5))
+
+## [0.13.2](https://github.com/adobe/spectrum-web-components/compare/@spectrum-web-components/picker@0.13.1...@spectrum-web-components/picker@0.13.2) (2022-09-14)
+
+### Bug Fixes
+
+-   **overlay:** move "escape" listener to "keydown" ([813b341](https://github.com/adobe/spectrum-web-components/commit/813b3415ab16391e717e84a61c74b304a67c2e03))
+
 ## [0.13.1](https://github.com/adobe/spectrum-web-components/compare/@spectrum-web-components/picker@0.13.0...@spectrum-web-components/picker@0.13.1) (2022-08-24)
 
 **Note:** Version bump only for package @spectrum-web-components/picker

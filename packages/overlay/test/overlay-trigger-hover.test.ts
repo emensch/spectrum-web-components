@@ -35,6 +35,10 @@ import '@spectrum-web-components/theme/sp-theme.js';
 import '@spectrum-web-components/theme/src/themes.js';
 import { TemplateResult } from '@spectrum-web-components/base';
 import { Theme } from '@spectrum-web-components/theme';
+import { Tooltip } from '@spectrum-web-components/tooltip';
+import { ignoreResizeObserverLoopError } from '../../../test/testing-helpers.js';
+
+ignoreResizeObserverLoopError(before, after);
 
 async function styledFixture<T extends Element>(
     story: TemplateResult
@@ -48,14 +52,6 @@ async function styledFixture<T extends Element>(
 }
 
 describe('Overlay Trigger - Hover', () => {
-    afterEach(async () => {
-        const el = document.querySelector('overlay-trigger') as OverlayTrigger;
-        if (el.open) {
-            const closed = oneEvent(el, 'sp-closed');
-            el.open = undefined;
-            await closed;
-        }
-    });
     it('displays `hover` declaratively', async () => {
         const openedSpy = spy();
         const closedSpy = spy();
@@ -87,6 +83,98 @@ describe('Overlay Trigger - Hover', () => {
 
         await waitUntil(() => closedSpy.calledOnce, 'hover content returned', {
             timeout: 2000,
+        });
+    });
+    describe('"tooltip" mouse interactions', () => {
+        let el: OverlayTrigger;
+        let button: ActionButton;
+        let tooltip: Tooltip;
+        beforeEach(async () => {
+            el = await fixture<OverlayTrigger>(
+                (() => html`
+                    <overlay-trigger placement="right-start">
+                        <sp-action-button slot="trigger">
+                            <sp-icon-magnify slot="icon"></sp-icon-magnify>
+                        </sp-action-button>
+                        <sp-tooltip slot="hover-content" tip>
+                            Magnify
+                        </sp-tooltip>
+                    </overlay-trigger>
+                `)()
+            );
+            await elementUpdated(el);
+            button = el.querySelector('sp-action-button') as ActionButton;
+            tooltip = el.querySelector('sp-tooltip') as Tooltip;
+        });
+        it('allows pointer to enter the "tooltip" without closing the "tooltip"', async () => {
+            const opened = oneEvent(button, 'sp-opened');
+            button.dispatchEvent(
+                new MouseEvent('mouseenter', {
+                    bubbles: true,
+                    composed: true,
+                })
+            );
+            await nextFrame();
+            button.dispatchEvent(
+                new MouseEvent('mouseleave', {
+                    relatedTarget: tooltip,
+                    bubbles: true,
+                    composed: true,
+                })
+            );
+            await nextFrame();
+            tooltip.dispatchEvent(
+                new MouseEvent('mouseleave', {
+                    relatedTarget: button,
+                    bubbles: true,
+                    composed: true,
+                })
+            );
+            await opened;
+
+            expect(el.open).to.equal('hover');
+
+            const closed = oneEvent(button, 'sp-closed');
+            button.dispatchEvent(
+                new MouseEvent('mouseleave', {
+                    bubbles: true,
+                    composed: true,
+                })
+            );
+            await closed;
+
+            expect(el.open).to.be.null;
+        });
+        it('closes the "tooltip" when leaving the "tooltip"', async () => {
+            const opened = oneEvent(button, 'sp-opened');
+            button.dispatchEvent(
+                new MouseEvent('mouseenter', {
+                    bubbles: true,
+                    composed: true,
+                })
+            );
+            await nextFrame();
+            button.dispatchEvent(
+                new MouseEvent('mouseleave', {
+                    relatedTarget: tooltip,
+                    bubbles: true,
+                    composed: true,
+                })
+            );
+            await opened;
+
+            expect(el.open).to.equal('hover');
+
+            const closed = oneEvent(button, 'sp-closed');
+            tooltip.dispatchEvent(
+                new MouseEvent('mouseleave', {
+                    bubbles: true,
+                    composed: true,
+                })
+            );
+            await closed;
+
+            expect(el.open).to.be.null;
         });
     });
     it('persists hover content', async () => {
@@ -192,6 +280,10 @@ describe('Overlay Trigger - Hover', () => {
         expect(el.open).to.be.null;
     });
     it('will not return focus to a "modal" parent', async () => {
+        // There is an `sp-dialog-base` recyling issue in Firefox
+        if (/Firefox/.test(window.navigator.userAgent)) {
+            return;
+        }
         const el = await styledFixture<OverlayTrigger>(html`
             <overlay-trigger type="modal" placement="none">
                 <sp-button slot="trigger">Toggle Dialog</sp-button>

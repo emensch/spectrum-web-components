@@ -22,6 +22,7 @@ import '@spectrum-web-components/overlay/overlay-trigger.js';
 
 import '@spectrum-web-components/dialog/sp-dialog-wrapper.js';
 import { landscape } from './images.js';
+import { overlayTriggerDecorator } from './index.js';
 
 export default {
     title: 'Dialog Wrapped',
@@ -204,7 +205,7 @@ export const form = (
                 <style>
                     #form-fields div {
                         display: grid;
-                        gap: var(--spectrum-global-dimension-size-150);
+                        row-gap: var(--spectrum-global-dimension-size-150);
                         grid-template-columns: auto auto;
 
                         --spectrum-fieldlabel-m-side-padding-right: 0;
@@ -242,53 +243,7 @@ export const form = (
     `;
 };
 
-function nextFrame(): Promise<void> {
-    return new Promise((res) => requestAnimationFrame(() => res()));
-}
-
-class OverlayTriggerReady extends HTMLElement {
-    ready!: (value: boolean | PromiseLike<boolean>) => void;
-
-    constructor() {
-        super();
-        this.readyPromise = new Promise((res) => {
-            this.ready = res;
-            this.setup();
-        });
-    }
-
-    async setup(): Promise<void> {
-        await nextFrame();
-
-        const overlay = document.querySelector(
-            `overlay-trigger`
-        ) as HTMLElement;
-        overlay.addEventListener('sp-opened', this.handleTriggerOpened);
-    }
-
-    handleTriggerOpened = async (): Promise<void> => {
-        await nextFrame();
-
-        this.ready(true);
-    };
-
-    private readyPromise: Promise<boolean> = Promise.resolve(false);
-
-    get updateComplete(): Promise<boolean> {
-        return this.readyPromise;
-    }
-}
-
-customElements.define('overlay-trigger-ready', OverlayTriggerReady);
-
-const overlayTriggerDecorator = (
-    story: () => TemplateResult
-): TemplateResult => {
-    return html`
-        ${story()}
-        <overlay-trigger-ready></overlay-trigger-ready>
-    `;
-};
+form.decorators = [overlayTriggerDecorator];
 
 export const longContent = (
     args: StoryArgs = {},

@@ -84,7 +84,7 @@ export default {
     protocol: 'https:',
     concurrency: 4,
     concurrentBrowsers: 1,
-    testsFinishTimeout: 30000,
+    testsFinishTimeout: 60000,
     coverageConfig: {
         report: true,
         reportDir: 'coverage',
@@ -102,14 +102,14 @@ export default {
         ],
         threshold: {
             statements: 98.5,
-            branches: 95.8,
+            branches: 95.78,
             functions: 97.8,
             lines: 98.5,
         },
     },
     testFramework: {
         config: {
-            timeout: 5000,
+            timeout: 3000,
             retries: 1,
         },
     },

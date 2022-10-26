@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.15.5](https://github.com/adobe/spectrum-web-components/compare/@spectrum-web-components/action-menu@0.15.4...@spectrum-web-components/action-menu@0.15.5) (2022-10-17)
+
+### Bug Fixes
+
+-   **menu:** ensure that Groups in Action Menus are rendered with the correct width ([a996a10](https://github.com/adobe/spectrum-web-components/commit/a996a1078bd3a00d3025f0eeadb39330bafdc26d))
+
+## [0.15.4](https://github.com/adobe/spectrum-web-components/compare/@spectrum-web-components/action-menu@0.15.3...@spectrum-web-components/action-menu@0.15.4) (2022-10-10)
+
+**Note:** Version bump only for package @spectrum-web-components/action-menu
+
+## [0.15.3](https://github.com/adobe/spectrum-web-components/compare/@spectrum-web-components/action-menu@0.15.2...@spectrum-web-components/action-menu@0.15.3) (2022-09-15)
+
+### Bug Fixes
+
+-   **action-menu:** fix 2510, unable to control top-level action-menu selection ([c9198c2](https://github.com/adobe/spectrum-web-components/commit/c9198c29c0f2f9be83d9e153147e5634c6c00b06))
+-   **action-menu:** never set item selected values when selects is undefined ([5237fdb](https://github.com/adobe/spectrum-web-components/commit/5237fdb30694364934e1cd30f3d9cf82efa2c5c5))
+
+## [0.15.2](https://github.com/adobe/spectrum-web-components/compare/@spectrum-web-components/action-menu@0.15.1...@spectrum-web-components/action-menu@0.15.2) (2022-09-14)
+
+**Note:** Version bump only for package @spectrum-web-components/action-menu
+
 ## [0.15.1](https://github.com/adobe/spectrum-web-components/compare/@spectrum-web-components/action-menu@0.15.0...@spectrum-web-components/action-menu@0.15.1) (2022-08-24)
 
 **Note:** Version bump only for package @spectrum-web-components/action-menu

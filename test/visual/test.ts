@@ -23,25 +23,9 @@ import { StoryDecorator } from '@spectrum-web-components/story-decorator/src/Sto
 import { html, TemplateResult } from '@spectrum-web-components/base';
 import { render } from 'lit';
 import { emulateMedia, sendKeys } from '@web/test-runner-commands';
+import { ignoreResizeObserverLoopError } from '../testing-helpers.js';
 
-let globalErrorHandler: undefined | OnErrorEventHandler = undefined;
-before(function () {
-    // Save Mocha's handler.
-    (
-        Mocha as unknown as { process: { removeListener(name: string): void } }
-    ).process.removeListener('uncaughtException');
-    globalErrorHandler = window.onerror;
-    addEventListener('error', (error) => {
-        if (error.message?.match?.(/ResizeObserver loop limit exceeded/)) {
-            return;
-        } else {
-            globalErrorHandler?.(error);
-        }
-    });
-});
-after(function () {
-    window.onerror = globalErrorHandler as OnErrorEventHandler;
-});
+ignoreResizeObserverLoopError(before, after);
 
 const wrap = () => html`
     <sp-story-decorator
@@ -51,25 +35,38 @@ const wrap = () => html`
     ></sp-story-decorator>
 `;
 
+interface Story<T> {
+    (args: T): TemplateResult;
+    args?: Partial<T>;
+    argTypes?: Record<string, unknown>;
+    decorators?: (() => TemplateResult)[];
+    swc_vrt?: {
+        skip: Boolean;
+    };
+}
+
 type StoriesType = {
+    [name: string]: Story<{}>;
+};
+
+export type TestsType = StoriesType & {
     default: {
         title: string;
         swc_vrt?: {
             preload?: () => void;
         };
     };
-    [name: string]: (() => TemplateResult) | any;
 };
 
 export const test = (
-    tests: StoriesType,
+    tests: TestsType,
     name: string,
     color: Color,
     scale: Scale,
     dir: 'ltr' | 'rtl'
 ) => {
     Object.keys(tests).map((story) => {
-        if (story !== 'default') {
+        if (story !== 'default' && !tests[story].swc_vrt?.skip) {
             it(story, async () => {
                 let test = await fixture<StoryDecorator>(wrap());
                 await elementUpdated(test);
@@ -81,36 +78,26 @@ export const test = (
                     ...(testsDefault.args || {}),
                     ...(tests[story].args || {}),
                 };
-                let decoratedStory:
-                    | (() => TemplateResult)
-                    | TemplateResult = () =>
+                const decorators = [
+                    ...(tests[story].decorators || []),
+                    ...(testsDefault.decorators || []),
+                ];
+                let decoratedStory: () => TemplateResult = () =>
                     html`
                         ${tests[story](args)}
                     `;
-                let storyResult = decoratedStory();
-                if (tests[story].decorators && tests[story].decorators.length) {
-                    let decoratorCount = tests[story].decorators.length;
-                    while (decoratorCount) {
-                        decoratorCount -= 1;
-                        decoratedStory =
-                            tests[story].decorators[decoratorCount](
-                                decoratedStory
-                            );
-                    }
-                    storyResult = decoratedStory as TemplateResult;
+                const decorate = (
+                    story: () => TemplateResult,
+                    decorator: (story: () => TemplateResult) => TemplateResult
+                ) => {
+                    return () => decorator(story);
+                };
+
+                while (decorators.length) {
+                    const decorator = decorators.shift();
+                    decoratedStory = decorate(decoratedStory, decorator);
                 }
-                if (testsDefault.decorators && testsDefault.decorators.length) {
-                    let decoratorCount = testsDefault.decorators.length;
-                    while (decoratorCount) {
-                        decoratorCount -= 1;
-                        decoratedStory =
-                            testsDefault.decorators[decoratorCount](
-                                decoratedStory
-                            );
-                    }
-                    storyResult = decoratedStory as TemplateResult;
-                }
-                render(storyResult, test);
+                render(decoratedStory(), test);
                 await waitUntil(
                     () => test.ready,
                     'Wait for decorator to become ready...',
@@ -127,32 +114,43 @@ export const test = (
                         await visualDiff(test, testName);
                         passed = true;
                     } catch (error) {
-                        test.remove();
-                        /**
-                         * _Sometimes_ the browser will fail on weird renderings of rounded edges.
-                         * This retry allows it another change to render the test from scratch before
-                         * actually failing on this story.
-                         **/
-                        test = await fixture<StoryDecorator>(wrap());
-                        await elementUpdated(test);
-                        render(storyResult, test);
-                        await waitUntil(
-                            () => test.ready,
-                            'Wait for decorator to become ready...',
-                            { timeout: 20000 }
-                        );
-                        await nextFrame();
-                        if (!retries) {
-                            try {
-                                await visualDiff(test, testName);
-                            } catch (error) {
-                                // eslint-disable-next-line no-console
-                                console.log(
-                                    `Tried ${
-                                        allowedRetries - retries
-                                    } times. ${testName}`
-                                );
-                                throw error;
+                        if (
+                            (error as { message: string }).message &&
+                            (error as { message: string }).message.search(
+                                'There was no baseline image to compare against.'
+                            ) > -1
+                        ) {
+                            retries = 0;
+                            // Don't retry "no baseline iamge" errors.
+                            throw error;
+                        } else {
+                            test.remove();
+                            /**
+                             * _Sometimes_ the browser will fail on weird renderings of rounded edges.
+                             * This retry allows it another change to render the test from scratch before
+                             * actually failing on this story.
+                             **/
+                            test = await fixture<StoryDecorator>(wrap());
+                            await elementUpdated(test);
+                            render(decoratedStory(), test);
+                            await waitUntil(
+                                () => test.ready,
+                                'Wait for decorator to become ready...',
+                                { timeout: 20000 }
+                            );
+                            await nextFrame();
+                            if (!retries) {
+                                try {
+                                    await visualDiff(test, testName);
+                                } catch (error) {
+                                    // eslint-disable-next-line no-console
+                                    console.log(
+                                        `Tried ${
+                                            allowedRetries - retries
+                                        } times. ${testName}`
+                                    );
+                                    throw error;
+                                }
                             }
                         }
                     }
@@ -166,7 +164,7 @@ export const test = (
     });
 };
 
-export const regressVisuals = async (name: string, stories: StoriesType) => {
+export const regressVisuals = async (name: string, stories: TestsType) => {
     describe(`${name} Visual Regressions`, () => {
         const {
             defaultColor: color,
