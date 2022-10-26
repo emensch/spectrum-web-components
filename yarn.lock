@@ -4345,10 +4345,10 @@
   resolved "https://registry.yarnpkg.com/@spectrum-css/popover/-/popover-5.0.18.tgz#4e8d1b15b0f96ff3c19a6642ebae7937e99723a4"
   integrity sha512-MpdlGjj6Y03l65UUiww8ulc6t6xImQFsIAqzDIuvtH+8BPEM4IbizJFGa6LEEvkMhHiwRF1s94LDg3d+q3ZmvA==
 
-"@spectrum-css/progressbar@2.0.0-beta.0":
-  version "2.0.0-beta.0"
-  resolved "https://registry.yarnpkg.com/@spectrum-css/progressbar/-/progressbar-2.0.0-beta.0.tgz#0f0165d0e6f0750abe11c7557e82c7b0c76fbda4"
-  integrity sha512-xgH6DHI7h8RACPLSZZCZE8VezfxVi7BWLtT/EDEm/8nN+aDcWXUR/sRTyGZHye6KeYkoFeQtJonAo9YVyTj1vA==
+"@spectrum-css/progressbar@2.0.0-beta.1":
+  version "2.0.0-beta.1"
+  resolved "https://registry.yarnpkg.com/@spectrum-css/progressbar/-/progressbar-2.0.0-beta.1.tgz#8226e503cbdafe256029c69fcfcfa55c5ea86c49"
+  integrity sha512-5dCjsgWTnaQCkjmeMLGwUCZKUe4UXj4inLLFuzuahBpsh2LSVAOd4u2I+miGUkQbTuP3bEhL8/iqlIycpC6G0Q==
 
 "@spectrum-css/progressbar@^1.0.33":
   version "1.0.33"

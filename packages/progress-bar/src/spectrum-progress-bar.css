@@ -25,7 +25,7 @@ governing permissions and limitations under the License.
     --spectrum-progressbar-size-2500: 200px;
     --spectrum-progressbar-size-2800: 224px;
     --spectrum-progressbar-font-size: var(--spectrum-font-size-75);
-    --spectrum-progressbar-line-height-cjk: var(--spectrum-CJK-line-height-100);
+    --spectrum-progressbar-line-height-cjk: var(--spectrum-cjk-line-height-100);
     --spectrum-progressbar-min-size: var(--spectrum-progress-bar-minimum-width);
     --spectrum-progressbar-max-size: var(--spectrum-progress-bar-maximum-width);
     --spectrum-progressbar-thickness: var(
@@ -44,6 +44,15 @@ governing permissions and limitations under the License.
     );
     --spectrum-progressbar-track-color: var(--spectrum-gray-300);
     --spectrum-progressbar-fill-color: var(--spectrum-accent-color-900);
+    --spectrum-progressbar-fill-color-positive: var(
+        --spectrum-positive-visual-color
+    );
+    --spectrum-progressbar-fill-color-notice: var(
+        --spectrum-notice-visual-color
+    );
+    --spectrum-progressbar-fill-color-negative: var(
+        --spectrum-negative-visual-color
+    );
     --spectrum-progressbar-label-and-value-white: var(--spectrum-white);
     --spectrum-progressbar-track-color-white: var(
         --spectrum-transparent-white-300
@@ -53,7 +62,8 @@ governing permissions and limitations under the License.
 :host([size='s']) {
     --spectrum-progressbar-size-default: var(
         --spectrum-progressbar-size-2400
-    ); /* .spectrum-ProgressBar--sizeS */
+    ); /* .spectrum-ProgressBar--sizeS,
+   * .spectrum-Meter--sizeS */
     --spectrum-progressbar-font-size: var(--spectrum-font-size-75);
     --spectrum-progressbar-thickness: var(
         --spectrum-progress-bar-thickness-small
@@ -68,16 +78,17 @@ governing permissions and limitations under the License.
     ); /* .spectrum-ProgressBar--sizeM */
     --spectrum-progressbar-font-size: var(--spectrum-font-size-75);
     --spectrum-progressbar-thickness: var(
-        --spectrum-progress-bar-thickness-medium
+        --spectrum-progress-bar-thickness-large
     );
     --spectrum-progressbar-spacing-top-to-text: var(
-        --spectrum-component-top-to-text-100
+        --spectrum-component-top-to-text-75
     );
 }
 :host([size='l']) {
     --spectrum-progressbar-size-default: var(
         --spectrum-progressbar-size-2500
-    ); /* .spectrum-ProgressBar--sizeL */
+    ); /* .spectrum-ProgressBar--sizeL,
+   * .spectrum-Meter--sizeL */
     --spectrum-progressbar-font-size: var(--spectrum-font-size-100);
     --spectrum-progressbar-thickness: var(
         --spectrum-progress-bar-thickness-large
@@ -188,16 +199,40 @@ governing permissions and limitations under the License.
             var(--spectrum-progressbar-track-color)
         )
     );
-    border-radius: var(--spectrum-progressbar-corner-radius);
-    inline-size: 100%;
-    overflow: hidden; /* .spectrum-ProgressBar .spectrum-ProgressBar-track */
-}
-.track,
-.fill {
     block-size: var(
         --mod-progressbar-thickness,
         var(--spectrum-progressbar-thickness)
     );
+    border-radius: var(--spectrum-progressbar-corner-radius);
+    inline-size: 100%;
+    overflow: hidden; /* .spectrum-ProgressBar .spectrum-ProgressBar-track */
+}
+:host([positive]) .fill {
+    background: var(
+        --highcontrast-progressbar-fill-color,
+        var(
+            --mod-progressbar-fill-color-positive,
+            var(--spectrum-progressbar-fill-color-positive)
+        )
+    ); /* .spectrum-ProgressBar.is-positive .spectrum-ProgressBar-fill */
+}
+:host(.is-notice) .fill {
+    background: var(
+        --highcontrast-progressbar-fill-color,
+        var(
+            --mod-progressbar-fill-color-notice,
+            var(--spectrum-progressbar-fill-color-notice)
+        )
+    ); /* .spectrum-ProgressBar.is-notice .spectrum-ProgressBar-fill */
+}
+:host(.is-negative) .fill {
+    background: var(
+        --highcontrast-progressbar-fill-color,
+        var(
+            --mod-progressbar-fill-color-negative,
+            var(--spectrum-progressbar-fill-color-negative)
+        )
+    ); /* .spectrum-ProgressBar.is-negative .spectrum-ProgressBar-fill */
 }
 .fill {
     background: var(
@@ -206,6 +241,10 @@ governing permissions and limitations under the License.
             --mod-progressbar-fill-color,
             var(--spectrum-progressbar-fill-color)
         )
+    );
+    block-size: var(
+        --mod-progressbar-thickness,
+        var(--spectrum-progressbar-thickness)
     );
     border: none; /* .spectrum-ProgressBar .spectrum-ProgressBar-fill */
     transition: width 1s;
