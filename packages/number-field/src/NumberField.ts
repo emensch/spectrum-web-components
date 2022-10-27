@@ -590,9 +590,9 @@ export class NumberField extends TextfieldBase {
         if (changes.has('min') || changes.has('formatOptions')) {
             let inputMode = 'numeric';
             const hasNegative = typeof this.min !== 'undefined' && this.min < 0;
-            const { maximumFractionDigits } = this.formatOptions;
-            const hasDecimals =
-                maximumFractionDigits && maximumFractionDigits > 0;
+            const { maximumFractionDigits } =
+                this.numberFormatter.resolvedOptions();
+            const hasDecimals = maximumFractionDigits > 0;
             /* c8 ignore next 18 */
             if (isIPhone()) {
                 // iPhone doesn't have a minus sign in either numeric or decimal.
