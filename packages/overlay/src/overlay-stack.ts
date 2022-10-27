@@ -612,8 +612,8 @@ export class OverlayStack {
             index -= 1;
             const overlay = this.overlays[index];
             if (
-                !event.composedPath().includes(overlay.trigger) ||
-                overlay.interaction !== 'hover'
+                !event.composedPath().includes(overlay.trigger) &&
+                !event.composedPath().includes(overlay.overlayContent)
             ) {
                 overlaysToClose.push(overlay);
             }
